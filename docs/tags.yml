@@ -1,0 +1,4 @@
+docusaurus:
+  label: 'Docusaurus'
+  permalink: '/docusaurus'
+  description: 'Docs related to the Docusaurus framework'
