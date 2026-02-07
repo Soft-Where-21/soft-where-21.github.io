@@ -1,0 +1,225 @@
+---
+title: 仓库
+description: Soft-Where-21 组织仓库一览
+hide_table_of_contents: true
+---
+
+import Link from '@docusaurus/Link';
+import Heading from '@theme/Heading';
+import repoData from './repo.json';
+
+export function RepoList() {
+  const org = repoData?.org ?? {};
+  const repos = Array.isArray(repoData?.repos) ? [...repoData.repos] : [];
+
+  function safeTime(value) {
+    const t = new Date(value ?? 0).getTime();
+    return Number.isFinite(t) ? t : 0;
+  }
+
+  function formatDate(value) {
+    if (!value) return null;
+    const d = new Date(value);
+    if (Number.isNaN(d.getTime())) return String(value);
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
+  }
+
+  function repoHref(repo) {
+    if (repo?.url) return repo.url;
+    if (org?.githubUrl && repo?.name) return `${org.githubUrl}/${repo.name}`;
+    return '#';
+  }
+
+  function authorAvatar(author) {
+    if (!author?.github) return null;
+    const username = author.github.replace(/\/$/, '').split('/').pop();
+    return `https://github.com/${username}.png?size=40`;
+  }
+
+  repos.sort((a, b) => {
+    const fa = a?.featured ? 1 : 0;
+    const fb = b?.featured ? 1 : 0;
+    if (fa !== fb) return fb - fa;
+    const ta = safeTime(a?.updatedAt);
+    const tb = safeTime(b?.updatedAt);
+    if (ta !== tb) return tb - ta;
+    return String(a?.name ?? '').localeCompare(String(b?.name ?? ''), 'en');
+  });
+
+  const langColors = {
+    'JavaScript': '#f1e05a',
+    'TypeScript': '#3178c6',
+    'Python': '#3572a5',
+    'Java': '#b07219',
+    'C++': '#f34b7d',
+    'C': '#555555',
+    'Rust': '#dea584',
+    'Go': '#00add8',
+    'HTML': '#e34c26',
+    'CSS': '#563d7c',
+    'Shell': '#89e051',
+    'Ruby': '#701516',
+  };
+
+  return (
+    <div className="container margin-vert--lg">
+      {/* Header */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        gap: 16,
+        marginBottom: 32,
+      }}>
+        <div>
+          <Heading as="h1" style={{marginBottom: 4}}>
+            仓库
+          </Heading>
+          <p style={{margin: 0, fontSize: '1rem', opacity: 0.75}}>
+            {org?.name ?? 'Soft-Where-21'} · 共 {repos.length} 个公开仓库
+          </p>
+        </div>
+        {org?.repositoriesUrl ? (
+          <Link
+            className="button button--primary"
+            href={org.repositoriesUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            在 GitHub 查看全部
+          </Link>
+        ) : null}
+      </div>
+
+      {/* Cards */}
+      <div className="row">
+        {repos.map((repo) => {
+          const updated = formatDate(repo?.updatedAt);
+          const href = repoHref(repo);
+          const author = repo?.author;
+          const avatar = authorAvatar(author);
+          const dotColor = langColors[repo?.language] ?? 'var(--ifm-color-emphasis-500)';
+
+          return (
+            <div key={repo?.name ?? href} className="col col--6 margin-bottom--lg">
+              <div
+                className="card"
+                style={{
+                  height: '100%',
+                  border: '1px solid var(--ifm-color-emphasis-300)',
+                  borderRadius: 12,
+                  transition: 'box-shadow .2s, border-color .2s',
+                  boxShadow: '0 1px 3px rgba(0,0,0,.06)',
+                  background: 'var(--ifm-card-background-color)',
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,.1)';
+                  e.currentTarget.style.borderColor = 'var(--ifm-color-primary)';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,.06)';
+                  e.currentTarget.style.borderColor = 'var(--ifm-color-emphasis-300)';
+                }}
+              >
+                <div className="card__body" style={{display: 'flex', flexDirection: 'column', gap: 12, padding: 20}}>
+                  {/* Row 1: repo name + badges */}
+                  <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8}}>
+                    <Heading as="h3" style={{margin: 0, fontSize: '1.1rem'}}>
+                      <Link
+                        href={href}
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{color: 'var(--ifm-color-primary)', textDecoration: 'none', fontWeight: 600}}
+                      >
+                        {repo?.name ?? 'Unnamed Repo'}
+                      </Link>
+                    </Heading>
+                    <div style={{display: 'flex', gap: 6, flexShrink: 0}}>
+                      {repo?.featured ? <span className="badge badge--primary">推荐</span> : null}
+                      {repo?.archived ? <span className="badge badge--warning">Archived</span> : null}
+                    </div>
+                  </div>
+
+                  {/* Row 2: description */}
+                  <p style={{margin: 0, lineHeight: 1.65, fontSize: '0.93rem'}}>
+                    {repo?.description || '（暂无简介）'}
+                  </p>
+
+                  {/* Row 3: language + license */}
+                  {(repo?.language || repo?.license) ? (
+                    <div style={{display: 'flex', gap: 14, alignItems: 'center', fontSize: '0.84rem', opacity: 0.65}}>
+                      {repo?.language ? (
+                        <span style={{display: 'inline-flex', alignItems: 'center', gap: 5}}>
+                          <span style={{
+                            width: 10, height: 10, borderRadius: '50%',
+                            backgroundColor: dotColor, display: 'inline-block',
+                          }} />
+                          {repo.language}
+                        </span>
+                      ) : null}
+                      {repo?.license ? <span>{repo.license}</span> : null}
+                    </div>
+                  ) : null}
+
+                  {/* Row 4: author + updated — same line */}
+                  <div style={{
+                    marginTop: 'auto',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    flexWrap: 'wrap',
+                    gap: 10,
+                    paddingTop: 10,
+                    borderTop: '1px solid var(--ifm-color-emphasis-200)',
+                    fontSize: '0.84rem',
+                  }}>
+                    {/* Left: author */}
+                    {author?.name ? (
+                      <Link
+                        href={author.github || '#'}
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: 6,
+                          textDecoration: 'none',
+                          color: 'var(--ifm-color-primary)',
+                        }}
+                      >
+                        {avatar ? (
+                          <img
+                            src={avatar}
+                            alt={author.name}
+                            width="20"
+                            height="20"
+                            style={{borderRadius: '50%', verticalAlign: 'middle'}}
+                            loading="lazy"
+                          />
+                        ) : null}
+                        <span>{author.name}</span>
+                      </Link>
+                    ) : <span />}
+
+                    {/* Right: updated */}
+                    {updated ? (
+                      <span style={{opacity: 0.55}}>
+                        更新于 {updated}
+                      </span>
+                    ) : null}
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+<RepoList />

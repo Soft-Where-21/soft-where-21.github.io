@@ -1,0 +1,72 @@
+{
+  "org": {
+    "name": "Soft-Where-21",
+    "githubUrl": "https://github.com/Soft-Where-21",
+    "repositoriesUrl": "https://github.com/orgs/Soft-Where-21/repositories"
+  },
+  "repos": [
+    {
+      "name": "21CoreDocs",
+      "description": "存放学习资料的核心仓库",
+      "updatedAt": "2025-12-16",
+      "featured": true,
+      "author": { "name": "Soft-Where-21", "github": "https://github.com/Soft-Where-21" }
+    },
+    {
+      "name": "BUAA_jwangsy_blog",
+      "description": "软院计算机网络实验博客，由2321共创。发起者为rainel和Tengpaz。",
+      "updatedAt": "2026-01-20",
+      "author": { "name": "rainel", "github": "https://github.com/rainel" }
+    },
+    {
+      "name": "BUAA-SE-2025-Project-Group4-SwiftJourney",
+      "description": "软件工程实践课程大作业「风行旅途」仓库，采用Rust后端以及Vue前端，加载全量数据，并完成了微服务拆分，同时有详细文档和测试。",
+      "language": "Rust",
+      "license": "AGPL-3.0",
+      "updatedAt": "2025-09-06",
+      "author": { "name": "saitewasreset", "github": "https://github.com/saitewasreset" }
+    },
+    {
+      "name": "GeeCeeCee",
+      "description": "系统能力大赛编译器作品，获全国一等奖（全国第二名）",
+      "language": "C++",
+      "updatedAt": "2025-09-05",
+      "author": { "name": "Poseidon-fan", "github": "https://github.com/Poseidon-fan" }
+    },
+    {
+      "name": "OS-mos-riscv64",
+      "description": "操作系统课程挑战性任务「RISC-V移植」实现，包含多项选做与自定义设计任务。",
+      "language": "C",
+      "license": "AGPL-3.0",
+      "updatedAt": "2025-07-03",
+      "author": { "name": "saitewasreset", "github": "https://github.com/saitewasreset" }
+    },
+    {
+      "name": "BUAA_CO_resources",
+      "description": "BUAA 23级软件学院 计算机硬件基础资料分享",
+      "language": "C",
+      "updatedAt": "2025-01-14",
+      "author": { "name": "DeNeRATe-cool", "github": "https://github.com/DeNeRATe-cool" }
+    },
+    {
+      "name": "BUAA_DiscreteMath_resources",
+      "description": "BUAA 软件学院 离散数学（2）资料分享",
+      "updatedAt": "2025-01-13",
+      "author": { "name": "DeNeRATe-cool", "github": "https://github.com/DeNeRATe-cool" }
+    },
+    {
+      "name": "BUAA_Algorithm_resources",
+      "description": "BUAA 23级软件学院 算法分析与设计资料分享",
+      "language": "C++",
+      "updatedAt": "2025-01-13",
+      "author": { "name": "DeNeRATe-cool", "github": "https://github.com/DeNeRATe-cool" }
+    },
+    {
+      "name": "Compiler_2023_ref_Charles2530",
+      "description": "北航2023年编译原理源代码",
+      "language": "Java",
+      "updatedAt": "2023-12-25",
+      "author": { "name": "Charles2530", "github": "https://github.com/Charles2530" }
+    }
+  ]
+}

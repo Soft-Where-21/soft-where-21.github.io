@@ -1,0 +1,239 @@
+---
+title: 成员
+description: 软件学院学生会成员
+hide_table_of_contents: true
+---
+
+import React, {useState} from 'react';
+import Heading from '@theme/Heading';
+import data2526 from './2025-2026/member.json';
+
+{/* 新增届次只需：1) 加 JSON  2) 在 allTerms 数组中追加一项 */}
+
+export function MemberPage() {
+  const allTerms = [
+    { id: '2025-2026', label: '2025 — 2026', data: data2526 },
+  ];
+
+  const [activeTermId, setActiveTermId] = useState(allTerms[0].id);
+  const activeTerm = allTerms.find(t => t.id === activeTermId) || allTerms[0];
+  const departments = Array.isArray(activeTerm.data?.departments) ? activeTerm.data.departments : [];
+
+  const roleOrder = { '主席': 0, '部长': 1, '副部长': 2, '干事': 3 };
+
+  function sortMembers(members) {
+    return [...members].sort(
+      (a, b) => (roleOrder[a?.role] ?? 99) - (roleOrder[b?.role] ?? 99)
+    );
+  }
+
+  function getInitial(name) {
+    return (name || '?').charAt(0);
+  }
+
+  function roleStyle(role) {
+    if (role === '主席') {
+      return { color: '#b37a1a', fontWeight: 600 };
+    }
+    if (role === '部长') {
+      return { color: '#2563eb', fontWeight: 600 };
+    }
+    if (role === '副部长') {
+      return { color: '#0891b2', fontWeight: 600 };
+    }
+    return { opacity: 0.5 };
+  }
+
+  return (
+    <div className="container margin-vert--lg">
+      {/* Page Header */}
+      <div style={{ textAlign: 'center', marginBottom: 40 }}>
+        <Heading as="h1" style={{ marginBottom: 6 }}>
+          学生会成员
+        </Heading>
+        <p style={{ margin: 0, fontSize: '1rem', opacity: 0.55 }}>
+          {activeTerm.data?.term ?? ''} 届
+        </p>
+      </div>
+
+      <div style={{ display: 'flex', gap: 36 }}>
+        {/* ───── Sidebar ───── */}
+        <aside style={{
+          width: 180,
+          flexShrink: 0,
+          position: 'sticky',
+          top: 76,
+          alignSelf: 'flex-start',
+        }}>
+          <div style={{
+            fontSize: '0.78rem',
+            fontWeight: 700,
+            textTransform: 'uppercase',
+            letterSpacing: 1.5,
+            opacity: 0.4,
+            marginBottom: 14,
+          }}>
+            届次
+          </div>
+
+          {allTerms.map((term) => {
+            const isActive = term.id === activeTermId;
+            return (
+              <button
+                key={term.id}
+                onClick={() => setActiveTermId(term.id)}
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  textAlign: 'left',
+                  padding: '9px 14px',
+                  borderRadius: 8,
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontWeight: isActive ? 600 : 400,
+                  fontSize: '0.92rem',
+                  background: isActive ? 'var(--ifm-color-emphasis-200)' : 'transparent',
+                  color: isActive ? 'var(--ifm-font-color-base)' : 'var(--ifm-color-emphasis-600)',
+                  marginBottom: 4,
+                  transition: 'background .15s',
+                }}
+              >
+                {term.label}
+              </button>
+            );
+          })}
+        </aside>
+
+        {/* ───── Main Content ───── */}
+        <div style={{ flex: 1, minWidth: 0 }}>
+          {departments.map((dept) => {
+            const members = sortMembers(dept?.members || []);
+
+            return (
+              <div key={dept?.name} style={{ marginBottom: 48 }}>
+                {/* Department Header */}
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  gap: 10,
+                  marginBottom: 20,
+                  paddingBottom: 10,
+                  borderBottom: '1.5px solid var(--ifm-color-emphasis-200)',
+                }}>
+                  <Heading as="h2" style={{ margin: 0, fontSize: '1.15rem', fontWeight: 600 }}>
+                    {dept?.name}
+                  </Heading>
+                  <span style={{ fontSize: '0.82rem', opacity: 0.45 }}>
+                    {members.length} 人
+                  </span>
+                </div>
+
+                {/* Member Cards — 5 per row via flex */}
+                <div style={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: 16,
+                }}>
+                  {members.map((m, idx) => {
+                    const hasAvatar = m?.avatar && m.avatar.trim() !== '';
+                    const rs = roleStyle(m?.role);
+
+                    return (
+                      <div
+                        key={`${dept?.name}-${m?.name}-${idx}`}
+                        style={{
+                          flex: '0 0 calc(20% - 13px)',
+                          minWidth: 140,
+                          maxWidth: 200,
+                        }}
+                      >
+                        <div
+                          className="card"
+                          style={{
+                            height: '100%',
+                            borderRadius: 10,
+                            border: '1px solid var(--ifm-color-emphasis-200)',
+                            overflow: 'hidden',
+                            background: 'var(--ifm-card-background-color)',
+                            transition: 'box-shadow .2s, transform .2s',
+                          }}
+                          onMouseOver={(e) => {
+                            e.currentTarget.style.boxShadow = '0 6px 18px rgba(0,0,0,.08)';
+                            e.currentTarget.style.transform = 'translateY(-2px)';
+                          }}
+                          onMouseOut={(e) => {
+                            e.currentTarget.style.boxShadow = 'none';
+                            e.currentTarget.style.transform = 'none';
+                          }}
+                        >
+                          {/* Photo Area */}
+                          {hasAvatar ? (
+                            <div style={{
+                              width: '100%',
+                              aspectRatio: '3 / 4',
+                              overflow: 'hidden',
+                              background: 'var(--ifm-color-emphasis-100)',
+                            }}>
+                              <img
+                                src={m.avatar}
+                                alt={m.name}
+                                style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  objectFit: 'cover',
+                                  display: 'block',
+                                }}
+                                loading="lazy"
+                              />
+                            </div>
+                          ) : (
+                            <div style={{
+                              width: '100%',
+                              aspectRatio: '3 / 4',
+                              background: 'var(--ifm-color-emphasis-100)',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              userSelect: 'none',
+                            }}>
+                              <span style={{
+                                fontSize: '2.2rem',
+                                fontWeight: 700,
+                                color: 'var(--ifm-color-emphasis-300)',
+                              }}>
+                                {getInitial(m?.name)}
+                              </span>
+                            </div>
+                          )}
+
+                          {/* Info Area */}
+                          <div style={{ padding: '12px 14px 14px' }}>
+                            <div style={{
+                              fontWeight: 600,
+                              fontSize: '0.95rem',
+                              marginBottom: 3,
+                            }}>
+                              {m?.name ?? '未知'}
+                            </div>
+                            <div style={{
+                              fontSize: '0.8rem',
+                              ...rs,
+                            }}>
+                              {m?.role || '成员'}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+<MemberPage />
