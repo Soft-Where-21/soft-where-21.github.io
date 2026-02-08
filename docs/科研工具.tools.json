@@ -1,0 +1,41 @@
+{
+  "tools": [
+    {
+      "id": "arxiv",
+      "name": "arXiv",
+      "href": "https://arxiv.org/",
+      "iconUrl": "/icon/arxiv.svg",
+      "iconText": "ar",
+      "tagline": "检索与追踪最新预印本论文",
+      "details": [
+        "适合做论文调研、追踪领域最新进展、订阅关键词/作者。",
+        "建议把常用检索保存为书签，或用 RSS/邮件订阅来减少重复劳动。"
+      ]
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "href": "https://github.com/",
+      "iconUrl": "/icon/github.svg",
+      "iconText": "GH",
+      "tagline": "代码托管、协作与开源生态",
+      "details": [
+        "适合管理科研代码、复现实验、版本记录与协作（Issues/PR）。",
+        "建议为项目写清 README、依赖与复现实验步骤，方便自己和他人快速上手。"
+      ]
+    },
+    {
+      "id": "overleaf",
+      "name": "Overleaf",
+      "href": "https://www.overleaf.com/",
+      "iconUrl": "/icon/overleaf.svg",
+      "iconText": "TeX",
+      "tagline": "在线 LaTeX 写作与协作",
+      "details": [
+        "适合多人协作写论文、模板管理、随时预览编译结果。",
+        "建议配合版本管理（Git）与引用管理工具，降低格式与引用出错概率。"
+      ]
+    }
+  ]
+}
+

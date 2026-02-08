@@ -1,0 +1,322 @@
+---
+title: 科研工具
+description: 常用科研工具与使用建议
+hide_table_of_contents: true
+sidebar_position: 2
+---
+
+import React, {useState} from 'react';
+import Link from '@docusaurus/Link';
+import toolsData from './科研工具.tools.json';
+
+export function ResearchTools() {
+  const tools = Array.isArray(toolsData?.tools) ? toolsData.tools : [];
+  const [openId, setOpenId] = useState(null);
+
+  return (
+    <div className="container margin-vert--lg">
+      <div style={{maxWidth: '100%'}}>
+
+        <div className="rtGrid">
+          {tools.map((t) => {
+            const id = t.id || t.href;
+            const isOpen = openId === id;
+
+            return (
+              <details key={id} className="rtCard" open={isOpen}>
+                <summary
+                  className="rtSummary"
+                  onClick={(e) => {
+                    // 受控手风琴：同一时间只允许展开一个
+                    if (e.target instanceof Element && e.target.closest('a')) {
+                      return;
+                    }
+                    e.preventDefault();
+                    setOpenId((prev) => (prev === id ? null : id));
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      if (e.target instanceof Element && e.target.closest('a')) {
+                        return;
+                      }
+                      e.preventDefault();
+                      setOpenId((prev) => (prev === id ? null : id));
+                    }
+                  }}
+                >
+                <Link
+                  href={t.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rtIconLink"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className="rtIcon" aria-hidden="true">
+                    {t.iconUrl ? (
+                      <img className="rtIconImg" src={t.iconUrl} alt="" loading="lazy" decoding="async" />
+                    ) : (
+                      <span className="rtIconText">{t.iconText || '•'}</span>
+                    )}
+                  </div>
+                </Link>
+                <div className="rtMeta">
+                  <div className="rtTitleRow">
+                    <div className="rtName">
+                      <Link
+                        href={t.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="rtLink"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {t.name}
+                      </Link>
+                    </div>
+                    <div className="rtHint" aria-hidden="true">
+                      <span className="rtHintText">展开</span>
+                      <span className="rtChevron" aria-hidden="true">
+                        <svg viewBox="0 0 20 20" width="18" height="18" focusable="false" aria-hidden="true">
+                          <path
+                            d="M5.5 7.5 10 12l4.5-4.5"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.7"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                  <div className="rtTagline">{t.tagline}</div>
+                </div>
+              </summary>
+
+              <div className="rtBody">
+                <div className="rtBodyInner">
+                  {Array.isArray(t.details) ? (
+                    <ul className="rtList">
+                      {t.details.map((p, i) => (
+                        <li key={i} className="rtListItem">
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="rtParagraph">{t.details}</div>
+                  )}
+                </div>
+              </div>
+              </details>
+            );
+          })}
+        </div>
+      </div>
+
+      <style>{`
+        .rtGrid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 14px;
+        }
+
+        .rtCard {
+          border: 1px solid var(--ifm-color-emphasis-200);
+          border-radius: 12px;
+          background: var(--ifm-card-background-color);
+          overflow: hidden;
+          transition: box-shadow .22s ease, transform .22s ease, border-color .22s ease;
+        }
+
+        .rtCard:hover {
+          box-shadow: 0 10px 28px rgba(0,0,0,.06);
+          border-color: var(--ifm-color-emphasis-300);
+          transform: translateY(-1px);
+        }
+
+        .rtCard[open] {
+          border-color: var(--ifm-color-emphasis-300);
+          box-shadow: 0 14px 34px rgba(0,0,0,.07);
+        }
+
+        .rtSummary {
+          list-style: none;
+          cursor: pointer;
+          padding: 16px 18px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          user-select: none;
+        }
+
+        .rtSummary::-webkit-details-marker { display: none; }
+
+        .rtSummary:focus-visible {
+          outline: 2px solid var(--ifm-color-primary);
+          outline-offset: 3px;
+          border-radius: 12px;
+        }
+
+        .rtIcon {
+          width: 46px;
+          height: 46px;
+          border-radius: 12px;
+          background: var(--ifm-color-emphasis-200);
+          color: var(--ifm-font-color-base);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 800;
+          font-size: 0.95rem;
+          letter-spacing: 0.5px;
+          flex-shrink: 0;
+          transition: background .22s ease, color .22s ease, transform .22s ease;
+        }
+
+        .rtIconLink {
+          display: inline-flex;
+          border-radius: 12px;
+          text-decoration: none;
+        }
+
+        .rtIconLink:focus-visible {
+          outline: 2px solid var(--ifm-color-primary);
+          outline-offset: 3px;
+        }
+
+        .rtIconImg {
+          width: 28px;
+          height: 28px;
+          display: block;
+        }
+
+        [data-theme='dark'] .rtIconImg {
+          filter: invert(1);
+          opacity: 0.92;
+        }
+
+        .rtIconText {
+          display: inline-block;
+          line-height: 1;
+        }
+
+        .rtCard[open] .rtIcon {
+          background: var(--ifm-color-emphasis-300);
+          transform: scale(1.02);
+        }
+
+        .rtMeta { flex: 1; min-width: 0; }
+
+        .rtTitleRow {
+          display: flex;
+          align-items: baseline;
+          justify-content: space-between;
+          gap: 12px;
+        }
+
+        .rtName { font-weight: 650; }
+
+        .rtLink {
+          color: var(--ifm-font-color-base);
+          text-decoration: none;
+        }
+
+        .rtLink:hover { color: var(--ifm-color-primary); }
+
+        .rtTagline {
+          margin-top: 3px;
+          opacity: 0.62;
+          line-height: 1.55;
+          font-size: 0.98rem;
+          transition: opacity .2s ease;
+        }
+
+        .rtHint {
+          opacity: 0.55;
+          font-size: 0.85rem;
+          white-space: nowrap;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          color: var(--ifm-color-emphasis-700);
+        }
+
+        .rtHintText { opacity: 0.7; }
+
+        .rtChevron {
+          display: inline-flex;
+          transition: transform .22s ease, opacity .22s ease;
+          opacity: 0.75;
+        }
+
+        .rtCard[open] .rtChevron {
+          transform: rotate(180deg);
+          opacity: 0.55;
+        }
+
+        .rtBody {
+          border-top: 1px solid var(--ifm-color-emphasis-200);
+          display: grid;
+          grid-template-rows: 0fr;
+          transition: grid-template-rows .26s ease;
+        }
+
+        .rtCard[open] .rtBody {
+          grid-template-rows: 1fr;
+        }
+
+        .rtBodyInner {
+          overflow: hidden;
+          padding: 0 18px 0;
+          opacity: 0;
+          transform: translateY(-2px);
+          transition: opacity .18s ease, transform .18s ease, padding .22s ease;
+        }
+
+        .rtCard[open] .rtBodyInner {
+          padding: 14px 18px 18px;
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .rtList {
+          margin: 0;
+          padding-left: 1.15rem;
+          display: grid;
+          gap: 8px;
+        }
+
+        .rtListItem {
+          opacity: 0.86;
+          line-height: 1.7;
+        }
+
+        .rtParagraph {
+          opacity: 0.86;
+          line-height: 1.7;
+        }
+
+        @media (max-width: 996px) {
+          .rtGrid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+          .rtSummary { padding: 14px 14px; }
+          .rtBodyInner { padding: 0 14px 0; }
+          .rtCard[open] .rtBodyInner { padding: 12px 14px 14px; }
+          .rtHintText { display: none; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .rtCard, .rtIcon, .rtChevron, .rtBody, .rtBodyInner, .rtTagline {
+            transition: none !important;
+          }
+          .rtCard:hover { transform: none; }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+<ResearchTools />
+

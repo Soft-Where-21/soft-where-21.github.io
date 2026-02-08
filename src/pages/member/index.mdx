@@ -137,6 +137,7 @@ export function MemberPage() {
                   {members.map((m, idx) => {
                     const hasAvatar = m?.avatar && m.avatar.trim() !== '';
                     const rs = roleStyle(m?.role);
+                    const sid = (m?.studentId ?? '').toString().trim();
 
                     return (
                       <div
@@ -208,12 +209,28 @@ export function MemberPage() {
 
                           {/* Info Area */}
                           <div style={{ padding: '12px 14px 14px' }}>
-                            <div style={{
-                              fontWeight: 600,
-                              fontSize: '0.95rem',
-                              marginBottom: 3,
-                            }}>
-                              {m?.name ?? '未知'}
+                            <div style={{display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 10}}>
+                              <div style={{
+                                fontWeight: 600,
+                                fontSize: '0.95rem',
+                                marginBottom: 3,
+                                minWidth: 0,
+                              }}>
+                                {m?.name ?? '未知'}
+                              </div>
+                              {sid ? (
+                                <div
+                                  style={{
+                                    fontSize: '0.85rem',
+                                    opacity: 0.5,
+                                    fontFamily: 'var(--ifm-font-family-monospace)',
+                                    whiteSpace: 'nowrap',
+                                  }}
+                                  title="学号"
+                                >
+                                  {sid}
+                                </div>
+                              ) : null}
                             </div>
                             <div style={{
                               fontSize: '0.8rem',

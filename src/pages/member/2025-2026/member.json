@@ -5,133 +5,133 @@
       "name": "主席团",
       "color": "#d4a017",
       "members": [
-        { "name": "付宁远", "role": "主席", "avatar": "" },
-        { "name": "张腾月", "role": "主席", "avatar": "" },
-        { "name": "杨佳宇轩", "role": "主席", "avatar": "/avatar/杨佳宇轩.jpg" }
+        { "name": "付宁远", "studentId": "", "role": "主席", "avatar": "" },
+        { "name": "张腾月", "studentId": "", "role": "主席", "avatar": "" },
+        { "name": "杨佳宇轩", "studentId": "22375080", "role": "主席", "avatar": "/avatar/杨佳宇轩.jpg" }
       ]
     },
     {
       "name": "学业中心",
       "color": "#2563eb",
       "members": [
-        { "name": "庄耿雄", "role": "部长", "avatar": "" },
-        { "name": "靳远畅", "role": "副部长", "avatar": "" },
-        { "name": "罗睿炫", "role": "干事", "avatar": "" },
-        { "name": "杨小乐", "role": "干事", "avatar": "" },
-        { "name": "刘晋如", "role": "干事", "avatar": "" },
-        { "name": "张弛", "role": "干事", "avatar": "" },
-        { "name": "赵若彤", "role": "干事", "avatar": "" }
+        { "name": "庄耿雄", "studentId": "22374271", "role": "部长", "avatar": "" },
+        { "name": "靳远畅", "studentId": "", "role": "副部长", "avatar": "" },
+        { "name": "罗睿炫", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "杨小乐", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "刘晋如", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "张弛", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "赵若彤", "studentId": "", "role": "干事", "avatar": "" }
       ]
     },
     {
       "name": "组织部",
       "color": "#7c3aed",
       "members": [
-        { "name": "张家文", "role": "部长", "avatar": "" },
-        { "name": "唐皓涵", "role": "副部长", "avatar": "" },
-        { "name": "赵静怡", "role": "干事", "avatar": "" },
-        { "name": "梁祎卓", "role": "干事", "avatar": "" },
-        { "name": "万笑添", "role": "干事", "avatar": "" }
+        { "name": "张家文", "studentId": "", "role": "部长", "avatar": "" },
+        { "name": "唐皓涵", "studentId": "", "role": "副部长", "avatar": "" },
+        { "name": "赵静怡", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "梁祎卓", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "万笑添", "studentId": "", "role": "干事", "avatar": "" }
       ]
     },
     {
       "name": "文艺部",
       "color": "#db2777",
       "members": [
-        { "name": "蔡彦恒", "role": "部长", "avatar": "" },
-        { "name": "李依焓", "role": "副部长", "avatar": "" },
-        { "name": "郭谦", "role": "干事", "avatar": "" },
-        { "name": "吴昌骏", "role": "干事", "avatar": "" },
-        { "name": "孙铭扬", "role": "干事", "avatar": "" },
-        { "name": "赵琦", "role": "干事", "avatar": "" },
-        { "name": "张学程", "role": "干事", "avatar": "" }
+        { "name": "蔡彦恒", "studentId": "", "role": "部长", "avatar": "" },
+        { "name": "李依焓", "studentId": "", "role": "副部长", "avatar": "" },
+        { "name": "郭谦", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "吴昌骏", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "孙铭扬", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "赵琦", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "张学程", "studentId": "", "role": "干事", "avatar": "" }
       ]
     },
     {
       "name": "科技实践部",
       "color": "#0891b2",
       "members": [
-        { "name": "王宇祯", "role": "部长", "avatar": "" },
-        { "name": "李帅", "role": "副部长", "avatar": "" },
-        { "name": "林明", "role": "干事", "avatar": "" },
-        { "name": "李科", "role": "干事", "avatar": "" },
-        { "name": "宋显涵", "role": "干事", "avatar": "" },
-        { "name": "刘钟屹", "role": "干事", "avatar": "" },
-        { "name": "张栩涛", "role": "干事", "avatar": "" }
+        { "name": "王宇祯", "studentId": "", "role": "部长", "avatar": "" },
+        { "name": "李帅", "studentId": "", "role": "副部长", "avatar": "" },
+        { "name": "林明", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "李科", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "宋显涵", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "刘钟屹", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "张栩涛", "studentId": "", "role": "干事", "avatar": "" }
       ]
     },
     {
       "name": "志愿权益部",
       "color": "#16a34a",
       "members": [
-        { "name": "陈利雅", "role": "部长", "avatar": "" },
-        { "name": "彭思奇", "role": "副部长", "avatar": "" },
-        { "name": "俞雅雯", "role": "干事", "avatar": "" },
-        { "name": "孙子涵", "role": "干事", "avatar": "" },
-        { "name": "王岱泽", "role": "干事", "avatar": "" },
-        { "name": "汪嘉豪", "role": "干事", "avatar": "" },
-        { "name": "胡晨越", "role": "干事", "avatar": "" }
+        { "name": "陈利雅", "studentId": "", "role": "部长", "avatar": "" },
+        { "name": "彭思奇", "studentId": "", "role": "副部长", "avatar": "" },
+        { "name": "俞雅雯", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "孙子涵", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "王岱泽", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "汪嘉豪", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "胡晨越", "studentId": "", "role": "干事", "avatar": "" }
       ]
     },
     {
       "name": "办公室",
       "color": "#ea580c",
       "members": [
-        { "name": "杨心茹", "role": "部长", "avatar": "" },
-        { "name": "赵长杉", "role": "副部长", "avatar": "" },
-        { "name": "汤斯杰", "role": "干事", "avatar": "" },
-        { "name": "汪士超", "role": "干事", "avatar": "" },
-        { "name": "张曹远臻", "role": "干事", "avatar": "" },
-        { "name": "王凯宇", "role": "干事", "avatar": "" },
-        { "name": "葛雨鑫", "role": "干事", "avatar": "" }
+        { "name": "杨心茹", "studentId": "", "role": "部长", "avatar": "" },
+        { "name": "赵长杉", "studentId": "", "role": "副部长", "avatar": "" },
+        { "name": "汤斯杰", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "汪士超", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "张曹远臻", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "王凯宇", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "葛雨鑫", "studentId": "", "role": "干事", "avatar": "" }
       ]
     },
     {
       "name": "公关部",
       "color": "#dc2626",
       "members": [
-        { "name": "樊可卿", "role": "部长", "avatar": "" },
-        { "name": "程海尚", "role": "副部长", "avatar": "" },
-        { "name": "潘昊", "role": "干事", "avatar": "" },
-        { "name": "王悠然", "role": "干事", "avatar": "" },
-        { "name": "张壮志", "role": "干事", "avatar": "" },
-        { "name": "钟其宏", "role": "干事", "avatar": "" },
-        { "name": "李晓萌", "role": "干事", "avatar": "" }
+        { "name": "樊可卿", "studentId": "", "role": "部长", "avatar": "" },
+        { "name": "程海尚", "studentId": "", "role": "副部长", "avatar": "" },
+        { "name": "潘昊", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "王悠然", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "张壮志", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "钟其宏", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "李晓萌", "studentId": "", "role": "干事", "avatar": "" }
       ]
     },
     {
       "name": "宣媒",
       "color": "#4f46e5",
       "members": [
-        { "name": "马浩然", "role": "部长", "avatar": "" },
-        { "name": "张管倩", "role": "副部长", "avatar": "" },
-        { "name": "孙嘉艺", "role": "副部长", "avatar": "" },
-        { "name": "吴星宇", "role": "干事", "avatar": "" },
-        { "name": "余儒耀", "role": "干事", "avatar": "" },
-        { "name": "叶茂然", "role": "干事", "avatar": "" },
-        { "name": "李启扬", "role": "干事", "avatar": "" },
-        { "name": "李默涵", "role": "干事", "avatar": "" },
-        { "name": "亢钰童", "role": "干事", "avatar": "" },
-        { "name": "吴本昭", "role": "干事", "avatar": "" },
-        { "name": "余锐", "role": "干事", "avatar": "" },
-        { "name": "刘庆泽", "role": "干事", "avatar": "" },
-        { "name": "杨书涵", "role": "干事", "avatar": "" },
-        { "name": "蔡乐彦", "role": "干事", "avatar": "" },
-        { "name": "邹林利", "role": "干事", "avatar": "" },
-        { "name": "周洪哲", "role": "干事", "avatar": "" }
+        { "name": "马浩然", "studentId": "", "role": "部长", "avatar": "" },
+        { "name": "张管倩", "studentId": "", "role": "副部长", "avatar": "" },
+        { "name": "孙嘉艺", "studentId": "", "role": "副部长", "avatar": "" },
+        { "name": "吴星宇", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "余儒耀", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "叶茂然", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "李启扬", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "李默涵", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "亢钰童", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "吴本昭", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "余锐", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "刘庆泽", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "杨书涵", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "蔡乐彦", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "邹林利", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "周洪哲", "studentId": "", "role": "干事", "avatar": "" }
       ]
     },
     {
       "name": "体育部",
       "color": "#0e7490",
       "members": [
-        { "name": "张文杰", "role": "部长", "avatar": "" },
-        { "name": "土金甲", "role": "副部长", "avatar": "" },
-        { "name": "王昊涵", "role": "干事", "avatar": "" },
-        { "name": "胡思琪", "role": "干事", "avatar": "" },
-        { "name": "祝境远", "role": "干事", "avatar": "" },
-        { "name": "罗邦鸿", "role": "干事", "avatar": "" },
-        { "name": "冯闻笛", "role": "干事", "avatar": "" }
+        { "name": "张文杰", "studentId": "", "role": "部长", "avatar": "" },
+        { "name": "土金甲", "studentId": "", "role": "副部长", "avatar": "" },
+        { "name": "王昊涵", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "胡思琪", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "祝境远", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "罗邦鸿", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "冯闻笛", "studentId": "", "role": "干事", "avatar": "" }
       ]
     }
   ]

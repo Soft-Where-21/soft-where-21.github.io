@@ -1,0 +1,20 @@
+{
+  "tools": [
+    {
+      "id": "timestamp",
+      "name": "时间戳转换",
+      "tagline": "Unix 时间戳 ↔ 日期时间"
+    },
+    {
+      "id": "json",
+      "name": "JSON 格式化",
+      "tagline": "美化 / 压缩 / 校验 JSON"
+    },
+    {
+      "id": "gpa",
+      "name": "GPA 计算器",
+      "tagline": "计算 GPA / 加权 / 算数"
+    }
+  ]
+}
+
