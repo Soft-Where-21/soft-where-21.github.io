@@ -4,20 +4,265 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
   position: relative;
   overflow: hidden;
+  padding: 5rem 0 4rem;
+  background: radial-gradient(circle at top, rgba(120, 150, 255, 0.22), transparent 55%),
+    linear-gradient(120deg, #f8fbff, #e7eefb);
+  color: #101a2f;
+}
+
+.heroBanner::after {
+  content: '';
+  position: absolute;
+  right: 4%;
+  bottom: -6%;
+  width: min(40vw, 420px);
+  height: min(40vw, 420px);
+  background: url('/img/爱心软院猫.png') no-repeat center/contain;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.heroBackdrop {
+  position: absolute;
+  inset: -20% 0 0;
+  background: radial-gradient(circle at 20% 20%, rgba(56, 132, 255, 0.32), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(41, 194, 186, 0.22), transparent 45%),
+    repeating-linear-gradient(120deg, rgba(10, 24, 56, 0.05) 0 2px, transparent 2px 16px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.heroEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  width: fit-content;
+}
+
+.heroTitle {
+  font-size: clamp(2.6rem, 3vw + 1.5rem, 4.2rem);
+  line-height: 1.05;
+  font-family: 'Space Grotesk', 'IBM Plex Sans', 'Noto Sans', sans-serif;
+  margin: 0;
+}
+
+.heroSubtitle {
+  font-size: 1.1rem;
+  max-width: 34rem;
+  color: rgba(16, 26, 47, 0.72);
+}
+
+.heroActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  border-radius: 999px;
+  padding: 0.9rem 2.2rem;
+  font-weight: 600;
+  box-shadow: 0 16px 40px rgba(23, 115, 255, 0.35);
+}
+
+.ghostButton {
+  border-radius: 999px;
+  padding: 0.9rem 2.2rem;
+  border: 1px solid rgba(16, 26, 47, 0.25);
+  color: #101a2f;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.heroStats {
+  display: grid;
+  gap: 1rem;
+}
+
+.heroSide {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.statCard {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(16, 26, 47, 0.08);
+  border-radius: 20px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.statLabel {
+  color: rgba(16, 26, 47, 0.6);
+  margin-top: 0.2rem;
+}
+
+.section {
+  padding: 4.5rem 0 4rem;
+  background: #f1f5fb;
+}
+
+.sectionAlt {
+  padding: 4.5rem 0;
+  background: linear-gradient(180deg, #ffffff, #edf1ff);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.8rem, 1.2rem + 1.2vw, 2.6rem);
+  margin-bottom: 0.6rem;
+  font-family: 'Space Grotesk', 'IBM Plex Sans', 'Noto Sans', sans-serif;
+}
+
+.sectionSubtitle {
+  color: #4b556a;
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.ctaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.ctaCard {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 22px 60px rgba(20, 35, 65, 0.08);
+  border: 1px solid rgba(13, 23, 41, 0.08);
+}
+
+.ctaTitle {
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.ctaText {
+  color: #44506b;
+  margin-bottom: 1.5rem;
+}
+
+:global([data-theme='dark']) .heroBanner {
+  background: radial-gradient(circle at top, rgba(86, 150, 255, 0.2), transparent 55%),
+    linear-gradient(120deg, rgba(9, 13, 25, 0.98), rgba(15, 20, 36, 0.98));
+  color: #f6f8ff;
+}
+
+:global([data-theme='dark']) .heroBanner::after {
+  opacity: 0.22;
+  filter: drop-shadow(0 16px 36px rgba(8, 12, 28, 0.6));
+}
+
+:global([data-theme='dark']) .heroBackdrop {
+  background: radial-gradient(circle at 20% 20%, rgba(86, 150, 255, 0.45), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(33, 211, 200, 0.35), transparent 45%),
+    repeating-linear-gradient(120deg, rgba(255, 255, 255, 0.06) 0 2px, transparent 2px 16px);
+  opacity: 0.7;
+}
+
+:global([data-theme='dark']) .heroSubtitle {
+  color: rgba(246, 248, 255, 0.82);
+}
+
+:global([data-theme='dark']) .ghostButton {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #e9efff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+:global([data-theme='dark']) .statCard {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+:global([data-theme='dark']) .statLabel {
+  color: rgba(246, 248, 255, 0.75);
+}
+
+:global([data-theme='dark']) .section {
+  background: #0d1424;
+}
+
+:global([data-theme='dark']) .sectionAlt {
+  background: linear-gradient(180deg, #0e1424, #131a2f);
+}
+
+:global([data-theme='dark']) .sectionSubtitle {
+  color: rgba(227, 234, 255, 0.7);
+}
+
+:global([data-theme='dark']) .ctaCard {
+  background: rgba(18, 24, 42, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 60px rgba(7, 10, 22, 0.6);
+}
+
+:global([data-theme='dark']) .ctaText {
+  color: rgba(219, 228, 255, 0.7);
+}
+
+
+.ctaButtons {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
 }
 
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2rem;
+    padding: 3.5rem 0 3rem;
   }
-}
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  .heroBanner::after {
+    right: -4%;
+    bottom: -10%;
+    width: min(60vw, 320px);
+    height: min(60vw, 320px);
+    opacity: 0.28;
+  }
+
+  .heroContent {
+    grid-template-columns: 1fr;
+  }
+
+  .heroStats {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+
+  .sectionHeader {
+    text-align: left;
+  }
 }
