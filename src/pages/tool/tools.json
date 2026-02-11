@@ -3,7 +3,7 @@
     {
       "id": "timestamp",
       "name": "时间戳转换",
-      "tagline": "Unix 时间戳 ↔ 日期时间"
+      "tagline": "Unix 时间戳 → 日期时间"
     },
     {
       "id": "json",
@@ -13,8 +13,12 @@
     {
       "id": "gpa",
       "name": "GPA 计算器",
-      "tagline": "计算 GPA / 加权 / 算数"
+      "tagline": "计算 GPA / 加权 / 算分"
+    },
+    {
+      "id": "postgrad",
+      "name": "保研成绩计算器",
+      "tagline": "按模块录入课程成绩"
     }
   ]
 }
-

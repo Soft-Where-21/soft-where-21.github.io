@@ -11,6 +11,8 @@ import toolsData from './tools.json';
 
 import TimestampTool from './timestamp';
 import JsonTool from './json';
+import GpaTool from './gpa';
+import PostgradTool from './postgrad';
 
 export function ToolPage() {
   const tools = Array.isArray(toolsData?.tools) ? toolsData.tools : [];
@@ -20,6 +22,8 @@ export function ToolPage() {
     () => ({
       timestamp: <TimestampTool />,
       json: <JsonTool />,
+      gpa: <GpaTool />,
+      postgrad: <PostgradTool />,
     }),
     []
   );
