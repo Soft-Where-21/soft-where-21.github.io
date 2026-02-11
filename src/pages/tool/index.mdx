@@ -11,6 +11,8 @@ import toolsData from './tools.json';
 
 import TimestampTool from './timestamp';
 import JsonTool from './json';
+import ColorPickerTool from './color-picker';
+import RegexBuilderTool from './regex-builder';
 
 export function ToolPage() {
   const tools = Array.isArray(toolsData?.tools) ? toolsData.tools : [];
@@ -20,6 +22,8 @@ export function ToolPage() {
     () => ({
       timestamp: <TimestampTool />,
       json: <JsonTool />,
+      'color-picker': <ColorPickerTool />,
+      'regex-builder': <RegexBuilderTool />,
     }),
     []
   );
@@ -82,7 +86,7 @@ export function ToolPage() {
                 #{activeId}
               </div>
             </div>
-            <div className="toolStageBody">
+            <div className={`toolStageBody ${['color-picker', 'regex-builder'].includes(activeId) ? 'toolStageBodyNoScroll' : ''}`}>
               {toolComponents[activeId] || (
                 <div style={{padding: 18, opacity: 0.75}}>
                   暂无该工具组件（占位）。
@@ -149,6 +153,11 @@ export function ToolPage() {
           overflow:auto;
           background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0));
         }
+        .toolStageBodyNoScroll{
+          height:auto;
+          min-height:520px;
+          overflow:hidden;
+        }
         @media (max-width: 996px){
           .toolLayout{flex-direction:column;}
           .toolSidebar{position:static;width:100%;}
@@ -159,4 +168,3 @@ export function ToolPage() {
 }
 
 <ToolPage />
-
