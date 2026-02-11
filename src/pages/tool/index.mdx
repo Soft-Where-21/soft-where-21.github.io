@@ -86,7 +86,7 @@ export function ToolPage() {
                 #{activeId}
               </div>
             </div>
-            <div className={`toolStageBody ${['color-picker', 'regex-builder'].includes(activeId) ? 'toolStageBodyNoScroll' : ''}`}>
+            <div className="toolStageBody">
               {toolComponents[activeId] || (
                 <div style={{padding: 18, opacity: 0.75}}>
                   暂无该工具组件（占位）。
@@ -149,14 +149,10 @@ export function ToolPage() {
           gap:12px;
         }
         .toolStageBody{
-          height:520px;
-          overflow:auto;
-          background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0));
-        }
-        .toolStageBodyNoScroll{
-          height:auto;
           min-height:520px;
-          overflow:hidden;
+          height:auto;
+          overflow:visible;
+          background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0));
         }
         @media (max-width: 996px){
           .toolLayout{flex-direction:column;}
