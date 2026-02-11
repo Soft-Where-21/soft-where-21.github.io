@@ -1,0 +1,544 @@
+{
+    "tools": [
+        {
+            "id": "buaa-home",
+            "name": "北航官网",
+            "href": "https://www.buaa.edu.cn/",
+            "iconUrl": "/icon/buaa-tool/北航校徽svg.svg",
+            "iconText": "官网",
+            "category": "校园门户",
+            "access": "校内外",
+            "tagline": "学校官方主页与通知入口",
+            "tags": [
+                "校级官网",
+                "新闻通知"
+            ],
+            "details": [
+                "适合快速查看学校新闻、机构导航与权威通知。",
+                "找不到二级站点时，优先从官网导航回溯。"
+            ]
+        },
+        {
+            "id": "smart-portal",
+            "name": "智慧门户",
+            "href": "https://it.buaa.edu.cn/html/websites/index.html",
+            "iconUrl": "/icon/buaa-tool/北航校徽svg.svg",
+            "iconText": "门户",
+            "category": "校园门户",
+            "access": "需统一认证",
+            "tagline": "北航常用业务系统聚合入口",
+            "tags": [
+                "业务系统导航",
+                "统一入口"
+            ],
+            "details": [
+                "教学、事务、服务系统的统一导航页。",
+                "建议登录后收藏高频模块，减少重复跳转。"
+            ]
+        },
+        {
+            "id": "ihome",
+            "name": "iHome",
+            "href": "https://i.buaa.edu.cn/web/#/",
+            "iconUrl": "/icon/buaa-tool/北航校徽svg.svg",
+            "iconText": "iH",
+            "category": "校园门户",
+            "access": "需统一认证",
+            "tagline": "个人事务与校园服务统一入口",
+            "tags": [
+                "个人待办",
+                "校园服务"
+            ],
+            "details": [
+                "聚合待办、通知、应用，适合日常登录使用。",
+                "常见身份认证问题可先退出重登再试。"
+            ]
+        },
+        {
+            "id": "webvpn",
+            "name": "WebVPN",
+            "href": "https://e1.buaa.edu.cn/",
+            "iconUrl": "https://e1.buaa.edu.cn/favicon.ico",
+            "iconText": "VPN",
+            "category": "校园门户",
+            "access": "校外必备",
+            "tagline": "校外访问校内资源的统一网关",
+            "tags": [
+                "远程访问",
+                "校外必备"
+            ],
+            "details": [
+                "在校外访问图书馆、财务等受限系统时优先使用。",
+                "建议固定浏览器登录，避免频繁二次认证。"
+            ]
+        },
+        {
+            "id": "buaa-mail",
+            "name": "北航邮箱",
+            "href": "https://mail.buaa.edu.cn/",
+            "iconUrl": "/icon/buaa-tool/北航校徽svg.svg",
+            "iconText": "邮箱",
+            "category": "校园门户",
+            "access": "需统一认证",
+            "tagline": "校内官方邮件服务",
+            "tags": [
+                "邮件通知",
+                "身份验证"
+            ],
+            "details": [
+                "用于课程通知、系统验证与正式沟通。",
+                "建议开启重要邮件提醒并定期清理垃圾箱。"
+            ]
+        },
+        {
+            "id": "jiaowu",
+            "name": "教务部",
+            "href": "https://jiaowu.buaa.edu.cn/",
+            "iconUrl": "/icon/buaa-tool/北航校徽svg.svg",
+            "iconText": "教务",
+            "category": "教务选课",
+            "access": "校内外",
+            "tagline": "教务政策、通知与教学信息入口",
+            "tags": [
+                "教务通知",
+                "培养方案"
+            ],
+            "details": [
+                "适合查询校历、培养方案、教学安排等信息。",
+                "遇到流程问题时先查对应通知说明。"
+            ]
+        },
+        {
+            "id": "course-select",
+            "name": "学生选课",
+            "href": "https://byxk.buaa.edu.cn/xsxk/profile/index.html",
+            "iconUrl": "/icon/buaa-tool/北航校徽svg.svg",
+            "iconText": "选课",
+            "category": "教务选课",
+            "access": "需统一认证",
+            "tagline": "主选课系统（正选/补退）",
+            "tags": [
+                "正选补退",
+                "课表确认"
+            ],
+            "details": [
+                "用于课程选择、退改选与课表确认。",
+                "选课高峰期建议提前登录并准备备选方案。"
+            ]
+        },
+        {
+            "id": "boya-course-select",
+            "name": "博雅选课",
+            "href": "https://bykc.buaa.edu.cn/system/course-select",
+            "iconUrl": "https://bykc.buaa.edu.cn/favicon.ico",
+            "iconText": "博雅",
+            "category": "教务选课",
+            "access": "需统一认证",
+            "tagline": "博雅课程选课入口",
+            "tags": [
+                "通识课程",
+                "博雅教学"
+            ],
+            "details": [
+                "面向通识/博雅课程的专项选课平台。",
+                "注意不同阶段的选课规则与容量限制。"
+            ]
+        },
+        {
+            "id": "spoc",
+            "name": "SPOC",
+            "href": "https://spoc.buaa.edu.cn/spoc/rdmooc/rdMoocHome.do",
+            "iconUrl": "/icon/buaa-tool/北航校徽svg.svg",
+            "iconText": "SPOC",
+            "category": "课程与实验",
+            "access": "需统一认证",
+            "tagline": "校内在线课程与教学资源平台",
+            "tags": [
+                "在线课程",
+                "教学资源"
+            ],
+            "details": [
+                "用于课程资料下载、作业与教学互动。",
+                "建议按学期建立书签文件夹统一管理课程链接。"
+            ]
+        },
+        {
+            "id": "easyketang",
+            "name": "Easy 云课堂",
+            "href": "https://www.easyketang.com/#/student/class",
+            "iconUrl": "https://www.easyketang.com/favicon.ico",
+            "iconText": "云课",
+            "category": "课程与实验",
+            "access": "课程内开放",
+            "tagline": "课堂互动与在线教学平台",
+            "tags": [
+                "课堂互动",
+                "随堂练习"
+            ],
+            "details": [
+                "常用于签到、随堂练习、课程互动。",
+                "建议使用固定账号，避免课程记录分散。"
+            ]
+        },
+        {
+            "id": "itest",
+            "name": "iTEST",
+            "href": "https://itestcloud.unipus.cn/",
+            "iconUrl": "https://itestcloud.unipus.cn/favicon.ico",
+            "iconText": "测评",
+            "category": "课程与实验",
+            "access": "课程内开放",
+            "tagline": "语言类线上测试与训练平台",
+            "tags": [
+                "英语测评",
+                "在线考试"
+            ],
+            "details": [
+                "多用于英语课程测验与阶段性评估。",
+                "考试前先检查浏览器兼容与设备音频权限。"
+            ]
+        },
+        {
+            "id": "library",
+            "name": "北航图书馆",
+            "href": "https://lib.buaa.edu.cn/",
+            "iconUrl": "/icon/buaa-tool/北航校徽svg.svg",
+            "iconText": "图书",
+            "category": "学术资源",
+            "access": "校内外",
+            "tagline": "馆藏检索、数据库与文献服务",
+            "tags": [
+                "文献检索",
+                "数据库"
+            ],
+            "details": [
+                "检索图书、期刊与中外文数据库资源。",
+                "校外访问数据库时可配合 WebVPN 使用。"
+            ]
+        },
+        {
+            "id": "buaa-cloud-disk",
+            "name": "北航云盘",
+            "href": "https://bhpan.buaa.edu.cn/anyshare/zh-cn/portal/",
+            "iconUrl": "/icon/buaa-tool/北航校徽svg.svg",
+            "iconText": "云盘",
+            "category": "学术资源",
+            "access": "需统一认证",
+            "tagline": "校内文件存储与共享平台",
+            "tags": [
+                "文件共享",
+                "课程资料"
+            ],
+            "details": [
+                "适合课程资料、实验文件的校内共享。",
+                "建议区分公开分享与私有链接，避免误泄露。"
+            ]
+        },
+        {
+            "id": "resource-site",
+            "name": "北航 VPN3",
+            "href": "https://d.buaa.edu.cn/",
+            "iconUrl": "/icon/buaa-tool/favicon-vpn3.ico",
+            "iconText": "资源",
+            "category": "校园门户",
+            "access": "校内外",
+            "tagline": "用于访问校内网页资源（OA、教务、科研系统等）",
+            "tags": [
+                "VPN3",
+                "网页资源"
+            ],
+            "details": [
+                "用于访问校内网页类资源，如 OA 系统、教务系统、科研系统等。",
+                "推荐在浏览器中直接收藏 VPN3 入口，统一从此处进入各类网页系统。"
+            ]
+        },
+        {
+            "id": "licensed-software",
+            "name": "正版化软件服务平台",
+            "href": "https://s.buaa.edu.cn/index/index/index",
+            "iconUrl": "/icon/buaa-tool/北航校徽svg.svg",
+            "iconText": "软件",
+            "category": "学术资源",
+            "access": "需统一认证",
+            "tagline": "校园正版软件下载与授权服务",
+            "tags": [
+                "正版授权",
+                "软件下载"
+            ],
+            "details": [
+                "提供部分教学常用软件的授权与下载。",
+                "安装前先阅读适用对象、系统版本和使用期限。"
+            ]
+        },
+        {
+            "id": "oj4th",
+            "name": "OJ4TH",
+            "href": "https://accoding.buaa.edu.cn/index",
+            "iconUrl": "/icon/buaa-tool/oj4th.ico",
+            "iconText": "OJ",
+            "category": "课程与实验",
+            "access": "课程内开放",
+            "tagline": "编程课程在线评测平台",
+            "tags": [
+                "程设与算法",
+                "自动评测"
+            ],
+            "details": [
+                "用于算法与程序设计课程的作业提交评测。",
+                "关注编译环境与输入输出格式，减少无效提交。"
+            ]
+        },
+        {
+            "id": "xiji-oj",
+            "name": "希冀 OJ",
+            "href": "https://judge.buaa.edu.cn/indexcs/simple.jsp?loginErr=0",
+            "iconUrl": "/icon/buaa-tool/北航校徽svg.svg",
+            "iconText": "希冀",
+            "category": "课程与实验",
+            "access": "课程内开放",
+            "tagline": "程序设计课程与练习评测系统",
+            "tags": [
+                "数据结构",
+                "编译技术"
+            ],
+            "details": [
+                "用于课程题目训练、提交与结果反馈。",
+                "建议本地通过样例后再提交，提升效率。"
+            ]
+        },
+        {
+            "id": "osome",
+            "name": "OSome",
+            "href": "https://os.buaa.edu.cn/login?redirect=%2Fbillboard",
+            "iconUrl": "https://os.buaa.edu.cn/favicon.ico",
+            "iconText": "OS",
+            "category": "课程与实验",
+            "access": "课程内开放",
+            "tagline": "操作系统课程实验与排行榜",
+            "tags": [
+                "操作系统",
+                "实验提交"
+            ],
+            "details": [
+                "常见于操作系统课程实验任务提交与查看。",
+                "实验前先确认分支、环境与评分规则。"
+            ]
+        },
+        {
+            "id": "jumpserver",
+            "name": "JumpServer",
+            "href": "https://lab.os.buaa.edu.cn/ui/#/profile/improvement",
+            "iconUrl": "https://lab.os.buaa.edu.cn/static/img/facio.ico",
+            "iconText": "SSH",
+            "category": "课程与实验",
+            "access": "校园网优先",
+            "tagline": "课程实验远程访问与资产管理",
+            "tags": [
+                "远程登录",
+                "实验环境"
+            ],
+            "details": [
+                "用于连接课程实验主机与远程环境。",
+                "首次使用建议先检查账号权限与登录方式。"
+            ]
+        },
+        {
+            "id": "educoder",
+            "name": "头歌实践教学平台",
+            "href": "https://www.educoder.net/",
+            "iconUrl": "https://ali-cdn.educoder.net/images/avatars/LaboratorySetting/1tab?t=1734231796",
+            "iconText": "头歌",
+            "category": "课程与实验",
+            "access": "课程内开放",
+            "tagline": "在线实验与实践教学平台",
+            "tags": [
+                "实践教学",
+                "项目实验"
+            ],
+            "details": [
+                "可用于课程实验、实训项目与自动评测。",
+                "建议按课程归档实验记录，便于复盘。"
+            ]
+        },
+        {
+            "id": "codearts",
+            "name": "华为云 CodeArts",
+            "href": "https://devcloud.cn-north-4.huaweicloud.com/home",
+            "iconUrl": "https://console-static.huaweicloud.com/static/authui/20260202160541/favicon.ico",
+            "iconText": "Dev",
+            "category": "课程与实验",
+            "access": "项目内开放",
+            "tagline": "云端代码托管与项目协作平台",
+            "tags": [
+                "UML设计",
+                "团队协作"
+            ],
+            "details": [
+                "适合课程团队协作、需求管理与流水线实践。",
+                "支持在线绘制 UML / 架构设计图，便于课程报告与项目文档化。"
+            ]
+        },
+        {
+            "id": "scs-cloud",
+            "name": "北航软院云平台",
+            "href": "https://scs.buaa.edu.cn/",
+            "iconUrl": "https://scs.buaa.edu.cn/favicon.ico",
+            "iconText": "软院云",
+            "category": "课程与实验",
+            "access": "需统一认证",
+            "tagline": "软件学院课程与实验云平台",
+            "tags": [
+                "软院课程",
+                "实验环境"
+            ],
+            "details": [
+                "软院课程资源与实验环境统一入口。",
+                "建议按课程收藏常用模块。"
+            ]
+        },
+        {
+            "id": "nanjing-paas",
+            "name": "南京智能计算中心算力平台",
+            "href": "https://paas.extrotec.com:30443/",
+            "iconUrl": "https://paas.extrotec.com:30443/favicon.ico",
+            "iconText": "算力",
+            "category": "课程与实验",
+            "access": "课程内开放",
+            "tagline": "智能计算与算力实训平台",
+            "tags": [
+                "算力平台",
+                "实训实验"
+            ],
+            "details": [
+                "用于课程相关的算力实训与实验环境。",
+                "使用前请确认课程是否已开通权限。"
+            ]
+        },
+        {
+            "id": "zhihuishu",
+            "name": "智慧树",
+            "href": "https://passport.zhihuishu.com/",
+            "iconUrl": "https://assets.zhihuishu.com/icon/favicon.ico",
+            "iconText": "知到",
+            "category": "课程与实验",
+            "access": "课程内开放",
+            "tagline": "智慧树在线课程与学分课运营平台",
+            "tags": [
+                "在线课程",
+                "学分课"
+            ],
+            "details": [
+                "用于智慧树/知到课程学习、签到与考试。",
+                "建议使用学号登录并绑定手机以便验证。"
+            ]
+        },
+        {
+            "id": "network-lab",
+            "name": "北航计网实验室平台",
+            "href": "https://network-lab.mooc.buaa.edu.cn/",
+            "iconUrl": "https://network-lab.mooc.buaa.edu.cn/favicon.ico",
+            "iconText": "计网",
+            "category": "课程与实验",
+            "access": "课程内开放",
+            "tagline": "计算机网络在线实验与预约平台",
+            "tags": [
+                "计算机网络",
+                "实验预约"
+            ],
+            "details": [
+                "用于计算机网络课程在线实验与设备预约。",
+                "可查看实验内容、日程与实验室占用情况。"
+            ]
+        },
+        {
+            "id": "finance-pass",
+            "name": "航财通",
+            "href": "https://pass.cc-pay.cn/dashboard?linkfrom=mall",
+            "iconUrl": "/icon/buaa-tool/北航校徽svg.svg",
+            "iconText": "财务",
+            "category": "财务奖助",
+            "access": "需统一认证",
+            "tagline": "校园财务相关服务入口",
+            "tags": [
+                "校园支付",
+                "财务服务"
+            ],
+            "details": [
+                "用于部分财务办理、报销与支付相关流程。",
+                "建议保留办理截图与单据，便于后续核对。"
+            ]
+        },
+        {
+            "id": "finance-system",
+            "name": "网上财务综合信息系统",
+            "href": "https://icw.buaa.edu.cn/",
+            "iconUrl": "/icon/buaa-tool/北航校徽svg.svg",
+            "iconText": "ICW",
+            "category": "财务奖助",
+            "access": "需 WebVPN",
+            "tagline": "财务查询与业务办理系统",
+            "tags": [
+                "报销报账",
+                "财务查询"
+            ],
+            "details": [
+                "常用于财务查询、报销流程与状态追踪。",
+                "校外访问请先连 WebVPN 后再登录。"
+            ]
+        },
+        {
+            "id": "aid-system",
+            "name": "学生资助管理系统",
+            "href": "https://zizhu.buaa.edu.cn/index",
+            "iconUrl": "/icon/buaa-tool/北航校徽svg.svg",
+            "iconText": "资助",
+            "category": "财务奖助",
+            "access": "需统一认证",
+            "tagline": "奖助申请与资助信息管理",
+            "tags": [
+                "资助申请",
+                "政策查询"
+            ],
+            "details": [
+                "用于奖助项目申报、材料提交与状态查看。",
+                "关注每轮申报时间窗，避免逾期。"
+            ]
+        },
+        {
+            "id": "scholarship-system",
+            "name": "奖学金助学金系统",
+            "href": "https://jiangzhu.buaa.edu.cn/",
+            "iconUrl": "/icon/buaa-tool/北航校徽svg.svg",
+            "iconText": "奖助",
+            "category": "财务奖助",
+            "access": "需统一认证",
+            "tagline": "奖助评定与结果公示相关入口",
+            "tags": [
+                "奖学金评定",
+                "结果公示"
+            ],
+            "details": [
+                "用于奖学金、助学金相关流程跟进。",
+                "建议提前准备证明材料并核对个人信息。"
+            ]
+        },
+        {
+            "id": "personal-data",
+            "name": "个人数据",
+            "href": "https://n.buaa.edu.cn/newservice/fe/",
+            "iconUrl": "/icon/buaa-tool/北航校徽svg.svg",
+            "iconText": "数据",
+            "category": "校园门户",
+            "access": "需统一认证",
+            "tagline": "个人数据与画像相关系统入口",
+            "tags": [
+                "成绩学籍",
+                "个人画像"
+            ],
+            "details": [
+                "用于查询部分个人数据与统计信息。",
+                "涉及隐私信息时请注意设备与网络安全。"
+            ]
+        }
+    ]
+}

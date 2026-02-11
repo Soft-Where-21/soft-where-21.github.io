@@ -1,6 +1,488 @@
 ---
-title: BUAA工具
+title: 北航常用工具导航
+sidebar_label: BUAA工具
 description: BUAA常用工具以及链接
 hide_table_of_contents: true
 sidebar_position: 6
 ---
+
+import React, {useMemo, useState} from 'react';
+import Link from '@docusaurus/Link';
+import toolsData from './BUAA工具.tools.json';
+
+export function BUAATools() {
+  const tools = Array.isArray(toolsData?.tools) ? toolsData.tools : [];
+  const [openId, setOpenId] = useState(null);
+  const [query, setQuery] = useState('');
+  const [category, setCategory] = useState('全部');
+
+  const categories = useMemo(() => {
+    const set = new Set();
+    for (const t of tools) {
+      if (t?.category) set.add(String(t.category));
+    }
+    const baseOrder = ['校园门户', '教务选课', '课程与实验', '学术资源', '财务奖助'];
+    const ordered = baseOrder.filter((c) => set.has(c));
+    for (const c of set) {
+      if (!ordered.includes(c)) ordered.push(c);
+    }
+    return ['全部', ...ordered];
+  }, [tools]);
+
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return tools.filter((t) => {
+      if (!t) return false;
+      if (category !== '全部' && String(t.category || '') !== category) return false;
+      if (!q) return true;
+
+      const hay = [
+        t.name,
+        t.tagline,
+        Array.isArray(t.tags) ? t.tags.join(' ') : '',
+        Array.isArray(t.details) ? t.details.join(' ') : t.details
+      ]
+        .filter(Boolean)
+        .join(' ')
+        .toLowerCase();
+
+      return hay.includes(q);
+    });
+  }, [tools, query, category]);
+
+  return (
+    <div className="container margin-vert--lg">
+      <div className="btHeader">
+        <label className="btSelectLabel">
+          <span className="btSelectText">分类</span>
+          <select className="btSelect" value={category} onChange={(e) => setCategory(e.target.value)}>
+            {categories.map((c) => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
+        </label>
+        <button
+          type="button"
+          className="btReset"
+          onClick={() => {
+            setQuery('');
+            setCategory('全部');
+            setOpenId(null);
+          }}
+        >
+          重置
+        </button>
+        <label className="btSearchLabel">
+          <span className="sr-only">搜索</span>
+          <input
+            className="btSearch"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="搜索：系统名 / 功能 / 关键词（如：选课、WebVPN、图书馆…）"
+          />
+        </label>
+      </div>
+
+      <div className="btGrid">
+        {filtered.map((t) => {
+          const id = t.id || t.href;
+          const isOpen = openId === id;
+          const tags = Array.isArray(t.tags) ? t.tags.slice(0, 2) : [];
+
+          return (
+            <details key={id} className="btCard" open={isOpen}>
+              <summary
+                className="btSummary"
+                onClick={(e) => {
+                  if (e.target instanceof Element && e.target.closest('a')) return;
+                  e.preventDefault();
+                  setOpenId((prev) => (prev === id ? null : id));
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    if (e.target instanceof Element && e.target.closest('a')) return;
+                    e.preventDefault();
+                    setOpenId((prev) => (prev === id ? null : id));
+                  }
+                }}
+              >
+                <Link
+                  href={t.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btIconLink"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className="btIcon" aria-hidden="true">
+                    {t.iconUrl ? (
+                      <img className="btIconImg" src={t.iconUrl} alt="" loading="lazy" decoding="async" />
+                    ) : (
+                      <span className="btIconText">{t.iconText || '•'}</span>
+                    )}
+                  </div>
+                </Link>
+
+                <div className="btMeta">
+                  <div className="btTopRow">
+                    <div className="btName">
+                      <Link
+                        href={t.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btLink"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {t.name}
+                      </Link>
+                    </div>
+                    <div className="btChevron" aria-hidden="true">
+                      <svg viewBox="0 0 20 20" width="18" height="18" focusable="false" aria-hidden="true">
+                        <path
+                          d="M5.5 7.5 10 12l4.5-4.5"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+
+                  <div className="btTagline">{t.tagline}</div>
+
+                  {tags.length > 0 && (
+                    <div className="btBadges" aria-hidden="true">
+                      {tags.map((tag) => (
+                        <span key={tag} className="btBadge">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </summary>
+
+              <div className="btBody">
+                <div className="btBodyInner">
+                  {Array.isArray(t.details) ? (
+                    <ul className="btList">
+                      {t.details.map((p, i) => (
+                        <li key={i} className="btListItem">
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="btParagraph">{t.details}</div>
+                  )}
+                </div>
+              </div>
+            </details>
+          );
+        })}
+      </div>
+
+      <style>{`
+        .sr-only {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
+
+        .btHeader {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 14px;
+          flex-wrap: wrap;
+        }
+
+        .btSearchLabel {
+          flex: 1;
+          min-width: 0;
+        }
+
+        .btSearch {
+          width: 100%;
+          padding: 10px 12px;
+          border-radius: 12px;
+          border: 1px solid var(--ifm-color-emphasis-200);
+          background: var(--ifm-card-background-color);
+          color: var(--ifm-font-color-base);
+          outline: none;
+          font-size: 0.95rem;
+          transition: border-color .18s ease, box-shadow .18s ease;
+        }
+
+        .btSearch::placeholder {
+          font-size: 0.95rem;
+        }
+
+        .btSearch:focus {
+          border-color: var(--ifm-color-primary);
+          box-shadow: 0 0 0 3px rgba(0, 114, 255, 0.12);
+        }
+
+        .btSelectLabel {
+          flex-shrink: 0;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 10px;
+          border: 1px solid var(--ifm-color-emphasis-200);
+          border-radius: 12px;
+          background: var(--ifm-card-background-color);
+          font-size: 0.95rem;
+        }
+
+        .btSelectText {
+          opacity: 0.7;
+          font-size: 0.95rem;
+        }
+
+        .btSelect {
+          border: none;
+          background: transparent;
+          color: var(--ifm-font-color-base);
+          outline: none;
+          font-size: 0.95rem;
+        }
+
+        .btReset {
+          flex-shrink: 0;
+          border: 1px solid var(--ifm-color-emphasis-200);
+          background: transparent;
+          color: var(--ifm-font-color-base);
+          border-radius: 12px;
+          padding: 8px 12px;
+          cursor: pointer;
+          font-size: 0.95rem;
+          transition: border-color .18s ease, background .18s ease, transform .18s ease;
+        }
+
+        .btReset:hover {
+          border-color: var(--ifm-color-emphasis-300);
+          background: rgba(0,0,0,.03);
+          transform: translateY(-1px);
+        }
+
+        [data-theme='dark'] .btReset:hover {
+          background: rgba(255,255,255,.06);
+        }
+
+        .btGrid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 14px;
+        }
+
+        .btCard {
+          border: 1px solid var(--ifm-color-emphasis-200);
+          border-radius: 14px;
+          background: var(--ifm-card-background-color);
+          overflow: hidden;
+          transition: box-shadow .22s ease, transform .22s ease, border-color .22s ease;
+        }
+
+        .btCard:hover {
+          box-shadow: 0 10px 28px rgba(0,0,0,.06);
+          border-color: var(--ifm-color-emphasis-300);
+          transform: translateY(-1px);
+        }
+
+        .btCard[open] {
+          border-color: var(--ifm-color-emphasis-300);
+          box-shadow: 0 14px 34px rgba(0,0,0,.07);
+        }
+
+        .btSummary {
+          list-style: none;
+          cursor: pointer;
+          padding: 16px 18px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          user-select: none;
+        }
+
+        .btSummary::-webkit-details-marker { display: none; }
+
+        .btSummary:focus-visible {
+          outline: 2px solid var(--ifm-color-primary);
+          outline-offset: 3px;
+          border-radius: 14px;
+        }
+
+        .btIcon {
+          width: 46px;
+          height: 46px;
+          border-radius: 12px;
+          background: var(--ifm-color-emphasis-200);
+          color: var(--ifm-font-color-base);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 800;
+          font-size: 0.92rem;
+          letter-spacing: 0.5px;
+          flex-shrink: 0;
+          transition: background .22s ease, transform .22s ease;
+        }
+
+        .btIconLink {
+          display: inline-flex;
+          border-radius: 12px;
+          text-decoration: none;
+        }
+
+        .btIconLink:focus-visible {
+          outline: 2px solid var(--ifm-color-primary);
+          outline-offset: 3px;
+        }
+
+        .btIconImg {
+          width: 28px;
+          height: 28px;
+          display: block;
+        }
+
+        [data-theme='dark'] .btIconImg {
+          filter: invert(1);
+          opacity: 0.92;
+        }
+
+        .btCard[open] .btIcon {
+          background: var(--ifm-color-emphasis-300);
+          transform: scale(1.02);
+        }
+
+        .btMeta { flex: 1; min-width: 0; }
+
+        .btTopRow {
+          display: flex;
+          align-items: baseline;
+          justify-content: space-between;
+          gap: 12px;
+        }
+
+        .btName {
+          font-weight: 700;
+          min-width: 0;
+        }
+
+        .btLink {
+          color: var(--ifm-font-color-base);
+          text-decoration: none;
+        }
+
+        .btLink:hover { color: var(--ifm-color-primary); }
+
+        .btChevron {
+          display: inline-flex;
+          transition: transform .22s ease, opacity .22s ease;
+          opacity: 0.65;
+          color: var(--ifm-color-emphasis-700);
+          flex-shrink: 0;
+        }
+
+        .btCard[open] .btChevron {
+          transform: rotate(180deg);
+          opacity: 0.5;
+        }
+
+        .btTagline {
+          margin-top: 4px;
+          opacity: 0.66;
+          line-height: 1.55;
+          font-size: 0.98rem;
+        }
+
+        .btBadges {
+          margin-top: 10px;
+          display: flex;
+          gap: 8px;
+          flex-wrap: wrap;
+        }
+
+        .btBadge {
+          font-size: 0.82rem;
+          padding: 4px 8px;
+          border-radius: 999px;
+          border: 1px solid var(--ifm-color-emphasis-200);
+          background: rgba(0,0,0,.02);
+          color: var(--ifm-color-emphasis-800);
+        }
+
+        [data-theme='dark'] .btBadge {
+          background: rgba(255,255,255,.06);
+        }
+
+        .btBadgeSub { opacity: 0.85; }
+
+        .btBody {
+          border-top: 1px solid var(--ifm-color-emphasis-200);
+          display: grid;
+          grid-template-rows: 0fr;
+          transition: grid-template-rows .26s ease;
+        }
+
+        .btCard[open] .btBody {
+          grid-template-rows: 1fr;
+        }
+
+        .btBodyInner {
+          overflow: hidden;
+          padding: 0 18px 0;
+          opacity: 0;
+          transform: translateY(-2px);
+          transition: opacity .18s ease, transform .18s ease, padding .22s ease;
+        }
+
+        .btCard[open] .btBodyInner {
+          padding: 14px 18px 18px;
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .btList {
+          margin: 0;
+          padding-left: 1.15rem;
+          display: grid;
+          gap: 8px;
+        }
+
+        .btListItem {
+          opacity: 0.88;
+          line-height: 1.7;
+        }
+
+        .btParagraph {
+          opacity: 0.88;
+          line-height: 1.7;
+        }
+
+        @media (max-width: 996px) {
+          .btGrid { grid-template-columns: 1fr; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .btCard, .btIcon, .btChevron, .btBody, .btBodyInner {
+            transition: none !important;
+          }
+          .btCard:hover { transform: none; }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+<BUAATools />
