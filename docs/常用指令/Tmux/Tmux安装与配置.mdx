@@ -1,0 +1,81 @@
+# tmux 安装与基础使用
+
+## tmux 介绍
+
+**tmux 是什么？**
+
+简要来说，tmux 是一个终端管理器，它允许你在一个终端窗口中同时运行多个后台程序，并且可以随时切断和恢复连接
+
+**为什么要使用 tmux？**
+
+当你连接远程服务器时，你是否经常遇到以下几种情况？
+
+- 在服务器上跑深度学习模型或者编译大项目，跑了几个小时，结果**网络出问题**或者**电脑关机了**，SSH 连接断开，进度没了(悲)
+- 同时开了很多个终端跑不同的实验，切来切去很混乱
+- 每次重新登录服务器，都要重新 `cd` 到项目目录，比较麻烦
+
+**这些问题 tmux 都可以解决，tmux 可以：**
+
+1. **保持运行**：即使你关闭了终端或者断网，tmux 里的程序依然在服务器后台运行
+2. **分屏管理**：在一个窗口里把屏幕切成好几块，同时运行几个终端
+3. **多窗口切换**：像浏览器标签页一样管理多个终端窗口
+4. **协作编程**：多人可以同时挂载到同一个会话，实时看到对方的操作
+
+---
+
+## tmux 安装
+
+### 安装步骤
+
+1. **Linux 用户（Ubuntu/Debian）**：
+   直接使用 apt 包管理器安装：
+
+   ```bash
+   sudo apt update
+   sudo apt install tmux
+   ```
+
+2. **Linux 用户（CentOS/RHEL）**：
+
+   ```bash
+   sudo yum install tmux
+   ```
+
+3. **Windows 用户**：
+   推荐在 WSL 中使用，安装方法同 Ubuntu (没有WSL?这边安装[安装 WSL | Microsoft Learn](https://learn.microsoft.com/zh-cn/windows/wsl/install))
+
+## tmux配置
+
+tmux 的用户配置文件是 `~/.tmux.conf`。
+
+你可以创建这个文件并写入基础配置，然后让 tmux 每次启动自动加载
+
+### 一个通用的基础配置
+
+把下面内容写入 `~/.tmux.conf`：
+
+(不会写入文件?请自行参考Linux的基础教程)
+
+```conf
+# 设置前缀键为 Ctrl+a（默认是 Ctrl+b）,如果你想使用Ctrl+b,请您注释掉下面三行
+set -g prefix C-a
+unbind C-b
+bind C-a send-prefix
+# 启用鼠标支持
+set -g mouse on
+# 自定义状态栏样式
+set -g status-bg black
+set -g status-fg green
+set -g status-left "#S |"
+set -g status-right "%H:%M %d-%b-%y"
+# 分屏快捷键（类似 Vim）
+bind-key h select-pane -L
+bind-key j select-pane -D
+bind-key k select-pane -U
+bind-key l select-pane -R
+# 最大化当前面板
+bind-key z resize-pane -Z
+```
+
+然后再 `tmux kill-server -a`并 `tmux`重启你的tmux即可
+

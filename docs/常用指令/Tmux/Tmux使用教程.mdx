@@ -1,0 +1,710 @@
+# Tmux使用教程
+
+## 常用指令速查
+
+### Server 管理
+| 指令                            | 作用                        |
+| ------------------------------- | --------------------------- |
+| `tmux`                          | 启动 Server 并创建无名会话  |
+| `tmux new-session -s <name>`    | 创建命名会话并进入          |
+| `tmux new-session -d -s <name>` | 后台创建命名会话            |
+| `tmux ls`                       | 列出所有会话                |
+| `tmux kill-server`              | 停止 Server（结束所有会话） |
+
+### Session 管理
+| 指令                                 | 作用                     |
+| ------------------------------------ | ------------------------ |
+| `tmux attach-session -t <name>`      | 进入指定会话             |
+| `tmux switch-client -t <name>`       | 在 tmux 内切换到另一会话 |
+| `tmux detach-client`                 | 脱离当前会话             |
+| `tmux rename-session -t <old> <new>` | 重命名会话               |
+| `tmux kill-session -t <name>`        | 关闭指定会话             |
+| `tmux kill-session`                  | 关闭当前会话             |
+
+### Window 管理
+| 指令                                           | 作用                 |
+| ---------------------------------------------- | -------------------- |
+| `tmux new-window -n <name>`                    | 当前会话新建命名窗口 |
+| `tmux new-window -t <session> -n <name>`       | 指定会话新建命名窗口 |
+| `tmux new-window -n <name> "<cmd>"`            | 新建窗口并执行命令   |
+| `tmux rename-window -t <num> <name>`           | 重命名窗口           |
+| `tmux rename-window -t <session>:<num> <name>` | 重命名指定会话的窗口 |
+| `tmux kill-window -t <num>`                    | 关闭指定窗口         |
+| `tmux swap-window -s <num1> -t <num2>`         | 交换两个窗口位置     |
+| `tmux move-window -s <num1> -t <num2>`         | 移动窗口到指定编号   |
+
+### Pane 管理
+| 指令                              | 作用               |
+| --------------------------------- | ------------------ |
+| `tmux split-window -h "<cmd>"`    | 垂直分割并执行命令 |
+| `tmux split-window -v "<cmd>"`    | 水平分割并执行命令 |
+| `tmux resize-pane -L/R/U/D <num>` | 向指定方向调整大小 |
+
+---
+
+## 常用快捷键
+
+> **前缀键**：默认 `Ctrl + b`（或配置为 `Ctrl + a`）
+
+### Session 操作
+
+| 快捷键       | 作用                     |
+| ------------ | ------------------------ |
+| `前缀键 + d` | 脱离当前会话（后台运行） |
+| `前缀键 + s` | 打开会话列表选择         |
+| `前缀键 + (` | 切换到上一个会话         |
+| `前缀键 + )` | 切换到下一个会话         |
+| `前缀键 + $` | 重命名当前会话           |
+
+### Window 操作
+| 快捷键         | 作用                 |
+| -------------- | -------------------- |
+| `前缀键 + c`   | 新建窗口             |
+| `前缀键 + w`   | 打开窗口列表         |
+| `前缀键 + 0~9` | 按编号切换窗口       |
+| `前缀键 + p`   | 切换到上一个窗口     |
+| `前缀键 + n`   | 切换到下一个窗口     |
+| `前缀键 + l`   | 切换到上次访问的窗口 |
+| `前缀键 + ,`   | 重命名当前窗口       |
+| `前缀键 + &`   | 关闭当前窗口         |
+
+### Pane 操作
+| 快捷键                   | 作用                 |
+| ------------------------ | -------------------- |
+| `前缀键 + %`             | 垂直分割（左右）     |
+| `前缀键 + "`             | 水平分割（上下）     |
+| `前缀键 + ↑↓←→`          | 按方向切换窗格       |
+| `前缀键 + q`             | 显示窗格编号快速选择 |
+| `前缀键 + Ctrl + 方向键` | 调整窗格大小         |
+| `前缀键 + x`             | 关闭当前窗格         |
+| `前缀键 + z`             | 最大化/还原当前窗格  |
+| `前缀键 + Space`         | 循环切换布局         |
+| `前缀键 + {`             | 与左侧窗格交换位置   |
+| `前缀键 + }`             | 与右侧窗格交换位置   |
+
+### 复制粘贴
+| 快捷键       | 作用           |
+| ------------ | -------------- |
+| `前缀键 + [` | 进入复制模式   |
+| `前缀键 + ]` | 粘贴缓冲区内容 |
+
+**复制模式内操作**：方向键移动 → 空格开始选择 → 方向键调整选区 → 回车确认复制
+
+## Tmux结构
+
+在使用 tmux 之前,必须理解它的结构,tmux 的层级关系是这样的：
+
+**Server -> Session（会话） -> Window（窗口） -> Pane（窗格）**
+
+在命令中可以这样标识:  `session:window.pane`
+
+###  Server
+
+**Server 是 tmux 的后台管理进程**,它负责维护所有会话与其中的窗口窗格状态
+
+你可以把它理解为 tmux 的本体：
+
+- 在终端中执行 `tmux` 或 `tmux new-session`,本质是在使用Server提供的服务
+- 如果你关掉一个终端窗口,只要没有停止 Server,你在 tmux 里的布局与进程仍然继续运行
+
+- 你可以使用Server创建多个Session
+
+### Session
+
+**Session 是一组窗口的集合**,由Server创建
+
+你可以把 Session 当作一个独立的项目:
+
+- 可以并行运行多个Session
+- 在一个Session中可以创建多个Window来运行不同的任务
+
+### Window
+
+**Window 是 Session 内的一页工作区**,由Session创建
+
+你可以把Window当作是一个项目内的一个任务:
+
+- 你可以在同一个Session内创建多个Window并快速切换
+- 你可以在Window中创建不同的Pane来执行不同的命令
+
+###  Pane
+
+**Pane 是 Window 内的分割区域**,每个 Pane 对应一个独立的终端环境
+
+Pane 是 tmux 真正承载命令执行的最小单位：
+
+- 一个 Pane 里可以也只能运行一个终端
+- 可以在 Pane 里跑 `python` `node` `ssh` 等命令
+- Pane 之间相互独立,但共享同一个 Window 的布局管理
+
+### 总而言之
+
+如果你懒得看上面这么一大串,你理解了这些就行：
+
+- **Session 用来分项目**
+- **Window 用来在项目中分任务**
+- **Pane 用来在任务中并行执行命令**
+- **Server 保证它们在终端关闭后仍然存在,并对Session进行管理**
+- **使用 `session:window.pane` 这样的格式来定位任何一个`pane`**
+
+---
+
+## Server
+
+### 启动并创建会话
+
+tmux 的 Server 不要求手动启动,执行任意会话创建命令时,Server 会自动启动
+
+可以直接使用 `tmux`指令创建一个新的会话,但是不推荐这么做,更推荐新建一个有命名的会话:
+
+#### 启动并创建一个命名会话并进入
+
+```bash
+tmux new-session -s AAA
+```
+
+执行后发生的事：
+
+- 当前没有 Server 时,tmux 会启动一个 Server
+- 创建名为 `AAA` 的 Session
+- 终端进入这个 Session
+
+#### 只启动并创建会话但不进入
+
+```bash
+tmux new-session -d -s AAA
+```
+
+`-d` 的含义是创建后保持脱离状态,也就是会话在后台运行,但是没有在终端上进入
+
+### 查看 Server 当前管理的会话
+
+```bash
+tmux ls
+```
+
+你会看到每个 Session 的信息,包含：会话名, 窗口数量, 会话创建时间, 是否有客户端连接
+
+### 停止 Server
+
+停止 Server 等价于终止 tmux 管理的全部会话,停止后所有 Session Window Pane 中运行的进程都会被结束
+
+```bash
+tmux kill-server
+```
+
+## Session
+
+### 前缀键
+
+tmux 的大多数快捷键都以**前缀键**开头
+默认前缀键为 `Ctrl + b`,如果你按照安装与配置中修改了配置文件的话,前缀键就是`Ctrl + a`
+后续快捷键描述统一为 `前缀键 + ...`
+:::tip
+ **PS. 什么是前缀键？**
+ tmux 为了避免和系统快捷键冲突,所有的快捷键操作都需要先按一个唤醒键
+ Ctrl+a d 的意思是：按住 Ctrl 不放,按一下 b,**全部松开**,再按一下d
+:::
+
+------
+
+### 创建 Session
+
+如前所述
+
+#### 启动并创建一个命名 Session 并进入
+
+```bash
+tmux new-session -s AAA
+```
+
+#### 只创建 Session 但不进入
+
+```bash
+tmux new-session -d -s AAA
+```
+
+------
+
+### 查看已有 Session
+
+```bash
+tmux ls
+```
+
+------
+
+### 进入指定 Session
+
+#### 从 tmux 外部直接进入
+
+```bash
+tmux attach-session -t AAA
+```
+
+#### 已在 tmux 内部时切换到另一个 Session
+
+```bash
+tmux switch-client -t dev
+```
+
+执行后发生的事：
+
+- 当前客户端从现在的 Session 切换到目标 Session
+- 原 Session 不会被终止,只是当前客户端**在显示层面离开了它**
+
+------
+
+### 脱离 Session
+
+脱离的目标是让 Session 在后台**继续运行**,同时让当前终端回到普通终端界面
+
+#### 使用快捷键脱离
+
+- `前缀键 + d`
+
+执行后发生的事：
+
+- 当前客户端与 Session **在显示上**断开连接
+- Session 内的进程**继续运行**
+- 你回到普通终端界面
+
+#### 使用命令脱离
+
+```bash
+tmux detach-client
+```
+
+------
+
+### 在多个 Session 之间切换
+
+#### 打开 Session 列表并选择
+
+- `前缀键 + s`
+
+执行后发生的事：
+
+- 显示 Session 选择界面
+- 你可以用方向键选择目标 Session
+- 按回车进入目标 Session
+
+#### 切到上一个或下一个 Session
+
+- `前缀键 + (`
+- `前缀键 + )`
+
+------
+
+### 重命名 Session
+
+#### 在 tmux 内部重命名当前 Session
+
+- `前缀键 + $`
+
+执行后发生的事：
+
+- tmux 提示你输入新的 Session 名称
+- 输入完成后当前 Session 名称立即变更
+
+#### 用命令重命名指定 Session
+
+```bash
+tmux rename-session -t dev dev2
+```
+
+执行后发生的事：
+
+- 名为 `dev` 的 Session 改名为 `dev2`
+- 已连接到该 Session 的客户端会**同步**看到新名称
+
+------
+
+### 关闭 Session
+
+关闭 Session 会终止该 Session 内所有 Window 和 Pane
+**其中运行的进程都会被结束**
+
+#### 关闭指定 Session
+
+```bash
+tmux kill-session -t AAA
+```
+
+执行后发生的事：
+
+- `AAA` Session 被销毁
+- 该 Session 内所有进程被结束
+
+#### 关闭当前所在 Session
+
+```bash
+tmux kill-session
+```
+
+执行后发生的事：
+
+- 当前 Session 被销毁
+- 当前客户端会被 tmux 断开或被切换到其他仍存在的 Session
+
+## Window
+
+一个 Session 可以包含多个 Window,在 Session下方显示着不同 Window的标签
+每个 Window 默认占满屏幕显示一个布局，布局里可以继续拆成多个 Pane
+
+### 创建 Window
+
+#### 在当前 Session 新建一个 Window
+
+- `前缀键 + c`
+
+执行后发生的事：
+
+- 在当前 Session 内新增一个 Window
+- tmux 自动切换到新 Window
+- 新 Window 会启动一个默认终端
+
+#### 新建一个带名称的 Window
+
+```bash
+tmux new-window -n server
+```
+
+执行后发生的事：
+
+- 在当前 Session 内新增名为 `server` 的 Window
+- 默认会切换到这个新 Window
+
+#### 在指定 Session 新建一个带名称的 Window
+
+```bash
+tmux new-window -t dev -n server
+```
+
+执行后发生的事：
+
+- 在 `dev` 这个 Session 内新增名为 `server` 的 Window
+- 当前终端是否切换，取决于你是否就在 `dev` 里面
+
+------
+
+### 查看 Window 列表
+
+#### 在 tmux 内打开 Window 列表并选择
+
+- `前缀键 + w`
+
+执行后发生的事：
+
+- 显示 Window 列表与编号
+- 你可以选择目标 Window 并回车切换
+
+#### 只在状态栏查看编号
+
+tmux 状态栏通常会显示像这样 `0:editor 1:server 2:log` 的信息
+数字就是 Window 编号,用于标识窗口
+
+------
+
+### 切换 Window
+
+#### 按编号切换
+
+- `前缀键 + 0`
+- `前缀键 + 1`
+- `前缀键 + 2`
+
+执行后发生的事：
+
+- 立即切换到对应编号的 Window
+
+#### 切换到上一个或下一个 Window
+
+- `前缀键 + p` 切到上一个 Window
+- `前缀键 + n` 切到下一个 Window
+
+#### 切换到上一次访问的 Window
+
+- `前缀键 + l`
+
+这个快捷键可以用来在两个 Window 之间反复横跳
+
+------
+
+### 重命名 Window
+
+#### 用快捷键重命名当前 Window
+
+- `前缀键 + ,`
+
+执行后发生的事：
+
+- tmux 提示你输入新的 Window 名称
+- 当前 Window 名称发生变更
+
+#### 用命令重命名指定 Window
+
+```bash
+tmux rename-window -t 1 server
+```
+
+执行后发生的事：
+
+- 将当前 Session 中编号为 `1` 的 Window 重命名为 `server`
+
+如果你需要指定 Session，可以使用标识符表示
+
+```bash
+tmux rename-window -t dev:1 server
+```
+
+即:重命名 `dev` 下的1号窗口为 `server`
+
+------
+
+### 关闭 Window
+
+关闭 Window 会终止该 Window 内所有 Pane
+**其中运行的进程都会被结束**
+
+#### 关闭当前 Window
+
+- `前缀键 + &`
+
+执行后发生的事：
+
+- 确认后当前 Window 被销毁
+- 该 Window 内所有进程被结束
+
+#### 用命令关闭指定 Window
+
+```bash
+tmux kill-window -t 1
+```
+
+执行后发生的事：
+
+- 关闭当前 Session 中编号为 `1` 的 Window
+- 该 Window 内所有进程被结束
+
+指定特定 Session 中的 Window：
+
+```bash
+tmux kill-window -t dev:1
+```
+
+------
+
+### 移动与重新排序 Window
+
+#### 交换两个 Window 的位置
+
+```bash
+tmux swap-window -s 1 -t 0
+```
+
+执行后发生的事：
+
+- 编号为 `1` 与编号为 `0` 的两个 Window 交换位置
+
+#### 把某个 Window 移动到指定编号
+
+```bash
+tmux move-window -s 3 -t 1
+```
+
+执行后发生的事：
+
+- 将编号为 `3` 的 Window 移动到编号 `1`
+- 原来 `1` 及后续编号会自动调整
+
+指定 Session 的写法：
+
+```bash
+tmux move-window -s dev:3 -t dev:1
+```
+
+------
+
+### 在 Window 创建时运行命令
+
+```bash
+tmux new-window -n init "pip install -r requirements.txt"
+```
+
+执行后发生的事：
+
+- 新建名为 `init` 的 Window
+- 该 Window 启动后直接运行 `pip install -r requirements.txt`
+- 进程会一直占用该 Window 的初始 Pane,直到执行完成
+
+## Pane
+
+tmux 的 Pane 是 Window 内的区域
+一个 Window 可以被切成多个 Pane，每个 Pane 都是独立的 shell 与进程环境
+Pane 的好处在于可以把强关联的命令放在同一屏幕里同时观察与操作(低调的黑客说是)
+
+------
+
+### 创建 Pane
+
+#### 垂直分割
+
+把当前 Pane 切成左右两个 Pane
+
+- `前缀键 + %`
+
+执行后发生的事：
+
+- 当前 Pane 被分成左右两块
+- 光标停留在新创建的 Pane
+
+#### 水平分割
+
+把当前 Pane 切成上下两个 Pane
+
+- `前缀键 + "`
+
+执行后发生的事：
+
+- 当前 Pane 被分成上下两块
+- 光标停留在新创建的 Pane
+
+#### 创建 Pane 并在新 Pane 运行命令
+
+```bash
+tmux split-window -h "命令"
+```
+
+执行后发生的事：
+
+- 在当前 Window 内进行左右分割
+- 新 Pane 启动后立即运行 "命令"
+
+上下分割的写法：
+
+```bash
+tmux split-window -v "命令"
+```
+
+------
+
+### 在 Pane 之间切换
+
+#### 使用方向键切换
+
+- `前缀键 + ↑`
+- `前缀键 + ↓`
+- `前缀键 + ←`
+- `前缀键 + →`
+
+执行后发生的事：
+
+- 焦点切换到相邻方向的 Pane
+
+#### 使用编号快速选择 Pane
+
+- `前缀键 + q`
+
+执行后发生的事：
+
+- tmux 在每个 Pane 上显示短暂编号
+- 你按对应数字即可切到目标 Pane
+
+------
+
+### 调整 Pane 大小
+
+#### 按方向调整尺寸
+
+- `前缀键 + Ctrl + ↑`
+- `前缀键 + Ctrl + ↓`
+- `前缀键 + Ctrl + ←`
+- `前缀键 + Ctrl + →`
+
+执行后发生的事：
+
+- 按方向增加或减少当前 Pane 占用的行列
+- 相邻 Pane 会被挤压或扩展
+
+#### 用命令精确调整
+
+```bash
+tmux resize-pane -L 10
+```
+
+执行后发生的事：
+
+- 当前 Pane 向左扩展 10 列
+
+常用参数：
+
+- `-L` 向左扩展
+- `-R` 向右扩展
+- `-U` 向上扩展
+- `-D` 向下扩展
+
+------
+
+### 关闭 Pane
+
+关闭 Pane 等价于结束该 Pane 内的**终端与进程**
+
+#### 关闭当前 Pane
+
+- `前缀键 + x`
+
+执行后发生的事：
+
+- 当前 Pane 被销毁
+- 当前 Pane 内的进程被结束
+
+------
+
+### 重新布局与最大化显示
+
+#### 在常见布局之间循环切换
+
+- `前缀键 + Space`
+
+#### 临时最大化当前 Pane
+
+- `前缀键 + z`
+
+------
+
+### 移动 Pane 位置
+
+#### 交换当前 Pane 与指定方向的 Pane
+
+- `前缀键 + {` 与左侧 Pane 交换位置
+- `前缀键 + }` 与右侧 Pane 交换位置
+
+------
+
+### 在 Pane 之间复制输出并粘贴
+
+#### 进入复制模式
+
+- `前缀键 + [`
+
+执行后发生的事：
+
+- 进入复制模式
+- 可以滚动查看历史输出
+
+常用操作方式：
+
+- 方向键移动光标
+- 空格开始选择
+- 方向键移动光标扩大选区
+- 回车复制选区到 tmux 缓冲区
+
+#### 粘贴 tmux 缓冲区内容
+
+- `前缀键 + ]`
+
+执行后发生的事：
+
+- 将已复制到tmux缓冲区的内容粘贴到当前 Pane
+
