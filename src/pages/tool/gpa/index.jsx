@@ -93,7 +93,7 @@ export default function GpaTool() {
       const validCredits = Number.isFinite(credits) && credits > 0 ? credits : 0;
 
       let gp = 0;
-      let include = true;
+      let include = row.scoreType === 'percent';
       let note = '';
 
       if (row.scoreType === 'percent') {
@@ -106,10 +106,8 @@ export default function GpaTool() {
           gp = scoreToGp(score);
         }
       } else if (row.scoreType === 'five') {
-        include = false;
         note = '五级制不计入均分';
       } else {
-        include = false;
         note = '二级制不计入均分';
       }
 
