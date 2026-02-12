@@ -1,0 +1,201 @@
+---
+title: Docker
+sidebar_position: 3
+hide_table_of_contents: false
+description: Docker常用指令
+---
+
+## 镜像管理
+
+| 指令 | 说明 |
+|------|------|
+| `docker images` | 列出本地所有镜像 |
+| `docker pull <镜像名>:<标签>` | 拉取镜像 |
+| `docker build -t <镜像名>:<标签> .` | 根据 Dockerfile 构建镜像 |
+| `docker rmi <镜像ID>` | 删除镜像 |
+| `docker tag <镜像名> <新标签>` | 给镜像打标签 |
+| `docker push <镜像名>:<标签>` | 推送镜像到仓库 |
+
+**示例：**
+
+```bash
+# 拉取 nginx 最新版镜像
+docker pull nginx:latest
+
+# 查看本地所有镜像
+docker images
+
+# 基于当前目录的 Dockerfile 构建镜像，命名为 myapp，标签为 v1.0
+docker build -t myapp:v1.0 .
+
+# 给镜像打标签，准备推送到私有仓库
+docker tag myapp:v1.0 registry.example.com/myapp:v1.0
+
+# 推送镜像到仓库
+docker push registry.example.com/myapp:v1.0
+
+# 删除本地镜像
+docker rmi myapp:v1.0
+```
+
+## 容器管理
+
+| 指令 | 说明 |
+|------|------|
+| `docker ps` | 列出正在运行的容器 |
+| `docker ps -a` | 列出所有容器（含已停止） |
+| `docker run -d --name <名称> <镜像>` | 后台运行容器 |
+| `docker run -it <镜像> /bin/bash` | 交互式运行容器 |
+| `docker run -p <主机端口>:<容器端口> <镜像>` | 端口映射运行容器 |
+| `docker run -v <主机路径>:<容器路径> <镜像>` | 挂载卷运行容器 |
+| `docker start <容器ID>` | 启动已停止的容器 |
+| `docker stop <容器ID>` | 停止容器 |
+| `docker restart <容器ID>` | 重启容器 |
+| `docker rm <容器ID>` | 删除容器 |
+| `docker exec -it <容器ID> /bin/bash` | 进入运行中的容器 |
+| `docker logs <容器ID>` | 查看容器日志 |
+| `docker logs -f <容器ID>` | 实时跟踪容器日志 |
+
+**示例：**
+
+```bash
+# 后台运行一个 nginx 容器，将主机 8080 端口映射到容器 80 端口
+docker run -d --name my-nginx -p 8080:80 nginx:latest
+
+# 查看正在运行的容器
+docker ps
+
+# 进入正在运行的容器内部
+docker exec -it my-nginx /bin/bash
+
+# 查看容器实时日志
+docker logs -f my-nginx
+
+# 挂载本地目录到容器中（将本地 ./html 挂载到 nginx 的网页目录）
+docker run -d --name web \
+  -p 8080:80 \
+  -v ./html:/usr/share/nginx/html \
+  nginx:latest
+
+# 停止并删除容器
+docker stop my-nginx
+docker rm my-nginx
+
+# 交互式运行 Ubuntu 容器，退出后自动删除
+docker run -it --rm ubuntu:22.04 /bin/bash
+```
+
+## Docker Compose
+
+| 指令 | 说明 |
+|------|------|
+| `docker compose up -d` | 后台启动所有服务 |
+| `docker compose down` | 停止并移除所有服务 |
+| `docker compose ps` | 查看服务状态 |
+| `docker compose logs` | 查看服务日志 |
+| `docker compose build` | 构建服务 |
+| `docker compose restart` | 重启服务 |
+
+**示例 `docker-compose.yml`：**
+
+```yaml
+# 一个包含 Web 应用和数据库的典型配置
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./html:/usr/share/nginx/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_DATABASE: myapp
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  db-data:
+```
+
+```bash
+# 后台启动所有服务
+docker compose up -d
+
+# 查看各服务运行状态
+docker compose ps
+
+# 查看 web 服务的日志
+docker compose logs web
+
+# 仅重新构建并启动 web 服务
+docker compose up -d --build web
+
+# 停止所有服务并移除容器和网络
+docker compose down
+
+# 停止所有服务并同时删除数据卷（⚠️ 慎用，会丢失数据）
+docker compose down -v
+```
+
+## 网络与数据卷
+
+| 指令 | 说明 |
+|------|------|
+| `docker network ls` | 列出所有网络 |
+| `docker network create <网络名>` | 创建网络 |
+| `docker volume ls` | 列出所有数据卷 |
+| `docker volume create <卷名>` | 创建数据卷 |
+| `docker volume rm <卷名>` | 删除数据卷 |
+
+**示例：**
+
+```bash
+# 创建自定义网络
+docker network create my-network
+
+# 将两个容器加入同一网络，使它们可以互相通信
+docker run -d --name app --network my-network myapp:latest
+docker run -d --name db --network my-network mysql:8.0
+
+# 查看网络详情（可以看到哪些容器连接到了这个网络）
+docker network inspect my-network
+
+# 创建数据卷并挂载到容器
+docker volume create my-data
+docker run -d --name db -v my-data:/var/lib/mysql mysql:8.0
+
+# 查看所有数据卷
+docker volume ls
+
+# 删除不再使用的数据卷
+docker volume rm my-data
+```
+
+## 系统清理
+
+| 指令 | 说明 |
+|------|------|
+| `docker system df` | 查看 Docker 磁盘占用 |
+| `docker system prune` | 清理未使用的容器、网络、镜像 |
+| `docker system prune -a` | 清理所有未使用资源（含未引用镜像） |
+
+**示例：**
+
+```bash
+# 查看 Docker 各类资源的磁盘占用情况
+docker system df
+
+# 清理已停止的容器、未使用的网络和悬空镜像（会提示确认）
+docker system prune
+
+# 清理所有未使用的资源，包括未被任何容器引用的镜像（⚠️ 释放空间较大，慎用）
+docker system prune -a
+
+# 跳过确认直接清理
+docker system prune -a -f
+```
