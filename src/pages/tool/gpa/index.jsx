@@ -126,11 +126,21 @@ export default function GpaTool() {
 
     let totalCredits = 0;
     let totalQualityPoints = 0;
+    let gpaSum = 0;
+    let gpaCount = 0;
+    let weightedGpaSum = 0;
+    let weightedGpaCredits = 0;
 
     normalized.forEach((row) => {
       if (row.include) {
         totalCredits += row.credits;
         totalQualityPoints += row.qualityPoints;
+      }
+      if (row.include && Number.isFinite(row.gp)) {
+        gpaSum += row.gp;
+        gpaCount += 1;
+        weightedGpaSum += row.gp * row.credits;
+        weightedGpaCredits += row.credits;
       }
     });
 
@@ -139,6 +149,8 @@ export default function GpaTool() {
       totalCredits,
       totalQualityPoints,
       average: totalCredits > 0 ? totalQualityPoints / totalCredits : 0,
+      avgScore: gpaCount > 0 ? gpaSum / gpaCount : 0,
+      weightedScore: weightedGpaCredits > 0 ? weightedGpaSum / weightedGpaCredits : 0,
     };
   }, [rows]);
 
@@ -373,33 +385,8 @@ export default function GpaTool() {
         <div style={{display: 'flex', flexWrap: 'wrap', gap: 18}}>
           <div>计入学分: {formatNumber(data.totalCredits, 2)}</div>
           <div>平均 GPA: {data.totalCredits > 0 ? formatNumber(data.average, 3) : '-'}</div>
-        </div>
-      </div>
-
-      <div style={{marginTop: 12}}>
-        <div style={{fontWeight: 650, marginBottom: 6}}>课程 GPA</div>
-        <div style={{display: 'grid', gap: 6}}>
-          {data.rows.map((row) => (
-            <div
-              key={row.id}
-              style={{
-                border: '1px solid var(--ifm-color-emphasis-200)',
-                borderRadius: 10,
-                padding: '8px 10px',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-                gap: 8,
-              }}
-            >
-              <div style={{fontWeight: 600}}>{row.course || `课程${row.id}`}</div>
-              <div style={{display: 'flex', gap: 14, flexWrap: 'wrap', fontSize: '0.9rem'}}>
-                <div>学分: {formatNumber(row.credits, 2)}</div>
-                <div>课程绩点: {formatNumber(row.gp, 3)}</div>
-              </div>
-            </div>
-          ))}
+          <div>算数 GPA: {data.avgScore > 0 ? formatNumber(data.avgScore, 2) : '-'}</div>
+          <div>加权 GPA: {data.weightedScore > 0 ? formatNumber(data.weightedScore, 2) : '-'}</div>
         </div>
       </div>
 
