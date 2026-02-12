@@ -1,6 +1,6 @@
 # Git 备忘清单
 
-本备忘单总结了常用的 [Git](https://git-scm.com/) 命令行指令，以供快速参考。
+本备忘单总结了常用的 [Git](https://git-scm.com/) 命令行指令,以供快速参考。
 
 ---
 
@@ -26,7 +26,7 @@ $ git clone <git_url>
 $ git clone <git_url> 指定目录
 ```
 
-将存储库克隆到指定目录，并指定分支
+将存储库克隆到指定目录,并指定分支
 
 ```shell
 $ git clone <git_url> -b <分支名称> 指定目录
@@ -34,19 +34,19 @@ $ git clone <git_url> -b <分支名称> 指定目录
 
 ### 做出改变
 
-在工作目录中**显示**修改后的文件，为您的下一次提交暂存
+在工作目录中**显示**修改后的文件,为您的下一次提交暂存
 
 ```shell
 $ git status
 ```
 
-暂存文件，准备提交
+暂存文件,准备提交
 
 ```shell
 $ git add [file]
 ```
 
-暂存**所有**更改的文件，准备提交
+暂存**所有**更改的文件,准备提交
 
 ```shell
 $ git add .
@@ -64,7 +64,7 @@ $ git commit -m "commit message"
 $ git commit -am "commit message"
 ```
 
-取消暂存文件，保留文件更改
+取消暂存文件,保留文件更改
 
 ```shell
 $ git reset [file]
@@ -140,13 +140,13 @@ $ git config --global --unset <entry-name>
 $ git branch
 ```
 
-列出所有分支，本地和远程
+列出所有分支,本地和远程
 
 ```shell
 $ git branch -av
 ```
 
-切换到 `my_branch`，并更新工作目录
+切换到 `my_branch`,并更新工作目录
 
 ```shell
 $ git checkout my_branch
@@ -220,7 +220,7 @@ $ git log
 $ git log branchB..branchA
 ```
 
-显示更改文件的提交，即使跨重命名
+显示更改文件的提交,即使跨重命名
 
 ```shell
 $ git log --follow [file]
@@ -244,18 +244,18 @@ $ git show [SHA]
 
 | 格式| 解释|
 |----|----|
-| 行首 `#` | 全行注释，不支持行尾类注释 *(转义 `\#`)* |
+| 行首 `#` | 全行注释,不支持行尾类注释 *(转义 `\#`)* |
 | 行首 **`!`** | 否定模式 *(转义 `\!`)* |
 | `**` | 匹配任意路径 |
 | `*` | 匹配任意多个字符 |
 | `?` | 匹配任意一个字符 |
 | `doc/**` | 匹配 `doc` 文件夹下的全部内容 |
 | `doc/**/a` | 匹配任意深度路径下的 `a` 文件或文件夹 |
-| `/` | 表示路径分隔符，不区分操作系统 |
-| `/` 结尾 | 仅会匹配文件夹，否则会匹配文件和文件夹 |
+| `/` | 表示路径分隔符,不区分操作系统 |
+| `/` 结尾 | 仅会匹配文件夹,否则会匹配文件和文件夹 |
 | 空行 | 不匹配任何文件 |
-| 行尾空格 | 默认被忽略，可使用`\`进行转义 |
-| 行首空格 | 被正常处理，不会被忽略 |
+| 行尾空格 | 默认被忽略,可使用`\`进行转义 |
+| 行首空格 | 被正常处理,不会被忽略 |
 
 当前 `.gitignore` 文件定义规则的优先级高于上级路径 `.gitignore` 定义规则的优先级；后定义的规则优先级高于前面定义规则的优先级
 
@@ -266,13 +266,13 @@ $ git show [SHA]
 /logs/**
 # 上述几条规则等效
 
-# 忽略 Mac 系统文件，包括任意子路径下的同名文件（夹）
+# 忽略 Mac 系统文件,包括任意子路径下的同名文件（夹）
 .DS_store
 
-# 忽略 node_modules 文件夹，包括任意子路径下的同名文件夹
+# 忽略 node_modules 文件夹,包括任意子路径下的同名文件夹
 node_modules/
 
-# 忽略任意子路径下build、target文件夹，
+# 忽略任意子路径下build、target文件夹,
 # 但不忽略src/main、src/test下的build、target文件夹
 build/
 !**/src/main/**/build/
@@ -380,7 +380,7 @@ $ git rm [file]
 $ git mv [existing-path] [new-path]
 ```
 
-显示所有提交日志，并指示任何移动的路径
+显示所有提交日志,并指示任何移动的路径
 
 ```shell
 $ git log --stat -M
@@ -389,7 +389,7 @@ $ git log --stat -M
 ### .gitattributes
 
 ```ini
-# 设置默认行为，以防人们没有设置 core.autocrlf
+# 设置默认行为,以防人们没有设置 core.autocrlf
 * text=auto
 # 明确声明您希望始终规范化并在结帐时
 # 转换为本机行结尾的文本文件
@@ -468,32 +468,32 @@ pick 6293516 提交 commit 描述内容 3
 #
 # Commands:
 # p, pick = 使用提交
-# r, reword = 使用提交，但编辑提交消息
-# e, edit = 使用提交，但停止修改
-# s, squash = 使用提交，但融合到先前的提交中
-# f, fixup = 像 squash，但丢弃此提交的日志消息
+# r, reword = 使用提交,但编辑提交消息
+# e, edit = 使用提交,但停止修改
+# s, squash = 使用提交,但融合到先前的提交中
+# f, fixup = 像 squash,但丢弃此提交的日志消息
 # x, exec = 使用 shell 运行命令(该行的其余部分)
 # d, drop = 删除提交
 ```
 
-保存并退出，会弹出下面提示
+保存并退出,会弹出下面提示
 
 ```shell
-# 您现在可以修改提交，使用
+# 您现在可以修改提交,使用
 #
 #   git commit --amend
 #
-# 对更改感到满意后，运行
+# 对更改感到满意后,运行
 #
 #   git rebase --continue
 #
-# 1. 通过这条命令进入编辑更改 commit，保存退出
+# 1. 通过这条命令进入编辑更改 commit,保存退出
 $ git commit --amend
-# 2. 保存退出确认修改，继续执行下面命令,
+# 2. 保存退出确认修改,继续执行下面命令,
 $ git rebase --continue
 # 如果修改多条记录反复执行上面两条命令直到完成所有修改
 
-# 最后，确保没有人提交进行推送，最好不要加 -f 强制推送
+# 最后,确保没有人提交进行推送,最好不要加 -f 强制推送
 $ git push -f origin master
 ```
 
@@ -519,13 +519,13 @@ $ git push -f origin HEAD:master
 ```shell
 # 如果有的修改以及加入暂存区的话
 $ git reset --hard
-# 还原所有修改，不会删除新增的文件
+# 还原所有修改,不会删除新增的文件
 $ git checkout .
 # 下面命令会删除新增的文件
 $ git clean -xdf
 ```
 
-### 把 A 分支的某一个 commit，放到 B 分支上
+### 把 A 分支的某一个 commit,放到 B 分支上
 
 ```shell
 # 切换到 B 分支
@@ -540,7 +540,7 @@ $ git cherry-pick <hash-id>
 $ git update-ref -d HEAD
 ```
 
-把所有的改动都重新放回工作区，并**清空所有的 commit**，这样就可以重新提交第一个 `commit` 了
+把所有的改动都重新放回工作区,并**清空所有的 commit**,这样就可以重新提交第一个 `commit` 了
 
 ### 回到远程仓库的状态
 
@@ -548,7 +548,7 @@ $ git update-ref -d HEAD
 $ git fetch --all && git reset --hard origin/master
 ```
 
-抛弃本地所有的修改，回到远程仓库的状态
+抛弃本地所有的修改,回到远程仓库的状态
 
 ### commit 历史中显示 Branch1 有的但是 Branch2 没有 commit
 
@@ -564,13 +564,13 @@ $ git log Branch1 ^Branch2
 $ git clone --bare https://github.com/username/project.git
 ```
 
-- 然后新建一个地址，比如一下
+- 然后新建一个地址,比如一下
 
 ```bash
 $ https://gitee.com/username/newproject.git
 ```
 
-- 进入project.git这个全裸版本库，以镜像推送的方式上传代码到newproject上。
+- 进入project.git这个全裸版本库,以镜像推送的方式上传代码到newproject上。
 
 ```
 $ cd project.git
@@ -578,7 +578,7 @@ $ cd project.git
 $ git push --mirror https://gitee.com/username/newproject.git
 ```
 
-- 使用新地址，直接 Clone 到本地就可以了。
+- 使用新地址,直接 Clone 到本地就可以了。
 
 ```
 $ git clone https://gitee.com/username/newproject.git
@@ -625,7 +625,7 @@ $ git submodule status
 $ git submodule init
 ```
 
-### 切换到父仓库的特定提交，并更新子模块
+### 切换到父仓库的特定提交,并更新子模块
 
 ```bash
 $ cd ..
@@ -706,7 +706,7 @@ $ git checkout tags/<tag_name>
 $ git help config
 ```
 
-获取帮助信息，查看修改个人信息的参数
+获取帮助信息,查看修改个人信息的参数
 
 ### 忽略文件的权限变化
 
@@ -722,7 +722,7 @@ git config core.fileMode false
 $ git config --global core.autocrlf input
 ```
 
-自动转换坑太大，提交到git是自动将换行符转换为 `lf`
+自动转换坑太大,提交到git是自动将换行符转换为 `lf`
 
 ### 获取帮助信息
 
@@ -779,7 +779,7 @@ $ git config --global alias.ci commit
 $ git config --global alias.st status
 ```
 
-配置好后，再输入 `git` 命令的时候就不用再输入一大段了，例如我们要查看状态，只需：
+配置好后,再输入 `git` 命令的时候就不用再输入一大段了,例如我们要查看状态,只需：
 
 ```bash
 $ git st
@@ -794,7 +794,7 @@ $ git st
 $ git config --get core.ignorecase
 # 设置大小写敏感
 $ git config core.ignorecase false
-# 远程有俩相同目录，通过这种方式清除掉，然后提交记录
+# 远程有俩相同目录,通过这种方式清除掉,然后提交记录
 $ git rm -r --cached <目录/文件>
 ```
 
@@ -942,7 +942,7 @@ $ git branch -u origin/mybranch
 git push origin/mybranch -u
 ```
 
-关联之后，`git branch -vv` 就可以展示关联的远程分支名了, 同时推送到远程仓库直接：`git push`，不需要指定远程仓库
+关联之后,`git branch -vv` 就可以展示关联的远程分支名了, 同时推送到远程仓库直接：`git push`,不需要指定远程仓库
 
 ### 查看远程分支和本地分支的对应关系
 
@@ -1010,7 +1010,7 @@ $ git bundle create <file> <branch-name>
 $ git clone repo.bundle <repo-dir> -b <branch-name>
 ```
 
-新建一个分支，分支内容就是上面 `git bundle create` 命令导出的内容
+新建一个分支,分支内容就是上面 `git bundle create` 命令导出的内容
 
 ### 执行 rebase 之前自动 stash
 
@@ -1018,7 +1018,7 @@ $ git clone repo.bundle <repo-dir> -b <branch-name>
 $ git rebase --autostash
 ```
 
-### 从远程仓库根据 ID，拉下某一状态，到本地分支
+### 从远程仓库根据 ID,拉下某一状态,到本地分支
 
 ```bash
 $ git fetch origin pull/<id>/head:<branch-name>
@@ -1042,13 +1042,13 @@ $ git clean -X -f
 $ git status --ignored
 ```
 
-### 新建并切换到新分支上，同时这个分支没有任何 commit
+### 新建并切换到新分支上,同时这个分支没有任何 commit
 
 ```bash
 $ git checkout --orphan <branch-name>
 ```
 
-相当于保存修改，但是重写 commit 历史
+相当于保存修改,但是重写 commit 历史
 
 ### 展示任意分支某一文件的内容
 
@@ -1062,11 +1062,11 @@ $ git show <branch-name>:<file-name>
 $ git clone --depth=1 https://github.com/user/repo.git
 ```
 
-只会 `clone` 最近一次提交，将减少 `clone` 时间
+只会 `clone` 最近一次提交,将减少 `clone` 时间
 
 ### 忽略某个文件的改动
 
-关闭 track 指定文件的改动，也就是 Git 将不会在记录这个文件的改动
+关闭 track 指定文件的改动,也就是 Git 将不会在记录这个文件的改动
 
 ```bash
 git update-index --assume-unchanged path/to/file
@@ -1092,13 +1092,13 @@ git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads
 git reset <file-name>
 ```
 
-不添加参数，默认是 `-mixed`
+不添加参数,默认是 `-mixed`
 
 ### 配置 SSH 协议代理
 
 ```shell
-# 对于使用 git@ 协议的，可以配置 socks5 代理
-# macOS 系统编辑 ~/.ssh/config 文件，添加这几行，设置 github 代理
+# 对于使用 git@ 协议的,可以配置 socks5 代理
+# macOS 系统编辑 ~/.ssh/config 文件,添加这几行,设置 github 代理
 Host github.com
   ProxyCommand nc -X 5 -x 127.0.0.1:1080 %h %p
 ```
@@ -1146,7 +1146,7 @@ git log --format='%aN' | sort -u |\
 
 ### 查看仓库提交者排名
 
-这里是排名前十，也可以更改排名
+这里是排名前十,也可以更改排名
 
 ```bash
 git log --pretty='%aN' | sort | uniq -c | sort -k1 -n -r | head -n 10
@@ -1164,7 +1164,7 @@ git log --oneline | wc -l
 $ git blame <file-name>
 ```
 
-`blame` 的意思为`责怪`，你懂的。
+`blame` 的意思为`责怪`,你懂的。
 
 ### 查看两个星期内的改动
 
@@ -1178,7 +1178,7 @@ $ git whatchanged --since='2 weeks ago'
 $ git log --all --grep='<given-text>'
 ```
 
-通过 grep 查找，given-text: 所需要查找的字段
+通过 grep 查找,given-text: 所需要查找的字段
 
 ### Git 仓库的大小
 
@@ -1207,7 +1207,7 @@ $ git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(obj
 ```
 <type>(<scope>): <short summary>
   │       │             │
-  │       │             └─⫸ 紧凑简短的描述，无需大写，也不需要用句号结尾
+  │       │             └─⫸ 紧凑简短的描述,无需大写,也不需要用句号结尾
   │       │
   │       └─⫸ Commit 范围: animations|bazel|benchpress|common|compiler|compiler-cli|core|
   │                          elements|forms|http|language-service|localize|platform-browser|
@@ -1273,7 +1273,7 @@ $ git apply < path/to/my.patch
 - 若有冲突则**解决**
 
 ```
-# 检查不通过可以自动合入patch不冲突的代码，同时保留冲突部分
+# 检查不通过可以自动合入patch不冲突的代码,同时保留冲突部分
 $ git apply --reject path/to/my.patch
 ```
 
@@ -1284,10 +1284,10 @@ $ git apply --reject path/to/my.patch
 $ git format-patch commit_id -n
 # 创建 300f59991f22826c8478f0c019387c4ca815b085 这个提交的patch
 $ git format-patch commit_id -1
-# 提取当前分支最上面的3次提交，生成补丁
+# 提取当前分支最上面的3次提交,生成补丁
 $ git format-patch -3
 # 发送者可使用 git-send-email 发送 git format-patch 的结果给接收者
-# 接收者保存邮件到文件 email.txt，然后应用补丁创建一个提交，会自动包含作者的信息
+# 接收者保存邮件到文件 email.txt,然后应用补丁创建一个提交,会自动包含作者的信息
 $ git am < email.txt
 ```
 

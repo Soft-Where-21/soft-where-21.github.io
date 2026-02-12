@@ -24,24 +24,24 @@
 
 **Git 是什么？**
 
-简要来说，Git 是一个命令行工具，用来管理文件的版本
+简要来说,Git 是一个命令行工具,用来管理文件的版本
 
 **为什么要使用 Git？**
 
-作为一个软件学院的学生，你是否经常遇到以下几种情况？
+作为一个软件学院的学生,你是否经常遇到以下几种情况？
 
-- 自己想写个小项目，但是代码的迭代非常混乱，经常修一下 Bug 就不知道哪一版代码是正确的了
-- 自己想要回退代码的逻辑，但是之前的代码已经丢失了，无法回退
-- 想要测试一个新的功能是否可以实现，想要备份现有代码
+- 自己想写个小项目,但是代码的迭代非常混乱,经常修一下 Bug 就不知道哪一版代码是正确的了
+- 自己想要回退代码的逻辑,但是之前的代码已经丢失了,无法回退
+- 想要测试一个新的功能是否可以实现,想要备份现有代码
 - 担心自己电脑上的本地文件资源损毁或丢失
-- 在做小组作业的时候，经常和别人的代码修改了同一个文件，导致最后合并代码的时候很混乱
-- 作为小组组长时，组员提交的代码不知道修改了哪些地方，不知道会不会造成冲突
+- 在做小组作业的时候,经常和别人的代码修改了同一个文件,导致最后合并代码的时候很混乱
+- 作为小组组长时,组员提交的代码不知道修改了哪些地方,不知道会不会造成冲突
 
-**这些问题 Git 都可以解决，Git 可以：**
+**这些问题 Git 都可以解决,Git 可以：**
 
-1. 管理本地的项目代码迭代，可以更新、备份、回退代码版本
+1. 管理本地的项目代码迭代,可以更新、备份、回退代码版本
 2. 使用 GitHub 平台远程托管代码
-3. 使用 GitHub 平台与小组成员并行协作，可以记录修改时间、位置、内容
+3. 使用 GitHub 平台与小组成员并行协作,可以记录修改时间、位置、内容
 4. 可以记录完整的开发迭代流程
 
 ---
@@ -50,9 +50,9 @@
 
 ### 安装
 
-1. 首先在 Git 官网下载 installer：[Git - Install](https://git-scm.com/install/)，选择你的操作系统即可下载
+1. 首先在 Git 官网下载 installer：[Git - Install](https://git-scm.com/install/),选择你的操作系统即可下载
 
-2. 安装时，注意在 **Choosing the default editor used by Git** 这一选项选择文本编辑器，这里推荐 Visual Studio Code（话说你不会没有 VS Code 吧），如果你喜欢用 Vim，保持默认就行
+2. 安装时,注意在 **Choosing the default editor used by Git** 这一选项选择文本编辑器,这里推荐 Visual Studio Code（话说你不会没有 VS Code 吧）,如果你喜欢用 Vim,保持默认就行
 
 3. 其他选项保持默认就行
 
@@ -62,20 +62,20 @@
 
 #### 用户名、邮箱和默认分支名
 
-1. 右键桌面或者资源管理器的任意位置，在弹出的菜单中选择打开 Git Bash
+1. 右键桌面或者资源管理器的任意位置,在弹出的菜单中选择打开 Git Bash
 
 2. 执行下面两条指令来配置你的用户名和邮箱
 
    将 `"Your Name"` 和 `"your.email@example.com"` 替换为您自己的信息
 
-   注意 Git Bash 中，复制是 `Ins + Ctrl`，粘贴是 `Ins + Shift`
+   注意 Git Bash 中,复制是 `Ins + Ctrl`,粘贴是 `Ins + Shift`
 
    ```bash
    git config --global user.name "Your Name"
    git config --global user.email "your.email@example.com"
    ```
 
-3. 执行这条命令来设置默认主分支名，一般来说项目都使用 main，但是 Git 的默认名称原本是 master，所以这边要修改
+3. 执行这条命令来设置默认主分支名,一般来说项目都使用 main,但是 Git 的默认名称原本是 master,所以这边要修改
 
    ```bash
    git config --global init.defaultBranch main
@@ -85,7 +85,7 @@
 
 #### 查看当前登录的账户信息
 
-配置完成后，你可能想确认一下当前 Git 到底使用的是哪个账户这在多人共用一台电脑或者切换账号时特别有用
+配置完成后,你可能想确认一下当前 Git 到底使用的是哪个账户这在多人共用一台电脑或者切换账号时特别有用
 
 **查看当前配置的用户名：**
 
@@ -105,27 +105,27 @@ git config --global user.email
 git config --list
 ```
 
-这个命令会列出所有的全局配置，包括用户名、邮箱、默认分支名等等
+这个命令会列出所有的全局配置,包括用户名、邮箱、默认分支名等等
 
 ---
 
 #### 更改已配置的账户
 
-如果你想更换 Git 账户（比如从个人账号切换到小组作业的账号），只需要重新执行配置命令即可：
+如果你想更换 Git 账户（比如从个人账号切换到小组作业的账号）,只需要重新执行配置命令即可：
 
 ```bash
 git config --global user.name "New Name"
 git config --global user.email "new.email@example.com"
 ```
 
-**注意：** `--global` 表示这是全局配置，会影响你电脑上所有的 Git 仓库如果你只想为某个特定仓库更换账户（比如公司项目用公司邮箱，个人项目用个人邮箱），可以去掉 `--global`，在该仓库目录下执行：
+**注意：** `--global` 表示这是全局配置,会影响你电脑上所有的 Git 仓库如果你只想为某个特定仓库更换账户（比如公司项目用公司邮箱,个人项目用个人邮箱）,可以去掉 `--global`,在该仓库目录下执行：
 
 ```bash
 git config user.name "Project Name"
 git config user.email "project.email@example.com"
 ```
 
-这样配置只会影响当前仓库，而不会影响到其他仓库
+这样配置只会影响当前仓库,而不会影响到其他仓库
 
 ---
 
@@ -133,7 +133,7 @@ git config user.email "project.email@example.com"
 
 1. 注册一个 GitHub 账号（如果你还没有的话）
 
-2. 生成一个 SSH 密钥，用于 SSH 连接 GitHub，操作步骤如下：
+2. 生成一个 SSH 密钥,用于 SSH 连接 GitHub,操作步骤如下：
 
    - 生成 SSH 私钥（如果你没有的话）：在 Git Bash 中运行（记得换邮箱地址）
 
@@ -141,9 +141,9 @@ git config user.email "project.email@example.com"
      ssh-keygen -t ed25519 -C "your.email@example.com"
      ```
 
-   - 然后直接一路回车就行（存储到默认位置，并将密码设置为空），如果你想也可以设置密码
+   - 然后直接一路回车就行（存储到默认位置,并将密码设置为空）,如果你想也可以设置密码
 
-3. 添加密钥到 ssh-agent：如果你设置了密码，这个 agent 可以免去重复输入密码
+3. 添加密钥到 ssh-agent：如果你设置了密码,这个 agent 可以免去重复输入密码
 
    ```bash
    # 启动 ssh-agent
@@ -153,20 +153,20 @@ git config user.email "project.email@example.com"
    ssh-add ~/.ssh/id_ed25519
    ```
 
-4. 在 Git Bash 中运行 `cat ~/.ssh/id_ed25519.pub`，选择并复制所有的输出内容，这些内容是 SSH 公钥
+4. 在 Git Bash 中运行 `cat ~/.ssh/id_ed25519.pub`,选择并复制所有的输出内容,这些内容是 SSH 公钥
 
 5. 将 SSH 的公钥添加到 GitHub：
 
    - 登录 GitHub 账户
-   - 点击右上角的个人头像，选择 "Settings"
-   - 在左侧导航栏中，点击 "SSH and GPG keys"
+   - 点击右上角的个人头像,选择 "Settings"
+   - 在左侧导航栏中,点击 "SSH and GPG keys"
    - 点击 "New SSH key" 按钮
-   - 在 Title 字段中，为该密钥输入一个你喜欢的名称
-   - 在 Key 字段中，粘贴您刚刚复制的公钥内容
+   - 在 Title 字段中,为该密钥输入一个你喜欢的名称
+   - 在 Key 字段中,粘贴您刚刚复制的公钥内容
    - 点击 "Add SSH key"
 
-6. 验证 GitHub 与本地的连接：在 Bash 中输入 `ssh -T git@github.com`，可能会产生一个第一次登录某个主机的警告，输入 yes 回车即可如果你看到了 `Hi [your-username]! You've successfully authenticated, but GitHub does not provide shell access.` 就说明你配置成功了，可喜可贺可喜可贺
+6. 验证 GitHub 与本地的连接：在 Bash 中输入 `ssh -T git@github.com`,可能会产生一个第一次登录某个主机的警告,输入 yes 回车即可如果你看到了 `Hi [your-username]! You've successfully authenticated, but GitHub does not provide shell access.` 就说明你配置成功了,可喜可贺可喜可贺
 
-   > **PS. 为什么要 SSH 连接？** 一般来说，远程连接有两个可以选择的协议：HTTP 和 SSH
+   > **PS. 为什么要 SSH 连接？** 一般来说,远程连接有两个可以选择的协议：HTTP 和 SSH
    >
-   > 但是作为一个合格的大学生，相信大家都是有梯子的，这会导致 HTTP 连接需要设置代理，并且关闭梯子之后还要重新设置，十分麻烦但是 SSH 就没有这些顾虑
+   > 但是作为一个合格的大学生,相信大家都是有梯子的,这会导致 HTTP 连接需要设置代理,并且关闭梯子之后还要重新设置,十分麻烦但是 SSH 就没有这些顾虑

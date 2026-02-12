@@ -350,7 +350,7 @@ tmux kill-session
 ## Window
 
 一个 Session 可以包含多个 Window,在 Session下方显示着不同 Window的标签
-每个 Window 默认占满屏幕显示一个布局，布局里可以继续拆成多个 Pane
+每个 Window 默认占满屏幕显示一个布局,布局里可以继续拆成多个 Pane
 
 ### 创建 Window
 
@@ -384,7 +384,7 @@ tmux new-window -t dev -n server
 执行后发生的事：
 
 - 在 `dev` 这个 Session 内新增名为 `server` 的 Window
-- 当前终端是否切换，取决于你是否就在 `dev` 里面
+- 当前终端是否切换,取决于你是否就在 `dev` 里面
 
 ------
 
@@ -452,7 +452,7 @@ tmux rename-window -t 1 server
 
 - 将当前 Session 中编号为 `1` 的 Window 重命名为 `server`
 
-如果你需要指定 Session，可以使用标识符表示
+如果你需要指定 Session,可以使用标识符表示
 
 ```bash
 tmux rename-window -t dev:1 server
@@ -541,7 +541,7 @@ tmux new-window -n init "pip install -r requirements.txt"
 ## Pane
 
 tmux 的 Pane 是 Window 内的区域
-一个 Window 可以被切成多个 Pane，每个 Pane 都是独立的 shell 与进程环境
+一个 Window 可以被切成多个 Pane,每个 Pane 都是独立的 shell 与进程环境
 Pane 的好处在于可以把强关联的命令放在同一屏幕里同时观察与操作(低调的黑客说是)
 
 ------
