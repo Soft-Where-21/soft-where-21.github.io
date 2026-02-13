@@ -5,7 +5,7 @@
       "name": "主席团",
       "color": "#d4a017",
       "members": [
-        { "name": "付宁远", "studentId": "", "role": "主席", "avatar": "" },
+        { "name": "付宁远", "studentId": "23373125", "role": "主席", "avatar": "/avatar/2025-2026/主席团/付宁远.png" },
         { "name": "张腾月", "studentId": "", "role": "主席", "avatar": "" },
         { "name": "杨佳宇轩", "studentId": "22375080", "role": "主席", "avatar": "/avatar/2025-2026/主席团/杨佳宇轩.jpg" }
       ]
@@ -16,7 +16,7 @@
       "members": [
         { "name": "庄耿雄", "studentId": "22374271", "role": "部长", "avatar": "" },
         { "name": "靳远畅", "studentId": "23373279", "role": "副部长", "avatar": "/avatar/2025-2026/学业中心/靳远畅.png" },
-        { "name": "罗睿炫", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "罗睿炫", "studentId": "24371320", "role": "干事", "avatar": "/avatar/2025-2026/学业中心/罗睿炫.png" },
         { "name": "杨小乐", "studentId": "", "role": "干事", "avatar": "" },
         { "name": "刘晋如", "studentId": "", "role": "干事", "avatar": "" },
         { "name": "张弛", "studentId": "", "role": "干事", "avatar": "" },
@@ -67,7 +67,7 @@
         { "name": "陈利雅", "studentId": "23371488", "role": "部长", "avatar": "" },
         { "name": "彭思奇", "studentId": "", "role": "副部长", "avatar": "" },
         { "name": "俞雅雯", "studentId": "", "role": "干事", "avatar": "" },
-        { "name": "孙子涵", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "孙子涵", "studentId": "23241040", "role": "干事", "avatar": "/avatar/2025-2026/志愿权益部/孙子涵.png" },
         { "name": "王岱泽", "studentId": "", "role": "干事", "avatar": "" },
         { "name": "汪嘉豪", "studentId": "", "role": "干事", "avatar": "" },
         { "name": "胡晨越", "studentId": "", "role": "干事", "avatar": "" }
@@ -77,26 +77,26 @@
       "name": "办公室",
       "color": "#ea580c",
       "members": [
-        { "name": "杨心茹", "studentId": "", "role": "部长", "avatar": "" },
+        { "name": "杨心茹", "studentId": "22241098", "role": "部长", "avatar": "" },
         { "name": "赵长杉", "studentId": "", "role": "副部长", "avatar": "" },
         { "name": "汤斯杰", "studentId": "23101078", "role": "干事", "avatar": "" },
         { "name": "汪士超", "studentId": "", "role": "干事", "avatar": "" },
         { "name": "张曹远臻", "studentId": "", "role": "干事", "avatar": "" },
         { "name": "王凯宇", "studentId": "", "role": "干事", "avatar": "" },
-        { "name": "葛雨鑫", "studentId": "", "role": "干事", "avatar": "" }
+        { "name": "葛雨鑫", "studentId": "24376244", "role": "干事", "avatar": "/avatar/2025-2026/办公室/葛雨鑫.png" }
       ]
     },
     {
       "name": "公关部",
       "color": "#dc2626",
       "members": [
-        { "name": "樊可卿", "studentId": "", "role": "部长", "avatar": "" },
+        { "name": "樊可卿", "studentId": "23371339", "role": "部长", "avatar": "/avatar/2025-2026/公关部/樊可卿.png" },
         { "name": "程海尚", "studentId": "", "role": "副部长", "avatar": "" },
         { "name": "潘昊", "studentId": "", "role": "干事", "avatar": "" },
         { "name": "王悠然", "studentId": "", "role": "干事", "avatar": "" },
         { "name": "张壮志", "studentId": "", "role": "干事", "avatar": "" },
-        { "name": "钟其宏", "studentId": "", "role": "干事", "avatar": "" },
-        { "name": "李晓萌", "studentId": "", "role": "干事", "avatar": "" }
+        { "name": "钟其宏", "studentId": "24371086", "role": "干事", "avatar": "" },
+        { "name": "李晓萌", "studentId": "24371422", "role": "干事", "avatar": "" }
       ]
     },
     {
@@ -106,7 +106,7 @@
         { "name": "马浩然", "studentId": "", "role": "部长", "avatar": "" },
         { "name": "张管倩", "studentId": "", "role": "副部长", "avatar": "" },
         { "name": "孙嘉艺", "studentId": "23371095", "role": "副部长", "avatar": "/avatar/2025-2026/宣媒/孙嘉艺.png" },
-        { "name": "吴星宇", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "吴星宇", "studentId": "24373197", "role": "干事", "avatar": "/avatar/2025-2026/宣媒/吴星宇.png" },
         { "name": "余儒耀", "studentId": "", "role": "干事", "avatar": "" },
         { "name": "叶茂然", "studentId": "", "role": "干事", "avatar": "" },
         { "name": "李启扬", "studentId": "24373166", "role": "干事", "avatar": "/avatar/2025-2026/宣媒/李启扬.png" },
