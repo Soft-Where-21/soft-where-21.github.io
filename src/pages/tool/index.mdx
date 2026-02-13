@@ -13,6 +13,8 @@ import TimestampTool from './timestamp';
 import JsonTool from './json';
 import ColorPickerTool from './color-picker';
 import RegexBuilderTool from './regex-builder';
+import GpaTool from './gpa';
+import PostgradTool from './postgrad';
 
 export function ToolPage() {
   const tools = Array.isArray(toolsData?.tools) ? toolsData.tools : [];
@@ -24,6 +26,8 @@ export function ToolPage() {
       json: <JsonTool />,
       'color-picker': <ColorPickerTool />,
       'regex-builder': <RegexBuilderTool />,
+      gpa: <GpaTool />,
+      postgrad: <PostgradTool />,
     }),
     []
   );

@@ -3,17 +3,12 @@
     {
       "id": "timestamp",
       "name": "时间戳转换",
-      "tagline": "Unix 时间戳 ↔ 日期时间"
+      "tagline": "Unix 时间戳 → 日期时间"
     },
     {
       "id": "json",
       "name": "JSON 格式化",
       "tagline": "美化 / 压缩 / 校验 JSON"
-    },
-    {
-      "id": "gpa",
-      "name": "GPA 计算器",
-      "tagline": "计算 GPA / 加权 / 算数"
     },
     {
       "id":"color-picker",
@@ -24,6 +19,17 @@
       "id":"regex-builder",
       "name":"正则表达式生成器",
       "tagline":"关键词转正则 + 实时匹配预览"
+      "tagline": "计算 GPA / 加权 / 算分"
+    },
+    {
+      "id": "gpa",
+      "name": "GPA 计算器",
+      "tagline": "计算 GPA / 加权 / 算数"
+    },
+    {
+      "id": "postgrad",
+      "name": "保研成绩计算器",
+      "tagline": "按模块录入课程成绩"
     }
   ]
 }
