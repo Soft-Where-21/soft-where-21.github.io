@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-常用指令/Git/Git本地版本管理" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Git 本地版本管理 | Soft Where</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://soft-where-21.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://soft-where-21.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://soft-where-21.github.io/docs/常用指令/Git/Git本地版本管理"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Git 本地版本管理 | Soft Where"><meta data-rh="true" name="description" content="---"><meta data-rh="true" property="og:description" content="---"><link data-rh="true" rel="icon" href="/img/爱心软院猫.png"><link data-rh="true" rel="canonical" href="https://soft-where-21.github.io/docs/常用指令/Git/Git本地版本管理"><link data-rh="true" rel="alternate" href="https://soft-where-21.github.io/docs/常用指令/Git/Git本地版本管理" hreflang="en"><link data-rh="true" rel="alternate" href="https://soft-where-21.github.io/docs/常用指令/Git/Git本地版本管理" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"常用指令","item":"https://soft-where-21.github.io/docs/category/常用指令"},{"@type":"ListItem","position":2,"name":"Git 本地版本管理","item":"https://soft-where-21.github.io/docs/常用指令/Git/Git本地版本管理"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Soft Where RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Soft Where Atom Feed"><link rel="stylesheet" href="/assets/css/styles.29eaf481.css">
+<script src="/assets/js/runtime~main.5df3e586.js" defer="defer"></script>
+<script src="/assets/js/main.7669e23e.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/加油软院猫.png"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/加油软院猫.png" alt="软院猫" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/加油软院猫.png" alt="软院猫" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Soft Where</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/intro">资源</a><a class="navbar__item navbar__link" href="/blog">博客</a><a class="navbar__item navbar__link" href="/repo">仓库</a><a class="navbar__item navbar__link" href="/tool">工具</a><a class="navbar__item navbar__link" href="/member">学生会</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Soft-Where-21" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/intro"><span title="资料介绍" class="linkLabel_WmDU">资料介绍</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/contribute"><span title="贡献指南" class="linkLabel_WmDU">贡献指南</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/科研工具"><span title="科研工具" class="linkLabel_WmDU">科研工具</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/docs/category/常用指令"><span title="常用指令" class="categoryLinkLabel_W154">常用指令</span></a><button aria-label="Collapse sidebar category &#x27;常用指令&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/常用指令/OS"><span title="OS" class="linkLabel_WmDU">OS</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/常用指令/docker"><span title="Docker" class="linkLabel_WmDU">Docker</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/docs/常用指令/Git/Git备忘清单"><span title="Git" class="categoryLinkLabel_W154">Git</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/常用指令/Git/Git备忘清单"><span title="Git 备忘清单" class="linkLabel_WmDU">Git 备忘清单</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/常用指令/Git/Git安装与配置"><span title="Git 安装与配置" class="linkLabel_WmDU">Git 安装与配置</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/常用指令/Git/Git本地版本管理"><span title="Git 本地版本管理" class="linkLabel_WmDU">Git 本地版本管理</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/常用指令/Git/Git远程协作指南"><span title="Git 远程协作指南" class="linkLabel_WmDU">Git 远程协作指南</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/常用指令/Tmux/Tmux使用教程"><span title="Tmux" class="categoryLinkLabel_W154">Tmux</span></a></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/category/培养方案"><span title="培养方案" class="categoryLinkLabel_W154">培养方案</span></a><button aria-label="Expand sidebar category &#x27;培养方案&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/BUAA工具"><span title="BUAA工具" class="linkLabel_WmDU">BUAA工具</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/category/校园地图"><span title="校园地图" class="categoryLinkLabel_W154">校园地图</span></a><button aria-label="Expand sidebar category &#x27;校园地图&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/北航校历"><span title="北航校历" class="linkLabel_WmDU">北航校历</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/docs/category/常用指令"><span>常用指令</span></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Git</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Git 本地版本管理</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Git 本地版本管理</h1></header>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="指令速览">指令速览<a href="#指令速览" class="hash-link" aria-label="Direct link to 指令速览" title="Direct link to 指令速览" translate="no">​</a></h2>
+<table><thead><tr><th>指令</th><th>作用</th></tr></thead><tbody><tr><td><code>git init</code></td><td>初始化本地 Git 仓库</td></tr><tr><td><code>git status</code></td><td>查看文件状态</td></tr><tr><td><code>git add 文件名</code></td><td>将指定文件添加到暂存区</td></tr><tr><td><code>git add .</code></td><td>将所有修改添加到暂存区</td></tr><tr><td><code>git commit -m &quot;提交信息&quot;</code></td><td>将暂存区更改提交到版本库</td></tr><tr><td><code>git commit</code></td><td>打开编辑器编写详细提交信息</td></tr><tr><td><code>git log</code></td><td>查看提交历史</td></tr><tr><td><code>git log --oneline</code></td><td>简洁查看提交历史</td></tr><tr><td><code>git log --graph --all</code></td><td>图形化查看所有分支历史</td></tr><tr><td><code>git reset --soft 哈希值</code></td><td>软回退,只回退版本库</td></tr><tr><td><code>git reset --mixed 哈希值</code></td><td>混合回退（默认）,回退版本库和暂存区</td></tr><tr><td><code>git reset --hard 哈希值</code></td><td>硬回退,回退版本库、暂存区和工作区</td></tr><tr><td><code>git reset HEAD~n</code></td><td>回退到当前版本前第 n 个版本</td></tr><tr><td><code>git restore 文件名</code></td><td>撤销工作区对文件的修改</td></tr><tr><td><code>git revert 哈希值</code></td><td>创建新提交撤销指定提交的更改</td></tr><tr><td><code>git rm --cached -r 路径</code></td><td>将文件从暂存区移除（保留工作区文件）</td></tr></tbody></table>
+<hr>
+<p>本栏目将介绍如何使用 Git 在本地管理项目并管理本地的代码版本迭代</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="初始化项目">初始化项目<a href="#初始化项目" class="hash-link" aria-label="Direct link to 初始化项目" title="Direct link to 初始化项目" translate="no">​</a></h2>
+<ol>
+<li class="">
+<p>首先你要创建一个本地的项目文件夹</p>
+</li>
+<li class="">
+<p>在文件夹中右击打开菜单并点击打开 Git Bash,输入 <code>git init</code></p>
+</li>
+<li class="">
+<p>Git 会在本地创建一个 <code>.git</code> 文件夹用于存储版本管理信息</p>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="git-本地仓库结构">Git 本地仓库结构<a href="#git-本地仓库结构" class="hash-link" aria-label="Direct link to Git 本地仓库结构" title="Direct link to Git 本地仓库结构" translate="no">​</a></h2>
+<p>在使用 Git 时,我们要明白在本地的三个工作区域的关系：</p>
+<ol>
+<li class="">
+<p><strong>工作区</strong>：你实际编码与工作的区域,这个区域就是项目文件夹下除了 <code>.git</code> 文件夹之外的所有区域</p>
+</li>
+<li class="">
+<p><strong>暂存区</strong>：这个区域存储了你使用 <code>git add</code> 添加的文件的信息,用于下一次 commit 使用</p>
+<p>（不明白 add 和 commit？之后会详细介绍）</p>
+</li>
+<li class="">
+<p><strong>版本库</strong>：存储了所有的代码历史版本（即每次 commit 提交的版本）,其中有一个 <strong>HEAD 指针</strong> 来标识现在的版本</p>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="git-本地管理的基本工作流程">Git 本地管理的基本工作流程<a href="#git-本地管理的基本工作流程" class="hash-link" aria-label="Direct link to Git 本地管理的基本工作流程" title="Direct link to Git 本地管理的基本工作流程" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>在<strong>工作区</strong>中修改（这里的修改是广义上的修改,包括删除、新建、修改）文件</p>
+</li>
+<li class="">
+<p>使用 <code>git add</code> 添加改动到<strong>暂存区</strong></p>
+</li>
+<li class="">
+<p>使用 <code>git commit</code> 生成新的代码版本到<strong>版本库</strong></p>
+</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="工作流的具体介绍">工作流的具体介绍<a href="#工作流的具体介绍" class="hash-link" aria-label="Direct link to 工作流的具体介绍" title="Direct link to 工作流的具体介绍" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="git-status检查文件状态"><code>git status</code>：检查文件状态<a href="#git-status检查文件状态" class="hash-link" aria-label="Direct link to git-status检查文件状态" title="Direct link to git-status检查文件状态" translate="no">​</a></h3>
+<p>在一个初始化完成的仓库的 Bash 中使用 <code>git status</code> 可以查看文件的状态</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="git-add将文件的更改从工作区提交到暂存区"><code>git add</code>：将文件的更改从工作区提交到暂存区<a href="#git-add将文件的更改从工作区提交到暂存区" class="hash-link" aria-label="Direct link to git-add将文件的更改从工作区提交到暂存区" title="Direct link to git-add将文件的更改从工作区提交到暂存区" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>在你的 Git 仓库中新建一个文件,比如说 <code>README.md</code>,然后运行 <code>git status</code>,你会发现输出显示 <code>README.md</code> 显示在 &quot;Untracked files&quot; 这一标签之下,说明 Git 已经检测到了这个新的文件,但是没有将这个文件列入到 Git 的版本控制中</p>
+</li>
+<li class="">
+<p>运行 <code>git add README.md</code>,然后再运行 <code>git status</code>,你会发现这个 <code>README.md</code> 显示在 &quot;Changes to be committed&quot; 这一标签之下,说明这个文件的新建已经被 add 指令列入到 Git 的<strong>暂存区</strong>,等待下一次版本提交</p>
+</li>
+<li class="">
+<p>一般地,<code>git add .</code> 可以将所有的存在于工作区中的文件修改添加到暂存区</p>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="git-commit将暂存区的所有更改记录合成为一个版本并记录到版本库"><code>git commit</code>：将暂存区的所有更改记录合成为一个版本并记录到版本库<a href="#git-commit将暂存区的所有更改记录合成为一个版本并记录到版本库" class="hash-link" aria-label="Direct link to git-commit将暂存区的所有更改记录合成为一个版本并记录到版本库" title="Direct link to git-commit将暂存区的所有更改记录合成为一个版本并记录到版本库" translate="no">​</a></h3>
+<p>我们在之前的操作之后运行 <code>git commit -m &quot;add README.md&quot;</code>,然后运行 <code>git status</code>,你会发现输出显示 &quot;nothing to commit, working tree clean&quot;,这说明暂存区中的所有提交都被合成了一个新的版本,并存储到了版本库中</p>
+<p><strong><code>git commit</code> 的使用：</strong></p>
+<ul>
+<li class="">
+<p><code>git commit</code> 不带参数执行时,会打开一个你选择的文本编辑器的窗口,里面的文本用于说明这次版本更新做了什么（这个文本编辑器是在安装时 <strong>Choosing the default editor used by Git</strong> 这边设置的,如果你忘记了设置为 VS Code,Git 就会使用默认的 Vim,你可能会发现 Vim 退不出来,这时候输入 <code>:wq</code> 再回车就行）</p>
+</li>
+<li class="">
+<p><code>-m</code> 参数用于直接在命令行中书写提示信息,就像之前那个示例指令一样,附加一个字符串即可</p>
+</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="历史检查和版本回退">历史检查和版本回退<a href="#历史检查和版本回退" class="hash-link" aria-label="Direct link to 历史检查和版本回退" title="Direct link to 历史检查和版本回退" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="git-log查看提交历史"><code>git log</code>：查看提交历史<a href="#git-log查看提交历史" class="hash-link" aria-label="Direct link to git-log查看提交历史" title="Direct link to git-log查看提交历史" translate="no">​</a></h3>
+<p>用于按时间倒序显示版本库中的版本</p>
+<p><strong>基本用法：</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">git log</span><br></span></code></pre></div></div>
+<p>输出包含每个提交的哈希值、作者、日期和完整的提交信息</p>
+<p><strong>注意这个哈希值,这个哈希值是这个版本的标识,在之后的版本回退中有用处</strong></p>
+<p><strong>常用参数：</strong></p>
+<ul>
+<li class=""><code>--oneline</code>：将每个提交压缩到一行显示,只包含 SHA-1 值的前几位和提交主题</li>
+<li class=""><code>--graph</code>：在输出的左侧以 ASCII 图形的方式展示分支与合并历史</li>
+<li class=""><code>--all</code>：显示所有分支的历史,而不仅仅是当前分支</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="git-reset回退到某个版本"><code>git reset</code>：回退到某个版本<a href="#git-reset回退到某个版本" class="hash-link" aria-label="Direct link to git-reset回退到某个版本" title="Direct link to git-reset回退到某个版本" translate="no">​</a></h3>
+<blockquote>
+<p><strong>注意：对于已经推送到公共/共享仓库的提交,应避免使用 <code>git reset</code>,因为它会给协作者带来麻烦</strong></p>
+<p>当然我们现在正在介绍<strong>本地版本</strong>管理工作流,在本地你可以随便使用 <code>git reset</code>（前提是你知道你在做什么）</p>
+</blockquote>
+<p><code>git reset</code> 有三种主要模式：</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="--soft仅移动-head-指针到指定的提交暂存区和工作区的内容保持不变"><code>--soft</code>：仅移动 HEAD 指针到指定的提交,暂存区和工作区的内容保持不变<a href="#--soft仅移动-head-指针到指定的提交暂存区和工作区的内容保持不变" class="hash-link" aria-label="Direct link to --soft仅移动-head-指针到指定的提交暂存区和工作区的内容保持不变" title="Direct link to --soft仅移动-head-指针到指定的提交暂存区和工作区的内容保持不变" translate="no">​</a></h4>
+<p>即：只回退了<strong>版本库</strong>中的版本,但是<strong>工作区</strong>和<strong>暂存区</strong>保持原样</p>
+<p>常用于<strong>取消这次的 commit</strong></p>
+<p>（比如说误提交版本或者想和之后的更新一起提交版本）</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">git reset --soft 版本哈希值（使用 git log 获取,一般来说前 6 位即可）</span><br></span></code></pre></div></div>
+<hr>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="--mixed默认模式移动-head-指针并用指定提交的内容重置暂存区工作区的内容保持不变"><code>--mixed</code>（默认模式）：移动 HEAD 指针,并用指定提交的内容重置暂存区,工作区的内容保持不变<a href="#--mixed默认模式移动-head-指针并用指定提交的内容重置暂存区工作区的内容保持不变" class="hash-link" aria-label="Direct link to --mixed默认模式移动-head-指针并用指定提交的内容重置暂存区工作区的内容保持不变" title="Direct link to --mixed默认模式移动-head-指针并用指定提交的内容重置暂存区工作区的内容保持不变" translate="no">​</a></h4>
+<p>即：只回退了<strong>版本库</strong>和<strong>暂存区</strong>（相当于清空了暂存区,因为每次提交版本之后暂存区都是空的）中的内容,但是<strong>工作区</strong>保持原样</p>
+<p>常用于<strong>取消这次的 commit 和 add</strong></p>
+<p>（比如说想把一次提交拆分为多个 add 并提交,或者失误将不应该放入暂存区的文件给 add 了）</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">git reset --mixed 版本哈希值</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 或者简写为</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">git reset 版本哈希值</span><br></span></code></pre></div></div>
+<hr>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="--hard移动-head-指针并用指定提交的内容重置暂存区和工作区"><code>--hard</code>：移动 HEAD 指针,并用指定提交的内容重置暂存区和工作区<a href="#--hard移动-head-指针并用指定提交的内容重置暂存区和工作区" class="hash-link" aria-label="Direct link to --hard移动-head-指针并用指定提交的内容重置暂存区和工作区" title="Direct link to --hard移动-head-指针并用指定提交的内容重置暂存区和工作区" translate="no">​</a></h4>
+<p>即：相当于将<strong>所有东西</strong>都回退到了目标版本,丢弃了目标版本到现在的所有更改</p>
+<p><strong>常用于回退代码到历史版本,特别好用！</strong></p>
+<p>（比如说你现在想要做一个新功能或者 debug,但是担心 AI 把你的代码改的一团糟,你可以先暂存一个目前的版本,然后如果 debug 失败,你的代码变成一坨了,你可以使用 <code>reset --hard</code> 回溯时间（笑））</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">git reset --hard 版本哈希值</span><br></span></code></pre></div></div>
+<p>版本哈希值也可以替换成 <code>HEAD~n</code>,用于回退到当前版本之前的第 n 个版本比如说 <code>git reset HEAD~1</code> 就是将<strong>版本库和暂存区</strong>回到<strong>最后一次提交的上一个提交</strong></p>
+<p>特别的,<code>HEAD</code> 表示最后一个版本,比如说 <code>git reset --hard HEAD</code> 就是抛弃<strong>工作区</strong>的所有更改,回到<strong>最后一个提交的版本</strong></p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="git-restore撤销工作区修改"><code>git restore</code>：撤销工作区修改<a href="#git-restore撤销工作区修改" class="hash-link" aria-label="Direct link to git-restore撤销工作区修改" title="Direct link to git-restore撤销工作区修改" translate="no">​</a></h3>
+<p>如果您只是想撤销在工作区对某个文件所做的、但<strong>尚未暂存</strong>的修改,可以使用 <code>git restore</code></p>
+<p>即：仅更改<strong>工作区</strong>文件,但是不更改<strong>暂存区</strong>与<strong>版本库</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">git restore README.md</span><br></span></code></pre></div></div>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="git-revert创建一个新的提交以撤销指定提交"><code>git revert</code>：创建一个新的提交以撤销指定提交<a href="#git-revert创建一个新的提交以撤销指定提交" class="hash-link" aria-label="Direct link to git-revert创建一个新的提交以撤销指定提交" title="Direct link to git-revert创建一个新的提交以撤销指定提交" translate="no">​</a></h3>
+<p>与 <code>git reset</code> 不同,<code>git revert</code> 通过创建一个全新的提交来撤销某个历史提交的变更这个新提交的内容与被撤销的提交内容正好相反</p>
+<p><strong>优点：</strong> 它不会改变项目历史,是一种<strong>安全</strong>的撤销方式,特别适用于已经推送到共享仓库的提交</p>
+<p><strong>用法：</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">git revert 版本哈希值</span><br></span></code></pre></div></div>
+<p>执行后,Git 会打开文本编辑器,让您为这次 revert 操作编写提交信息,然后创建一个新的提交</p>
+<p><strong>特别注意一下 reset 和 revert 的区别！</strong></p>
+<p>reset 是 <strong>&quot;回退&quot;</strong>,而 revert 是 <strong>&quot;撤销&quot;</strong> <strong>回退就是回溯项目的历史到了目标版本,而撤销只撤销目标版本的更改</strong></p>
+<p>例如：<code>git reset --hard HEAD~2</code> 会将你的版本回退到 <code>HEAD~2</code></p>
+<p>而 <code>git revert HEAD~2</code> 仅仅<strong>只会撤回</strong> <code>HEAD~2</code> 所做的更改！之后的 <code>HEAD~1</code> 和 <code>HEAD</code> 所做的更改<strong>仍然是保留的</strong>！</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="文件忽略机制">文件忽略机制<a href="#文件忽略机制" class="hash-link" aria-label="Direct link to 文件忽略机制" title="Direct link to 文件忽略机制" translate="no">​</a></h2>
+<p>通常来说,下列文件不应该被列入版本管理之中,比如说：</p>
+<ul>
+<li class="">编译产物（如 <code>.dll</code>, <code>.exe</code>）</li>
+<li class="">日志文件（<code>.log</code>）</li>
+<li class="">依赖包目录（如 <code>node_modules</code>）</li>
+<li class="">包含敏感信息的配置文件</li>
+<li class="">操作系统或编辑器生成的临时文件（如 <code>.DS_Store</code>）</li>
+</ul>
+<p>此时,在仓库根目录下创建一个 <code>.gitignore</code> 文件,即可告诉 Git 忽略这些文件<code>.gitignore</code> 的语法规则如下：</p>
+<ul>
+<li class="">以 <code>#</code> 开头的行看作注释</li>
+<li class="">可以使用标准的 glob 模式（简化版的正则表达式）</li>
+<li class=""><code>*</code> 匹配零个或多个字符</li>
+<li class=""><code>?</code> 匹配一个字符</li>
+<li class=""><code>/</code> 在模式末尾表示这是一个目录</li>
+<li class=""><code>/</code> 在模式开头表示从项目根目录开始匹配</li>
+<li class=""><code>!</code> 在模式开头表示取反（即使之前被其他规则忽略,也不忽略此模式匹配的文件）</li>
+</ul>
+<p><strong>例如：</strong></p>
+<div class="language-gitignore codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-gitignore codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># 忽略所有 .log 文件</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">*.log</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 忽略 build 目录下的所有内容</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">/build/</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 忽略 node_modules 目录</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">node_modules/</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 不忽略 example.log</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">!example.log</span><br></span></code></pre></div></div>
+<p><strong>注意！</strong> <code>.gitignore</code> 只能对目前还没有 add 的文件起作用如果你不想添加的文件已经被添加到了暂存区,此时要先使用 <code>git rm --cached -r path</code>（其中 path 可以是文件路径或者目录路径）来将添加的文件从暂存区（也就是 cache）中移除</p>
+<p>然后再在有 <code>.gitignore</code> 的工作区中运行 <code>git add .</code>,这样才可以忽略目标文件</p>
+<p><strong>注意！</strong> 一定要写 <code>--cached</code>,不然这个目标文件会在<strong>工作区</strong>,也就是你的本地目录中被删除</p>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>什么,你需要一个 .gitignore模板?为什么不试试<a href="https://www.toptal.com/developers/gitignore/" target="_blank" rel="noopener noreferrer" class="">gitignore.io</a>呢
+你可以在这个网站中输入你需要使用gitignore的仓库的语言,然后这个网站就会生成一份对应的gitignore模板
+此外,github在新建仓库时也可以使用<strong>Add gitignore</strong>在仓库中添加模板</p></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/常用指令/Git/Git安装与配置"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Git 安装与配置</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/常用指令/Git/Git远程协作指南"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Git 远程协作指南</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#指令速览" class="table-of-contents__link toc-highlight">指令速览</a></li><li><a href="#初始化项目" class="table-of-contents__link toc-highlight">初始化项目</a></li><li><a href="#git-本地仓库结构" class="table-of-contents__link toc-highlight">Git 本地仓库结构</a></li><li><a href="#git-本地管理的基本工作流程" class="table-of-contents__link toc-highlight">Git 本地管理的基本工作流程</a></li><li><a href="#工作流的具体介绍" class="table-of-contents__link toc-highlight">工作流的具体介绍</a><ul><li><a href="#git-status检查文件状态" class="table-of-contents__link toc-highlight"><code>git status</code>：检查文件状态</a></li><li><a href="#git-add将文件的更改从工作区提交到暂存区" class="table-of-contents__link toc-highlight"><code>git add</code>：将文件的更改从工作区提交到暂存区</a></li><li><a href="#git-commit将暂存区的所有更改记录合成为一个版本并记录到版本库" class="table-of-contents__link toc-highlight"><code>git commit</code>：将暂存区的所有更改记录合成为一个版本并记录到版本库</a></li></ul></li><li><a href="#历史检查和版本回退" class="table-of-contents__link toc-highlight">历史检查和版本回退</a><ul><li><a href="#git-log查看提交历史" class="table-of-contents__link toc-highlight"><code>git log</code>：查看提交历史</a></li><li><a href="#git-reset回退到某个版本" class="table-of-contents__link toc-highlight"><code>git reset</code>：回退到某个版本</a></li><li><a href="#git-restore撤销工作区修改" class="table-of-contents__link toc-highlight"><code>git restore</code>：撤销工作区修改</a></li><li><a href="#git-revert创建一个新的提交以撤销指定提交" class="table-of-contents__link toc-highlight"><code>git revert</code>：创建一个新的提交以撤销指定提交</a></li></ul></li><li><a href="#文件忽略机制" class="table-of-contents__link toc-highlight">文件忽略机制</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Soft Where, Inc. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

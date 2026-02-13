@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-常用指令/Tmux/Tmux使用教程" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Tmux 使用教程 | Soft Where</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://soft-where-21.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://soft-where-21.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://soft-where-21.github.io/docs/常用指令/Tmux/Tmux使用教程"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Tmux 使用教程 | Soft Where"><meta data-rh="true" name="description" content="常用指令速查"><meta data-rh="true" property="og:description" content="常用指令速查"><link data-rh="true" rel="icon" href="/img/爱心软院猫.png"><link data-rh="true" rel="canonical" href="https://soft-where-21.github.io/docs/常用指令/Tmux/Tmux使用教程"><link data-rh="true" rel="alternate" href="https://soft-where-21.github.io/docs/常用指令/Tmux/Tmux使用教程" hreflang="en"><link data-rh="true" rel="alternate" href="https://soft-where-21.github.io/docs/常用指令/Tmux/Tmux使用教程" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"常用指令","item":"https://soft-where-21.github.io/docs/category/常用指令"},{"@type":"ListItem","position":2,"name":"Tmux 使用教程","item":"https://soft-where-21.github.io/docs/常用指令/Tmux/Tmux使用教程"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Soft Where RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Soft Where Atom Feed"><link rel="stylesheet" href="/assets/css/styles.29eaf481.css">
+<script src="/assets/js/runtime~main.5df3e586.js" defer="defer"></script>
+<script src="/assets/js/main.7669e23e.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/加油软院猫.png"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/加油软院猫.png" alt="软院猫" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/加油软院猫.png" alt="软院猫" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Soft Where</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/intro">资源</a><a class="navbar__item navbar__link" href="/blog">博客</a><a class="navbar__item navbar__link" href="/repo">仓库</a><a class="navbar__item navbar__link" href="/tool">工具</a><a class="navbar__item navbar__link" href="/member">学生会</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Soft-Where-21" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/intro"><span title="资料介绍" class="linkLabel_WmDU">资料介绍</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/contribute"><span title="贡献指南" class="linkLabel_WmDU">贡献指南</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/科研工具"><span title="科研工具" class="linkLabel_WmDU">科研工具</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/docs/category/常用指令"><span title="常用指令" class="categoryLinkLabel_W154">常用指令</span></a><button aria-label="Collapse sidebar category &#x27;常用指令&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/常用指令/OS"><span title="OS" class="linkLabel_WmDU">OS</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/常用指令/docker"><span title="Docker" class="linkLabel_WmDU">Docker</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/常用指令/Git/Git备忘清单"><span title="Git" class="categoryLinkLabel_W154">Git</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/docs/常用指令/Tmux/Tmux使用教程"><span title="Tmux" class="categoryLinkLabel_W154">Tmux</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/常用指令/Tmux/Tmux使用教程"><span title="Tmux 使用教程" class="linkLabel_WmDU">Tmux 使用教程</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/常用指令/Tmux/Tmux安装与配置"><span title="tmux 安装与配置" class="linkLabel_WmDU">tmux 安装与配置</span></a></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/category/培养方案"><span title="培养方案" class="categoryLinkLabel_W154">培养方案</span></a><button aria-label="Expand sidebar category &#x27;培养方案&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/BUAA工具"><span title="BUAA工具" class="linkLabel_WmDU">BUAA工具</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/category/校园地图"><span title="校园地图" class="categoryLinkLabel_W154">校园地图</span></a><button aria-label="Expand sidebar category &#x27;校园地图&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/北航校历"><span title="北航校历" class="linkLabel_WmDU">北航校历</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/docs/category/常用指令"><span>常用指令</span></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Tmux</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Tmux 使用教程</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Tmux 使用教程</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="常用指令速查">常用指令速查<a href="#常用指令速查" class="hash-link" aria-label="Direct link to 常用指令速查" title="Direct link to 常用指令速查" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="server-管理">Server 管理<a href="#server-管理" class="hash-link" aria-label="Direct link to Server 管理" title="Direct link to Server 管理" translate="no">​</a></h3>
+<table><thead><tr><th>指令</th><th>作用</th></tr></thead><tbody><tr><td><code>tmux</code></td><td>启动 Server 并创建无名会话</td></tr><tr><td><code>tmux new-session -s &lt;name&gt;</code></td><td>创建命名会话并进入</td></tr><tr><td><code>tmux new-session -d -s &lt;name&gt;</code></td><td>后台创建命名会话</td></tr><tr><td><code>tmux ls</code></td><td>列出所有会话</td></tr><tr><td><code>tmux kill-server</code></td><td>停止 Server（结束所有会话）</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="session-管理">Session 管理<a href="#session-管理" class="hash-link" aria-label="Direct link to Session 管理" title="Direct link to Session 管理" translate="no">​</a></h3>
+<table><thead><tr><th>指令</th><th>作用</th></tr></thead><tbody><tr><td><code>tmux attach-session -t &lt;name&gt;</code></td><td>进入指定会话</td></tr><tr><td><code>tmux switch-client -t &lt;name&gt;</code></td><td>在 tmux 内切换到另一会话</td></tr><tr><td><code>tmux detach-client</code></td><td>脱离当前会话</td></tr><tr><td><code>tmux rename-session -t &lt;old&gt; &lt;new&gt;</code></td><td>重命名会话</td></tr><tr><td><code>tmux kill-session -t &lt;name&gt;</code></td><td>关闭指定会话</td></tr><tr><td><code>tmux kill-session</code></td><td>关闭当前会话</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="window-管理">Window 管理<a href="#window-管理" class="hash-link" aria-label="Direct link to Window 管理" title="Direct link to Window 管理" translate="no">​</a></h3>
+<table><thead><tr><th>指令</th><th>作用</th></tr></thead><tbody><tr><td><code>tmux new-window -n &lt;name&gt;</code></td><td>当前会话新建命名窗口</td></tr><tr><td><code>tmux new-window -t &lt;session&gt; -n &lt;name&gt;</code></td><td>指定会话新建命名窗口</td></tr><tr><td><code>tmux new-window -n &lt;name&gt; &quot;&lt;cmd&gt;&quot;</code></td><td>新建窗口并执行命令</td></tr><tr><td><code>tmux rename-window -t &lt;num&gt; &lt;name&gt;</code></td><td>重命名窗口</td></tr><tr><td><code>tmux rename-window -t &lt;session&gt;:&lt;num&gt; &lt;name&gt;</code></td><td>重命名指定会话的窗口</td></tr><tr><td><code>tmux kill-window -t &lt;num&gt;</code></td><td>关闭指定窗口</td></tr><tr><td><code>tmux swap-window -s &lt;num1&gt; -t &lt;num2&gt;</code></td><td>交换两个窗口位置</td></tr><tr><td><code>tmux move-window -s &lt;num1&gt; -t &lt;num2&gt;</code></td><td>移动窗口到指定编号</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="pane-管理">Pane 管理<a href="#pane-管理" class="hash-link" aria-label="Direct link to Pane 管理" title="Direct link to Pane 管理" translate="no">​</a></h3>
+<table><thead><tr><th>指令</th><th>作用</th></tr></thead><tbody><tr><td><code>tmux split-window -h &quot;&lt;cmd&gt;&quot;</code></td><td>垂直分割并执行命令</td></tr><tr><td><code>tmux split-window -v &quot;&lt;cmd&gt;&quot;</code></td><td>水平分割并执行命令</td></tr><tr><td><code>tmux resize-pane -L/R/U/D &lt;num&gt;</code></td><td>向指定方向调整大小</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="常用快捷键">常用快捷键<a href="#常用快捷键" class="hash-link" aria-label="Direct link to 常用快捷键" title="Direct link to 常用快捷键" translate="no">​</a></h2>
+<blockquote>
+<p><strong>前缀键</strong>：默认 <code>Ctrl + b</code>（或配置为 <code>Ctrl + a</code>）</p>
+</blockquote>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="session-操作">Session 操作<a href="#session-操作" class="hash-link" aria-label="Direct link to Session 操作" title="Direct link to Session 操作" translate="no">​</a></h3>
+<table><thead><tr><th>快捷键</th><th>作用</th></tr></thead><tbody><tr><td><code>前缀键 + d</code></td><td>脱离当前会话（后台运行）</td></tr><tr><td><code>前缀键 + s</code></td><td>打开会话列表选择</td></tr><tr><td><code>前缀键 + (</code></td><td>切换到上一个会话</td></tr><tr><td><code>前缀键 + )</code></td><td>切换到下一个会话</td></tr><tr><td><code>前缀键 + $</code></td><td>重命名当前会话</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="window-操作">Window 操作<a href="#window-操作" class="hash-link" aria-label="Direct link to Window 操作" title="Direct link to Window 操作" translate="no">​</a></h3>
+<table><thead><tr><th>快捷键</th><th>作用</th></tr></thead><tbody><tr><td><code>前缀键 + c</code></td><td>新建窗口</td></tr><tr><td><code>前缀键 + w</code></td><td>打开窗口列表</td></tr><tr><td><code>前缀键 + 0~9</code></td><td>按编号切换窗口</td></tr><tr><td><code>前缀键 + p</code></td><td>切换到上一个窗口</td></tr><tr><td><code>前缀键 + n</code></td><td>切换到下一个窗口</td></tr><tr><td><code>前缀键 + l</code></td><td>切换到上次访问的窗口</td></tr><tr><td><code>前缀键 + ,</code></td><td>重命名当前窗口</td></tr><tr><td><code>前缀键 + &amp;</code></td><td>关闭当前窗口</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="pane-操作">Pane 操作<a href="#pane-操作" class="hash-link" aria-label="Direct link to Pane 操作" title="Direct link to Pane 操作" translate="no">​</a></h3>
+<table><thead><tr><th>快捷键</th><th>作用</th></tr></thead><tbody><tr><td><code>前缀键 + %</code></td><td>垂直分割（左右）</td></tr><tr><td><code>前缀键 + &quot;</code></td><td>水平分割（上下）</td></tr><tr><td><code>前缀键 + ↑↓←→</code></td><td>按方向切换窗格</td></tr><tr><td><code>前缀键 + q</code></td><td>显示窗格编号快速选择</td></tr><tr><td><code>前缀键 + Ctrl + 方向键</code></td><td>调整窗格大小</td></tr><tr><td><code>前缀键 + x</code></td><td>关闭当前窗格</td></tr><tr><td><code>前缀键 + z</code></td><td>最大化/还原当前窗格</td></tr><tr><td><code>前缀键 + Space</code></td><td>循环切换布局</td></tr><tr><td><code>前缀键 + {</code></td><td>与左侧窗格交换位置</td></tr><tr><td><code>前缀键 + }</code></td><td>与右侧窗格交换位置</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="复制粘贴">复制粘贴<a href="#复制粘贴" class="hash-link" aria-label="Direct link to 复制粘贴" title="Direct link to 复制粘贴" translate="no">​</a></h3>
+<table><thead><tr><th>快捷键</th><th>作用</th></tr></thead><tbody><tr><td><code>前缀键 + [</code></td><td>进入复制模式</td></tr><tr><td><code>前缀键 + ]</code></td><td>粘贴缓冲区内容</td></tr></tbody></table>
+<p><strong>复制模式内操作</strong>：方向键移动 → 空格开始选择 → 方向键调整选区 → 回车确认复制</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="tmux结构">Tmux结构<a href="#tmux结构" class="hash-link" aria-label="Direct link to Tmux结构" title="Direct link to Tmux结构" translate="no">​</a></h2>
+<p>在使用 tmux 之前,必须理解它的结构,tmux 的层级关系是这样的：</p>
+<p><strong>Server -&gt; Session（会话） -&gt; Window（窗口） -&gt; Pane（窗格）</strong></p>
+<p>在命令中可以这样标识:  <code>session:window.pane</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="server">Server<a href="#server" class="hash-link" aria-label="Direct link to Server" title="Direct link to Server" translate="no">​</a></h3>
+<p><strong>Server 是 tmux 的后台管理进程</strong>,它负责维护所有会话与其中的窗口窗格状态</p>
+<p>你可以把它理解为 tmux 的本体：</p>
+<ul>
+<li class="">
+<p>在终端中执行 <code>tmux</code> 或 <code>tmux new-session</code>,本质是在使用Server提供的服务</p>
+</li>
+<li class="">
+<p>如果你关掉一个终端窗口,只要没有停止 Server,你在 tmux 里的布局与进程仍然继续运行</p>
+</li>
+<li class="">
+<p>你可以使用Server创建多个Session</p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="session">Session<a href="#session" class="hash-link" aria-label="Direct link to Session" title="Direct link to Session" translate="no">​</a></h3>
+<p><strong>Session 是一组窗口的集合</strong>,由Server创建</p>
+<p>你可以把 Session 当作一个独立的项目:</p>
+<ul>
+<li class="">可以并行运行多个Session</li>
+<li class="">在一个Session中可以创建多个Window来运行不同的任务</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="window">Window<a href="#window" class="hash-link" aria-label="Direct link to Window" title="Direct link to Window" translate="no">​</a></h3>
+<p><strong>Window 是 Session 内的一页工作区</strong>,由Session创建</p>
+<p>你可以把Window当作是一个项目内的一个任务:</p>
+<ul>
+<li class="">你可以在同一个Session内创建多个Window并快速切换</li>
+<li class="">你可以在Window中创建不同的Pane来执行不同的命令</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="pane">Pane<a href="#pane" class="hash-link" aria-label="Direct link to Pane" title="Direct link to Pane" translate="no">​</a></h3>
+<p><strong>Pane 是 Window 内的分割区域</strong>,每个 Pane 对应一个独立的终端环境</p>
+<p>Pane 是 tmux 真正承载命令执行的最小单位：</p>
+<ul>
+<li class="">一个 Pane 里可以也只能运行一个终端</li>
+<li class="">可以在 Pane 里跑 <code>python</code> <code>node</code> <code>ssh</code> 等命令</li>
+<li class="">Pane 之间相互独立,但共享同一个 Window 的布局管理</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="总而言之">总而言之<a href="#总而言之" class="hash-link" aria-label="Direct link to 总而言之" title="Direct link to 总而言之" translate="no">​</a></h3>
+<p>如果你懒得看上面这么一大串,你理解了这些就行：</p>
+<ul>
+<li class=""><strong>Session 用来分项目</strong></li>
+<li class=""><strong>Window 用来在项目中分任务</strong></li>
+<li class=""><strong>Pane 用来在任务中并行执行命令</strong></li>
+<li class=""><strong>Server 保证它们在终端关闭后仍然存在,并对Session进行管理</strong></li>
+<li class=""><strong>使用 <code>session:window.pane</code> 这样的格式来定位任何一个<code>pane</code></strong></li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="server-1">Server<a href="#server-1" class="hash-link" aria-label="Direct link to Server" title="Direct link to Server" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="启动并创建会话">启动并创建会话<a href="#启动并创建会话" class="hash-link" aria-label="Direct link to 启动并创建会话" title="Direct link to 启动并创建会话" translate="no">​</a></h3>
+<p>tmux 的 Server 不要求手动启动,执行任意会话创建命令时,Server 会自动启动</p>
+<p>可以直接使用 <code>tmux</code>指令创建一个新的会话,但是不推荐这么做,更推荐新建一个有命名的会话:</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="启动并创建一个命名会话并进入">启动并创建一个命名会话并进入<a href="#启动并创建一个命名会话并进入" class="hash-link" aria-label="Direct link to 启动并创建一个命名会话并进入" title="Direct link to 启动并创建一个命名会话并进入" translate="no">​</a></h4>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux new-session -s AAA</span><br></span></code></pre></div></div>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">当前没有 Server 时,tmux 会启动一个 Server</li>
+<li class="">创建名为 <code>AAA</code> 的 Session</li>
+<li class="">终端进入这个 Session</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="只启动并创建会话但不进入">只启动并创建会话但不进入<a href="#只启动并创建会话但不进入" class="hash-link" aria-label="Direct link to 只启动并创建会话但不进入" title="Direct link to 只启动并创建会话但不进入" translate="no">​</a></h4>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux new-session -d -s AAA</span><br></span></code></pre></div></div>
+<p><code>-d</code> 的含义是创建后保持脱离状态,也就是会话在后台运行,但是没有在终端上进入</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="查看-server-当前管理的会话">查看 Server 当前管理的会话<a href="#查看-server-当前管理的会话" class="hash-link" aria-label="Direct link to 查看 Server 当前管理的会话" title="Direct link to 查看 Server 当前管理的会话" translate="no">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux ls</span><br></span></code></pre></div></div>
+<p>你会看到每个 Session 的信息,包含：会话名, 窗口数量, 会话创建时间, 是否有客户端连接</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="停止-server">停止 Server<a href="#停止-server" class="hash-link" aria-label="Direct link to 停止 Server" title="Direct link to 停止 Server" translate="no">​</a></h3>
+<p>停止 Server 等价于终止 tmux 管理的全部会话,停止后所有 Session Window Pane 中运行的进程都会被结束</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux kill-server</span><br></span></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="session-1">Session<a href="#session-1" class="hash-link" aria-label="Direct link to Session" title="Direct link to Session" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="前缀键">前缀键<a href="#前缀键" class="hash-link" aria-label="Direct link to 前缀键" title="Direct link to 前缀键" translate="no">​</a></h3>
+<p>tmux 的大多数快捷键都以<strong>前缀键</strong>开头
+默认前缀键为 <code>Ctrl + b</code>,如果你按照安装与配置中修改了配置文件的话,前缀键就是<code>Ctrl + a</code>
+后续快捷键描述统一为 <code>前缀键 + ...</code></p>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p><strong>PS. 什么是前缀键？</strong>
+tmux 为了避免和系统快捷键冲突,所有的快捷键操作都需要先按一个唤醒键
+Ctrl+a d 的意思是：按住 Ctrl 不放,按一下 b,<strong>全部松开</strong>,再按一下d</p></div></div>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="创建-session">创建 Session<a href="#创建-session" class="hash-link" aria-label="Direct link to 创建 Session" title="Direct link to 创建 Session" translate="no">​</a></h3>
+<p>如前所述</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="启动并创建一个命名-session-并进入">启动并创建一个命名 Session 并进入<a href="#启动并创建一个命名-session-并进入" class="hash-link" aria-label="Direct link to 启动并创建一个命名 Session 并进入" title="Direct link to 启动并创建一个命名 Session 并进入" translate="no">​</a></h4>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux new-session -s AAA</span><br></span></code></pre></div></div>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="只创建-session-但不进入">只创建 Session 但不进入<a href="#只创建-session-但不进入" class="hash-link" aria-label="Direct link to 只创建 Session 但不进入" title="Direct link to 只创建 Session 但不进入" translate="no">​</a></h4>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux new-session -d -s AAA</span><br></span></code></pre></div></div>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="查看已有-session">查看已有 Session<a href="#查看已有-session" class="hash-link" aria-label="Direct link to 查看已有 Session" title="Direct link to 查看已有 Session" translate="no">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux ls</span><br></span></code></pre></div></div>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="进入指定-session">进入指定 Session<a href="#进入指定-session" class="hash-link" aria-label="Direct link to 进入指定 Session" title="Direct link to 进入指定 Session" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="从-tmux-外部直接进入">从 tmux 外部直接进入<a href="#从-tmux-外部直接进入" class="hash-link" aria-label="Direct link to 从 tmux 外部直接进入" title="Direct link to 从 tmux 外部直接进入" translate="no">​</a></h4>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux attach-session -t AAA</span><br></span></code></pre></div></div>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="已在-tmux-内部时切换到另一个-session">已在 tmux 内部时切换到另一个 Session<a href="#已在-tmux-内部时切换到另一个-session" class="hash-link" aria-label="Direct link to 已在 tmux 内部时切换到另一个 Session" title="Direct link to 已在 tmux 内部时切换到另一个 Session" translate="no">​</a></h4>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux switch-client -t dev</span><br></span></code></pre></div></div>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">当前客户端从现在的 Session 切换到目标 Session</li>
+<li class="">原 Session 不会被终止,只是当前客户端<strong>在显示层面离开了它</strong></li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="脱离-session">脱离 Session<a href="#脱离-session" class="hash-link" aria-label="Direct link to 脱离 Session" title="Direct link to 脱离 Session" translate="no">​</a></h3>
+<p>脱离的目标是让 Session 在后台<strong>继续运行</strong>,同时让当前终端回到普通终端界面</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="使用快捷键脱离">使用快捷键脱离<a href="#使用快捷键脱离" class="hash-link" aria-label="Direct link to 使用快捷键脱离" title="Direct link to 使用快捷键脱离" translate="no">​</a></h4>
+<ul>
+<li class=""><code>前缀键 + d</code></li>
+</ul>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">当前客户端与 Session <strong>在显示上</strong>断开连接</li>
+<li class="">Session 内的进程<strong>继续运行</strong></li>
+<li class="">你回到普通终端界面</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="使用命令脱离">使用命令脱离<a href="#使用命令脱离" class="hash-link" aria-label="Direct link to 使用命令脱离" title="Direct link to 使用命令脱离" translate="no">​</a></h4>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux detach-client</span><br></span></code></pre></div></div>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="在多个-session-之间切换">在多个 Session 之间切换<a href="#在多个-session-之间切换" class="hash-link" aria-label="Direct link to 在多个 Session 之间切换" title="Direct link to 在多个 Session 之间切换" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="打开-session-列表并选择">打开 Session 列表并选择<a href="#打开-session-列表并选择" class="hash-link" aria-label="Direct link to 打开 Session 列表并选择" title="Direct link to 打开 Session 列表并选择" translate="no">​</a></h4>
+<ul>
+<li class=""><code>前缀键 + s</code></li>
+</ul>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">显示 Session 选择界面</li>
+<li class="">你可以用方向键选择目标 Session</li>
+<li class="">按回车进入目标 Session</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="切到上一个或下一个-session">切到上一个或下一个 Session<a href="#切到上一个或下一个-session" class="hash-link" aria-label="Direct link to 切到上一个或下一个 Session" title="Direct link to 切到上一个或下一个 Session" translate="no">​</a></h4>
+<ul>
+<li class=""><code>前缀键 + (</code></li>
+<li class=""><code>前缀键 + )</code></li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="重命名-session">重命名 Session<a href="#重命名-session" class="hash-link" aria-label="Direct link to 重命名 Session" title="Direct link to 重命名 Session" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="在-tmux-内部重命名当前-session">在 tmux 内部重命名当前 Session<a href="#在-tmux-内部重命名当前-session" class="hash-link" aria-label="Direct link to 在 tmux 内部重命名当前 Session" title="Direct link to 在 tmux 内部重命名当前 Session" translate="no">​</a></h4>
+<ul>
+<li class=""><code>前缀键 + $</code></li>
+</ul>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">tmux 提示你输入新的 Session 名称</li>
+<li class="">输入完成后当前 Session 名称立即变更</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="用命令重命名指定-session">用命令重命名指定 Session<a href="#用命令重命名指定-session" class="hash-link" aria-label="Direct link to 用命令重命名指定 Session" title="Direct link to 用命令重命名指定 Session" translate="no">​</a></h4>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux rename-session -t dev dev2</span><br></span></code></pre></div></div>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">名为 <code>dev</code> 的 Session 改名为 <code>dev2</code></li>
+<li class="">已连接到该 Session 的客户端会<strong>同步</strong>看到新名称</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="关闭-session">关闭 Session<a href="#关闭-session" class="hash-link" aria-label="Direct link to 关闭 Session" title="Direct link to 关闭 Session" translate="no">​</a></h3>
+<p>关闭 Session 会终止该 Session 内所有 Window 和 Pane
+<strong>其中运行的进程都会被结束</strong></p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="关闭指定-session">关闭指定 Session<a href="#关闭指定-session" class="hash-link" aria-label="Direct link to 关闭指定 Session" title="Direct link to 关闭指定 Session" translate="no">​</a></h4>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux kill-session -t AAA</span><br></span></code></pre></div></div>
+<p>执行后发生的事：</p>
+<ul>
+<li class=""><code>AAA</code> Session 被销毁</li>
+<li class="">该 Session 内所有进程被结束</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="关闭当前所在-session">关闭当前所在 Session<a href="#关闭当前所在-session" class="hash-link" aria-label="Direct link to 关闭当前所在 Session" title="Direct link to 关闭当前所在 Session" translate="no">​</a></h4>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux kill-session</span><br></span></code></pre></div></div>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">当前 Session 被销毁</li>
+<li class="">当前客户端会被 tmux 断开或被切换到其他仍存在的 Session</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="window-1">Window<a href="#window-1" class="hash-link" aria-label="Direct link to Window" title="Direct link to Window" translate="no">​</a></h2>
+<p>一个 Session 可以包含多个 Window,在 Session下方显示着不同 Window的标签
+每个 Window 默认占满屏幕显示一个布局,布局里可以继续拆成多个 Pane</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="创建-window">创建 Window<a href="#创建-window" class="hash-link" aria-label="Direct link to 创建 Window" title="Direct link to 创建 Window" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="在当前-session-新建一个-window">在当前 Session 新建一个 Window<a href="#在当前-session-新建一个-window" class="hash-link" aria-label="Direct link to 在当前 Session 新建一个 Window" title="Direct link to 在当前 Session 新建一个 Window" translate="no">​</a></h4>
+<ul>
+<li class=""><code>前缀键 + c</code></li>
+</ul>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">在当前 Session 内新增一个 Window</li>
+<li class="">tmux 自动切换到新 Window</li>
+<li class="">新 Window 会启动一个默认终端</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="新建一个带名称的-window">新建一个带名称的 Window<a href="#新建一个带名称的-window" class="hash-link" aria-label="Direct link to 新建一个带名称的 Window" title="Direct link to 新建一个带名称的 Window" translate="no">​</a></h4>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux new-window -n server</span><br></span></code></pre></div></div>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">在当前 Session 内新增名为 <code>server</code> 的 Window</li>
+<li class="">默认会切换到这个新 Window</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="在指定-session-新建一个带名称的-window">在指定 Session 新建一个带名称的 Window<a href="#在指定-session-新建一个带名称的-window" class="hash-link" aria-label="Direct link to 在指定 Session 新建一个带名称的 Window" title="Direct link to 在指定 Session 新建一个带名称的 Window" translate="no">​</a></h4>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux new-window -t dev -n server</span><br></span></code></pre></div></div>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">在 <code>dev</code> 这个 Session 内新增名为 <code>server</code> 的 Window</li>
+<li class="">当前终端是否切换,取决于你是否就在 <code>dev</code> 里面</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="查看-window-列表">查看 Window 列表<a href="#查看-window-列表" class="hash-link" aria-label="Direct link to 查看 Window 列表" title="Direct link to 查看 Window 列表" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="在-tmux-内打开-window-列表并选择">在 tmux 内打开 Window 列表并选择<a href="#在-tmux-内打开-window-列表并选择" class="hash-link" aria-label="Direct link to 在 tmux 内打开 Window 列表并选择" title="Direct link to 在 tmux 内打开 Window 列表并选择" translate="no">​</a></h4>
+<ul>
+<li class=""><code>前缀键 + w</code></li>
+</ul>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">显示 Window 列表与编号</li>
+<li class="">你可以选择目标 Window 并回车切换</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="只在状态栏查看编号">只在状态栏查看编号<a href="#只在状态栏查看编号" class="hash-link" aria-label="Direct link to 只在状态栏查看编号" title="Direct link to 只在状态栏查看编号" translate="no">​</a></h4>
+<p>tmux 状态栏通常会显示像这样 <code>0:editor 1:server 2:log</code> 的信息
+数字就是 Window 编号,用于标识窗口</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="切换-window">切换 Window<a href="#切换-window" class="hash-link" aria-label="Direct link to 切换 Window" title="Direct link to 切换 Window" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="按编号切换">按编号切换<a href="#按编号切换" class="hash-link" aria-label="Direct link to 按编号切换" title="Direct link to 按编号切换" translate="no">​</a></h4>
+<ul>
+<li class=""><code>前缀键 + 0</code></li>
+<li class=""><code>前缀键 + 1</code></li>
+<li class=""><code>前缀键 + 2</code></li>
+</ul>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">立即切换到对应编号的 Window</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="切换到上一个或下一个-window">切换到上一个或下一个 Window<a href="#切换到上一个或下一个-window" class="hash-link" aria-label="Direct link to 切换到上一个或下一个 Window" title="Direct link to 切换到上一个或下一个 Window" translate="no">​</a></h4>
+<ul>
+<li class=""><code>前缀键 + p</code> 切到上一个 Window</li>
+<li class=""><code>前缀键 + n</code> 切到下一个 Window</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="切换到上一次访问的-window">切换到上一次访问的 Window<a href="#切换到上一次访问的-window" class="hash-link" aria-label="Direct link to 切换到上一次访问的 Window" title="Direct link to 切换到上一次访问的 Window" translate="no">​</a></h4>
+<ul>
+<li class=""><code>前缀键 + l</code></li>
+</ul>
+<p>这个快捷键可以用来在两个 Window 之间反复横跳</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="重命名-window">重命名 Window<a href="#重命名-window" class="hash-link" aria-label="Direct link to 重命名 Window" title="Direct link to 重命名 Window" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="用快捷键重命名当前-window">用快捷键重命名当前 Window<a href="#用快捷键重命名当前-window" class="hash-link" aria-label="Direct link to 用快捷键重命名当前 Window" title="Direct link to 用快捷键重命名当前 Window" translate="no">​</a></h4>
+<ul>
+<li class=""><code>前缀键 + ,</code></li>
+</ul>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">tmux 提示你输入新的 Window 名称</li>
+<li class="">当前 Window 名称发生变更</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="用命令重命名指定-window">用命令重命名指定 Window<a href="#用命令重命名指定-window" class="hash-link" aria-label="Direct link to 用命令重命名指定 Window" title="Direct link to 用命令重命名指定 Window" translate="no">​</a></h4>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux rename-window -t 1 server</span><br></span></code></pre></div></div>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">将当前 Session 中编号为 <code>1</code> 的 Window 重命名为 <code>server</code></li>
+</ul>
+<p>如果你需要指定 Session,可以使用标识符表示</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux rename-window -t dev:1 server</span><br></span></code></pre></div></div>
+<p>即:重命名 <code>dev</code> 下的1号窗口为 <code>server</code></p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="关闭-window">关闭 Window<a href="#关闭-window" class="hash-link" aria-label="Direct link to 关闭 Window" title="Direct link to 关闭 Window" translate="no">​</a></h3>
+<p>关闭 Window 会终止该 Window 内所有 Pane
+<strong>其中运行的进程都会被结束</strong></p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="关闭当前-window">关闭当前 Window<a href="#关闭当前-window" class="hash-link" aria-label="Direct link to 关闭当前 Window" title="Direct link to 关闭当前 Window" translate="no">​</a></h4>
+<ul>
+<li class=""><code>前缀键 + &amp;</code></li>
+</ul>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">确认后当前 Window 被销毁</li>
+<li class="">该 Window 内所有进程被结束</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="用命令关闭指定-window">用命令关闭指定 Window<a href="#用命令关闭指定-window" class="hash-link" aria-label="Direct link to 用命令关闭指定 Window" title="Direct link to 用命令关闭指定 Window" translate="no">​</a></h4>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux kill-window -t 1</span><br></span></code></pre></div></div>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">关闭当前 Session 中编号为 <code>1</code> 的 Window</li>
+<li class="">该 Window 内所有进程被结束</li>
+</ul>
+<p>指定特定 Session 中的 Window：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux kill-window -t dev:1</span><br></span></code></pre></div></div>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="移动与重新排序-window">移动与重新排序 Window<a href="#移动与重新排序-window" class="hash-link" aria-label="Direct link to 移动与重新排序 Window" title="Direct link to 移动与重新排序 Window" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="交换两个-window-的位置">交换两个 Window 的位置<a href="#交换两个-window-的位置" class="hash-link" aria-label="Direct link to 交换两个 Window 的位置" title="Direct link to 交换两个 Window 的位置" translate="no">​</a></h4>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux swap-window -s 1 -t 0</span><br></span></code></pre></div></div>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">编号为 <code>1</code> 与编号为 <code>0</code> 的两个 Window 交换位置</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="把某个-window-移动到指定编号">把某个 Window 移动到指定编号<a href="#把某个-window-移动到指定编号" class="hash-link" aria-label="Direct link to 把某个 Window 移动到指定编号" title="Direct link to 把某个 Window 移动到指定编号" translate="no">​</a></h4>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux move-window -s 3 -t 1</span><br></span></code></pre></div></div>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">将编号为 <code>3</code> 的 Window 移动到编号 <code>1</code></li>
+<li class="">原来 <code>1</code> 及后续编号会自动调整</li>
+</ul>
+<p>指定 Session 的写法：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux move-window -s dev:3 -t dev:1</span><br></span></code></pre></div></div>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="在-window-创建时运行命令">在 Window 创建时运行命令<a href="#在-window-创建时运行命令" class="hash-link" aria-label="Direct link to 在 Window 创建时运行命令" title="Direct link to 在 Window 创建时运行命令" translate="no">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux new-window -n init &quot;pip install -r requirements.txt&quot;</span><br></span></code></pre></div></div>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">新建名为 <code>init</code> 的 Window</li>
+<li class="">该 Window 启动后直接运行 <code>pip install -r requirements.txt</code></li>
+<li class="">进程会一直占用该 Window 的初始 Pane,直到执行完成</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="pane-1">Pane<a href="#pane-1" class="hash-link" aria-label="Direct link to Pane" title="Direct link to Pane" translate="no">​</a></h2>
+<p>tmux 的 Pane 是 Window 内的区域
+一个 Window 可以被切成多个 Pane,每个 Pane 都是独立的 shell 与进程环境
+Pane 的好处在于可以把强关联的命令放在同一屏幕里同时观察与操作(低调的黑客说是)</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="创建-pane">创建 Pane<a href="#创建-pane" class="hash-link" aria-label="Direct link to 创建 Pane" title="Direct link to 创建 Pane" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="垂直分割">垂直分割<a href="#垂直分割" class="hash-link" aria-label="Direct link to 垂直分割" title="Direct link to 垂直分割" translate="no">​</a></h4>
+<p>把当前 Pane 切成左右两个 Pane</p>
+<ul>
+<li class=""><code>前缀键 + %</code></li>
+</ul>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">当前 Pane 被分成左右两块</li>
+<li class="">光标停留在新创建的 Pane</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="水平分割">水平分割<a href="#水平分割" class="hash-link" aria-label="Direct link to 水平分割" title="Direct link to 水平分割" translate="no">​</a></h4>
+<p>把当前 Pane 切成上下两个 Pane</p>
+<ul>
+<li class=""><code>前缀键 + &quot;</code></li>
+</ul>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">当前 Pane 被分成上下两块</li>
+<li class="">光标停留在新创建的 Pane</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="创建-pane-并在新-pane-运行命令">创建 Pane 并在新 Pane 运行命令<a href="#创建-pane-并在新-pane-运行命令" class="hash-link" aria-label="Direct link to 创建 Pane 并在新 Pane 运行命令" title="Direct link to 创建 Pane 并在新 Pane 运行命令" translate="no">​</a></h4>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux split-window -h &quot;命令&quot;</span><br></span></code></pre></div></div>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">在当前 Window 内进行左右分割</li>
+<li class="">新 Pane 启动后立即运行 &quot;命令&quot;</li>
+</ul>
+<p>上下分割的写法：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux split-window -v &quot;命令&quot;</span><br></span></code></pre></div></div>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="在-pane-之间切换">在 Pane 之间切换<a href="#在-pane-之间切换" class="hash-link" aria-label="Direct link to 在 Pane 之间切换" title="Direct link to 在 Pane 之间切换" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="使用方向键切换">使用方向键切换<a href="#使用方向键切换" class="hash-link" aria-label="Direct link to 使用方向键切换" title="Direct link to 使用方向键切换" translate="no">​</a></h4>
+<ul>
+<li class=""><code>前缀键 + ↑</code></li>
+<li class=""><code>前缀键 + ↓</code></li>
+<li class=""><code>前缀键 + ←</code></li>
+<li class=""><code>前缀键 + →</code></li>
+</ul>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">焦点切换到相邻方向的 Pane</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="使用编号快速选择-pane">使用编号快速选择 Pane<a href="#使用编号快速选择-pane" class="hash-link" aria-label="Direct link to 使用编号快速选择 Pane" title="Direct link to 使用编号快速选择 Pane" translate="no">​</a></h4>
+<ul>
+<li class=""><code>前缀键 + q</code></li>
+</ul>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">tmux 在每个 Pane 上显示短暂编号</li>
+<li class="">你按对应数字即可切到目标 Pane</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="调整-pane-大小">调整 Pane 大小<a href="#调整-pane-大小" class="hash-link" aria-label="Direct link to 调整 Pane 大小" title="Direct link to 调整 Pane 大小" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="按方向调整尺寸">按方向调整尺寸<a href="#按方向调整尺寸" class="hash-link" aria-label="Direct link to 按方向调整尺寸" title="Direct link to 按方向调整尺寸" translate="no">​</a></h4>
+<ul>
+<li class=""><code>前缀键 + Ctrl + ↑</code></li>
+<li class=""><code>前缀键 + Ctrl + ↓</code></li>
+<li class=""><code>前缀键 + Ctrl + ←</code></li>
+<li class=""><code>前缀键 + Ctrl + →</code></li>
+</ul>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">按方向增加或减少当前 Pane 占用的行列</li>
+<li class="">相邻 Pane 会被挤压或扩展</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="用命令精确调整">用命令精确调整<a href="#用命令精确调整" class="hash-link" aria-label="Direct link to 用命令精确调整" title="Direct link to 用命令精确调整" translate="no">​</a></h4>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tmux resize-pane -L 10</span><br></span></code></pre></div></div>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">当前 Pane 向左扩展 10 列</li>
+</ul>
+<p>常用参数：</p>
+<ul>
+<li class=""><code>-L</code> 向左扩展</li>
+<li class=""><code>-R</code> 向右扩展</li>
+<li class=""><code>-U</code> 向上扩展</li>
+<li class=""><code>-D</code> 向下扩展</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="关闭-pane">关闭 Pane<a href="#关闭-pane" class="hash-link" aria-label="Direct link to 关闭 Pane" title="Direct link to 关闭 Pane" translate="no">​</a></h3>
+<p>关闭 Pane 等价于结束该 Pane 内的<strong>终端与进程</strong></p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="关闭当前-pane">关闭当前 Pane<a href="#关闭当前-pane" class="hash-link" aria-label="Direct link to 关闭当前 Pane" title="Direct link to 关闭当前 Pane" translate="no">​</a></h4>
+<ul>
+<li class=""><code>前缀键 + x</code></li>
+</ul>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">当前 Pane 被销毁</li>
+<li class="">当前 Pane 内的进程被结束</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="重新布局与最大化显示">重新布局与最大化显示<a href="#重新布局与最大化显示" class="hash-link" aria-label="Direct link to 重新布局与最大化显示" title="Direct link to 重新布局与最大化显示" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="在常见布局之间循环切换">在常见布局之间循环切换<a href="#在常见布局之间循环切换" class="hash-link" aria-label="Direct link to 在常见布局之间循环切换" title="Direct link to 在常见布局之间循环切换" translate="no">​</a></h4>
+<ul>
+<li class=""><code>前缀键 + Space</code></li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="临时最大化当前-pane">临时最大化当前 Pane<a href="#临时最大化当前-pane" class="hash-link" aria-label="Direct link to 临时最大化当前 Pane" title="Direct link to 临时最大化当前 Pane" translate="no">​</a></h4>
+<ul>
+<li class=""><code>前缀键 + z</code></li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="移动-pane-位置">移动 Pane 位置<a href="#移动-pane-位置" class="hash-link" aria-label="Direct link to 移动 Pane 位置" title="Direct link to 移动 Pane 位置" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="交换当前-pane-与指定方向的-pane">交换当前 Pane 与指定方向的 Pane<a href="#交换当前-pane-与指定方向的-pane" class="hash-link" aria-label="Direct link to 交换当前 Pane 与指定方向的 Pane" title="Direct link to 交换当前 Pane 与指定方向的 Pane" translate="no">​</a></h4>
+<ul>
+<li class=""><code>前缀键 + {</code> 与左侧 Pane 交换位置</li>
+<li class=""><code>前缀键 + }</code> 与右侧 Pane 交换位置</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="在-pane-之间复制输出并粘贴">在 Pane 之间复制输出并粘贴<a href="#在-pane-之间复制输出并粘贴" class="hash-link" aria-label="Direct link to 在 Pane 之间复制输出并粘贴" title="Direct link to 在 Pane 之间复制输出并粘贴" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="进入复制模式">进入复制模式<a href="#进入复制模式" class="hash-link" aria-label="Direct link to 进入复制模式" title="Direct link to 进入复制模式" translate="no">​</a></h4>
+<ul>
+<li class=""><code>前缀键 + [</code></li>
+</ul>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">进入复制模式</li>
+<li class="">可以滚动查看历史输出</li>
+</ul>
+<p>常用操作方式：</p>
+<ul>
+<li class="">方向键移动光标</li>
+<li class="">空格开始选择</li>
+<li class="">方向键移动光标扩大选区</li>
+<li class="">回车复制选区到 tmux 缓冲区</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="粘贴-tmux-缓冲区内容">粘贴 tmux 缓冲区内容<a href="#粘贴-tmux-缓冲区内容" class="hash-link" aria-label="Direct link to 粘贴 tmux 缓冲区内容" title="Direct link to 粘贴 tmux 缓冲区内容" translate="no">​</a></h4>
+<ul>
+<li class=""><code>前缀键 + ]</code></li>
+</ul>
+<p>执行后发生的事：</p>
+<ul>
+<li class="">将已复制到tmux缓冲区的内容粘贴到当前 Pane</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/常用指令/Git/Git远程协作指南"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Git 远程协作指南</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/常用指令/Tmux/Tmux安装与配置"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">tmux 安装与配置</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#常用指令速查" class="table-of-contents__link toc-highlight">常用指令速查</a><ul><li><a href="#server-管理" class="table-of-contents__link toc-highlight">Server 管理</a></li><li><a href="#session-管理" class="table-of-contents__link toc-highlight">Session 管理</a></li><li><a href="#window-管理" class="table-of-contents__link toc-highlight">Window 管理</a></li><li><a href="#pane-管理" class="table-of-contents__link toc-highlight">Pane 管理</a></li></ul></li><li><a href="#常用快捷键" class="table-of-contents__link toc-highlight">常用快捷键</a><ul><li><a href="#session-操作" class="table-of-contents__link toc-highlight">Session 操作</a></li><li><a href="#window-操作" class="table-of-contents__link toc-highlight">Window 操作</a></li><li><a href="#pane-操作" class="table-of-contents__link toc-highlight">Pane 操作</a></li><li><a href="#复制粘贴" class="table-of-contents__link toc-highlight">复制粘贴</a></li></ul></li><li><a href="#tmux结构" class="table-of-contents__link toc-highlight">Tmux结构</a><ul><li><a href="#server" class="table-of-contents__link toc-highlight">Server</a></li><li><a href="#session" class="table-of-contents__link toc-highlight">Session</a></li><li><a href="#window" class="table-of-contents__link toc-highlight">Window</a></li><li><a href="#pane" class="table-of-contents__link toc-highlight">Pane</a></li><li><a href="#总而言之" class="table-of-contents__link toc-highlight">总而言之</a></li></ul></li><li><a href="#server-1" class="table-of-contents__link toc-highlight">Server</a><ul><li><a href="#启动并创建会话" class="table-of-contents__link toc-highlight">启动并创建会话</a></li><li><a href="#查看-server-当前管理的会话" class="table-of-contents__link toc-highlight">查看 Server 当前管理的会话</a></li><li><a href="#停止-server" class="table-of-contents__link toc-highlight">停止 Server</a></li></ul></li><li><a href="#session-1" class="table-of-contents__link toc-highlight">Session</a><ul><li><a href="#前缀键" class="table-of-contents__link toc-highlight">前缀键</a></li><li><a href="#创建-session" class="table-of-contents__link toc-highlight">创建 Session</a></li><li><a href="#查看已有-session" class="table-of-contents__link toc-highlight">查看已有 Session</a></li><li><a href="#进入指定-session" class="table-of-contents__link toc-highlight">进入指定 Session</a></li><li><a href="#脱离-session" class="table-of-contents__link toc-highlight">脱离 Session</a></li><li><a href="#在多个-session-之间切换" class="table-of-contents__link toc-highlight">在多个 Session 之间切换</a></li><li><a href="#重命名-session" class="table-of-contents__link toc-highlight">重命名 Session</a></li><li><a href="#关闭-session" class="table-of-contents__link toc-highlight">关闭 Session</a></li></ul></li><li><a href="#window-1" class="table-of-contents__link toc-highlight">Window</a><ul><li><a href="#创建-window" class="table-of-contents__link toc-highlight">创建 Window</a></li><li><a href="#查看-window-列表" class="table-of-contents__link toc-highlight">查看 Window 列表</a></li><li><a href="#切换-window" class="table-of-contents__link toc-highlight">切换 Window</a></li><li><a href="#重命名-window" class="table-of-contents__link toc-highlight">重命名 Window</a></li><li><a href="#关闭-window" class="table-of-contents__link toc-highlight">关闭 Window</a></li><li><a href="#移动与重新排序-window" class="table-of-contents__link toc-highlight">移动与重新排序 Window</a></li><li><a href="#在-window-创建时运行命令" class="table-of-contents__link toc-highlight">在 Window 创建时运行命令</a></li></ul></li><li><a href="#pane-1" class="table-of-contents__link toc-highlight">Pane</a><ul><li><a href="#创建-pane" class="table-of-contents__link toc-highlight">创建 Pane</a></li><li><a href="#在-pane-之间切换" class="table-of-contents__link toc-highlight">在 Pane 之间切换</a></li><li><a href="#调整-pane-大小" class="table-of-contents__link toc-highlight">调整 Pane 大小</a></li><li><a href="#关闭-pane" class="table-of-contents__link toc-highlight">关闭 Pane</a></li><li><a href="#重新布局与最大化显示" class="table-of-contents__link toc-highlight">重新布局与最大化显示</a></li><li><a href="#移动-pane-位置" class="table-of-contents__link toc-highlight">移动 Pane 位置</a></li><li><a href="#在-pane-之间复制输出并粘贴" class="table-of-contents__link toc-highlight">在 Pane 之间复制输出并粘贴</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Soft Where, Inc. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
