@@ -3,7 +3,7 @@ import React, {useEffect, useMemo, useRef, useState} from 'react';
 const DEFAULT_ROW = {
   id: 1,
   course: '课程1',
-  credits: '3',
+  credits: '',
   scoreType: 'percent', // percent | five | passfail
   score: '90',
 };
@@ -51,7 +51,15 @@ export default function GpaTool() {
       if (!raw) return;
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length) {
-        setRows(parsed);
+        setRows(
+          parsed.map((row) => ({
+            ...row,
+            credits:
+              row.credits === 0 || row.credits === '0' || row.credits == null
+                ? ''
+                : row.credits,
+          }))
+        );
       }
     } catch (e) {
       // ignore broken cache
@@ -93,7 +101,7 @@ export default function GpaTool() {
       const validCredits = Number.isFinite(credits) && credits > 0 ? credits : 0;
 
       let gp = 0;
-      let include = row.scoreType === 'percent';
+      let include = false;
       let note = '';
 
       if (row.scoreType === 'percent') {
@@ -105,10 +113,11 @@ export default function GpaTool() {
         } else {
           gp = scoreToGp(score);
         }
+        include = Number.isFinite(score) && validCredits > 0;
       } else if (row.scoreType === 'five') {
-        note = '五级制不计入均分';
+        note = '不计入均分';
       } else {
-        note = '二级制不计入均分';
+        note = '不计入均分';
       }
 
       const qualityPoints = include ? gp * validCredits : 0;
@@ -134,7 +143,7 @@ export default function GpaTool() {
         totalCredits += row.credits;
         totalQualityPoints += row.qualityPoints;
       }
-      if (row.include && Number.isFinite(row.gp)) {
+      if (row.include) {
         gpaSum += row.gp;
         gpaCount += 1;
         weightedGpaSum += row.gp * row.credits;
@@ -220,148 +229,137 @@ export default function GpaTool() {
             key={row.id}
             style={{
               border: '1px solid var(--ifm-color-emphasis-200)',
-              borderRadius: 12,
-              padding: 8,
+              borderRadius: 10,
+              padding: '6px 4px',
               display: 'grid',
-              gap: 6,
+              alignItems: 'center',
+              gap: 4,
+              gridTemplateColumns: 'minmax(110px, 1.1fr) 90px 130px 130px minmax(360px, 1fr)',
             }}
           >
+            <input
+              value={row.course}
+              onChange={(e) => updateRow(row.id, {course: e.target.value})}
+              placeholder={`课程${row.id}`}
+              style={{
+                minWidth: 110,
+                flex: '1 1 130px',
+                padding: '6px 8px',
+                borderRadius: 8,
+                border: '1px solid var(--ifm-color-emphasis-200)',
+                background: 'var(--ifm-background-color)',
+                height: 34,
+                boxSizing: 'border-box',
+              }}
+            />
+            <input
+              value={row.credits === 0 || row.credits === '0' ? '' : row.credits}
+              onChange={(e) => updateRow(row.id, {credits: e.target.value})}
+              inputMode="decimal"
+              placeholder="填写学分"
+              style={{
+                width: 90,
+                padding: '6px 8px',
+                borderRadius: 8,
+                border: '1px solid var(--ifm-color-emphasis-200)',
+                background: 'var(--ifm-background-color)',
+                height: 34,
+                boxSizing: 'border-box',
+              }}
+            />
+            <select
+              value={row.scoreType}
+              onChange={(e) => updateRow(row.id, {scoreType: e.target.value, score: ''})}
+              style={{
+                width: 130,
+                padding: '6px 8px',
+                borderRadius: 8,
+                border: '1px solid var(--ifm-color-emphasis-200)',
+                background: 'var(--ifm-background-color)',
+                height: 34,
+                boxSizing: 'border-box',
+              }}
+            >
+              <option value="percent">百分制</option>
+              <option value="five">五级制</option>
+              <option value="passfail">二级制</option>
+            </select>
+            {row.scoreType === 'percent' && (
+              <input
+                value={row.score}
+                onChange={(e) => updateRow(row.id, {score: e.target.value})}
+                inputMode="decimal"
+                placeholder="填写成绩"
+                style={{
+                  width: 130,
+                  padding: '6px 8px',
+                  borderRadius: 8,
+                  border: '1px solid var(--ifm-color-emphasis-200)',
+                  background: 'var(--ifm-background-color)',
+                  height: 34,
+                  boxSizing: 'border-box',
+                }}
+              />
+            )}
+            {row.scoreType === 'five' && (
+              <select
+                value={row.score}
+                onChange={(e) => updateRow(row.id, {score: e.target.value})}
+                style={{
+                  width: 130,
+                  padding: '6px 8px',
+                  borderRadius: 8,
+                  border: '1px solid var(--ifm-color-emphasis-200)',
+                  background: 'var(--ifm-background-color)',
+                  height: 34,
+                  boxSizing: 'border-box',
+                }}
+              >
+                <option value="">填写成绩</option>
+                {FIVE_LEVEL_OPTIONS.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            )}
+            {row.scoreType === 'passfail' && (
+              <select
+                value={row.score}
+                onChange={(e) => updateRow(row.id, {score: e.target.value})}
+                style={{
+                  width: 130,
+                  padding: '6px 8px',
+                  borderRadius: 8,
+                  border: '1px solid var(--ifm-color-emphasis-200)',
+                  background: 'var(--ifm-background-color)',
+                  height: 34,
+                  boxSizing: 'border-box',
+                }}
+              >
+                <option value="">填写成绩</option>
+                <option value="pass">通过</option>
+                <option value="fail">不通过</option>
+              </select>
+            )}
             <div
               style={{
                 display: 'grid',
-                gap: 8,
-                gridTemplateColumns:
-                  'minmax(140px, 1.2fr) minmax(80px, 0.7fr) minmax(130px, 1fr) minmax(150px, 1.2fr)',
-              }}
-            >
-              <div>
-                <div style={{fontSize: '0.8rem', opacity: 0.6, marginBottom: 0}}>课程名</div>
-                <input
-                  value={row.course}
-                  onChange={(e) => updateRow(row.id, {course: e.target.value})}
-                  placeholder={`课程${row.id}`}
-                  style={{
-                    width: '100%',
-                    padding: '6px 8px',
-                    borderRadius: 8,
-                    border: '1px solid var(--ifm-color-emphasis-200)',
-                    background: 'var(--ifm-background-color)',
-                  }}
-                />
-              </div>
-
-              <div>
-                <div style={{fontSize: '0.8rem', opacity: 0.6, marginBottom: 0}}>学分</div>
-                <input
-                  value={row.credits}
-                  onChange={(e) => updateRow(row.id, {credits: e.target.value})}
-                  inputMode="decimal"
-                  style={{
-                    width: '100%',
-                    padding: '6px 8px',
-                    borderRadius: 8,
-                    border: '1px solid var(--ifm-color-emphasis-200)',
-                    background: 'var(--ifm-background-color)',
-                  }}
-                />
-              </div>
-
-              <div>
-                <div style={{fontSize: '0.8rem', opacity: 0.6, marginBottom: 0}}>成绩类型</div>
-                <select
-                  value={row.scoreType}
-                  onChange={(e) => updateRow(row.id, {scoreType: e.target.value, score: ''})}
-                  style={{
-                    width: '100%',
-                    padding: '6px 8px',
-                    borderRadius: 8,
-                    border: '1px solid var(--ifm-color-emphasis-200)',
-                    background: 'var(--ifm-background-color)',
-                  }}
-                >
-                  <option value="percent">百分制</option>
-                  <option value="five">五级制（不计入）</option>
-                  <option value="passfail">二级制（不计入）</option>
-                </select>
-              </div>
-
-              <div>
-                <div style={{fontSize: '0.8rem', opacity: 0.6, marginBottom: 0}}>成绩</div>
-                {row.scoreType === 'percent' && (
-                  <input
-                    value={row.score}
-                    onChange={(e) => updateRow(row.id, {score: e.target.value})}
-                    inputMode="decimal"
-                    placeholder="0 - 100"
-                    style={{
-                      width: '100%',
-                      padding: '6px 8px',
-                      borderRadius: 8,
-                      border: '1px solid var(--ifm-color-emphasis-200)',
-                      background: 'var(--ifm-background-color)',
-                    }}
-                  />
-                )}
-                {row.scoreType === 'five' && (
-                  <select
-                    value={row.score}
-                    onChange={(e) => updateRow(row.id, {score: e.target.value})}
-                    style={{
-                      width: '100%',
-                      padding: '6px 8px',
-                      borderRadius: 8,
-                      border: '1px solid var(--ifm-color-emphasis-200)',
-                      background: 'var(--ifm-background-color)',
-                    }}
-                  >
-                    <option value="">请选择</option>
-                    {FIVE_LEVEL_OPTIONS.map((opt) => (
-                      <option key={opt.value} value={opt.value}>
-                        {opt.label}
-                      </option>
-                    ))}
-                  </select>
-                )}
-                {row.scoreType === 'passfail' && (
-                  <select
-                    value={row.score}
-                    onChange={(e) => updateRow(row.id, {score: e.target.value})}
-                    style={{
-                      width: '100%',
-                      padding: '6px 8px',
-                      borderRadius: 8,
-                      border: '1px solid var(--ifm-color-emphasis-200)',
-                      background: 'var(--ifm-background-color)',
-                    }}
-                  >
-                    <option value="">请选择</option>
-                    <option value="pass">通过</option>
-                    <option value="fail">不通过</option>
-                  </select>
-                )}
-              </div>
-            </div>
-
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
                 alignItems: 'center',
-                flexWrap: 'wrap',
                 gap: 10,
+                gridTemplateColumns: 'auto 120px auto',
+                whiteSpace: 'nowrap',
               }}
             >
-              <div style={{display: 'flex', gap: 16, flexWrap: 'wrap', fontSize: '0.92rem'}}>
-                <div>
-                  课程绩点: <strong>{formatNumber(row.gp, 2)}</strong>
-                </div>
-                {!row.include && <div style={{opacity: 0.6}}>{row.note}</div>}
+              <div style={{fontSize: '0.92rem'}}>
+                GPA: <strong>{formatNumber(row.gp, 2)}</strong>
               </div>
               <button
                 type="button"
                 className="button button--secondary"
                 onClick={() => removeRow(row.id)}
                 disabled={rows.length <= 1}
+                style={{height: 34, padding: '0 12px'}}
               >
                 删除
               </button>
