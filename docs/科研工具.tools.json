@@ -1,18 +1,6 @@
 {
   "tools": [
     {
-      "id": "arxiv",
-      "name": "arXiv",
-      "href": "https://arxiv.org/",
-      "iconUrl": "/icon/arxiv.svg",
-      "iconText": "ar",
-      "tagline": "检索与追踪最新预印本论文",
-      "details": [
-        "适合做论文调研、追踪领域最新进展、订阅关键词/作者。",
-        "建议把常用检索保存为书签，或用 RSS/邮件订阅来减少重复劳动。"
-      ]
-    },
-    {
       "id": "github",
       "name": "GitHub",
       "href": "https://github.com/",
@@ -22,6 +10,18 @@
       "details": [
         "适合管理科研代码、复现实验、版本记录与协作（Issues/PR）。",
         "建议为项目写清 README、依赖与复现实验步骤，方便自己和他人快速上手。"
+      ]
+    },
+    {
+      "id": "arxiv",
+      "name": "arXiv",
+      "href": "https://arxiv.org/",
+      "iconUrl": "/icon/arxiv.svg",
+      "iconText": "ar",
+      "tagline": "检索与追踪最新预印本论文",
+      "details": [
+        "适合做论文调研、追踪领域最新进展、订阅关键词/作者。",
+        "建议把常用检索保存为书签，或用 RSS/邮件订阅来减少重复劳动。"
       ]
     },
     {
@@ -35,7 +35,246 @@
         "适合多人协作写论文、模板管理、随时预览编译结果。",
         "建议配合版本管理（Git）与引用管理工具，降低格式与引用出错概率。"
       ]
+    },
+    {
+      "id": "colab",
+      "name": "Google Colaboratory",
+      "href": "https://colab.research.google.com/",
+      "iconUrl": "",
+      "iconText": "CL",
+      "tagline": "在线Python开发与免费GPU/TPU算力",
+      "details": [
+        "适合快速验证算法、训练深度学习模型，无需本地配置GPU环境。",
+        "建议挂载Google Drive保存代码/数据，配合GitHub同步项目版本。"
+      ]
+    },
+    {
+      "id": "zotero",
+      "name": "Zotero",
+      "iconUrl": "",
+      "href": "https://www.zotero.org/",
+      "iconText": "ZT",
+      "tagline": "开源免费的文献管理与引用工具",
+      "details": [
+        "适合批量导入论文、自动生成引用格式、同步跨设备文献库。",
+        "建议安装浏览器插件，一键抓取网页论文信息，配合Overleaf自动插入引用。"
+      ]
+    },
+    {
+      "id": "wandb",
+      "name": "Weights & Biases",
+      "href": "https://wandb.ai/",
+      "iconUrl": "/icon/wandb.svg",
+      "iconText": "WB",
+      "tagline": "机器学习实验追踪与可视化",
+      "details": [
+        "适合记录实验参数、指标、模型权重，对比不同实验结果。",
+        "建议集成到训练代码中，自动记录实验，避免手动整理数据的繁琐。"
+      ]
+    },
+    {
+      "id": "huggingface",
+      "name": "Hugging Face",
+      "href": "https://huggingface.co/",
+      "iconUrl": "",
+      "iconText": "HF",
+      "tagline": "开源机器学习模型库与推理平台",
+      "details": [
+        "适合调用预训练NLP/CV模型、上传自定义模型、使用Gradio快速构建Demo。",
+        "建议利用Model Hub筛选SOTA模型，减少重复造轮子的成本。"
+      ]
+    },
+    {
+      "id": "openreview",
+      "name": "OpenReview",
+      "href": "https://openreview.net/",
+      "iconUrl": "",
+      "iconText": "OR",
+      "tagline": "学术论文同行评审平台",
+      "details": [
+        "适合查看顶会（如ICML/NeurIPS）的公开评审意见、提交论文、参与评审。",
+        "建议开启邮件提醒，及时跟进论文评审进度与领域最新评审动态。"
+      ]
+    },
+    {
+      "id": "orcid",
+      "name": "ORCID",
+      "href": "https://orcid.org/",
+      "iconUrl": "/icon/orcid.svg",
+      "iconText": "ID",
+      "tagline": "科研人员唯一身份标识",
+      "details": [
+        "适合关联所有发表论文、基金项目、科研成果，避免身份混淆。",
+        "建议在投稿、申请基金时填写ORCID，提升成果归属准确性。"
+      ]
+    },
+    {
+      "id": "google-aistudio",
+      "name": "Google AI Studio (Gemini)",
+      "href": "https://aistudio.google.com/",
+      "iconUrl": "",
+      "iconText": "GA",
+      "tagline": "谷歌一站式AI开发与原型设计平台",
+      "details": [
+        "适合快速开发、测试Gemini模型，构建AI原型，支持多模态开发。",
+        "建议利用平台免费额度调试模型，导出代码到Colab/本地部署，降低开发成本。"
+      ]
+    },
+    {
+      "id": "anaconda",
+      "name": "Anaconda",
+      "href": "https://www.anaconda.com/",
+      "iconUrl": "/icon/anaconda_.svg",
+      "iconText": "AN",
+      "tagline": "Python环境与包管理工具",
+      "details": [
+        "适合创建隔离的科研环境、管理不同版本的依赖包、避免环境冲突。",
+        "建议为每个科研项目创建独立环境，导出environment.yml方便复现。"
+      ]
+    },
+    {
+      "id": "jupyter",
+      "name": "Jupyter Notebook/Lab",
+      "href": "https://jupyter.org/",
+      "iconUrl": "/icon/jupyter.svg",
+      "iconText": "JT",
+      "tagline": "交互式编程与实验记录工具",
+      "details": [
+        "适合分步编写代码、可视化实验结果、混合文字/代码/公式记录科研思路。",
+        "建议导出为HTML/PDF，作为实验报告的补充材料。"
+      ]
+    },
+    {
+      "id": "tensorboard",
+      "name": "TensorBoard",
+      "href": "https://www.tensorflow.org/tensorboard",
+      "iconUrl": "/icon/tensorboard.svg",
+      "iconText": "TB",
+      "tagline": "机器学习实验可视化工具",
+      "details": [
+        "适合监控训练损失/精度、可视化模型结构、对比多组实验曲线。",
+        "建议集成到PyTorch/TensorFlow代码中，实时追踪实验过程。"
+      ]
+    },
+    {
+      "id": "kaggle",
+      "name": "Kaggle",
+      "href": "https://www.kaggle.com/",
+      "iconUrl": "/icon/kaggle.svg",
+      "iconText": "KG",
+      "tagline": "数据科学竞赛与数据集/代码共享平台",
+      "details": [
+        "适合获取高质量科研数据集、参考开源基线代码、参与领域竞赛。",
+        "建议利用平台免费GPU/TPU资源，复现顶会论文的实验结果。"
+      ]
+    },
+    {
+      "id": "docker",
+      "name": "Docker",
+      "href": "https://www.docker.com/",
+      "iconUrl": "/icon/docker.svg",
+      "iconText": "DK",
+      "tagline": "容器化部署工具，保证实验环境可复现",
+      "details": [
+        "适合打包科研项目的完整环境，在不同机器上一键运行，避免“环境不一致”问题。",
+        "建议编写Dockerfile，配合Docker Compose管理多组件项目。"
+      ]
+    },
+    {
+      "id": "vscode",
+      "name": "Visual Studio Code",
+      "href": "https://code.visualstudio.com/",
+      "iconUrl": "/icon/cib-visual-studio-code.svg",
+      "iconText": "VS",
+      "tagline": "轻量级代码编辑器（科研插件丰富）",
+      "details": [
+        "适合编写/调试科研代码，安装Python/LaTeX/Git插件提升效率。",
+        "建议配置工作区设置，统一团队代码格式（如Black/Flake8）。"
+      ]
+    },
+    {
+      "id": "matplotlib",
+      "name": "Matplotlib",
+      "href": "https://matplotlib.org/",
+      "iconUrl": "/icon/matplotlib.svg",
+      "iconText": "MP",
+      "tagline": "Python科研数据可视化库",
+      "details": [
+        "适合绘制论文中的折线图/柱状图/热力图，自定义图表样式适配期刊要求。",
+        "建议配合Seaborn/Pandas使用，提升作图效率与美观度。"
+      ]
+    },
+    {
+      "id": "prism",
+      "name": "Prism",
+      "href": "https://prismjs.com/",
+      "iconUrl": "/icon/prism.svg",
+      "iconText": "PS",
+      "tagline": "代码语法高亮工具",
+      "details": [
+        "适合在论文/博客中插入高亮代码块，支持多语言、自定义主题。",
+        "建议导出为LaTeX/HTML格式，直接嵌入到论文或网页中，提升代码可读性。"
+      ]
+    },
+    {
+      "id": "mendeley",
+      "name": "Mendeley",
+      "href": "https://www.mendeley.com/",
+      "iconUrl": "/icon/mendeley.svg",
+      "iconText": "MD",
+      "tagline": "科研文献管理与学术社交平台",
+      "details": [
+        "适合团队共享文献库、自动生成期刊引用格式、统计论文影响力。",
+        "建议关联ORCID，同步个人发表成果与引用记录。"
+      ]
+    },
+    {
+      "id": "pytorch-hub",
+      "name": "PyTorch Hub",
+      "href": "https://pytorch.org/hub/",
+      "iconUrl": "/icon/pytorch.svg",
+      "iconText": "PT",
+      "tagline": "PyTorch官方预训练模型库",
+      "details": [
+        "适合快速加载CV/NLP领域预训练模型，微调适配科研任务。",
+        "建议结合本地数据微调，对比不同预训练模型的效果。"
+      ]
+    },
+    {
+      "id": "gitlab",
+      "name": "GitLab",
+      "href": "https://about.gitlab.com/",
+      "iconUrl": "/icon/gitlab.svg",
+      "iconText": "GL",
+      "tagline": "代码托管与DevOps平台（私有仓库友好）",
+      "details": [
+        "适合托管涉密科研代码、搭建私有CI/CD流程、管理团队项目。",
+        "建议启用Merge Request审核，规范代码提交流程。"
+      ]
+    },
+    {
+      "id": "figma",
+      "name": "Figma",
+      "href": "https://www.figma.com/",
+      "iconUrl": "/icon/Figma.svg",
+      "iconText": "FG",
+      "tagline": "科研作图与UI原型协作工具",
+      "details": [
+        "适合绘制论文示意图、模型架构图、可视化结果，支持团队实时协作。",
+        "建议导出矢量图（SVG/PNG），保证论文图片清晰度。"
+      ]
+    },
+    {
+      "id": "slack",
+      "name": "Slack",
+      "href": "https://slack.com/",
+      "iconUrl": "/icon/slack.svg",
+      "iconText": "SL",
+      "tagline": "科研团队协作与即时通讯工具",
+      "details": [
+        "适合创建项目频道、共享文件/代码、集成GitHub/GitLab自动通知。",
+        "建议配合Slack Bot，自动推送实验完成/论文评审提醒。"
+      ]
     }
   ]
 }
-
