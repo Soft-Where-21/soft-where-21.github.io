@@ -199,7 +199,7 @@ const COURSE_PRESETS = {
       {name: '素质教育（博雅课程）（6）', credits: 0.3},
     ],
     'I-3': [
-      {name: '离散数学（1）', credits: 2},
+      {name: '离散数学（2）', credits: 2},
       {name: '计算机硬件基础（软件专业）', credits: 4},
       {name: '算法分析与设计', credits: 3},
       {name: '面向对象程序设计（Java）', credits: 2.5},
@@ -268,7 +268,7 @@ const COURSE_PRESETS = {
       {name: '马克思主义基本原理', credits: 3},
     ],
     E: [
-      {name: '离散数学（1）', credits: 2},
+      {name: '离散数学（2）', credits: 2},
       {name: '计算机硬件基础（软件专业）', credits: 4},
       {name: '算法分析与设计', credits: 3},
       {name: '面向对象程序设计（Java）', credits: 2.5},

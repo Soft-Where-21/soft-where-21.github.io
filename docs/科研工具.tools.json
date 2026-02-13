@@ -4,7 +4,7 @@
       "id": "github",
       "name": "GitHub",
       "href": "https://github.com/",
-      "iconUrl": "/icon/github.svg",
+      "iconUrl": "/icon/science/github.svg",
       "iconText": "GH",
       "tagline": "代码托管、协作与开源生态",
       "details": [
@@ -16,7 +16,7 @@
       "id": "arxiv",
       "name": "arXiv",
       "href": "https://arxiv.org/",
-      "iconUrl": "/icon/arxiv.svg",
+      "iconUrl": "/icon/science/arxiv.svg",
       "iconText": "ar",
       "tagline": "检索与追踪最新预印本论文",
       "details": [
@@ -28,7 +28,7 @@
       "id": "overleaf",
       "name": "Overleaf",
       "href": "https://www.overleaf.com/",
-      "iconUrl": "/icon/overleaf.svg",
+      "iconUrl": "/icon/science/overleaf.svg",
       "iconText": "TeX",
       "tagline": "在线 LaTeX 写作与协作",
       "details": [
@@ -64,7 +64,7 @@
       "id": "wandb",
       "name": "Weights & Biases",
       "href": "https://wandb.ai/",
-      "iconUrl": "/icon/wandb.svg",
+      "iconUrl": "/icon/science/wandb.svg",
       "iconText": "WB",
       "tagline": "机器学习实验追踪与可视化",
       "details": [
@@ -100,7 +100,7 @@
       "id": "orcid",
       "name": "ORCID",
       "href": "https://orcid.org/",
-      "iconUrl": "/icon/orcid.svg",
+      "iconUrl": "/icon/science/orcid.svg",
       "iconText": "ID",
       "tagline": "科研人员唯一身份标识",
       "details": [
@@ -124,7 +124,7 @@
       "id": "anaconda",
       "name": "Anaconda",
       "href": "https://www.anaconda.com/",
-      "iconUrl": "/icon/anaconda_.svg",
+      "iconUrl": "/icon/science/anaconda_.svg",
       "iconText": "AN",
       "tagline": "Python环境与包管理工具",
       "details": [
@@ -136,7 +136,7 @@
       "id": "jupyter",
       "name": "Jupyter Notebook/Lab",
       "href": "https://jupyter.org/",
-      "iconUrl": "/icon/jupyter.svg",
+      "iconUrl": "/icon/science/jupyter.svg",
       "iconText": "JT",
       "tagline": "交互式编程与实验记录工具",
       "details": [
@@ -148,7 +148,7 @@
       "id": "tensorboard",
       "name": "TensorBoard",
       "href": "https://www.tensorflow.org/tensorboard",
-      "iconUrl": "/icon/tensorboard.svg",
+      "iconUrl": "/icon/science/tensorboard.svg",
       "iconText": "TB",
       "tagline": "机器学习实验可视化工具",
       "details": [
@@ -160,7 +160,7 @@
       "id": "kaggle",
       "name": "Kaggle",
       "href": "https://www.kaggle.com/",
-      "iconUrl": "/icon/kaggle.svg",
+      "iconUrl": "/icon/science/kaggle.svg",
       "iconText": "KG",
       "tagline": "数据科学竞赛与数据集/代码共享平台",
       "details": [
@@ -172,7 +172,7 @@
       "id": "docker",
       "name": "Docker",
       "href": "https://www.docker.com/",
-      "iconUrl": "/icon/docker.svg",
+      "iconUrl": "/icon/science/docker.svg",
       "iconText": "DK",
       "tagline": "容器化部署工具，保证实验环境可复现",
       "details": [
@@ -184,7 +184,7 @@
       "id": "vscode",
       "name": "Visual Studio Code",
       "href": "https://code.visualstudio.com/",
-      "iconUrl": "/icon/cib-visual-studio-code.svg",
+      "iconUrl": "/icon/science/cib-visual-studio-code.svg",
       "iconText": "VS",
       "tagline": "轻量级代码编辑器（科研插件丰富）",
       "details": [
@@ -196,7 +196,7 @@
       "id": "matplotlib",
       "name": "Matplotlib",
       "href": "https://matplotlib.org/",
-      "iconUrl": "/icon/matplotlib.svg",
+      "iconUrl": "/icon/science/matplotlib.svg",
       "iconText": "MP",
       "tagline": "Python科研数据可视化库",
       "details": [
@@ -208,7 +208,7 @@
       "id": "prism",
       "name": "Prism",
       "href": "https://prismjs.com/",
-      "iconUrl": "/icon/prism.svg",
+      "iconUrl": "/icon/science/prism.svg",
       "iconText": "PS",
       "tagline": "代码语法高亮工具",
       "details": [
@@ -220,7 +220,7 @@
       "id": "mendeley",
       "name": "Mendeley",
       "href": "https://www.mendeley.com/",
-      "iconUrl": "/icon/mendeley.svg",
+      "iconUrl": "/icon/science/mendeley.svg",
       "iconText": "MD",
       "tagline": "科研文献管理与学术社交平台",
       "details": [
@@ -232,7 +232,7 @@
       "id": "pytorch-hub",
       "name": "PyTorch Hub",
       "href": "https://pytorch.org/hub/",
-      "iconUrl": "/icon/pytorch.svg",
+      "iconUrl": "/icon/science/pytorch.svg",
       "iconText": "PT",
       "tagline": "PyTorch官方预训练模型库",
       "details": [
@@ -244,7 +244,7 @@
       "id": "gitlab",
       "name": "GitLab",
       "href": "https://about.gitlab.com/",
-      "iconUrl": "/icon/gitlab.svg",
+      "iconUrl": "/icon/science/gitlab.svg",
       "iconText": "GL",
       "tagline": "代码托管与DevOps平台（私有仓库友好）",
       "details": [
@@ -256,7 +256,7 @@
       "id": "figma",
       "name": "Figma",
       "href": "https://www.figma.com/",
-      "iconUrl": "/icon/Figma.svg",
+      "iconUrl": "/icon/science/Figma.svg",
       "iconText": "FG",
       "tagline": "科研作图与UI原型协作工具",
       "details": [
@@ -268,7 +268,7 @@
       "id": "slack",
       "name": "Slack",
       "href": "https://slack.com/",
-      "iconUrl": "/icon/slack.svg",
+      "iconUrl": "/icon/science/slack.svg",
       "iconText": "SL",
       "tagline": "科研团队协作与即时通讯工具",
       "details": [

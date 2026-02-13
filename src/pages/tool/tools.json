@@ -19,7 +19,6 @@
       "id":"regex-builder",
       "name":"正则表达式生成器",
       "tagline":"关键词转正则 + 实时匹配预览"
-      "tagline": "计算 GPA / 加权 / 算分"
     },
     {
       "id": "gpa",
