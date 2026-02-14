@@ -470,9 +470,8 @@ export default function PostgradTool() {
     let totalQp = 0;
     Object.values(currentData).forEach((rows) => {
       rows.forEach((row) => {
-        const scoreNum = Number(row.score);
-        if (!Number.isFinite(scoreNum)) return;
-        const gp = scoreToGp(scoreNum);
+        if (!isFilledScore(row)) return;
+        const gp = getRowGpa(row, 0);
         if (gp === null) return;
         const credits = Number(row.credits) || 0;
         totalCredits += credits;
@@ -581,8 +580,8 @@ export default function PostgradTool() {
           const creditsOk = filledCredits >= minCredits;
           const isOk = countOk && creditsOk;
 
-          const credits = rows.reduce((s, r) => s + (Number(r.credits) || 0), 0);
-          const qp = rows.reduce((s, r) => {
+          const credits = filledRows.reduce((s, r) => s + (Number(r.credits) || 0), 0);
+          const qp = filledRows.reduce((s, r) => {
             const gp = getRowGpa(r, baseAvgGpa);
             return s + (Number(r.credits) || 0) * (gp ?? 0);
           }, 0);
