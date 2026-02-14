@@ -38,7 +38,25 @@ const CATEGORY_GROUPS_BY_GRADE = {
       categories: [
         {id: 'A', name: '数理基础课', requirement: '最低 6 门', minCount: 6},
         {id: 'B', name: '工程基础课', requirement: '最低 4 门', minCount: 4},
-        {id: 'C', name: '外语课', requirement: '最低 6 学分', minCredits: 6},
+        {
+          id: 'C',
+          name: '外语课',
+          requirement: '英语阅读/写作必修 + 大英A(1)(2) 或 大英B(1)(2)',
+          requiredMode: 'score',
+          requiredNames: ['英语阅读（1）', '英语写作（1）'],
+          requiredGroups: [
+            {
+              id: 'A',
+              label: '大学英语A（1）（2）',
+              names: ['大学英语A（1）', '大学英语A（2）'],
+            },
+            {
+              id: 'B',
+              label: '大学英语B（1）（2）',
+              names: ['大学英语B（1）', '大学英语B（2）'],
+            },
+          ],
+        },
       ],
     },
     {
@@ -325,6 +343,10 @@ function isFilledScore(row) {
   return String(row.score || '').trim() !== '';
 }
 
+function isCountable(row) {
+  return row.scoreType !== 'five' && row.scoreType !== 'passfail';
+}
+
 function getRowGpa(row, baseAvgGpa) {
   if (row.scoreType === 'five') {
     const found = FIVE_LEVEL_OPTIONS.find((opt) => opt.value === row.score);
@@ -404,6 +426,7 @@ function buildInitialDataForGrade(grade) {
   groups.forEach((group) => {
     group.categories.forEach((cat) => {
       const rows = buildRowsFromEntries(presets[cat.id]);
+      const requiredNames = Array.isArray(cat.requiredNames) ? cat.requiredNames : [];
       if (!cat.selectable) {
         rows.forEach((row) => {
           row.selected = true;
@@ -413,10 +436,34 @@ function buildInitialDataForGrade(grade) {
           row.selected = cat.requiredNames.includes(row.name);
         });
       }
+      if (cat.requiredMode === 'passfail' && requiredNames.length) {
+        rows.forEach((row) => {
+          if (requiredNames.includes(row.name)) {
+            row.scoreType = 'passfail';
+          }
+        });
+      }
       data[cat.id] = rows;
     });
   });
   return data;
+}
+
+function normalizeDataByGroups(gradeData, groups) {
+  if (!gradeData || typeof gradeData !== 'object') return gradeData;
+  const next = {...gradeData};
+  groups.forEach((group) => {
+    group.categories.forEach((cat) => {
+      const requiredNames = Array.isArray(cat.requiredNames) ? cat.requiredNames : [];
+      if (cat.requiredMode !== 'passfail' || !requiredNames.length) return;
+      const rows = next[cat.id];
+      if (!Array.isArray(rows)) return;
+      next[cat.id] = rows.map((row) =>
+        requiredNames.includes(row.name) ? {...row, scoreType: 'passfail'} : row
+      );
+    });
+  });
+  return next;
 }
 
 export default function PostgradTool() {
@@ -424,6 +471,10 @@ export default function PostgradTool() {
   const [dataByGrade, setDataByGrade] = useState(() => ({
     '23': buildInitialDataForGrade('23'),
     '24': buildInitialDataForGrade('24'),
+  }));
+  const [groupChoiceByGrade, setGroupChoiceByGrade] = useState(() => ({
+    '23': {},
+    '24': {},
   }));
 
   useEffect(() => {
@@ -439,11 +490,30 @@ export default function PostgradTool() {
           delete parsed['23'].D;
           delete parsed['23'].E;
           parsed['23'] = normalizeGradeData(parsed['23']);
+          parsed['23'] = normalizeDataByGroups(parsed['23'], getCategoryGroups('23'));
         }
         if (parsed['24'] && typeof parsed['24'] === 'object') {
           parsed['24'] = normalizeGradeData(parsed['24']);
+          parsed['24'] = normalizeDataByGroups(parsed['24'], getCategoryGroups('24'));
         }
         setDataByGrade((prev) => ({
+          '23': parsed['23'] || prev['23'],
+          '24': parsed['24'] || prev['24'],
+        }));
+      }
+    } catch (e) {
+      // ignore broken cache
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      const raw = window.localStorage.getItem('tool:postgrad:groups:v1');
+      if (!raw) return;
+      const parsed = JSON.parse(raw);
+      if (parsed && typeof parsed === 'object') {
+        setGroupChoiceByGrade((prev) => ({
           '23': parsed['23'] || prev['23'],
           '24': parsed['24'] || prev['24'],
         }));
@@ -462,6 +532,18 @@ export default function PostgradTool() {
     }
   }, [dataByGrade]);
 
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      window.localStorage.setItem(
+        'tool:postgrad:groups:v1',
+        JSON.stringify(groupChoiceByGrade)
+      );
+    } catch (e) {
+      // ignore storage errors
+    }
+  }, [groupChoiceByGrade]);
+
   const currentData = dataByGrade[grade];
   const groups = getCategoryGroups(grade);
 
@@ -470,9 +552,8 @@ export default function PostgradTool() {
     let totalQp = 0;
     Object.values(currentData).forEach((rows) => {
       rows.forEach((row) => {
-        const scoreNum = Number(row.score);
-        if (!Number.isFinite(scoreNum)) return;
-        const gp = scoreToGp(scoreNum);
+        if (!isFilledScore(row) || !isCountable(row)) return;
+        const gp = getRowGpa(row, 0);
         if (gp === null) return;
         const credits = Number(row.credits) || 0;
         totalCredits += credits;
@@ -555,6 +636,32 @@ export default function PostgradTool() {
     };
   }
 
+function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
+  const requiredNames = Array.isArray(cat.requiredNames) ? cat.requiredNames : [];
+  const requiredGroups = Array.isArray(cat.requiredGroups) ? cat.requiredGroups : [];
+  const requiredRows = rows.filter((r) => requiredNames.includes(r.name));
+  const requiredOk = requiredRows.every((r) => isFilledScore(r));
+  const selectedGroup = requiredGroups.find((g) => g.id === selectedGroupId);
+  const groupRows = selectedGroup
+    ? rows.filter((r) => selectedGroup.names.includes(r.name))
+    : [];
+  const groupOk = selectedGroup ? groupRows.every((r) => isFilledScore(r)) : false;
+
+    const includedRows = [
+      ...requiredRows.filter((r) => isFilledScore(r) && isCountable(r)),
+      ...groupRows.filter((r) => isFilledScore(r) && isCountable(r)),
+    ];
+  const included = new Set(includedRows.map((r) => r.id));
+    const credits = includedRows.reduce((s, r) => s + (Number(r.credits) || 0), 0);
+    const qp = includedRows.reduce((s, r) => {
+      const gp = getRowGpa(r, baseAvgGpa);
+      return s + (Number(r.credits) || 0) * (gp ?? 0);
+    }, 0);
+
+  const ok = requiredOk && groupOk;
+  return {included, ok, credits, qp};
+}
+
   const computed = useMemo(() => {
     const categoryResults = {};
     let totalCredits = 0;
@@ -564,7 +671,16 @@ export default function PostgradTool() {
     groups.forEach((group) => {
       group.categories.forEach((cat) => {
         const rows = currentData[cat.id] || [];
-        if (cat.selectable) {
+        if (cat.requiredGroups) {
+          const selectedGroupId = groupChoiceByGrade[grade]?.[cat.id];
+          const best = computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId);
+          categoryResults[cat.id] = best;
+          totalCredits += best.credits;
+          totalQp += best.qp;
+          if (!best.ok) {
+            allOk = false;
+          }
+        } else if (cat.selectable) {
           const best = computeSelectable(rows, cat);
           categoryResults[cat.id] = best;
           totalCredits += best.credits;
@@ -581,13 +697,16 @@ export default function PostgradTool() {
           const creditsOk = filledCredits >= minCredits;
           const isOk = countOk && creditsOk;
 
-          const credits = rows.reduce((s, r) => s + (Number(r.credits) || 0), 0);
-          const qp = rows.reduce((s, r) => {
+          const countableRows = filledRows.filter((r) => isCountable(r));
+          const credits = countableRows.reduce((s, r) => s + (Number(r.credits) || 0), 0);
+          const qp = countableRows.reduce((s, r) => {
             const gp = getRowGpa(r, baseAvgGpa);
             return s + (Number(r.credits) || 0) * (gp ?? 0);
           }, 0);
 
-          const includedSet = new Set(rows.filter((r) => isFilledScore(r)).map((r) => r.id));
+          const includedSet = new Set(
+            rows.filter((r) => isFilledScore(r) && isCountable(r)).map((r) => r.id)
+          );
           categoryResults[cat.id] = {
             included: includedSet,
             ok: isOk,
@@ -605,7 +724,7 @@ export default function PostgradTool() {
 
     const avg = totalCredits > 0 ? totalQp / totalCredits : 0;
     return {categoryResults, totalCredits, avg, allOk};
-  }, [currentData, groups, baseAvgGpa]);
+  }, [currentData, groups, baseAvgGpa, groupChoiceByGrade, grade]);
 
   function clearCurrentGrade() {
     setDataByGrade((prev) => {
@@ -696,6 +815,7 @@ export default function PostgradTool() {
                 const rows = currentData[cat.id] || [];
                 const result = computed.categoryResults[cat.id] || {included: new Set(), ok: false};
                 const requiredNames = Array.isArray(cat.requiredNames) ? cat.requiredNames : [];
+                const selectedGroupId = groupChoiceByGrade[grade]?.[cat.id] || '';
                 return (
                   <div
                     key={cat.id}
@@ -716,7 +836,7 @@ export default function PostgradTool() {
                         marginBottom: 8,
                       }}
                     >
-                      <div>
+                      <div style={{minWidth: 220}}>
                         <div style={{fontWeight: 650}}>
                           {cat.name}（{cat.id}）
                         </div>
@@ -725,6 +845,32 @@ export default function PostgradTool() {
                           {cat.note ? `，${cat.note}` : ''}
                         </div>
                       </div>
+                      {Array.isArray(cat.requiredGroups) && (
+                        <select
+                          value={selectedGroupId}
+                          onChange={(e) =>
+                            setGroupChoiceByGrade((prev) => ({
+                              ...prev,
+                              [grade]: {...prev[grade], [cat.id]: e.target.value},
+                            }))
+                          }
+                          style={{
+                            minWidth: 200,
+                            padding: '6px 10px',
+                            borderRadius: 8,
+                            border: '1px solid var(--ifm-color-emphasis-200)',
+                            background: 'var(--ifm-background-color)',
+                            height: 36,
+                          }}
+                        >
+                          <option value="">请选择大英 A / B</option>
+                          {cat.requiredGroups.map((g) => (
+                            <option key={g.id} value={g.id}>
+                              {g.label}
+                            </option>
+                          ))}
+                        </select>
+                      )}
                       <div
                         style={{
                           fontSize: '0.85rem',
@@ -746,7 +892,7 @@ export default function PostgradTool() {
                       {rows.map((row) => {
                         const isRequired = requiredNames.includes(row.name);
                         const requiredMode = cat.requiredMode || 'passfail';
-                        const included = result.included.has(row.id);
+                        const included = result.included.has(row.id) && isCountable(row);
                         return (
                           <div
                             key={row.id}
