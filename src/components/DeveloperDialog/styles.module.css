@@ -1,0 +1,203 @@
+/* ===== Overlay ===== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: overlayFadeIn 0.2s ease;
+}
+
+/* ===== Dialog ===== */
+.dialog {
+  background: var(--dev-dialog-bg);
+  border-radius: 16px;
+  box-shadow: var(--dev-dialog-shadow);
+  width: 440px;
+  max-width: 100%;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--dev-dialog-border);
+  animation: dialogSlideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ===== Header ===== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--dev-dialog-divider);
+}
+
+.title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--dev-dialog-title-color);
+  letter-spacing: -0.01em;
+}
+
+.closeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--dev-dialog-muted);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.closeBtn:hover {
+  background: var(--dev-dialog-hover-bg);
+  color: var(--dev-dialog-title-color);
+}
+
+/* ===== Body ===== */
+.body {
+  padding: 8px 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* ===== Developer Card ===== */
+.card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.card + .card {
+  border-top: 1px solid var(--dev-dialog-divider);
+}
+
+/* ===== Avatar ===== */
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  flex-shrink: 0;
+  user-select: none;
+  letter-spacing: 0.02em;
+}
+
+/* ===== Info ===== */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dev-dialog-title-color);
+  line-height: 1.4;
+}
+
+.studentId {
+  font-size: 13px;
+  color: var(--dev-dialog-muted);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.4;
+}
+
+/* ===== Contact Link ===== */
+.contactLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+.contactLink:hover {
+  opacity: 0.75;
+  text-decoration: none;
+  color: var(--ifm-color-primary);
+}
+
+.contactIcon {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* ===== Footer ===== */
+.footer {
+  padding: 14px 24px;
+  text-align: center;
+  border-top: 1px solid var(--dev-dialog-divider);
+  font-size: 12px;
+  color: var(--dev-dialog-muted);
+  letter-spacing: 0.03em;
+}
+
+/* ===== Animations ===== */
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialogSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  .dialog {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .header {
+    padding: 16px 20px 12px;
+  }
+
+  .body {
+    padding: 4px 20px;
+  }
+
+  .footer {
+    padding: 12px 20px;
+  }
+
+  .avatar {
+    width: 42px;
+    height: 42px;
+    font-size: 16px;
+  }
+}

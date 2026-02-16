@@ -106,6 +106,11 @@ const config = {
             label: 'GitHub',
             position: 'right',
           },
+          {
+            type: 'html',
+            position: 'right',
+            value: '<button id="developer-info-btn" class="dev-info-trigger" title="查看开发者信息"><b>Contribs.</b></button>',
+          },
         ],
       },
       footer: {
