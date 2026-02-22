@@ -100,7 +100,7 @@
     },
     {
       "name": "BUAA_Software_resources",
-      "description": "BUAA 23级软件学院 操作系统资料分享",
+      "description": "BUAA 23级软件学院 软工系列课程资料分享",
       "updatedAt": "2026-01-16",
       "url": "https://github.com/DeNeRATe-cool/BUAA_Software_resources",
       "author": {
@@ -130,7 +130,7 @@
       "description": "北航2021年软件学院课程资料",
       "updatedAt": "2023-04-27",
       "url": "https://github.com/orgs/Super-BUAA-2021/repositories",
-      "author": { "name": "Super-BUAA-2021", "github": "https://github.com/orgs/Super-BUAA-2021/repositories" }
+      "author": { "name": "Super-BUAA-2021", "github": "https://github.com/Super-BUAA-2021" }
     }
   ]
 }
