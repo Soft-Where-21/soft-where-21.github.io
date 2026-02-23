@@ -76,6 +76,14 @@ const config = {
     ],
   ],
 
+  scripts: [
+    {
+      src: 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js',
+      async: true,
+      defer: true,
+    },
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -156,7 +164,7 @@ const config = {
         //     ],
         //   },
         // ],
-        copyright: `Copyright © ${new Date().getFullYear()} Soft Where, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Soft Where, Inc. Built with Docusaurus. <br><span class="footer__separator"></span><span id="busuanzi_container_site_uv" class="busuanzi">Visitor Count: <span id="busuanzi_value_site_uv"></span></span>`,
       },
       prism: {
         theme: prismThemes.github,

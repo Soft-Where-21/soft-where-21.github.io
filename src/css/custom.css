@@ -64,3 +64,13 @@
 .dev-info-trigger:hover {
   color: var(--ifm-navbar-link-hover-color);
 }
+
+/* Busuanzi (site UV) */
+#busuanzi_container_site_uv {
+  display: none;
+}
+
+.busuanzi {
+  opacity: 0.9;
+  font-variant-numeric: tabular-nums;
+}
