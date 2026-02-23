@@ -70,7 +70,36 @@
   display: none;
 }
 
-.busuanzi {
-  opacity: 0.9;
+.footerSep {
+  margin: 0 0.5rem;
+  opacity: 0.35;
+}
+
+.siteStats {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.footer--dark .siteStats {
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer--light .siteStats {
+  color: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#busuanzi_value_site_uv {
+  font-weight: 650;
 }

@@ -164,7 +164,7 @@ const config = {
         //     ],
         //   },
         // ],
-        copyright: `Copyright © ${new Date().getFullYear()} Soft Where, Inc. Built with Docusaurus. <br><span class="footer__separator"></span><span id="busuanzi_container_site_uv" class="busuanzi">Visitor Count: <span id="busuanzi_value_site_uv"></span></span>`,
+        copyright: `Copyright © ${new Date().getFullYear()} Soft Where, Inc. Built with Docusaurus<span class="footerSep">·</span><span id="busuanzi_container_site_uv" class="siteStats">总访客 <span id="busuanzi_value_site_uv"></span></span>`,
       },
       prism: {
         theme: prismThemes.github,
