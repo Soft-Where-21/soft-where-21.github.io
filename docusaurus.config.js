@@ -76,6 +76,14 @@ const config = {
     ],
   ],
 
+  scripts: [
+    {
+      src: 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js',
+      async: true,
+      defer: true,
+    },
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -105,6 +113,11 @@ const config = {
             href: 'https://github.com/Soft-Where-21',
             label: 'GitHub',
             position: 'right',
+          },
+          {
+            type: 'html',
+            position: 'right',
+            value: '<button id="developer-info-btn" class="dev-info-trigger" title="查看开发者信息"><b>Contribs.</b></button>',
           },
         ],
       },
@@ -151,7 +164,7 @@ const config = {
         //     ],
         //   },
         // ],
-        copyright: `Copyright © ${new Date().getFullYear()} Soft Where, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Soft Where, Inc. Built with Docusaurus<span class="footerSep">·</span><span id="busuanzi_container_site_uv" class="siteStats">总访客 <span id="busuanzi_value_site_uv"></span></span>`,
       },
       prism: {
         theme: prismThemes.github,
