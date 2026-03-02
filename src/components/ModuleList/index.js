@@ -1,7 +1,88 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
-import modules from '../../data/modules.json';
+
+// 硬编码配置模块数据，节省框架成本
+const modules = [
+  {
+    "title": "北航常用工具导航",
+    "description": "BUAA常用工具以及链接",
+    "link": "/docs/BUAA工具",
+    "isCategory": false
+  },
+  {
+    "title": "北航校历",
+    "description": "北航 2025-2026 校历",
+    "link": "/docs/北航校历",
+    "isCategory": false
+  },
+  {
+    "title": "培养方案",
+    "description": "关于 培养方案 的相关资料。",
+    "link": "/docs/category/培养方案",
+    "isCategory": true,
+    "items": [
+      {
+        "title": "2023级",
+        "description": "软件学院软件工程2023级培养方案",
+        "link": "/docs/培养方案/software-engineering-2023",
+        "isCategory": false
+      },
+      {
+        "title": "2024级",
+        "description": "软件学院软件工程2024级培养方案",
+        "link": "/docs/培养方案/software-engineering-2024",
+        "isCategory": false
+      }
+    ]
+  },
+  {
+    "title": "常用指令",
+    "description": "关于 常用指令 的相关资料。",
+    "link": "/docs/category/常用指令",
+    "isCategory": true,
+    "items": [
+      {
+        "title": "Git",
+        "description": "Git常用指令",
+        "link": "/docs/常用指令/git",
+        "isCategory": false
+      },
+      {
+        "title": "OS",
+        "description": "Linux/Powershell/Mac常用指令",
+        "link": "/docs/常用指令/OS",
+        "isCategory": false
+      }
+    ]
+  },
+  {
+    "title": "校园地图",
+    "description": "关于 校园地图 的相关资料。",
+    "link": "/docs/category/校园地图",
+    "isCategory": true,
+    "items": [
+      {
+        "title": "学院路",
+        "description": "北航学院路校区校园地图",
+        "link": "/docs/校园地图/学院路",
+        "isCategory": false
+      },
+      {
+        "title": "沙河",
+        "description": "北航沙河校区校园地图",
+        "link": "/docs/校园地图/沙河",
+        "isCategory": false
+      }
+    ]
+  },
+  {
+    "title": "科研工具",
+    "description": "常用科研工具与使用建议",
+    "link": "/docs/科研工具",
+    "isCategory": false
+  }
+];
 
 function ModuleCard({ title, description, link }) {
   return (

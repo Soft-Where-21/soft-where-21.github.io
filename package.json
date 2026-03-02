@@ -5,8 +5,8 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "gen-modules": "node scripts/gen-modules.js",
-    "start": "npm run gen-modules && docusaurus start",
-    "build": "npm run gen-modules && docusaurus build",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
