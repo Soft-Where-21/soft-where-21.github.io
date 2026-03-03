@@ -19,6 +19,42 @@
             ]
         },
         {
+            "id": "soft-home",
+            "name": "北航软院官网",
+            "href": "https://soft.buaa.edu.cn/",
+            "iconUrl": "/icon/buaa-tool/北航校徽svg.svg",
+            "iconText": "软院",
+            "category": "校园门户",
+            "access": "校内外",
+            "tagline": "软件学院官方主页与通知入口",
+            "tags": [
+                "学院官网",
+                "招生就业"
+            ],
+            "details": [
+                "学院概况、新闻公告、师资队伍、人才培养等信息。",
+                "快速链接含云平台、邮件、研究生系统等常用入口。"
+            ]
+        },
+        {
+            "id": "gw-auth",
+            "name": "北航网络准入认证系统",
+            "href": "https://gw.buaa.edu.cn/",
+            "iconUrl": "/icon/buaa-tool/北航校徽svg.svg",
+            "iconText": "准入",
+            "category": "校园门户",
+            "access": "校园网",
+            "tagline": "校园网连接认证与准入管理",
+            "tags": [
+                "校园网",
+                "网络认证"
+            ],
+            "details": [
+                "连接校园网时需通过此系统进行认证。",
+                "首次连接或更换设备时需重新认证。"
+            ]
+        },
+        {
             "id": "smart-portal",
             "name": "智慧门户",
             "href": "https://it.buaa.edu.cn/html/websites/index.html",
