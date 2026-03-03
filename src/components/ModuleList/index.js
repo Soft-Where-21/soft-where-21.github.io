@@ -55,9 +55,15 @@ const modules = [
         "isCategory": false
       },
       {
-        "title": "OS",
-        "description": "Linux/Powershell/Mac常用指令",
-        "link": "/docs/常用指令/OS",
+        "title": "Bash",
+        "description": "Linux 命令行快速上手教程",
+        "link": "/docs/常用指令/Linux/shell",
+        "isCategory": false
+      },
+      {
+        "title": "Vim",
+        "description": "Vim 基础模式与常用编辑指令",
+        "link": "/docs/常用指令/Linux/vim",
         "isCategory": false
       },
       {
