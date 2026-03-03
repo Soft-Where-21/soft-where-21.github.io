@@ -7,13 +7,13 @@ const modules = [
   {
     "title": "北航常用工具导航",
     "description": "BUAA常用工具以及链接",
-    "link": "/docs/BUAA工具",
+    "link": "/docs/buaa-tools",
     "isCategory": false
   },
   {
     "title": "北航校历",
     "description": "北航 2025-2026 校历",
-    "link": "/docs/北航校历",
+    "link": "/docs/calendar",
     "isCategory": false
   },
   {
@@ -25,19 +25,19 @@ const modules = [
   {
     "title": "培养方案",
     "description": "关于 培养方案 的相关资料。",
-    "link": "/docs/category/培养方案",
+    "link": "/docs/training-program",
     "isCategory": true,
     "items": [
       {
         "title": "2023级",
         "description": "软件学院软件工程2023级培养方案",
-        "link": "/docs/培养方案/software-engineering-2023",
+        "link": "/docs/training-program/software-engineering-2023",
         "isCategory": false
       },
       {
         "title": "2024级",
         "description": "软件学院软件工程2024级培养方案",
-        "link": "/docs/培养方案/software-engineering-2024",
+        "link": "/docs/training-program/software-engineering-2024",
         "isCategory": false
       }
     ]
@@ -45,37 +45,37 @@ const modules = [
   {
     "title": "常用指令",
     "description": "关于 常用指令 的相关资料。",
-    "link": "/docs/category/常用指令",
+    "link": "/docs/commands",
     "isCategory": true,
     "items": [
       {
         "title": "Git",
         "description": "Git 安装配置 / 本地版本管理 / 远程协作",
-        "link": "/docs/常用指令/Git/Git安装与配置",
+        "link": "/docs/commands/git/install-config",
         "isCategory": false
       },
       {
         "title": "Bash",
         "description": "Linux 命令行快速上手教程",
-        "link": "/docs/常用指令/Linux/shell",
+        "link": "/docs/commands/linux/shell",
         "isCategory": false
       },
       {
         "title": "Vim",
         "description": "Vim 基础模式与常用编辑指令",
-        "link": "/docs/常用指令/Linux/vim",
+        "link": "/docs/commands/linux/vim",
         "isCategory": false
       },
       {
         "title": "Docker",
         "description": "Docker 常用指令与速查",
-        "link": "/docs/常用指令/docker",
+        "link": "/docs/commands/docker",
         "isCategory": false
       },
       {
         "title": "Tmux",
         "description": "Tmux 安装与使用教程",
-        "link": "/docs/常用指令/Tmux/Tmux安装与配置",
+        "link": "/docs/commands/tmux/install-config",
         "isCategory": false
       }
     ]
@@ -83,19 +83,19 @@ const modules = [
   {
     "title": "校园地图",
     "description": "关于 校园地图 的相关资料。",
-    "link": "/docs/category/校园地图",
+    "link": "/docs/campus-map",
     "isCategory": true,
     "items": [
       {
         "title": "学院路",
         "description": "北航学院路校区校园地图",
-        "link": "/docs/校园地图/学院路",
+        "link": "/docs/campus-map/xueyuan-road",
         "isCategory": false
       },
       {
         "title": "沙河",
         "description": "北航沙河校区校园地图",
-        "link": "/docs/校园地图/沙河",
+        "link": "/docs/campus-map/shahe",
         "isCategory": false
       }
     ]
@@ -103,7 +103,7 @@ const modules = [
   {
     "title": "科研工具",
     "description": "常用科研工具与使用建议",
-    "link": "/docs/科研工具",
+    "link": "/docs/research-tools",
     "isCategory": false
   }
 ];
