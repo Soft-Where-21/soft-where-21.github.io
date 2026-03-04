@@ -126,6 +126,14 @@
     },
 
     {
+      "name": "BUAA-SSAD-2025-Project-Group1-AcademicPlatform",
+      "description": "北航 软件系统分析与设计课程 团队项目：学术成果分享平台",
+      "language": "Java",
+      "updatedAt": "2026-02-18",
+      "author": { "name": "saitewasreset", "github": "https://github.com/saitewasreset" }
+    },
+
+    {
       "name": "Super-BUAA-2021",
       "description": "北航2021年软件学院课程资料",
       "updatedAt": "2023-04-27",
