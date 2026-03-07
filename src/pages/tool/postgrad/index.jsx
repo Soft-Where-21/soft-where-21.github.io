@@ -16,6 +16,7 @@ function normalizeRows(rows) {
     let name = row.name;
     if (name === '基础物理学（1）（2）') name = '基础物理学（1）';
     if (name === '基础物理实验（1）（2）') name = '基础物理实验（1）';
+    if (name === '离散数学（1）') name = '离散数学（2）';
     const scoreType =
       name === '社会实践' ? 'five' : row.scoreType ? row.scoreType : 'percent';
     return {...row, name, scoreType};
@@ -217,7 +218,7 @@ const COURSE_PRESETS = {
       {name: '素质教育（博雅课程）（6）', credits: 0.3},
     ],
     'I-3': [
-      {name: '离散数学（1）', credits: 2},
+      {name: '离散数学（2）', credits: 2},
       {name: '计算机硬件基础（软件专业）', credits: 4},
       {name: '算法分析与设计', credits: 3},
       {name: '面向对象程序设计（Java）', credits: 2.5},
@@ -286,7 +287,7 @@ const COURSE_PRESETS = {
       {name: '马克思主义基本原理', credits: 3},
     ],
     E: [
-      {name: '离散数学（1）', credits: 2},
+      {name: '离散数学（2）', credits: 2},
       {name: '计算机硬件基础（软件专业）', credits: 4},
       {name: '算法分析与设计', credits: 3},
       {name: '面向对象程序设计（Java）', credits: 2.5},
@@ -337,6 +338,103 @@ function scoreToGp(score) {
 function formatNumber(value, digits = 2) {
   if (!Number.isFinite(value)) return '-';
   return value.toFixed(digits);
+}
+
+function toCourseKey(name) {
+  return String(name || '')
+    .trim()
+    .toLowerCase()
+    .replace(/[（(]/g, '(')
+    .replace(/[）)]/g, ')')
+    .replace(/\s+/g, '')
+    .replace(/（java）|[(]java[)]/gi, '(java)')
+    .replace('基础物理学a(1)', '基础物理学(1)')
+    .replace('基础物理学a(2)', '基础物理学(2)');
+}
+
+function getCourseKeyVariants(name) {
+  const base = toCourseKey(name);
+  const set = new Set([base]);
+  // Variant: unify basic physics A-name
+  set.add(base.replace('基础物理学a', '基础物理学'));
+  return Array.from(set).filter(Boolean);
+}
+
+function toLooseCourseKey(name) {
+  return toCourseKey(name)
+    .replace(/[()]/g, '')
+    .replace(/a(?=\d)/g, '')
+    .replace(/[^0-9a-z\u4e00-\u9fa5]/g, '');
+}
+
+function splitTranscriptLine(raw) {
+  if (raw.includes('\t')) {
+    return raw.split('\t').map((v) => v.trim()).filter((v) => v !== '');
+  }
+  // Fallback for copied plain text with spaces instead of tabs
+  return raw.split(/\s{2,}|\s+/).map((v) => v.trim()).filter((v) => v !== '');
+}
+
+function parseNumeric(raw) {
+  const num = Number(String(raw || '').trim());
+  return Number.isFinite(num) ? num : null;
+}
+
+function parseTranscriptText(text) {
+  if (!text || !text.trim()) return [];
+  const lines = text.split(/\r?\n/);
+  const entries = [];
+  const codePattern = /^[A-Z][A-Z0-9]{6,}$/;
+  const fiveLabels = new Set(['优秀', '良好', '中等', '及格', '不及格']);
+
+  for (const line of lines) {
+    const raw = line.trim();
+    if (!raw) continue;
+    const cells = splitTranscriptLine(raw);
+    if (cells.length < 5) continue;
+
+    let codeIndex = -1;
+    for (let i = 1; i < cells.length - 2; i += 1) {
+      if (codePattern.test(cells[i])) {
+        codeIndex = i;
+        break;
+      }
+    }
+    if (codeIndex <= 0) continue;
+
+    const course = cells[codeIndex - 1];
+    const creditsRaw = cells[codeIndex + 1];
+    const scoreRaw = cells[codeIndex + 2];
+    if (!course) continue;
+
+    const credits = parseNumeric(creditsRaw);
+    let scoreType = 'percent';
+    let score = null;
+    let passStatus = '';
+
+    if (fiveLabels.has(scoreRaw)) {
+      scoreType = 'five';
+    } else if (scoreRaw === '通过' || scoreRaw === '不通过') {
+      scoreType = 'passfail';
+      passStatus = scoreRaw === '通过' ? 'pass' : 'fail';
+    } else {
+      const n = parseNumeric(scoreRaw);
+      if (n === null) continue;
+      scoreType = 'percent';
+      score = n;
+    }
+
+    entries.push({
+      name: course,
+      keys: getCourseKeyVariants(course),
+      credits,
+      scoreRaw,
+      scoreType,
+      score,
+      passStatus,
+    });
+  }
+  return entries;
 }
 
 function isFilledScore(row) {
@@ -466,12 +564,34 @@ function normalizeDataByGroups(gradeData, groups) {
   return next;
 }
 
+function alignGradeDataNames(grade, gradeData) {
+  if (!gradeData || typeof gradeData !== 'object') return gradeData;
+  const presets = COURSE_PRESETS[grade] || {};
+  const next = {...gradeData};
+  Object.keys(next).forEach((catId) => {
+    const rows = Array.isArray(next[catId]) ? next[catId] : [];
+    const presetRows = Array.isArray(presets[catId]) ? presets[catId] : [];
+    next[catId] = rows.map((row, idx) => {
+      const preset = presetRows[idx];
+      if (!preset || !preset.name) return row;
+      return {
+        ...row,
+        name: preset.name,
+      };
+    });
+  });
+  return next;
+}
+
 export default function PostgradTool() {
   const [grade, setGrade] = useState('23');
   const [dataByGrade, setDataByGrade] = useState(() => ({
     '23': buildInitialDataForGrade('23'),
     '24': buildInitialDataForGrade('24'),
   }));
+  const [showImportPanel, setShowImportPanel] = useState(false);
+  const [importText, setImportText] = useState('');
+  const [importReport, setImportReport] = useState('');
   const [groupChoiceByGrade, setGroupChoiceByGrade] = useState(() => ({
     '23': {},
     '24': {},
@@ -491,10 +611,12 @@ export default function PostgradTool() {
           delete parsed['23'].E;
           parsed['23'] = normalizeGradeData(parsed['23']);
           parsed['23'] = normalizeDataByGroups(parsed['23'], getCategoryGroups('23'));
+          parsed['23'] = alignGradeDataNames('23', parsed['23']);
         }
         if (parsed['24'] && typeof parsed['24'] === 'object') {
           parsed['24'] = normalizeGradeData(parsed['24']);
           parsed['24'] = normalizeDataByGroups(parsed['24'], getCategoryGroups('24'));
+          parsed['24'] = alignGradeDataNames('24', parsed['24']);
         }
         setDataByGrade((prev) => ({
           '23': parsed['23'] || prev['23'],
@@ -751,12 +873,153 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
     });
   }
 
+  function handleImportText() {
+    const parsed = parseTranscriptText(importText);
+    if (!parsed.length) {
+      setImportReport('未识别到可导入的成绩行，请确认粘贴的是教务返回文本。');
+      return;
+    }
+
+    let matched = 0;
+    let updated = 0;
+    const unmatched = [];
+    setDataByGrade((prev) => {
+      const next = {...prev};
+      const gradeData = alignGradeDataNames(grade, {...(next[grade] || {})});
+
+      Object.keys(gradeData).forEach((catId) => {
+        gradeData[catId] = (gradeData[catId] || []).map((row) => ({...row}));
+      });
+
+      const nameMap = new Map();
+      const looseMap = new Map();
+      Object.keys(gradeData).forEach((catId) => {
+        (gradeData[catId] || []).forEach((row, index) => {
+          getCourseKeyVariants(row.name).forEach((key) => {
+            if (!nameMap.has(key)) nameMap.set(key, []);
+            nameMap.get(key).push({catId, index});
+          });
+          const loose = toLooseCourseKey(row.name);
+          if (!looseMap.has(loose)) looseMap.set(loose, []);
+          looseMap.get(loose).push({catId, index});
+        });
+      });
+
+      parsed.forEach((item) => {
+        let refs = [];
+        item.keys.forEach((key) => {
+          const hit = nameMap.get(key);
+          if (hit && hit.length) refs = refs.concat(hit);
+        });
+        if (!refs.length) {
+          const looseKeys = item.keys.map((k) => toLooseCourseKey(k));
+          looseKeys.forEach((lk) => {
+            const hit = looseMap.get(lk);
+            // Only accept unique loose match to avoid wrong mapping
+            if (hit && hit.length === 1) refs = refs.concat(hit);
+          });
+        }
+        // Deduplicate references from multiple variant keys
+        const dedup = new Map();
+        refs.forEach((ref) => {
+          dedup.set(`${ref.catId}-${ref.index}`, ref);
+        });
+        refs = Array.from(dedup.values());
+        if (!refs || refs.length === 0) {
+          unmatched.push(item.name);
+          return;
+        }
+        matched += 1;
+
+        refs.forEach((ref) => {
+          const row = gradeData[ref.catId][ref.index];
+          if (item.credits !== null && item.credits > 0) {
+            row.credits = item.credits;
+            updated += 1;
+          }
+
+          if (item.scoreType === 'percent') {
+            row.score = String(item.score);
+            row.passStatus = '';
+            updated += 1;
+          } else if (item.scoreType === 'five' && row.scoreType === 'five') {
+            const labelMap = {
+              优秀: 'excellent',
+              良好: 'good',
+              中等: 'medium',
+              及格: 'pass',
+              不及格: 'fail',
+            };
+            row.score = labelMap[item.scoreRaw] || '';
+            row.passStatus = '';
+            updated += 1;
+          } else if (item.scoreType === 'passfail' || row.scoreType === 'passfail') {
+            row.passStatus = item.passStatus || '';
+            row.score = '';
+            updated += 1;
+          }
+        });
+      });
+
+      next[grade] = gradeData;
+      return next;
+    });
+
+    const unmatchedPreview =
+      unmatched.length > 0 ? ` 未匹配示例：${unmatched.slice(0, 5).join('、')}` : '';
+    setImportReport(`已识别 ${parsed.length} 条。${unmatchedPreview}`);
+  }
+
   return (
     <div style={{padding: 18}}>
       <div style={{marginBottom: 12, fontSize: '0.85rem', opacity: 0.65, lineHeight: 1.6}}>
         说明：左侧勾选表示“是否选修该课程”，保研成绩由算法自动计算。
         可选课程会在已勾选且已填成绩的课程中自动择优纳入（按模块要求），并在课程后显示绿色√。
         必修部分全部纳入；达标判断以“已填写成绩/合格”为准。
+      </div>
+      <div
+        style={{
+          marginBottom: 12,
+          padding: 12,
+          borderRadius: 12,
+          border: '1px solid var(--ifm-color-emphasis-200)',
+          background: 'var(--ifm-color-emphasis-100)',
+        }}
+      >
+        <div style={{display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap'}}>
+          <button
+            type="button"
+            className="button button--secondary"
+            onClick={() => setShowImportPanel((v) => !v)}
+          >
+            {showImportPanel ? '收起导入面板' : '展开导入面板'}
+          </button>
+          {importReport && <div style={{fontSize: '0.85rem', opacity: 0.75}}>{importReport}</div>}
+        </div>
+        {showImportPanel && (
+          <div style={{marginTop: 8}}>
+            <div style={{fontWeight: 650, marginBottom: 8}}>粘贴成绩文本自动填充</div>
+            <textarea
+              value={importText}
+              onChange={(e) => setImportText(e.target.value)}
+              placeholder="粘贴教务成绩查询返回文本（含课程名/课程号/学分/总成绩等列）"
+              style={{
+                width: '100%',
+                minHeight: 120,
+                resize: 'vertical',
+                borderRadius: 8,
+                border: '1px solid var(--ifm-color-emphasis-200)',
+                padding: '8px 10px',
+                background: 'var(--ifm-background-color)',
+              }}
+            />
+            <div style={{display: 'flex', gap: 10, alignItems: 'center', marginTop: 8, flexWrap: 'wrap'}}>
+              <button type="button" className="button button--primary" onClick={handleImportText}>
+                自动识别并填充
+              </button>
+            </div>
+          </div>
+        )}
       </div>
       <div
         style={{
