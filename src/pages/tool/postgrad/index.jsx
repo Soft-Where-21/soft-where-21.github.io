@@ -1017,6 +1017,16 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
               <button type="button" className="button button--primary" onClick={handleImportText}>
                 自动识别并填充
               </button>
+              <button
+                type="button"
+                className="button button--secondary"
+                onClick={() => {
+                  setImportText('');
+                  setImportReport('');
+                }}
+              >
+                清空文本
+              </button>
             </div>
           </div>
         )}
