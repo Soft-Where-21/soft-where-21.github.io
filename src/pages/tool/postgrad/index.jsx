@@ -16,7 +16,6 @@ function normalizeRows(rows) {
     let name = row.name;
     if (name === '基础物理学（1）（2）') name = '基础物理学（1）';
     if (name === '基础物理实验（1）（2）') name = '基础物理实验（1）';
-    if (name === '离散数学（1）') name = '离散数学（2）';
     const scoreType =
       name === '社会实践' ? 'five' : row.scoreType ? row.scoreType : 'percent';
     return {...row, name, scoreType};
