@@ -14,7 +14,8 @@ function normalizeRows(rows) {
   if (!Array.isArray(rows)) return rows;
   return rows.map((row) => {
     let name = row.name;
-    if (name === '基础物理学（1）（2）') name = '基础物理学（1）';
+    if (name === '基础物理学（1）（2）') name = '基础物理学A(1)';
+    if (name === '基础物理学（1）') name = '基础物理学A(1)';
     if (name === '基础物理实验（1）（2）') name = '基础物理实验（1）';
     const scoreType =
       name === '社会实践' ? 'five' : row.scoreType ? row.scoreType : 'percent';
@@ -154,7 +155,7 @@ const COURSE_PRESETS = {
       {name: '工科数学分析（1）', credits: 6},
       {name: '工科高等代数', credits: 6},
       {name: '工科数学分析（2）', credits: 6},
-      {name: '基础物理学（1）', credits: 4},
+      {name: '基础物理学A(1)', credits: 4},
       {name: '概率统计A', credits: 3},
       {name: '基础物理实验（1）', credits: 1},
     ],
@@ -257,7 +258,7 @@ const COURSE_PRESETS = {
       {name: '工科数学分析（1）', credits: 5},
       {name: '工科高等代数', credits: 6},
       {name: '工科数学分析（2）', credits: 5},
-      {name: '基础物理学（1）', credits: 4},
+      {name: '基础物理学A(1)', credits: 4},
       {name: '概率统计A', credits: 3},
       {name: '基础物理实验（1）', credits: 1},
     ],
@@ -368,7 +369,8 @@ function toLooseCourseKey(name) {
 
 function splitTranscriptLine(raw) {
   if (raw.includes('\t')) {
-    return raw.split('\t').map((v) => v.trim()).filter((v) => v !== '');
+    // Keep empty cells for tabular data so fixed-offset columns (e.g. 替代课程名) remain addressable.
+    return raw.split('\t').map((v) => v.trim());
   }
   // Fallback for copied plain text with spaces instead of tabs
   return raw.split(/\s{2,}|\s+/).map((v) => v.trim()).filter((v) => v !== '');
@@ -404,6 +406,7 @@ function parseTranscriptText(text) {
     const course = cells[codeIndex - 1];
     const creditsRaw = cells[codeIndex + 1];
     const scoreRaw = cells[codeIndex + 2];
+    const substituteName = String(cells[codeIndex + 11] || '').trim();
     if (!course) continue;
 
     const credits = parseNumeric(creditsRaw);
@@ -426,6 +429,8 @@ function parseTranscriptText(text) {
     entries.push({
       name: course,
       keys: getCourseKeyVariants(course),
+      substituteName,
+      substituteKeys: substituteName ? getCourseKeyVariants(substituteName) : [],
       credits,
       scoreRaw,
       scoreType,
@@ -904,59 +909,73 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
         });
       });
 
-      parsed.forEach((item) => {
+      const resolveRefs = (keys) => {
         let refs = [];
-        item.keys.forEach((key) => {
+        keys.forEach((key) => {
           const hit = nameMap.get(key);
           if (hit && hit.length) refs = refs.concat(hit);
         });
         if (!refs.length) {
-          const looseKeys = item.keys.map((k) => toLooseCourseKey(k));
+          const looseKeys = keys.map((k) => toLooseCourseKey(k));
           looseKeys.forEach((lk) => {
             const hit = looseMap.get(lk);
             // Only accept unique loose match to avoid wrong mapping
             if (hit && hit.length === 1) refs = refs.concat(hit);
           });
         }
-        // Deduplicate references from multiple variant keys
         const dedup = new Map();
         refs.forEach((ref) => {
           dedup.set(`${ref.catId}-${ref.index}`, ref);
         });
-        refs = Array.from(dedup.values());
-        if (!refs || refs.length === 0) {
+        return Array.from(dedup.values());
+      };
+
+      const applyItemToRow = (row, item) => {
+        if (item.credits !== null && item.credits > 0) {
+          row.credits = item.credits;
+          updated += 1;
+        }
+
+        if (item.scoreType === 'percent') {
+          row.score = String(item.score);
+          row.passStatus = '';
+          updated += 1;
+        } else if (item.scoreType === 'five' && row.scoreType === 'five') {
+          const labelMap = {
+            优秀: 'excellent',
+            良好: 'good',
+            中等: 'medium',
+            及格: 'pass',
+            不及格: 'fail',
+          };
+          row.score = labelMap[item.scoreRaw] || '';
+          row.passStatus = '';
+          updated += 1;
+        } else if (item.scoreType === 'passfail' || row.scoreType === 'passfail') {
+          row.passStatus = item.passStatus || '';
+          row.score = '';
+          updated += 1;
+        }
+      };
+
+      parsed.forEach((item) => {
+        const refs = resolveRefs(item.keys);
+        const substituteRefs = item.substituteKeys.length
+          ? resolveRefs(item.substituteKeys)
+          : [];
+        const union = new Map();
+        refs.forEach((ref) => union.set(`${ref.catId}-${ref.index}`, ref));
+        substituteRefs.forEach((ref) => union.set(`${ref.catId}-${ref.index}`, ref));
+        const allRefs = Array.from(union.values());
+        if (!allRefs || allRefs.length === 0) {
           unmatched.push(item.name);
           return;
         }
         matched += 1;
 
-        refs.forEach((ref) => {
+        allRefs.forEach((ref) => {
           const row = gradeData[ref.catId][ref.index];
-          if (item.credits !== null && item.credits > 0) {
-            row.credits = item.credits;
-            updated += 1;
-          }
-
-          if (item.scoreType === 'percent') {
-            row.score = String(item.score);
-            row.passStatus = '';
-            updated += 1;
-          } else if (item.scoreType === 'five' && row.scoreType === 'five') {
-            const labelMap = {
-              优秀: 'excellent',
-              良好: 'good',
-              中等: 'medium',
-              及格: 'pass',
-              不及格: 'fail',
-            };
-            row.score = labelMap[item.scoreRaw] || '';
-            row.passStatus = '';
-            updated += 1;
-          } else if (item.scoreType === 'passfail' || row.scoreType === 'passfail') {
-            row.passStatus = item.passStatus || '';
-            row.score = '';
-            updated += 1;
-          }
+          applyItemToRow(row, item);
         });
       });
 
