@@ -109,6 +109,7 @@ const config = {
           {to: '/repo', label: '仓库', position: 'left'},
           {to: '/tool', label: '工具', position: 'left'},
           {to: '/member', label: '学生会', position: 'left'},
+          {to: '/blogs', label: '优质博客', position: 'left'},
           {
             href: 'https://github.com/Soft-Where-21',
             label: 'GitHub',

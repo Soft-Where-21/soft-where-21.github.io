@@ -1,0 +1,159 @@
+.root {
+  padding: 2rem 0 4rem;
+  min-height: 60vh;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header {
+  margin-bottom: 2.5rem;
+}
+
+.title {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  margin-bottom: 0.5rem;
+  font-family: 'Space Grotesk', 'IBM Plex Sans', 'Noto Sans', sans-serif;
+  color: var(--ifm-heading-color);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--ifm-font-color-secondary);
+  line-height: 1.5;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 997px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+  }
+}
+
+.card {
+  display: block;
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-2px);
+}
+
+[data-theme='dark'] .card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.thumbnail {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  background: var(--ifm-color-emphasis-100);
+  overflow: hidden;
+}
+
+.thumbnailImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.thumbnailPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, var(--ifm-color-emphasis-100) 0%, var(--ifm-color-emphasis-200) 100%);
+}
+
+.thumbnailIcon {
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0.5;
+  color: var(--ifm-font-color-base);
+  letter-spacing: 0.05em;
+}
+
+.cardBody {
+  padding: 1rem 1.25rem;
+}
+
+.avatarRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.avatarFallback {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cardText {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  /* 避免姓名被挤压成只显示一个字 */
+  min-width: 5em;
+}
+
+.cardTitle {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--ifm-font-color-base);
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardTagline {
+  font-size: 0.85rem;
+  color: var(--ifm-color-primary);
+  line-height: 1.35;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 996px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
