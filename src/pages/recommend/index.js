@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
-import friendLinksData from '../data/friend-links.json';
+import friendLinksData from './friend-links.json';
 import styles from './blogs.module.css';
 
 function getHost(url) {
@@ -14,22 +14,18 @@ function getHost(url) {
 
 export default function BlogsPage() {
   const blogs = Array.isArray(friendLinksData?.blogs) ? friendLinksData.blogs : [];
-  const title = friendLinksData?.title ?? '优质博客';
+  const title = friendLinksData?.title ?? '博客推荐';
   const subtitle = friendLinksData?.subtitle ?? '';
 
   return (
-    <Layout
-      title={title}
-      description={subtitle}>
+    <Layout title={title} description={subtitle}>
       <main className={styles.root}>
         <div className={styles.container}>
           <header className={styles.header}>
             <Heading as="h1" className={styles.title}>
               {title}
             </Heading>
-            {subtitle && (
-              <p className={styles.subtitle}>{subtitle}</p>
-            )}
+            {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
           </header>
           <div className={styles.grid}>
             {blogs.map((blog, i) => {
@@ -39,15 +35,14 @@ export default function BlogsPage() {
               const thumbnailSrc = blog.thumbnail || null;
               const nickname = blog.nickname || host || '博客';
               const initial = nickname.charAt(0);
-              const linkHref = (blog.url && String(blog.url).trim()) ? blog.url : '#';
+              const linkHref = blog.url && String(blog.url).trim() ? blog.url : '#';
               return (
                 <a
                   key={`${blog.nickname}-${blog.url}-${i}`}
                   href={linkHref}
                   target={linkHref.startsWith('#') ? undefined : '_blank'}
                   rel={linkHref.startsWith('#') ? undefined : 'noopener noreferrer'}
-                  className={styles.card}
-                >
+                  className={styles.card}>
                   <div className={styles.thumbnail}>
                     {thumbnailSrc ? (
                       <>
@@ -62,7 +57,7 @@ export default function BlogsPage() {
                             if (fallback) fallback.style.display = 'flex';
                           }}
                         />
-                        <div className={styles.thumbnailPlaceholder} style={{ display: 'none' }} aria-hidden>
+                        <div className={styles.thumbnailPlaceholder} style={{display: 'none'}} aria-hidden>
                           <span className={styles.thumbnailIcon}>博客</span>
                         </div>
                       </>
@@ -89,7 +84,7 @@ export default function BlogsPage() {
                       ) : null}
                       <div
                         className={styles.avatarFallback}
-                        style={{ display: avatarSrc ? 'none' : 'flex' }}
+                        style={{display: avatarSrc ? 'none' : 'flex'}}
                         aria-hidden>
                         {initial}
                       </div>
