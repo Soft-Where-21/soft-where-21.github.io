@@ -1,0 +1,1095 @@
+---
+title: 学业分享
+description: 学业经验分享与讲座资源
+hide_table_of_contents: true
+---
+
+import React, {useEffect, useMemo, useState} from 'react';
+import Heading from '@theme/Heading';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+
+import shareData from './shares.json';
+
+export function isPptFile(url = '') {
+  return /\.(ppt|pptx)(\?.*)?$/i.test(url);
+}
+
+export function isVideoFile(url = '') {
+  return /\.(mp4|webm|ogg|mov|m4v)(\?.*)?$/i.test(url);
+}
+
+export function isPdfFile(url = '') {
+  return /\.(pdf)(\?.*)?$/i.test(url);
+}
+
+export function isPrivateHostname(hostname = '') {
+  const host = String(hostname).toLowerCase();
+  if (!host) return true;
+  if (host === 'localhost' || host === '127.0.0.1' || host === '0.0.0.0' || host.endsWith('.local')) return true;
+  if (/^10\./.test(host)) return true;
+  if (/^192\.168\./.test(host)) return true;
+  if (/^172\.(1[6-9]|2\d|3[0-1])\./.test(host)) return true;
+  return false;
+}
+
+export function getAbsoluteResourceUrl(rawUrl = '', siteBaseUrl = '') {
+  if (!rawUrl) return '';
+  if (/^https?:\/\//i.test(rawUrl)) return rawUrl;
+
+  const runtimeBase = typeof window === 'undefined' ? '' : window.location.origin;
+  const base = runtimeBase || siteBaseUrl;
+  if (!base) return '';
+
+  try {
+    return new URL(rawUrl, base).toString();
+  } catch (e) {
+    return '';
+  }
+}
+
+export function getOfficePreviewUrl(rawUrl = '', siteBaseUrl = '') {
+  if (!rawUrl) return '';
+  const absoluteUrl = getAbsoluteResourceUrl(rawUrl, siteBaseUrl);
+  if (!absoluteUrl) return '';
+
+  try {
+    const parsed = new URL(absoluteUrl);
+    if (isPrivateHostname(parsed.hostname)) return '';
+  } catch (e) {
+    return '';
+  }
+
+  let decodedAbsoluteUrl = absoluteUrl;
+  try {
+    decodedAbsoluteUrl = decodeURI(absoluteUrl);
+  } catch (e) {
+    decodedAbsoluteUrl = absoluteUrl;
+  }
+
+  return `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(decodedAbsoluteUrl)}`;
+}
+
+export function UIIcon({name, className = ''}) {
+  const commonProps = {
+    className,
+    viewBox: '0 0 24 24',
+    width: '1em',
+    height: '1em',
+    'aria-hidden': 'true',
+    focusable: 'false',
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeWidth: '2',
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+  };
+
+  if (name === 'chevron-left') {
+    return (
+      <svg {...commonProps}>
+        <polyline points="15 18 9 12 15 6" />
+      </svg>
+    );
+  }
+  if (name === 'chevron-right') {
+    return (
+      <svg {...commonProps}>
+        <polyline points="9 18 15 12 9 6" />
+      </svg>
+    );
+  }
+  if (name === 'meeting') {
+    return (
+      <svg {...commonProps}>
+        <rect x="3" y="6" width="13" height="12" rx="2" />
+        <polygon points="16 10 21 8 21 16 16 14" />
+      </svg>
+    );
+  }
+  if (name === 'slides') {
+    return (
+      <svg {...commonProps}>
+        <rect x="4" y="4" width="16" height="12" rx="2" />
+        <line x1="9" y1="20" x2="15" y2="20" />
+        <line x1="12" y1="16" x2="12" y2="20" />
+      </svg>
+    );
+  }
+  if (name === 'video') {
+    return (
+      <svg {...commonProps}>
+        <polygon points="10 8 16 12 10 16 10 8" />
+        <circle cx="12" cy="12" r="9" />
+      </svg>
+    );
+  }
+  if (name === 'drive') {
+    return (
+      <svg {...commonProps}>
+        <path d="M7 17 3.5 11 7 5h10l3.5 6-3.5 6H7z" />
+        <line x1="3.5" y1="11" x2="20.5" y2="11" />
+      </svg>
+    );
+  }
+  if (name === 'eye') {
+    return (
+      <svg {...commonProps}>
+        <path d="M2 12s3.8-6 10-6 10 6 10 6-3.8 6-10 6-10-6-10-6z" />
+        <circle cx="12" cy="12" r="2.5" />
+      </svg>
+    );
+  }
+  if (name === 'download') {
+    return (
+      <svg {...commonProps}>
+        <path d="M12 3v11" />
+        <polyline points="8 11 12 15 16 11" />
+        <path d="M4 19h16" />
+      </svg>
+    );
+  }
+  if (name === 'link') {
+    return (
+      <svg {...commonProps}>
+        <path d="M10 14 14 10" />
+        <path d="M8 17H6a4 4 0 0 1 0-8h2" />
+        <path d="M16 7h2a4 4 0 1 1 0 8h-2" />
+      </svg>
+    );
+  }
+  if (name === 'copy') {
+    return (
+      <svg {...commonProps}>
+        <rect x="9" y="9" width="10" height="10" rx="2" />
+        <rect x="5" y="5" width="10" height="10" rx="2" />
+      </svg>
+    );
+  }
+  if (name === 'check') {
+    return (
+      <svg {...commonProps}>
+        <polyline points="5 13 10 17 19 8" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg {...commonProps}>
+      <circle cx="12" cy="12" r="9" />
+    </svg>
+  );
+}
+
+export function SharePage() {
+  const {siteConfig} = useDocusaurusContext();
+  const baseUrl = siteConfig?.baseUrl || '/';
+  const siteBaseUrl = useMemo(() => {
+    const siteUrl = siteConfig?.url || '';
+    if (!siteUrl) return '';
+    try {
+      return new URL(baseUrl, siteUrl).toString();
+    } catch (e) {
+      return siteUrl;
+    }
+  }, [siteConfig?.url, baseUrl]);
+
+  const shares = Array.isArray(shareData?.shares) ? shareData.shares : [];
+  const shareById = useMemo(() => new Map(shares.map((item) => [item.id, item])), [shares]);
+
+  const defaultId = shares[0]?.id || '';
+  const [activeId, setActiveId] = useState(defaultId);
+  const activeShare = shareById.get(activeId);
+
+  function resolvePreviewPayload(item, fallbackType = 'slides', fallbackTitle = '资料预览') {
+    const sourceType = item?.type || fallbackType;
+    const primaryUrl = item?.downloadUrl || item?.url || '';
+    const isVideo = sourceType === 'video' || isVideoFile(primaryUrl);
+    const absolutePrimaryUrl = getAbsoluteResourceUrl(primaryUrl, siteBaseUrl);
+
+    if (isVideo && primaryUrl) {
+      return {type: 'video', url: primaryUrl, title: item?.name || fallbackTitle, absoluteUrl: absolutePrimaryUrl};
+    }
+
+    if (item?.previewUrl) {
+      return {type: 'slides', url: item.previewUrl, title: item?.name || fallbackTitle, absoluteUrl: getAbsoluteResourceUrl(item.previewUrl, siteBaseUrl)};
+    }
+
+    if (isPptFile(primaryUrl)) {
+      return {
+        type: 'slides',
+        url: getOfficePreviewUrl(primaryUrl, siteBaseUrl),
+        title: item?.name || fallbackTitle,
+        absoluteUrl: absolutePrimaryUrl,
+      };
+    }
+
+    if (isPdfFile(primaryUrl)) {
+      return {type: 'slides', url: primaryUrl, title: item?.name || fallbackTitle, absoluteUrl: absolutePrimaryUrl};
+    }
+
+    return {type: '', url: '', title: item?.name || fallbackTitle, absoluteUrl: absolutePrimaryUrl};
+  }
+
+  const previewableResources = useMemo(() => {
+    if (!activeShare?.resources?.length) return [];
+    const entries = [];
+
+    activeShare.resources.forEach((resource) => {
+      const topPreview = resolvePreviewPayload(resource, resource.type || 'slides', resource.name || '资料预览');
+      if (topPreview.url) entries.push(topPreview);
+
+      const files = Array.isArray(resource.files) ? resource.files : [];
+      files.forEach((file, index) => {
+        const fileTitle = file?.name || `${resource.name || '资料'} 文件${index + 1}`;
+        const filePreview = resolvePreviewPayload(file, resource.type || 'slides', `${resource.name || '资料'} - ${fileTitle}`);
+        if (filePreview.url) entries.push({...filePreview, title: `${resource.name || '资料'} - ${fileTitle}`});
+      });
+    });
+
+    return entries;
+  }, [activeShare, siteBaseUrl]);
+
+  const [activePreview, setActivePreview] = useState({type: '', url: '', title: ''});
+  const [copiedKey, setCopiedKey] = useState('');
+  const [toast, setToast] = useState({visible: false, text: ''});
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const hash = decodeURIComponent(window.location.hash || '').replace(/^#/, '').trim();
+    if (hash && shareById.has(hash)) setActiveId(hash);
+  }, [shareById]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (!activeId) return;
+    window.history.replaceState(null, '', `#${encodeURIComponent(activeId)}`);
+  }, [activeId]);
+
+  useEffect(() => {
+    if (!previewableResources.length) {
+      setActivePreview({type: '', url: '', title: ''});
+      return;
+    }
+    const first = previewableResources[0];
+    const firstVideoUrl = first.url || first.downloadUrl || '';
+    const previewUrl =
+      first.type === 'video'
+        ? firstVideoUrl
+        : first.previewUrl || (isPptFile(first.downloadUrl) ? getOfficePreviewUrl(first.downloadUrl) : first.downloadUrl);
+    setActivePreview({
+      type: first.type || '',
+      url: previewUrl || '',
+      title: first.name || '资料预览',
+    });
+  }, [previewableResources]);
+
+  async function handleCopyPassword(password, key) {
+    if (!password || typeof window === 'undefined') return;
+    try {
+      if (navigator?.clipboard?.writeText) {
+        await navigator.clipboard.writeText(password);
+      } else {
+        const textarea = document.createElement('textarea');
+        textarea.value = password;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+      }
+      setCopiedKey(key);
+      setToast({visible: true, text: '访问密码已复制到剪贴板'});
+      window.setTimeout(() => {
+        setCopiedKey((current) => (current === key ? '' : current));
+      }, 1600);
+      window.setTimeout(() => {
+        setToast((current) => (current.visible ? {...current, visible: false} : current));
+      }, 1800);
+    } catch (e) {
+      setToast({visible: true, text: '复制失败，请手动复制'});
+      window.setTimeout(() => {
+        setToast((current) => (current.visible ? {...current, visible: false} : current));
+      }, 1800);
+    }
+  }
+
+  function getOpenLinkLabel(resource) {
+    if (resource.type === 'meeting') return '打开会议链接';
+    if (resource.type === 'buaa-drive') return '打开网盘链接';
+    if (resource.type === 'slides') return '打开PPT网盘链接';
+    return '打开资源链接';
+  }
+
+  function getResourceTypeLabel(type = '') {
+    if (type === 'meeting') return '会议录制';
+    if (type === 'slides') return 'PPT资料';
+    if (type === 'video') return '视频';
+    if (type === 'buaa-drive') return '北航网盘';
+    return '资源';
+  }
+
+  function getResourceIconName(type = '') {
+    if (type === 'meeting') return 'meeting';
+    if (type === 'slides') return 'slides';
+    if (type === 'video') return 'video';
+    if (type === 'buaa-drive') return 'drive';
+    return 'link';
+  }
+
+  return (
+    <div className="container margin-vert--lg">
+      <div className="shareTopRow">
+        <div>
+          <Heading as="h1" style={{marginBottom: 6}}>学业分享</Heading>
+          <div className="shareTopHint">精选学业讲座资料，支持链接访问、文件下载与在线预览</div>
+        </div>
+      </div>
+
+      <div className={`shareMainLayout ${isSidebarCollapsed ? 'isSidebarCollapsed' : ''}`}>
+        <aside className="shareSidebar" aria-label="分享场次列表">
+          <div className="shareSidebarHeader">
+            <div className="shareSidebarTitle">选择分享场次</div>
+            <button
+              type="button"
+              className="button button--secondary button--sm shareSidebarToggle"
+              onClick={() => setIsSidebarCollapsed((value) => !value)}
+              aria-expanded={!isSidebarCollapsed}
+              aria-label={isSidebarCollapsed ? '展开左侧标签栏' : '折叠左侧标签栏'}
+            >
+              <span className="shareSidebarToggleIcon" aria-hidden="true">
+                <UIIcon name={isSidebarCollapsed ? 'chevron-right' : 'chevron-left'} />
+              </span>
+              <span className="shareSidebarToggleText">{isSidebarCollapsed ? '展开' : '折叠'}</span>
+            </button>
+          </div>
+
+          <div className={`shareTimelineWrap ${isSidebarCollapsed ? 'isCollapsed' : ''}`}>
+            <div className="shareTimeline">
+              {shares.map((item, itemIndex) => {
+                const isActive = item.id === activeId;
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => setActiveId(item.id)}
+                    className={`shareTimelineItem ${isActive ? 'isActive' : ''}`}
+                    style={{animationDelay: `${itemIndex * 70}ms`}}
+                    type="button"
+                  >
+                    <div className="shareItemLine">{item.date} [{item.tag}]</div>
+                    <div className="shareItemTitle">{item.title}</div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </aside>
+
+        <section className="shareContent" key={activeId}>
+        <div className="shareStageHeader">
+          <div style={{fontWeight: 650}}>{activeShare?.title || '学业分享'}</div>
+          <div style={{opacity: 0.6, fontSize: '0.9rem'}}>{activeShare?.date || ''}</div>
+        </div>
+
+        <div className="shareStageBody">
+          {!activeShare ? (
+            <div style={{padding: 18, opacity: 0.75}}>暂无分享内容。</div>
+          ) : (
+            <div style={{padding: 18, display: 'grid', gap: 14}}>
+              {activeShare.summary ? (
+                <div style={{opacity: 0.8}}>{activeShare.summary}</div>
+              ) : null}
+
+              <div style={{display: 'grid', gap: 12}}>
+                {(activeShare.resources || []).map((resource, index) => {
+                  const resourceKey = `${resource.name}-${index}`;
+                  const resourceFiles = Array.isArray(resource.files) ? resource.files : [];
+                  const hasFiles = resourceFiles.length > 0;
+                  const hasDownload = !!resource.downloadUrl;
+                  const previewData = resolvePreviewPayload(resource, resource.type || 'slides', resource.name || '资料预览');
+                  const previewUrl = previewData.url;
+                  const isVideoResource = previewData.type === 'video';
+                  const hasPreview = !!previewUrl;
+                  const hasPassword = !!resource.password;
+                  const hasOpenLink = !!resource.url;
+                  const shouldShowPending = !hasDownload && !hasOpenLink && !hasPreview && !hasFiles;
+
+                  return (
+                    <div key={resourceKey} className="shareResourceCard" style={{animationDelay: `${index * 55}ms`}}>
+                      <div className="shareResourceInfo">
+                        <div className="shareResourceTitleRow">
+                          <span className="shareTypeIcon" aria-hidden="true">
+                            <UIIcon name={getResourceIconName(resource.type)} />
+                          </span>
+                          <div className="shareResourceTitle">{resource.name}</div>
+                          <span className="shareResourceType">{getResourceTypeLabel(resource.type)}</span>
+                        </div>
+                        {hasPassword ? (
+                          <div className="shareResourceMeta">
+                            {resource.type === 'buaa-drive' ? '提取码' : '访问密码'}：{resource.password}
+                          </div>
+                        ) : null}
+                        {resource.note ? <div className="shareResourceNote">{resource.note}</div> : null}
+                      </div>
+                      <div className="shareActionRow">
+                        {hasPreview ? (
+                          <button
+                            type="button"
+                            className="button button--secondary button--sm shareActionButton"
+                            onClick={() =>
+                              setActivePreview({
+                                type: previewData.type || (isVideoResource ? 'video' : 'slides'),
+                                url: previewUrl,
+                                title: resource.name || '资料预览',
+                              })
+                            }
+                          >
+                            <span className="shareActionIcon" aria-hidden="true"><UIIcon name="eye" /></span>
+                            在线预览
+                          </button>
+                        ) : null}
+                        {hasDownload ? (
+                          <a
+                            className="button button--secondary button--sm shareActionButton"
+                            href={resource.downloadUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            download
+                          >
+                            <span className="shareActionIcon" aria-hidden="true"><UIIcon name="download" /></span>
+                            下载文件
+                          </a>
+                        ) : null}
+                        {shouldShowPending ? (
+                          <span style={{fontSize: '0.88rem', opacity: 0.6}}>资源待上传</span>
+                        ) : null}
+                        {hasOpenLink ? (
+                          <a
+                            className="button button--secondary button--sm shareActionButton"
+                            href={resource.url}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <span className="shareActionIcon" aria-hidden="true"><UIIcon name="link" /></span>
+                            {getOpenLinkLabel(resource)}
+                          </a>
+                        ) : null}
+                        {hasPassword ? (
+                          <button
+                            type="button"
+                            className={`button button--sm shareActionButton ${copiedKey === resourceKey ? 'button--success' : 'button--secondary'}`}
+                            onClick={() => handleCopyPassword(resource.password, resourceKey)}
+                          >
+                            <span className="shareActionIcon" aria-hidden="true">
+                              <UIIcon name={copiedKey === resourceKey ? 'check' : 'copy'} />
+                            </span>
+                            {copiedKey === resourceKey ? '已复制' : '复制密码'}
+                          </button>
+                        ) : null}
+                      </div>
+
+                      {hasFiles ? (
+                        <div className="shareFileList">
+                          {resourceFiles.map((file, fileIndex) => {
+                            const fileKey = `${resourceKey}-file-${fileIndex}`;
+                            const fileData = resolvePreviewPayload(file, resource.type || 'slides', file?.name || `文件${fileIndex + 1}`);
+                            const hasFilePreview = !!fileData.url;
+                            const hasFileDownload = !!file?.downloadUrl;
+                            const hasFileOpenLink = !!file?.url;
+                            const hasFilePassword = !!file?.password;
+
+                            return (
+                              <div key={fileKey} className="shareFileItem" style={{animationDelay: `${fileIndex * 45}ms`}}>
+                                <div className="shareFileTitleRow">
+                                  <span className="shareTypeIcon" aria-hidden="true">
+                                    <UIIcon name={getResourceIconName(file?.type || resource.type)} />
+                                  </span>
+                                  <div className="shareFileTitle">{file?.name || `文件${fileIndex + 1}`}</div>
+                                  <span className="shareResourceType">{getResourceTypeLabel(file?.type || resource.type)}</span>
+                                </div>
+                                {hasFilePassword ? (
+                                  <div className="shareResourceMeta">
+                                    {file?.type === 'buaa-drive' ? '提取码' : '访问密码'}：{file.password}
+                                  </div>
+                                ) : null}
+                                <div className="shareActionRow" style={{marginTop: 6}}>
+                                  {hasFilePreview ? (
+                                    <button
+                                      type="button"
+                                      className="button button--secondary button--sm shareActionButton"
+                                      onClick={() =>
+                                        setActivePreview({
+                                          type: fileData.type || 'slides',
+                                          url: fileData.url,
+                                          title: `${resource.name || '资料'} - ${file?.name || `文件${fileIndex + 1}`}`,
+                                        })
+                                      }
+                                    >
+                                      <span className="shareActionIcon" aria-hidden="true"><UIIcon name="eye" /></span>
+                                      在线预览
+                                    </button>
+                                  ) : null}
+                                  {hasFileDownload ? (
+                                    <a
+                                      className="button button--secondary button--sm shareActionButton"
+                                      href={file.downloadUrl}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      download
+                                    >
+                                      <span className="shareActionIcon" aria-hidden="true"><UIIcon name="download" /></span>
+                                      下载文件
+                                    </a>
+                                  ) : null}
+                                  {hasFileOpenLink ? (
+                                    <a
+                                      className="button button--secondary button--sm shareActionButton"
+                                      href={file.url}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                    >
+                                      <span className="shareActionIcon" aria-hidden="true"><UIIcon name="link" /></span>
+                                      {getOpenLinkLabel(file)}
+                                    </a>
+                                  ) : null}
+                                  {hasFilePassword ? (
+                                    <button
+                                      type="button"
+                                      className={`button button--sm shareActionButton ${copiedKey === fileKey ? 'button--success' : 'button--secondary'}`}
+                                      onClick={() => handleCopyPassword(file.password, fileKey)}
+                                    >
+                                      <span className="shareActionIcon" aria-hidden="true">
+                                        <UIIcon name={copiedKey === fileKey ? 'check' : 'copy'} />
+                                      </span>
+                                      {copiedKey === fileKey ? '已复制' : '复制密码'}
+                                    </button>
+                                  ) : null}
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      ) : null}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {activePreview.url ? (
+                <div className="sharePreviewWrap" key={activePreview.url}>
+                  <div className="sharePreviewTitle">{activePreview.title} 在线预览</div>
+                  {activePreview.type === 'video' ? (
+                    <video className="sharePreviewFrame" controls preload="metadata">
+                      <source src={activePreview.url} />
+                      当前浏览器不支持视频播放。
+                    </video>
+                  ) : (
+                    <iframe
+                      title="分享资料预览"
+                      src={activePreview.url}
+                      className="sharePreviewFrame"
+                    />
+                  )}
+                </div>
+              ) : null}
+            </div>
+          )}
+        </div>
+        </section>
+      </div>
+
+      <div className={`shareToast ${toast.visible ? 'isVisible' : ''}`} role="status" aria-live="polite">
+        {toast.text}
+      </div>
+
+      <style>{`
+        .shareTopRow{
+          display:flex;
+          align-items:baseline;
+          justify-content:space-between;
+          gap:14px;
+          flex-wrap:wrap;
+        }
+        .shareTopHint{
+          font-size:.92rem;
+          color:var(--ifm-color-emphasis-700);
+        }
+        .shareMainLayout{
+          margin-top:18px;
+          display:flex;
+          gap:clamp(18px, 2.4vw, 30px);
+          align-items:start;
+          --share-sidebar-width: clamp(200px, 20vw, 248px);
+        }
+        .shareSidebar{
+          position:sticky;
+          top:calc(var(--ifm-navbar-height, 0px) + 14px);
+          display:grid;
+          gap:10px;
+          max-height:calc(100vh - var(--ifm-navbar-height, 0px) - 28px);
+          overflow:hidden;
+          padding-right:2px;
+          width:var(--share-sidebar-width);
+          flex:0 0 var(--share-sidebar-width);
+          transition:width .38s cubic-bezier(.22,.61,.36,1), flex-basis .38s cubic-bezier(.22,.61,.36,1), gap .26s ease;
+        }
+        .shareMainLayout.isSidebarCollapsed{--share-sidebar-width:56px;}
+        .shareSidebarHeader{
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          gap:8px;
+        }
+        .shareSidebarTitle{
+          font-size:.86rem;
+          font-weight:650;
+          color:var(--ifm-color-emphasis-700);
+          letter-spacing:.08em;
+          text-transform:uppercase;
+        }
+        .shareSidebarToggle{
+          min-width:56px;
+          padding:0 10px;
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          gap:6px;
+        }
+        .shareSidebarToggleIcon{
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          font-size:1.02rem;
+        }
+        .shareSidebarToggleText{
+          font-size:.8rem;
+          letter-spacing:.02em;
+        }
+        .shareMainLayout.isSidebarCollapsed .shareSidebar{
+          gap:6px;
+        }
+        .shareMainLayout.isSidebarCollapsed .shareSidebarHeader{
+          flex-direction:column;
+          align-items:center;
+        }
+        .shareMainLayout.isSidebarCollapsed .shareSidebarTitle{
+          display:none;
+        }
+        .shareMainLayout.isSidebarCollapsed .shareSidebarToggle{
+          min-width:34px;
+          width:34px;
+          height:34px;
+          padding:0;
+          border-radius:8px;
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          font-weight:700;
+          letter-spacing:0;
+          line-height:1;
+        }
+        .shareMainLayout.isSidebarCollapsed .shareSidebarToggleText{
+          display:none;
+        }
+        .shareTimelineWrap{
+          display:grid;
+          grid-template-rows:1fr;
+          opacity:1;
+          transform:translateY(0);
+          transition:grid-template-rows .4s cubic-bezier(.22,.61,.36,1), opacity .24s ease, transform .28s ease;
+        }
+        .shareTimelineWrap > .shareTimeline{min-height:0;}
+        .shareTimelineWrap.isCollapsed{
+          grid-template-rows:0fr;
+          opacity:0;
+          transform:translateY(-6px);
+          pointer-events:none;
+        }
+        .shareTimeline{
+          display:grid;
+          gap:12px;
+          grid-template-columns:1fr;
+        }
+        .shareTimelineItem{
+          position:relative;
+          overflow:hidden;
+          border:1px solid transparent;
+          background:
+            linear-gradient(165deg, color-mix(in srgb, var(--ifm-card-background-color) 94%, var(--ifm-color-primary-lightest)), var(--ifm-card-background-color)) padding-box,
+            linear-gradient(120deg, color-mix(in srgb, var(--ifm-color-primary) 42%, var(--ifm-color-emphasis-300)), var(--ifm-color-emphasis-300), color-mix(in srgb, var(--ifm-color-primary) 30%, var(--ifm-color-emphasis-300))) border-box;
+          border-radius:12px;
+          padding:12px 14px;
+          cursor:pointer;
+          text-align:left;
+          transition:background .25s ease,border-color .25s ease,transform .25s ease,box-shadow .25s ease;
+          animation:shareFadeUp .45s cubic-bezier(.2,.8,.2,1) both;
+          will-change:transform;
+        }
+        .shareTimelineItem::before{
+          content:'';
+          position:absolute;
+          left:12px;
+          right:12px;
+          top:0;
+          height:1px;
+          pointer-events:none;
+          background:linear-gradient(90deg, transparent, color-mix(in srgb, var(--ifm-color-primary) 65%, transparent), transparent);
+          opacity:.5;
+          transition:opacity .25s ease;
+        }
+        .shareTimelineItem::after{
+          content:'';
+          position:absolute;
+          inset:0;
+          pointer-events:none;
+          background:linear-gradient(
+            110deg,
+            transparent 0%,
+            transparent 42%,
+            color-mix(in srgb, var(--ifm-color-primary) 42%, transparent) 50%,
+            transparent 58%,
+            transparent 100%
+          );
+          transform:translateX(-130%);
+          opacity:0;
+        }
+        .shareTimelineItem:hover{
+          transform:translateY(-2px);
+          border-color:var(--ifm-color-emphasis-300);
+          box-shadow:0 10px 24px color-mix(in srgb, var(--ifm-color-emphasis-900) 10%, transparent);
+        }
+        .shareTimelineItem:hover::before{opacity:.85;}
+        .shareTimelineItem:hover::after{
+          opacity:.45;
+          animation:shareScanline 1.2s cubic-bezier(.22,.61,.36,1) 1;
+        }
+        .shareTimelineItem.isActive{
+          box-shadow:
+            0 0 0 1px color-mix(in srgb, var(--ifm-color-primary) 16%, transparent),
+            0 10px 22px color-mix(in srgb, var(--ifm-color-emphasis-900) 8%, transparent);
+          background:
+            linear-gradient(165deg, color-mix(in srgb, var(--ifm-card-background-color) 88%, var(--ifm-color-primary-lightest)), var(--ifm-card-background-color)) padding-box,
+            linear-gradient(120deg, color-mix(in srgb, var(--ifm-color-primary) 55%, var(--ifm-color-emphasis-300)), color-mix(in srgb, var(--ifm-color-primary) 20%, var(--ifm-color-emphasis-300)), color-mix(in srgb, var(--ifm-color-primary) 45%, var(--ifm-color-emphasis-300))) border-box;
+        }
+        .shareTimelineItem.isActive::before{
+          opacity:1;
+        }
+        .shareTimelineItem.isActive::after{
+          opacity:.5;
+          animation:shareScanlinePulse4s 4s linear infinite;
+        }
+        .shareItemLine{opacity:.72;font-size:.88rem;line-height:1.35;}
+        .shareItemTitle{font-weight:650;line-height:1.35;margin-top:2px;}
+        .shareContent{
+          position:relative;
+          flex:1 1 auto;
+          width:100%;
+          min-width:0;
+          border-radius:14px;
+          border:1px solid transparent;
+          overflow:hidden;
+          background:
+            linear-gradient(170deg, color-mix(in srgb, var(--ifm-card-background-color) 97%, var(--ifm-color-primary-lightest)), var(--ifm-card-background-color)) padding-box,
+            linear-gradient(130deg, color-mix(in srgb, var(--ifm-color-primary) 38%, var(--ifm-color-emphasis-300)), var(--ifm-color-emphasis-300), color-mix(in srgb, var(--ifm-color-primary) 22%, var(--ifm-color-emphasis-300))) border-box;
+          animation:sharePanelIn .42s cubic-bezier(.2,.75,.2,1) both;
+          box-shadow:0 16px 36px color-mix(in srgb, var(--ifm-color-emphasis-900) 8%, transparent);
+        }
+        .shareContent::before{
+          content:'';
+          position:absolute;
+          inset:0;
+          pointer-events:none;
+          background:linear-gradient(145deg, color-mix(in srgb, var(--ifm-color-emphasis-200) 35%, transparent), transparent 44%);
+          opacity:.55;
+        }
+        .shareStageHeader{
+          padding:14px 18px;
+          border-bottom:1px solid var(--ifm-color-emphasis-200);
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          gap:12px;
+          flex-wrap:wrap;
+        }
+        .shareStageBody{
+          min-height:520px;
+          background:linear-gradient(180deg, color-mix(in srgb, var(--ifm-color-emphasis-200) 30%, transparent), transparent 24%);
+        }
+        .shareResourceCard{
+          position:relative;
+          overflow:hidden;
+          border:1px solid transparent;
+          border-radius:12px;
+          padding:14px;
+          display:flex;
+          justify-content:space-between;
+          gap:12px;
+          align-items:flex-start;
+          flex-wrap:wrap;
+          background:
+            linear-gradient(170deg, color-mix(in srgb, var(--ifm-card-background-color) 96%, var(--ifm-color-primary-lightest)), var(--ifm-card-background-color)) padding-box,
+            linear-gradient(130deg, color-mix(in srgb, var(--ifm-color-primary) 34%, var(--ifm-color-emphasis-300)), var(--ifm-color-emphasis-300), color-mix(in srgb, var(--ifm-color-primary) 22%, var(--ifm-color-emphasis-300))) border-box;
+          transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+          animation:shareFadeUp .38s cubic-bezier(.2,.85,.2,1) both;
+        }
+        .shareResourceCard::after{
+          content:'';
+          position:absolute;
+          inset:-35% -45% auto auto;
+          width:180px;
+          height:180px;
+          border-radius:999px;
+          background:radial-gradient(circle, color-mix(in srgb, var(--ifm-color-emphasis-200) 45%, transparent) 0%, transparent 72%);
+          opacity:.45;
+          pointer-events:none;
+        }
+        .shareResourceCard:hover{
+          transform:translateY(-2px);
+          box-shadow:0 14px 28px color-mix(in srgb, var(--ifm-color-emphasis-900) 10%, transparent);
+        }
+        .shareResourceCard::before{
+          content:'';
+          position:absolute;
+          left:14px;
+          right:14px;
+          top:0;
+          height:1px;
+          pointer-events:none;
+          background:linear-gradient(90deg, transparent, color-mix(in srgb, var(--ifm-color-primary) 62%, transparent), transparent);
+          opacity:.45;
+        }
+        .shareResourceCard:hover::before{opacity:.72;}
+        .shareResourceCard:hover::after{
+          animation:shareScanline 1.25s cubic-bezier(.22,.61,.36,1) 1;
+          opacity:.62;
+        }
+        .shareResourceInfo{
+          display:grid;
+          gap:5px;
+          min-width:260px;
+          flex:1 1 340px;
+        }
+        .shareResourceTitleRow{
+          display:flex;
+          align-items:center;
+          gap:8px;
+          flex-wrap:wrap;
+        }
+        .shareTypeIcon{
+          width:22px;
+          height:22px;
+          border-radius:7px;
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          color:var(--ifm-color-primary);
+          background:color-mix(in srgb, var(--ifm-color-primary-lightest) 70%, var(--ifm-background-color));
+          border:1px solid color-mix(in srgb, var(--ifm-color-primary) 25%, var(--ifm-color-emphasis-300));
+          flex:0 0 auto;
+        }
+        .shareTypeIcon svg{font-size:.86rem;}
+        .shareResourceTitle{
+          font-weight:700;
+          letter-spacing:.1px;
+        }
+        .shareResourceType{
+          font-size:.74rem;
+          font-weight:650;
+          color:var(--ifm-color-emphasis-700);
+          background:var(--ifm-color-emphasis-100);
+          border:1px solid var(--ifm-color-emphasis-300);
+          border-radius:999px;
+          padding:2px 8px;
+          line-height:1.35;
+        }
+        .shareResourceMeta{
+          font-size:.88rem;
+          color:var(--ifm-color-emphasis-700);
+        }
+        .shareResourceNote{
+          font-size:.88rem;
+          color:var(--ifm-color-emphasis-700);
+        }
+        .shareActionRow{
+          display:flex;
+          gap:8px;
+          flex-wrap:wrap;
+          justify-content:flex-start;
+          align-items:center;
+        }
+        .shareActionRow .button{
+          transition:transform .16s ease, box-shadow .22s ease, background .2s ease, border-color .2s ease;
+        }
+        .shareActionButton{
+          display:inline-flex;
+          align-items:center;
+          gap:6px;
+        }
+        .shareActionIcon{
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          font-size:.95rem;
+          line-height:1;
+        }
+        .shareActionRow .button:hover{
+          transform:translateY(-1px);
+          box-shadow:0 8px 14px color-mix(in srgb, var(--ifm-color-emphasis-900) 11%, transparent);
+        }
+        .shareFileList{
+          width:100%;
+          display:grid;
+          gap:8px;
+          margin-top:8px;
+        }
+        .shareFileItem{
+          position:relative;
+          border:1px dashed color-mix(in srgb, var(--ifm-color-primary) 22%, var(--ifm-color-emphasis-300));
+          border-radius:10px;
+          padding:10px 12px;
+          background:color-mix(in srgb, var(--ifm-background-color) 95%, var(--ifm-color-primary-lightest));
+          animation:shareFadeUp .32s cubic-bezier(.2,.85,.2,1) both;
+        }
+        .shareFileTitleRow{
+          display:flex;
+          align-items:center;
+          gap:8px;
+          flex-wrap:wrap;
+        }
+        .shareFileTitle{
+          font-size:.9rem;
+          font-weight:600;
+        }
+        .sharePreviewWrap{
+          border:1px solid transparent;
+          border-radius:12px;
+          padding:12px;
+          background:
+            linear-gradient(170deg, var(--ifm-background-color), var(--ifm-background-color)) padding-box,
+            linear-gradient(130deg, color-mix(in srgb, var(--ifm-color-primary) 28%, var(--ifm-color-emphasis-300)), var(--ifm-color-emphasis-300), color-mix(in srgb, var(--ifm-color-primary) 18%, var(--ifm-color-emphasis-300))) border-box;
+          box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--ifm-color-emphasis-200) 45%, transparent);
+          animation:sharePreviewIn .34s cubic-bezier(.16,.84,.24,1) both;
+        }
+        .sharePreviewTitle{
+          font-size:.9rem;
+          font-weight:600;
+          color:var(--ifm-color-emphasis-700);
+          margin-bottom:8px;
+        }
+        .sharePreviewFrame{
+          width:100%;
+          height:560px;
+          border:0;
+          border-radius:8px;
+          background:var(--ifm-color-emphasis-100);
+        }
+        .shareToast{
+          position:fixed;
+          right:20px;
+          bottom:20px;
+          z-index:1000;
+          padding:10px 14px;
+          border-radius:10px;
+          border:1px solid var(--ifm-color-emphasis-300);
+          background:var(--ifm-card-background-color);
+          color:var(--ifm-font-color-base);
+          font-size:.9rem;
+          opacity:0;
+          transform:translateY(8px);
+          pointer-events:none;
+          transition:opacity .24s cubic-bezier(.2,.8,.2,1), transform .24s cubic-bezier(.2,.8,.2,1);
+        }
+        .shareToast.isVisible{
+          opacity:1;
+          transform:translateY(0);
+        }
+        @media (max-width: 996px){
+          .shareMainLayout{
+            display:grid;
+            grid-template-columns:1fr;
+            gap:14px;
+          }
+          .shareSidebar{
+            position:static;
+            top:auto;
+            width:auto;
+            flex:auto;
+            max-height:none;
+            overflow:visible;
+          }
+          .shareMainLayout.isSidebarCollapsed .shareSidebarHeader{
+            flex-direction:row;
+            align-items:center;
+          }
+          .shareMainLayout.isSidebarCollapsed .shareSidebarTitle{
+            display:block;
+          }
+          .shareMainLayout.isSidebarCollapsed .shareSidebarToggle{
+            min-height:0;
+            width:auto;
+            height:auto;
+            min-width:46px;
+            padding-left:8px;
+            padding-right:8px;
+            border-radius:var(--ifm-button-border-radius);
+            display:inline-flex;
+          }
+          .shareMainLayout.isSidebarCollapsed .shareSidebarToggleText{
+            display:inline;
+          }
+          .shareTopHint{font-size:.88rem;}
+          .sharePreviewFrame{height:420px;}
+        }
+
+        @keyframes shareFadeUp{
+          from{opacity:0;transform:translateY(8px)}
+          to{opacity:1;transform:translateY(0)}
+        }
+        @keyframes sharePanelIn{
+          from{opacity:0;transform:translateY(6px) scale(.996)}
+          to{opacity:1;transform:translateY(0) scale(1)}
+        }
+        @keyframes sharePreviewIn{
+          from{opacity:0;transform:translateY(6px)}
+          to{opacity:1;transform:translateY(0)}
+        }
+        @keyframes shareScanline{
+          from{transform:translateX(-130%)}
+          to{transform:translateX(130%)}
+        }
+        @keyframes shareScanlinePulse4s{
+          0%{transform:translateX(-130%);opacity:0}
+          6%{opacity:.55}
+          28%{transform:translateX(130%);opacity:0}
+          100%{transform:translateX(130%);opacity:0}
+        }
+
+        @media (prefers-reduced-motion: reduce){
+          .shareTimelineItem,
+          .shareContent,
+          .shareResourceCard,
+          .shareFileItem,
+          .sharePreviewWrap{
+            animation:none !important;
+          }
+          .shareTimelineItem,
+          .shareResourceCard,
+          .shareActionRow .button,
+          .shareToast{
+            transition:none !important;
+          }
+          .shareTimelineItem::after,
+          .shareTimelineItem.isActive::after,
+          .shareResourceCard:hover::after{
+            animation:none !important;
+            opacity:0 !important;
+          }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+<SharePage />

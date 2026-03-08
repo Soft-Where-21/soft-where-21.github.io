@@ -109,6 +109,7 @@ const config = {
           {to: '/repo', label: '仓库', position: 'left'},
           {to: '/recommend', label: '博客', position: 'left'},
           {to: '/tool', label: '工具', position: 'left'},
+          {to: '/share', label: '学业分享', position: 'left'},
           {to: '/member', label: '学生会', position: 'left'},
           {
             type: 'html',

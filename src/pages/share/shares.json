@@ -1,0 +1,288 @@
+{
+  "shares": [
+    {
+      "id": "2025-12-27-java-chuanjiang",
+      "date": "2025-12-27",
+      "tag": "学业分享",
+      "title": "Java课程串讲",
+      "summary": "Java课程知识点总结复习。",
+      "resources": [
+        {
+          "type": "meeting",
+          "name": "腾讯会议录制链接",
+          "url": "",
+          "password": "",
+          "note": "暂无会议录制链接"
+        },
+        {
+          "type": "slides",
+          "name": "讲座PPT",
+          "downloadUrl": "/file/share/面向对象期末串讲.pptx",
+          "note": "面向对象期末串讲PPT文件"
+        },
+        {
+          "type": "video",
+          "name": "讲座录屏",
+          "url": "",
+          "downloadUrl": "",
+          "note": "暂无视频文件"
+        },
+        {
+          "type": "buaa-drive",
+          "name": "北航网盘资源",
+          "url": "https://bhpan.buaa.edu.cn/link/AA363F387BD9EF49ADAB05EA85B4130851",
+          "password": "",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "2025-12-27-jizhu-chuanjiang",
+      "date": "2025-12-27",
+      "tag": "学业分享",
+      "title": "计算机组成原理串讲",
+      "summary": "计算机组成原理课程知识点总结复习。",
+      "resources": [
+        {
+          "type": "meeting",
+          "name": "腾讯会议录制链接",
+          "url": "",
+          "password": "",
+          "note": "暂无会议录制链接"
+        },
+        {
+          "type": "slides",
+          "name": "串讲PPT",
+          "downloadUrl": "/file/share/计组2025串讲.pptx",
+          "note": "计组串讲PPT文件"
+        },
+        {
+          "type": "video",
+          "name": "讲座录屏",
+          "downloadUrl": "",
+          "note": "暂无视频文件"
+        },
+        {
+          "type": "buaa-drive",
+          "name": "北航网盘资源",
+          "url": "https://bhpan.buaa.edu.cn/link/AAD2754C1FED084CA9AB664483E997764F",
+          "password": "1oUz",
+          "note": "12.27计组串讲.mp4"
+        }
+      ]
+    },
+    {
+      "id": "2025-10-22-xueye-zhaoxin",
+      "date": "2025-10-22",
+      "tag": "学业&招新",
+      "title": "23to24学业经验分享和学生会招新",
+      "summary": "围绕课程学习方法与学生会招新进行分享。",
+      "resources": [
+        {
+          "type": "meeting",
+          "name": "腾讯会议录制链接",
+          "url": "https://meeting.tencent.com/crm/2V4Pj9RRc6",
+          "password": "DYML",
+          "note": "录制时间：2025-10-22 13:52:23"
+        },
+        {
+          "type": "slides",
+          "name": "讲座PPT",
+          "downloadUrl": "",
+          "note": "学生会宣讲PPT",
+          "files": [
+            {
+              "name": "学生会招新PPT",
+              "downloadUrl": "/file/share/10-22学生会宣讲.pptx"
+            }
+          ]
+        },
+        {
+          "type": "video",
+          "name": "讲座录屏",
+          "url": "",
+          "downloadUrl": "",
+          "note": "暂无视频文件"
+        },
+        {
+          "type": "buaa-drive",
+          "name": "北航网盘资源",
+          "url": "",
+          "password": "",
+          "note": "暂无网盘资源"
+        }
+      ]
+    },
+    {
+      "id": "2025-10-22-baoyan-kaoyan",
+      "date": "2025-10-22",
+      "tag": "保研",
+      "title": "22to23保研经验分享讲座",
+      "summary": "分享保研相关经验。",
+      "resources": [
+        {
+          "type": "meeting",
+          "name": "腾讯会议录制链接",
+          "url": "https://meeting.tencent.com/crm/2GLb9PJ770",
+          "password": "ET25"
+        },
+        {
+          "type": "slides",
+          "name": "讲座PPT",
+          "downloadUrl": "",
+          "note": "暂无"
+        },
+        {
+          "type": "video",
+          "name": "讲座录屏",
+          "url": "",
+          "downloadUrl": "",
+          "note": "暂无视频文件"
+        },
+        {
+          "type": "buaa-drive",
+          "name": "北航网盘资源",
+          "url": "",
+          "password": ""
+        }
+      ]
+    },
+    {
+      "id": "2025-04-09-baoyan-kaoyan",
+      "date": "2025-04-09",
+      "tag": "考研",
+      "title": "考研经验分享讲座",
+      "summary": "分享考研相关经验。",
+      "resources": [
+        {
+          "type": "meeting",
+          "name": "腾讯会议录制链接",
+          "url": "",
+          "password": "",
+          "note": "暂无会议录制链接"
+        },
+        {
+          "type": "slides",
+          "name": "讲座PPT",
+          "downloadUrl": "",
+          "note": "考研经验分享PPT",
+          "files": [
+            {
+              "name": "吴志文-考研经验分享.pptx",
+              "downloadUrl": "/file/share/吴志文-考研经验分享.pptx"
+            },
+            {
+              "name": "周星达_25.4.9考研经验分享.pptx",
+              "downloadUrl": "/file/share/周星达_25.4.9考研经验分享.pptx"
+            },
+            {
+              "name": "邹可心_考研分享ppt.pptx",
+              "downloadUrl": "/file/share/邹可心_考研分享ppt.pptx"
+            }
+          ]
+        },
+        {
+          "type": "video",
+          "name": "讲座录屏",
+          "url": "",
+          "downloadUrl": "",
+          "note": "暂无视频文件"
+        },
+        {
+          "type": "buaa-drive",
+          "name": "北航网盘资源",
+          "url": "https://bhpan.buaa.edu.cn/link/AA1E544F8155314BFAB8BB0FBFCECDD258",
+          "password": "5XOS"
+        }
+      ]
+    },
+    {
+      "id": "2024-2025-daer-chuanjiang",
+      "date": "2024-12-28",
+      "tag": "学业分享",
+      "title": "2024-2025大二上串讲",
+      "summary": "大二上有关课程知识点总结复习。",
+      "resources": [
+        {
+          "type": "meeting",
+          "name": "腾讯会议录制链接",
+          "url": "",
+          "password": "",
+          "note": "暂无会议录制链接"
+        },
+        {
+          "type": "slides",
+          "name": "讲座PPT",
+          "downloadUrl": "",
+          "note": "串讲PPT文件",
+          "files": [
+            {
+              "name": "算法串讲资料",
+              "downloadUrl": "/file/share/算法串讲.pdf"
+            },
+            {
+              "name": "OOP串讲资料",
+              "downloadUrl": "/file/share/《面向对象程序设计》期末串讲.pdf"
+            }
+          ]
+        },
+        {
+          "type": "video",
+          "name": "讲座录屏",
+          "url": "",
+          "downloadUrl": "",
+          "note": "暂无视频文件"
+        },
+        {
+          "type": "buaa-drive",
+          "name": "北航网盘资源",
+          "url": "https://bhpan.buaa.edu.cn/link/AA03CD3296E69D4C7CBA9CE16831C96107",
+          "password": "ltYu",
+          "note": "有效期限：永久有效"
+        }
+      ]
+    },
+    {
+      "id": "2024-10-18-zhaosheng",
+      "date": "2024-10-18",
+      "tag": "招新",
+      "title": "学生会招新宣讲会",
+      "summary": "介绍学生会各部门及招新流程。",
+      "resources": [
+        {
+          "type": "meeting",
+          "name": "腾讯会议录制链接",
+          "url": "",
+          "password": "",
+          "note": "暂无会议录制链接"
+        },
+        {
+          "type": "slides",
+          "name": "讲座PPT",
+          "downloadUrl": "",
+          "note": "学生会宣讲PPT",
+          "files": [
+            {
+              "name": "学生会招新PPT.pdf",
+              "downloadUrl": "/file/share/10-18学生会宣讲.pdf"
+            }
+          ]
+        },
+        {
+          "type": "video",
+          "name": "讲座录屏",
+          "url": "",
+          "downloadUrl": "",
+          "note": "暂无视频文件"
+        },
+        {
+          "type": "buaa-drive",
+          "name": "北航网盘资源",
+          "url": "",
+          "password": "",
+          "note": "暂无网盘资源"
+        }
+      ]
+    }
+  ]
+}
