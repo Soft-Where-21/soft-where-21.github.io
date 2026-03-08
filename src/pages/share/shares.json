@@ -116,15 +116,50 @@
     {
       "id": "2025-10-22-baoyan-kaoyan",
       "date": "2025-10-22",
-      "tag": "保研&考研",
-      "title": "22to23保研&考研经验分享讲座",
-      "summary": "分享保研/考研相关经验。",
+      "tag": "保研",
+      "title": "22to23保研经验分享讲座",
+      "summary": "分享保研相关经验。",
       "resources": [
         {
           "type": "meeting",
           "name": "腾讯会议录制链接",
           "url": "https://meeting.tencent.com/crm/2GLb9PJ770",
           "password": "ET25"
+        },
+        {
+          "type": "slides",
+          "name": "讲座PPT",
+          "downloadUrl": "",
+          "note": "暂无"
+        },
+        {
+          "type": "video",
+          "name": "讲座录屏",
+          "url": "",
+          "downloadUrl": "",
+          "note": "暂无视频文件"
+        },
+        {
+          "type": "buaa-drive",
+          "name": "北航网盘资源",
+          "url": "",
+          "password": ""
+        }
+      ]
+    },
+    {
+      "id": "2025-04-09-baoyan-kaoyan",
+      "date": "2025-04-09",
+      "tag": "考研",
+      "title": "考研经验分享讲座",
+      "summary": "分享考研相关经验。",
+      "resources": [
+        {
+          "type": "meeting",
+          "name": "腾讯会议录制链接",
+          "url": "",
+          "password": "",
+          "note": "暂无会议录制链接"
         },
         {
           "type": "slides",
@@ -158,6 +193,52 @@
           "name": "北航网盘资源",
           "url": "https://bhpan.buaa.edu.cn/link/AA1E544F8155314BFAB8BB0FBFCECDD258",
           "password": "5XOS"
+        }
+      ]
+    },
+    {
+      "id": "2024-2025-daer-chuanjiang",
+      "date": "2024-12-28",
+      "tag": "学业分享",
+      "title": "2024-2025大二上串讲",
+      "summary": "大二上有关课程知识点总结复习。",
+      "resources": [
+        {
+          "type": "meeting",
+          "name": "腾讯会议录制链接",
+          "url": "",
+          "password": "",
+          "note": "暂无会议录制链接"
+        },
+        {
+          "type": "slides",
+          "name": "讲座PPT",
+          "downloadUrl": "",
+          "note": "串讲PPT文件",
+          "files": [
+            {
+              "name": "算法串讲资料",
+              "downloadUrl": "/file/share/算法串讲.pdf"
+            },
+            {
+              "name": "OOP串讲资料",
+              "downloadUrl": "/file/share/《面向对象程序设计》期末串讲.pdf"
+            }
+          ]
+        },
+        {
+          "type": "video",
+          "name": "讲座录屏",
+          "url": "",
+          "downloadUrl": "",
+          "note": "暂无视频文件"
+        },
+        {
+          "type": "buaa-drive",
+          "name": "北航网盘资源",
+          "url": "https://bhpan.buaa.edu.cn/link/AA03CD3296E69D4C7CBA9CE16831C96107",
+          "password": "ltYu",
+          "note": "有效期限：永久有效"
         }
       ]
     },
@@ -200,52 +281,6 @@
           "url": "",
           "password": "",
           "note": "暂无网盘资源"
-        }
-      ]
-    },
-    {
-      "id": "2024-2025-daer-chuanjiang",
-      "date": "2024-00-00",
-      "tag": "学业分享",
-      "title": "2024-2025大二上串讲",
-      "summary": "大二上有关课程知识点总结复习。",
-      "resources": [
-        {
-          "type": "meeting",
-          "name": "腾讯会议录制链接",
-          "url": "",
-          "password": "",
-          "note": "暂无会议录制链接"
-        },
-        {
-          "type": "slides",
-          "name": "讲座PPT",
-          "downloadUrl": "",
-          "note": "串讲PPT文件",
-          "files": [
-            {
-              "name": "算法串讲资料",
-              "downloadUrl": "/file/share/算法串讲.pdf"
-            },
-            {
-              "name": "OOP串讲资料",
-              "downloadUrl": "/file/share/《面向对象程序设计》期末串讲.pdf"
-            }
-          ]
-        },
-        {
-          "type": "video",
-          "name": "讲座录屏",
-          "url": "",
-          "downloadUrl": "",
-          "note": "暂无视频文件"
-        },
-        {
-          "type": "buaa-drive",
-          "name": "北航网盘资源",
-          "url": "https://bhpan.buaa.edu.cn/link/AA03CD3296E69D4C7CBA9CE16831C96107",
-          "password": "ltYu",
-          "note": "有效期限：永久有效"
         }
       ]
     }
