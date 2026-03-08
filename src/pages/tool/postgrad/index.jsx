@@ -1084,7 +1084,7 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
           className="button button--success"
           onClick={() => setShowImportPanel((v) => !v)}
         >
-          {showImportPanel ? '收起导入面板' : '展开导入面板'}
+          {showImportPanel ? '收起导入面板' : '快速导入'}
         </button>
         {importReport && <div style={{fontSize: '0.85rem', opacity: 0.75}}>{importReport}</div>}
         <div
@@ -1363,7 +1363,7 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
                 marginBottom: 8,
               }}
             >
-              <div style={{fontWeight: 650}}>粘贴成绩文本自动填充</div>
+              <div style={{fontWeight: 650}}>粘贴成绩自动填充</div>
               <button
                 type="button"
                 className="button button--secondary"
@@ -1375,7 +1375,7 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
             <textarea
               value={importText}
               onChange={(e) => setImportText(e.target.value)}
-              placeholder="粘贴教务成绩查询返回文本（含课程名/课程号/学分/总成绩等列）"
+              placeholder="复制并粘贴本研系统成绩查询页面的表格信息，实现自动识别（含课程名/课程号/学分/总成绩等列，支持课程成绩认定）"
               style={{
                 width: '100%',
                 minHeight: 180,
