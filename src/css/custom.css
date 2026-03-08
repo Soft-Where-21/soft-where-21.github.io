@@ -65,6 +65,50 @@
   color: var(--ifm-navbar-link-hover-color);
 }
 
+/* Navbar right-side icon links */
+.nav-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border-radius: 999px;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    color var(--ifm-transition-fast) ease,
+    background-color var(--ifm-transition-fast) ease;
+}
+
+.nav-icon-link svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.nav-icon-link:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme='dark'] .nav-icon-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Keep right navbar actions evenly spaced */
+@media (min-width: 997px) {
+  .navbar__items--right {
+    gap: 0.05rem;
+  }
+
+  .navbar__items--right > * {
+    margin: 0 !important;
+  }
+
+  .navbar__items--right > .navbar__item {
+    padding: 0 !important;
+  }
+}
+
 /* Busuanzi (site UV) */
 #busuanzi_container_site_uv {
   display: none;
