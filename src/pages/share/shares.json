@@ -1,0 +1,136 @@
+{
+  "shares": [
+    {
+      "id": "2025-10-22-xueye-zhaoxin",
+      "date": "2025-10-22",
+      "tag": "学业&招新",
+      "title": "学业经验分享和学生会招新",
+      "summary": "围绕课程学习方法与学生会招新进行分享。",
+      "resources": [
+        {
+          "type": "meeting",
+          "name": "腾讯会议录制链接",
+          "url": "https://meeting.tencent.com/crm/2V4Pj9RRc6",
+          "password": "DYML",
+          "note": "录制时间：2025-10-22 13:52:23"
+        },
+        {
+          "type": "slides",
+          "name": "讲座PPT",
+          "downloadUrl": "",
+          "note": "学生会宣讲PPT",
+          "files": [
+            {
+              "name": "学生会招新PPT.pdf",
+              "downloadUrl": "/file/share/10-18学生会宣讲.pdf"
+            }
+          ]
+        },
+        {
+          "type": "video",
+          "name": "讲座录屏",
+          "url": "",
+          "downloadUrl": "",
+          "note": "暂无视频文件"
+        },
+        {
+          "type": "buaa-drive",
+          "name": "北航网盘资源",
+          "url": "",
+          "password": "",
+          "note": "暂无网盘资源"
+        }
+      ]
+    },
+    {
+      "id": "2025-03-06-baoyan-kaoyan",
+      "date": "2025-03-06",
+      "tag": "保研&考研",
+      "title": "保研&考研经验分享讲座",
+      "summary": "分享保研/考研相关经验。",
+      "resources": [
+        {
+          "type": "meeting",
+          "name": "腾讯会议录制链接",
+          "url": "https://meeting.tencent.com/crm/2GLb9PJ770",
+          "password": "ET25"
+        },
+        {
+          "type": "slides",
+          "name": "讲座PPT",
+          "downloadUrl": "",
+          "note": "考研经验分享PPT",
+          "files": [
+            {
+              "name": "吴志文-考研经验分享.pptx",
+              "downloadUrl": "/file/share/吴志文-考研经验分享.pptx"
+            },
+            {
+              "name": "周星达_25.4.9考研经验分享.pptx",
+              "downloadUrl": "/file/share/周星达_25.4.9考研经验分享.pptx"
+            },
+            {
+              "name": "邹可心_考研分享ppt.pptx",
+              "downloadUrl": "/file/share/邹可心_考研分享ppt.pptx"
+            }
+          ]
+        },
+        {
+          "type": "video",
+          "name": "讲座录屏",
+          "url": "",
+          "downloadUrl": "",
+          "note": "暂无视频文件"
+        },
+        {
+          "type": "buaa-drive",
+          "name": "北航网盘资源",
+          "url": "https://bhpan.buaa.edu.cn/link/AA1E544F8155314BFAB8BB0FBFCECDD258",
+          "password": "5XOS"
+        }
+      ]
+    },
+    {
+      "id": "2024-10-18-zhaosheng",
+      "date": "2024-10-18",
+      "tag": "招新",
+      "title": "学生会招新宣讲会",
+      "summary": "介绍学生会各部门及招新流程。",
+      "resources": [
+        {
+          "type": "meeting",
+          "name": "腾讯会议录制链接",
+          "url": "",
+          "password": "",
+          "note": "暂无会议录制链接"
+        },
+        {
+          "type": "slides",
+          "name": "讲座PPT",
+          "downloadUrl": "",
+          "note": "学生会宣讲PPT",
+          "files": [
+            {
+              "name": "学生会招新PPT.pdf",
+              "downloadUrl": "/file/share/10-18学生会宣讲.pdf"
+            }
+          ]
+        },
+        {
+          "type": "video",
+          "name": "讲座录屏",
+          "url": "",
+          "downloadUrl": "",
+          "note": "暂无视频文件"
+        },
+        {
+          "type": "buaa-drive",
+          "name": "北航网盘资源",
+          "url": "",
+          "password": "",
+          "note": "暂无网盘资源"
+        }
+      ]
+    }
+  ]
+}

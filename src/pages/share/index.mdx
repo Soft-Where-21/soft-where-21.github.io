@@ -1,0 +1,786 @@
+---
+title: 学业分享
+description: 学业经验分享与讲座资源
+hide_table_of_contents: true
+---
+
+import React, {useEffect, useMemo, useState} from 'react';
+import Heading from '@theme/Heading';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+
+import shareData from './shares.json';
+
+export function isPptFile(url = '') {
+  return /\.(ppt|pptx)(\?.*)?$/i.test(url);
+}
+
+export function isVideoFile(url = '') {
+  return /\.(mp4|webm|ogg|mov|m4v)(\?.*)?$/i.test(url);
+}
+
+export function isPdfFile(url = '') {
+  return /\.(pdf)(\?.*)?$/i.test(url);
+}
+
+export function isPrivateHostname(hostname = '') {
+  const host = String(hostname).toLowerCase();
+  if (!host) return true;
+  if (host === 'localhost' || host === '127.0.0.1' || host === '0.0.0.0' || host.endsWith('.local')) return true;
+  if (/^10\./.test(host)) return true;
+  if (/^192\.168\./.test(host)) return true;
+  if (/^172\.(1[6-9]|2\d|3[0-1])\./.test(host)) return true;
+  return false;
+}
+
+export function getAbsoluteResourceUrl(rawUrl = '', siteBaseUrl = '') {
+  if (!rawUrl) return '';
+  if (/^https?:\/\//i.test(rawUrl)) return rawUrl;
+
+  const runtimeBase = typeof window === 'undefined' ? '' : window.location.origin;
+  const base = runtimeBase || siteBaseUrl;
+  if (!base) return '';
+
+  try {
+    return new URL(rawUrl, base).toString();
+  } catch (e) {
+    return '';
+  }
+}
+
+export function getOfficePreviewUrl(rawUrl = '', siteBaseUrl = '') {
+  if (!rawUrl) return '';
+  const absoluteUrl = getAbsoluteResourceUrl(rawUrl, siteBaseUrl);
+  if (!absoluteUrl) return '';
+
+  try {
+    const parsed = new URL(absoluteUrl);
+    if (isPrivateHostname(parsed.hostname)) return '';
+  } catch (e) {
+    return '';
+  }
+
+  let decodedAbsoluteUrl = absoluteUrl;
+  try {
+    decodedAbsoluteUrl = decodeURI(absoluteUrl);
+  } catch (e) {
+    decodedAbsoluteUrl = absoluteUrl;
+  }
+
+  return `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(decodedAbsoluteUrl)}`;
+}
+
+export function SharePage() {
+  const {siteConfig} = useDocusaurusContext();
+  const baseUrl = siteConfig?.baseUrl || '/';
+  const siteBaseUrl = useMemo(() => {
+    const siteUrl = siteConfig?.url || '';
+    if (!siteUrl) return '';
+    try {
+      return new URL(baseUrl, siteUrl).toString();
+    } catch (e) {
+      return siteUrl;
+    }
+  }, [siteConfig?.url, baseUrl]);
+
+  const shares = Array.isArray(shareData?.shares) ? shareData.shares : [];
+  const shareById = useMemo(() => new Map(shares.map((item) => [item.id, item])), [shares]);
+
+  const defaultId = shares[0]?.id || '';
+  const [activeId, setActiveId] = useState(defaultId);
+  const activeShare = shareById.get(activeId);
+
+  function resolvePreviewPayload(item, fallbackType = 'slides', fallbackTitle = '资料预览') {
+    const sourceType = item?.type || fallbackType;
+    const primaryUrl = item?.downloadUrl || item?.url || '';
+    const isVideo = sourceType === 'video' || isVideoFile(primaryUrl);
+    const absolutePrimaryUrl = getAbsoluteResourceUrl(primaryUrl, siteBaseUrl);
+
+    if (isVideo && primaryUrl) {
+      return {type: 'video', url: primaryUrl, title: item?.name || fallbackTitle, absoluteUrl: absolutePrimaryUrl};
+    }
+
+    if (item?.previewUrl) {
+      return {type: 'slides', url: item.previewUrl, title: item?.name || fallbackTitle, absoluteUrl: getAbsoluteResourceUrl(item.previewUrl, siteBaseUrl)};
+    }
+
+    if (isPptFile(primaryUrl)) {
+      return {
+        type: 'slides',
+        url: getOfficePreviewUrl(primaryUrl, siteBaseUrl),
+        title: item?.name || fallbackTitle,
+        absoluteUrl: absolutePrimaryUrl,
+      };
+    }
+
+    if (isPdfFile(primaryUrl)) {
+      return {type: 'slides', url: primaryUrl, title: item?.name || fallbackTitle, absoluteUrl: absolutePrimaryUrl};
+    }
+
+    return {type: '', url: '', title: item?.name || fallbackTitle, absoluteUrl: absolutePrimaryUrl};
+  }
+
+  const previewableResources = useMemo(() => {
+    if (!activeShare?.resources?.length) return [];
+    const entries = [];
+
+    activeShare.resources.forEach((resource) => {
+      const topPreview = resolvePreviewPayload(resource, resource.type || 'slides', resource.name || '资料预览');
+      if (topPreview.url) entries.push(topPreview);
+
+      const files = Array.isArray(resource.files) ? resource.files : [];
+      files.forEach((file, index) => {
+        const fileTitle = file?.name || `${resource.name || '资料'} 文件${index + 1}`;
+        const filePreview = resolvePreviewPayload(file, resource.type || 'slides', `${resource.name || '资料'} - ${fileTitle}`);
+        if (filePreview.url) entries.push({...filePreview, title: `${resource.name || '资料'} - ${fileTitle}`});
+      });
+    });
+
+    return entries;
+  }, [activeShare, siteBaseUrl]);
+
+  const [activePreview, setActivePreview] = useState({type: '', url: '', title: ''});
+  const [copiedKey, setCopiedKey] = useState('');
+  const [toast, setToast] = useState({visible: false, text: ''});
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const hash = decodeURIComponent(window.location.hash || '').replace(/^#/, '').trim();
+    if (hash && shareById.has(hash)) setActiveId(hash);
+  }, [shareById]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (!activeId) return;
+    window.history.replaceState(null, '', `#${encodeURIComponent(activeId)}`);
+  }, [activeId]);
+
+  useEffect(() => {
+    if (!previewableResources.length) {
+      setActivePreview({type: '', url: '', title: ''});
+      return;
+    }
+    const first = previewableResources[0];
+    const firstVideoUrl = first.url || first.downloadUrl || '';
+    const previewUrl =
+      first.type === 'video'
+        ? firstVideoUrl
+        : first.previewUrl || (isPptFile(first.downloadUrl) ? getOfficePreviewUrl(first.downloadUrl) : first.downloadUrl);
+    setActivePreview({
+      type: first.type || '',
+      url: previewUrl || '',
+      title: first.name || '资料预览',
+    });
+  }, [previewableResources]);
+
+  async function handleCopyPassword(password, key) {
+    if (!password || typeof window === 'undefined') return;
+    try {
+      if (navigator?.clipboard?.writeText) {
+        await navigator.clipboard.writeText(password);
+      } else {
+        const textarea = document.createElement('textarea');
+        textarea.value = password;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+      }
+      setCopiedKey(key);
+      setToast({visible: true, text: '访问密码已复制到剪贴板'});
+      window.setTimeout(() => {
+        setCopiedKey((current) => (current === key ? '' : current));
+      }, 1600);
+      window.setTimeout(() => {
+        setToast((current) => (current.visible ? {...current, visible: false} : current));
+      }, 1800);
+    } catch (e) {
+      setToast({visible: true, text: '复制失败，请手动复制'});
+      window.setTimeout(() => {
+        setToast((current) => (current.visible ? {...current, visible: false} : current));
+      }, 1800);
+    }
+  }
+
+  function getOpenLinkLabel(resource) {
+    if (resource.type === 'meeting') return '打开会议链接';
+    if (resource.type === 'buaa-drive') return '打开网盘链接';
+    if (resource.type === 'slides') return '打开PPT网盘链接';
+    return '打开资源链接';
+  }
+
+  function getResourceTypeLabel(type = '') {
+    if (type === 'meeting') return '会议录制';
+    if (type === 'slides') return 'PPT资料';
+    if (type === 'video') return '视频';
+    if (type === 'buaa-drive') return '北航网盘';
+    return '资源';
+  }
+
+  return (
+    <div className="container margin-vert--lg">
+      <div className="shareTopRow">
+        <div>
+          <Heading as="h1" style={{marginBottom: 6}}>学业分享</Heading>
+          <div className="shareTopHint">精选学业讲座资料，支持链接访问、文件下载与在线预览</div>
+        </div>
+      </div>
+
+      <div className="shareTimeline">
+        {shares.map((item, itemIndex) => {
+          const isActive = item.id === activeId;
+          return (
+            <button
+              key={item.id}
+              onClick={() => setActiveId(item.id)}
+              className={`shareTimelineItem ${isActive ? 'isActive' : ''}`}
+              style={{animationDelay: `${itemIndex * 70}ms`}}
+              type="button"
+            >
+              <div className="shareItemLine">{item.date} [{item.tag}]</div>
+              <div className="shareItemTitle">{item.title}</div>
+            </button>
+          );
+        })}
+      </div>
+
+      <section className="shareContent" key={activeId}>
+        <div className="shareStageHeader">
+          <div style={{fontWeight: 650}}>{activeShare?.title || '学业分享'}</div>
+          <div style={{opacity: 0.6, fontSize: '0.9rem'}}>{activeShare?.date || ''}</div>
+        </div>
+
+        <div className="shareStageBody">
+          {!activeShare ? (
+            <div style={{padding: 18, opacity: 0.75}}>暂无分享内容。</div>
+          ) : (
+            <div style={{padding: 18, display: 'grid', gap: 14}}>
+              {activeShare.summary ? (
+                <div style={{opacity: 0.8}}>{activeShare.summary}</div>
+              ) : null}
+
+              <div style={{display: 'grid', gap: 12}}>
+                {(activeShare.resources || []).map((resource, index) => {
+                  const resourceKey = `${resource.name}-${index}`;
+                  const resourceFiles = Array.isArray(resource.files) ? resource.files : [];
+                  const hasFiles = resourceFiles.length > 0;
+                  const hasDownload = !!resource.downloadUrl;
+                  const previewData = resolvePreviewPayload(resource, resource.type || 'slides', resource.name || '资料预览');
+                  const previewUrl = previewData.url;
+                  const isVideoResource = previewData.type === 'video';
+                  const hasPreview = !!previewUrl;
+                  const hasPassword = !!resource.password;
+                  const hasOpenLink = !!resource.url;
+                  const shouldShowPending = !hasDownload && !hasOpenLink && !hasPreview && !hasFiles;
+
+                  return (
+                    <div key={resourceKey} className="shareResourceCard" style={{animationDelay: `${index * 55}ms`}}>
+                      <div className="shareResourceInfo">
+                        <div className="shareResourceTitleRow">
+                          <div className="shareResourceTitle">{resource.name}</div>
+                          <span className="shareResourceType">{getResourceTypeLabel(resource.type)}</span>
+                        </div>
+                        {hasPassword ? (
+                          <div className="shareResourceMeta">
+                            {resource.type === 'buaa-drive' ? '提取码' : '访问密码'}：{resource.password}
+                          </div>
+                        ) : null}
+                        {resource.note ? <div className="shareResourceNote">{resource.note}</div> : null}
+                      </div>
+                      <div className="shareActionRow">
+                        {hasPreview ? (
+                          <button
+                            type="button"
+                            className="button button--secondary button--sm"
+                            onClick={() =>
+                              setActivePreview({
+                                type: previewData.type || (isVideoResource ? 'video' : 'slides'),
+                                url: previewUrl,
+                                title: resource.name || '资料预览',
+                              })
+                            }
+                          >
+                            在线预览
+                          </button>
+                        ) : null}
+                        {hasDownload ? (
+                          <a
+                            className="button button--secondary button--sm"
+                            href={resource.downloadUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            download
+                          >
+                            下载文件
+                          </a>
+                        ) : null}
+                        {shouldShowPending ? (
+                          <span style={{fontSize: '0.88rem', opacity: 0.6}}>资源待上传</span>
+                        ) : null}
+                        {hasOpenLink ? (
+                          <a
+                            className="button button--secondary button--sm"
+                            href={resource.url}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {getOpenLinkLabel(resource)}
+                          </a>
+                        ) : null}
+                        {hasPassword ? (
+                          <button
+                            type="button"
+                            className={`button button--sm ${copiedKey === resourceKey ? 'button--success' : 'button--secondary'}`}
+                            onClick={() => handleCopyPassword(resource.password, resourceKey)}
+                          >
+                            {copiedKey === resourceKey ? '已复制' : '复制密码'}
+                          </button>
+                        ) : null}
+                      </div>
+
+                      {hasFiles ? (
+                        <div className="shareFileList">
+                          {resourceFiles.map((file, fileIndex) => {
+                            const fileKey = `${resourceKey}-file-${fileIndex}`;
+                            const fileData = resolvePreviewPayload(file, resource.type || 'slides', file?.name || `文件${fileIndex + 1}`);
+                            const hasFilePreview = !!fileData.url;
+                            const hasFileDownload = !!file?.downloadUrl;
+                            const hasFileOpenLink = !!file?.url;
+                            const hasFilePassword = !!file?.password;
+
+                            return (
+                              <div key={fileKey} className="shareFileItem" style={{animationDelay: `${fileIndex * 45}ms`}}>
+                                <div className="shareFileTitleRow">
+                                  <div className="shareFileTitle">{file?.name || `文件${fileIndex + 1}`}</div>
+                                  <span className="shareResourceType">{getResourceTypeLabel(file?.type || resource.type)}</span>
+                                </div>
+                                {hasFilePassword ? (
+                                  <div className="shareResourceMeta">
+                                    {file?.type === 'buaa-drive' ? '提取码' : '访问密码'}：{file.password}
+                                  </div>
+                                ) : null}
+                                <div className="shareActionRow" style={{marginTop: 6}}>
+                                  {hasFilePreview ? (
+                                    <button
+                                      type="button"
+                                      className="button button--secondary button--sm"
+                                      onClick={() =>
+                                        setActivePreview({
+                                          type: fileData.type || 'slides',
+                                          url: fileData.url,
+                                          title: `${resource.name || '资料'} - ${file?.name || `文件${fileIndex + 1}`}`,
+                                        })
+                                      }
+                                    >
+                                      在线预览
+                                    </button>
+                                  ) : null}
+                                  {hasFileDownload ? (
+                                    <a
+                                      className="button button--secondary button--sm"
+                                      href={file.downloadUrl}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      download
+                                    >
+                                      下载文件
+                                    </a>
+                                  ) : null}
+                                  {hasFileOpenLink ? (
+                                    <a
+                                      className="button button--secondary button--sm"
+                                      href={file.url}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                    >
+                                      {getOpenLinkLabel(file)}
+                                    </a>
+                                  ) : null}
+                                  {hasFilePassword ? (
+                                    <button
+                                      type="button"
+                                      className={`button button--sm ${copiedKey === fileKey ? 'button--success' : 'button--secondary'}`}
+                                      onClick={() => handleCopyPassword(file.password, fileKey)}
+                                    >
+                                      {copiedKey === fileKey ? '已复制' : '复制密码'}
+                                    </button>
+                                  ) : null}
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      ) : null}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {activePreview.url ? (
+                <div className="sharePreviewWrap" key={activePreview.url}>
+                  <div className="sharePreviewTitle">{activePreview.title} 在线预览</div>
+                  {activePreview.type === 'video' ? (
+                    <video className="sharePreviewFrame" controls preload="metadata">
+                      <source src={activePreview.url} />
+                      当前浏览器不支持视频播放。
+                    </video>
+                  ) : (
+                    <iframe
+                      title="分享资料预览"
+                      src={activePreview.url}
+                      className="sharePreviewFrame"
+                    />
+                  )}
+                </div>
+              ) : null}
+            </div>
+          )}
+        </div>
+      </section>
+
+      <div className={`shareToast ${toast.visible ? 'isVisible' : ''}`} role="status" aria-live="polite">
+        {toast.text}
+      </div>
+
+      <style>{`
+        .shareTopRow{
+          display:flex;
+          align-items:baseline;
+          justify-content:space-between;
+          gap:14px;
+          flex-wrap:wrap;
+        }
+        .shareTopHint{
+          font-size:.92rem;
+          color:var(--ifm-color-emphasis-700);
+        }
+        .shareTimeline{
+          margin-top:18px;
+          display:grid;
+          gap:12px;
+          grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+        }
+        .shareTimelineItem{
+          position:relative;
+          overflow:hidden;
+          border:1px solid transparent;
+          background:
+            linear-gradient(165deg, color-mix(in srgb, var(--ifm-card-background-color) 94%, var(--ifm-color-primary-lightest)), var(--ifm-card-background-color)) padding-box,
+            linear-gradient(120deg, color-mix(in srgb, var(--ifm-color-primary) 42%, var(--ifm-color-emphasis-300)), var(--ifm-color-emphasis-300), color-mix(in srgb, var(--ifm-color-primary) 30%, var(--ifm-color-emphasis-300))) border-box;
+          border-radius:12px;
+          padding:12px 14px;
+          cursor:pointer;
+          text-align:left;
+          transition:background .25s ease,border-color .25s ease,transform .25s ease,box-shadow .25s ease;
+          animation:shareFadeUp .45s cubic-bezier(.2,.8,.2,1) both;
+          will-change:transform;
+        }
+        .shareTimelineItem::before{
+          content:'';
+          position:absolute;
+          left:12px;
+          right:12px;
+          top:0;
+          height:1px;
+          pointer-events:none;
+          background:linear-gradient(90deg, transparent, color-mix(in srgb, var(--ifm-color-primary) 65%, transparent), transparent);
+          opacity:.5;
+          transition:opacity .25s ease;
+        }
+        .shareTimelineItem::after{
+          content:'';
+          position:absolute;
+          inset:0;
+          pointer-events:none;
+          background:linear-gradient(
+            110deg,
+            transparent 0%,
+            transparent 42%,
+            color-mix(in srgb, var(--ifm-color-primary) 42%, transparent) 50%,
+            transparent 58%,
+            transparent 100%
+          );
+          transform:translateX(-130%);
+          opacity:0;
+        }
+        .shareTimelineItem:hover{
+          transform:translateY(-2px);
+          border-color:var(--ifm-color-emphasis-300);
+          box-shadow:0 10px 24px color-mix(in srgb, var(--ifm-color-emphasis-900) 10%, transparent);
+        }
+        .shareTimelineItem:hover::before{opacity:.85;}
+        .shareTimelineItem:hover::after{
+          opacity:.45;
+          animation:shareScanline 1.2s cubic-bezier(.22,.61,.36,1) 1;
+        }
+        .shareTimelineItem.isActive{
+          box-shadow:
+            0 0 0 1px color-mix(in srgb, var(--ifm-color-primary) 16%, transparent),
+            0 10px 22px color-mix(in srgb, var(--ifm-color-emphasis-900) 8%, transparent);
+          background:
+            linear-gradient(165deg, color-mix(in srgb, var(--ifm-card-background-color) 88%, var(--ifm-color-primary-lightest)), var(--ifm-card-background-color)) padding-box,
+            linear-gradient(120deg, color-mix(in srgb, var(--ifm-color-primary) 55%, var(--ifm-color-emphasis-300)), color-mix(in srgb, var(--ifm-color-primary) 20%, var(--ifm-color-emphasis-300)), color-mix(in srgb, var(--ifm-color-primary) 45%, var(--ifm-color-emphasis-300))) border-box;
+        }
+        .shareTimelineItem.isActive::before{
+          opacity:1;
+        }
+        .shareTimelineItem.isActive::after{
+          opacity:.5;
+          animation:shareScanlinePulse4s 4s linear infinite;
+        }
+        .shareItemLine{opacity:.72;font-size:.88rem;line-height:1.35;}
+        .shareItemTitle{font-weight:650;line-height:1.35;margin-top:2px;}
+        .shareContent{
+          position:relative;
+          margin-top:16px;
+          border-radius:14px;
+          border:1px solid transparent;
+          overflow:hidden;
+          background:
+            linear-gradient(170deg, color-mix(in srgb, var(--ifm-card-background-color) 97%, var(--ifm-color-primary-lightest)), var(--ifm-card-background-color)) padding-box,
+            linear-gradient(130deg, color-mix(in srgb, var(--ifm-color-primary) 38%, var(--ifm-color-emphasis-300)), var(--ifm-color-emphasis-300), color-mix(in srgb, var(--ifm-color-primary) 22%, var(--ifm-color-emphasis-300))) border-box;
+          animation:sharePanelIn .42s cubic-bezier(.2,.75,.2,1) both;
+          box-shadow:0 16px 36px color-mix(in srgb, var(--ifm-color-emphasis-900) 8%, transparent);
+        }
+        .shareContent::before{
+          content:'';
+          position:absolute;
+          inset:0;
+          pointer-events:none;
+          background:linear-gradient(145deg, color-mix(in srgb, var(--ifm-color-emphasis-200) 35%, transparent), transparent 44%);
+          opacity:.55;
+        }
+        .shareStageHeader{
+          padding:14px 18px;
+          border-bottom:1px solid var(--ifm-color-emphasis-200);
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          gap:12px;
+          flex-wrap:wrap;
+        }
+        .shareStageBody{
+          min-height:520px;
+          background:linear-gradient(180deg, color-mix(in srgb, var(--ifm-color-emphasis-200) 30%, transparent), transparent 24%);
+        }
+        .shareResourceCard{
+          position:relative;
+          overflow:hidden;
+          border:1px solid transparent;
+          border-radius:12px;
+          padding:14px;
+          display:flex;
+          justify-content:space-between;
+          gap:12px;
+          align-items:flex-start;
+          flex-wrap:wrap;
+          background:
+            linear-gradient(170deg, color-mix(in srgb, var(--ifm-card-background-color) 96%, var(--ifm-color-primary-lightest)), var(--ifm-card-background-color)) padding-box,
+            linear-gradient(130deg, color-mix(in srgb, var(--ifm-color-primary) 34%, var(--ifm-color-emphasis-300)), var(--ifm-color-emphasis-300), color-mix(in srgb, var(--ifm-color-primary) 22%, var(--ifm-color-emphasis-300))) border-box;
+          transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+          animation:shareFadeUp .38s cubic-bezier(.2,.85,.2,1) both;
+        }
+        .shareResourceCard::after{
+          content:'';
+          position:absolute;
+          inset:-35% -45% auto auto;
+          width:180px;
+          height:180px;
+          border-radius:999px;
+          background:radial-gradient(circle, color-mix(in srgb, var(--ifm-color-emphasis-200) 45%, transparent) 0%, transparent 72%);
+          opacity:.45;
+          pointer-events:none;
+        }
+        .shareResourceCard:hover{
+          transform:translateY(-2px);
+          box-shadow:0 14px 28px color-mix(in srgb, var(--ifm-color-emphasis-900) 10%, transparent);
+        }
+        .shareResourceCard::before{
+          content:'';
+          position:absolute;
+          left:14px;
+          right:14px;
+          top:0;
+          height:1px;
+          pointer-events:none;
+          background:linear-gradient(90deg, transparent, color-mix(in srgb, var(--ifm-color-primary) 62%, transparent), transparent);
+          opacity:.45;
+        }
+        .shareResourceCard:hover::before{opacity:.72;}
+        .shareResourceCard:hover::after{
+          animation:shareScanline 1.25s cubic-bezier(.22,.61,.36,1) 1;
+          opacity:.62;
+        }
+        .shareResourceInfo{
+          display:grid;
+          gap:5px;
+          min-width:260px;
+          flex:1 1 340px;
+        }
+        .shareResourceTitleRow{
+          display:flex;
+          align-items:center;
+          gap:8px;
+          flex-wrap:wrap;
+        }
+        .shareResourceTitle{
+          font-weight:700;
+          letter-spacing:.1px;
+        }
+        .shareResourceType{
+          font-size:.74rem;
+          font-weight:650;
+          color:var(--ifm-color-emphasis-700);
+          background:var(--ifm-color-emphasis-100);
+          border:1px solid var(--ifm-color-emphasis-300);
+          border-radius:999px;
+          padding:2px 8px;
+          line-height:1.35;
+        }
+        .shareResourceMeta{
+          font-size:.88rem;
+          color:var(--ifm-color-emphasis-700);
+        }
+        .shareResourceNote{
+          font-size:.88rem;
+          color:var(--ifm-color-emphasis-700);
+        }
+        .shareActionRow{
+          display:flex;
+          gap:8px;
+          flex-wrap:wrap;
+          justify-content:flex-start;
+          align-items:center;
+        }
+        .shareActionRow .button{
+          transition:transform .16s ease, box-shadow .22s ease, background .2s ease, border-color .2s ease;
+        }
+        .shareActionRow .button:hover{
+          transform:translateY(-1px);
+          box-shadow:0 8px 14px color-mix(in srgb, var(--ifm-color-emphasis-900) 11%, transparent);
+        }
+        .shareFileList{
+          width:100%;
+          display:grid;
+          gap:8px;
+          margin-top:8px;
+        }
+        .shareFileItem{
+          position:relative;
+          border:1px dashed color-mix(in srgb, var(--ifm-color-primary) 22%, var(--ifm-color-emphasis-300));
+          border-radius:10px;
+          padding:10px 12px;
+          background:color-mix(in srgb, var(--ifm-background-color) 95%, var(--ifm-color-primary-lightest));
+          animation:shareFadeUp .32s cubic-bezier(.2,.85,.2,1) both;
+        }
+        .shareFileTitleRow{
+          display:flex;
+          align-items:center;
+          gap:8px;
+          flex-wrap:wrap;
+        }
+        .shareFileTitle{
+          font-size:.9rem;
+          font-weight:600;
+        }
+        .sharePreviewWrap{
+          border:1px solid transparent;
+          border-radius:12px;
+          padding:12px;
+          background:
+            linear-gradient(170deg, var(--ifm-background-color), var(--ifm-background-color)) padding-box,
+            linear-gradient(130deg, color-mix(in srgb, var(--ifm-color-primary) 28%, var(--ifm-color-emphasis-300)), var(--ifm-color-emphasis-300), color-mix(in srgb, var(--ifm-color-primary) 18%, var(--ifm-color-emphasis-300))) border-box;
+          box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--ifm-color-emphasis-200) 45%, transparent);
+          animation:sharePreviewIn .34s cubic-bezier(.16,.84,.24,1) both;
+        }
+        .sharePreviewTitle{
+          font-size:.9rem;
+          font-weight:600;
+          color:var(--ifm-color-emphasis-700);
+          margin-bottom:8px;
+        }
+        .sharePreviewFrame{
+          width:100%;
+          height:560px;
+          border:0;
+          border-radius:8px;
+          background:var(--ifm-color-emphasis-100);
+        }
+        .shareToast{
+          position:fixed;
+          right:20px;
+          bottom:20px;
+          z-index:1000;
+          padding:10px 14px;
+          border-radius:10px;
+          border:1px solid var(--ifm-color-emphasis-300);
+          background:var(--ifm-card-background-color);
+          color:var(--ifm-font-color-base);
+          font-size:.9rem;
+          opacity:0;
+          transform:translateY(8px);
+          pointer-events:none;
+          transition:opacity .24s cubic-bezier(.2,.8,.2,1), transform .24s cubic-bezier(.2,.8,.2,1);
+        }
+        .shareToast.isVisible{
+          opacity:1;
+          transform:translateY(0);
+        }
+        @media (max-width: 996px){
+          .shareTopHint{font-size:.88rem;}
+          .sharePreviewFrame{height:420px;}
+          .shareTimeline{grid-template-columns:1fr;}
+        }
+
+        @keyframes shareFadeUp{
+          from{opacity:0;transform:translateY(8px)}
+          to{opacity:1;transform:translateY(0)}
+        }
+        @keyframes sharePanelIn{
+          from{opacity:0;transform:translateY(6px) scale(.996)}
+          to{opacity:1;transform:translateY(0) scale(1)}
+        }
+        @keyframes sharePreviewIn{
+          from{opacity:0;transform:translateY(6px)}
+          to{opacity:1;transform:translateY(0)}
+        }
+        @keyframes shareScanline{
+          from{transform:translateX(-130%)}
+          to{transform:translateX(130%)}
+        }
+        @keyframes shareScanlinePulse4s{
+          0%{transform:translateX(-130%);opacity:0}
+          6%{opacity:.55}
+          28%{transform:translateX(130%);opacity:0}
+          100%{transform:translateX(130%);opacity:0}
+        }
+
+        @media (prefers-reduced-motion: reduce){
+          .shareTimelineItem,
+          .shareContent,
+          .shareResourceCard,
+          .shareFileItem,
+          .sharePreviewWrap{
+            animation:none !important;
+          }
+          .shareTimelineItem,
+          .shareResourceCard,
+          .shareActionRow .button,
+          .shareToast{
+            transition:none !important;
+          }
+          .shareTimelineItem::after,
+          .shareTimelineItem.isActive::after,
+          .shareResourceCard:hover::after{
+            animation:none !important;
+            opacity:0 !important;
+          }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+<SharePage />
