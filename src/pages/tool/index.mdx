@@ -11,6 +11,8 @@ import toolsData from './tools.json';
 
 import TimestampTool from './timestamp';
 import JsonTool from './json';
+import ColorPickerTool from './color-picker';
+import RegexBuilderTool from './regex-builder';
 import GpaTool from './gpa';
 import PostgradTool from './postgrad';
 
@@ -22,6 +24,8 @@ export function ToolPage() {
     () => ({
       timestamp: <TimestampTool />,
       json: <JsonTool />,
+      'color-picker': <ColorPickerTool />,
+      'regex-builder': <RegexBuilderTool />,
       gpa: <GpaTool />,
       postgrad: <PostgradTool />,
     }),
@@ -149,8 +153,9 @@ export function ToolPage() {
           gap:12px;
         }
         .toolStageBody{
-          height:520px;
-          overflow:auto;
+          min-height:520px;
+          height:auto;
+          overflow:visible;
           background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0));
         }
         @media (max-width: 996px){
@@ -163,4 +168,3 @@ export function ToolPage() {
 }
 
 <ToolPage />
-

@@ -83,7 +83,7 @@ export default function Home() {
               <div className={styles.ctaCard}>
                 <h3 className={styles.ctaTitle}>资源共建</h3>
                 <p className={styles.ctaText}>
-                  任何人都可以提交内容，完善文档资源、开源仓库等等，让后来的同学少走弯路。
+                  任何人都可以提交内容，完善文档资源、开源仓库。
                 </p>
                 <div className={styles.ctaButtons}>
                   <Link className={clsx('button button--primary', styles.primaryButton)} to="/docs/contribute">

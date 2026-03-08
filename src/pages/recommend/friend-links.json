@@ -1,0 +1,62 @@
+{
+  "title": "优质博客",
+  "subtitle": "软院学长学姐与同学们的精彩博客，欢迎常来逛逛 (ノ≧∀≦)ノ",
+  "blogs": [
+    {
+      "nickname": "rainel",
+      "url": "https://rainel.site",
+      "tagline": "计网实验、编译与学习笔记",
+      "avatar": "/img/blogs/rainel.png",
+      "thumbnail": "/img/blogs/thumbnails/rainel.png"
+    },
+    {
+      "nickname": "QzlabQ",
+      "url": "https://qzlabq.me",
+      "tagline": "技术笔记与 MC 服务器实践",
+      "avatar": "/img/blogs/qzlabq.png",
+      "thumbnail": "/img/blogs/thumbnails/qzlabq.png"
+    },
+    {
+      "nickname": "魔法使的后花园",
+      "url": "https://www.blondemarisa.site/",
+      "tagline": "算法、数据结构、SQL 与数据库、网安论文与编程学习笔记",
+      "avatar": "/img/blogs/blondemarisa.png",
+      "thumbnail": "/img/blogs/thumbnails/blondemarisa.png"
+    },
+    {
+      "nickname": "空鸣深语",
+      "url": "https://blog.deepchirp.com/",
+      "tagline": "软件工程、Linux、Android 与操作系统笔记",
+      "avatar": "/img/blogs/deepchirp.png",
+      "thumbnail": "/img/blogs/thumbnails/deepchirp.png"
+    },
+    {
+      "nickname": "Alex Li",
+      "url": "https://lixu.cc",
+      "tagline": "面向对象、概统、离散、算法等学习笔记",
+      "avatar": "/img/blogs/lixu.png",
+      "thumbnail": "/img/blogs/thumbnails/lixu.png"
+    },
+    {
+      "nickname": "zhouEnshen",
+      "url": "https://blog.csdn.net/zhouEnshen",
+      "tagline": "技术题解与编程学习笔记",
+      "avatar": "/img/blogs/zhouenshen.jpg",
+      "thumbnail": "/img/blogs/thumbnails/zhouenshen.png"
+    },
+    {
+      "nickname": "HaoyuehxのBlog",
+      "url": "https://haoyuehx.github.io/",
+      "tagline": "算法、计算机系统与课程实验笔记（FFT、CO、6.S081、CSAPP 等）",
+      "avatar": "/img/blogs/haoyuehx.png",
+      "thumbnail": "/img/blogs/thumbnails/haoyuehx.png"
+    },
+    {
+      "nickname": "yiki21",
+      "url": "https://yiki21.world/",
+      "tagline": "Spark、Linux 容器、并发与系统编程笔记",
+      "avatar": "/img/blogs/yiki21.png",
+      "thumbnail": "/img/blogs/thumbnails/yiki21.png"
+    }
+  ]
+}
