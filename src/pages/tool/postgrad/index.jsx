@@ -441,6 +441,44 @@ function parseTranscriptText(text) {
   return entries;
 }
 
+function detectRequiredGroupChoice(parsedEntries, groups, currentChoice = {}) {
+  const nextChoice = {...currentChoice};
+  if (!Array.isArray(parsedEntries) || parsedEntries.length === 0) return nextChoice;
+
+  const importedKeys = new Set();
+  parsedEntries.forEach((item) => {
+    (item.keys || []).forEach((k) => importedKeys.add(k));
+    (item.substituteKeys || []).forEach((k) => importedKeys.add(k));
+  });
+
+  groups.forEach((group) => {
+    group.categories.forEach((cat) => {
+      if (!Array.isArray(cat.requiredGroups) || cat.requiredGroups.length === 0) return;
+      let bestGroupId = '';
+      let bestScore = 0;
+
+      cat.requiredGroups.forEach((g) => {
+        let score = 0;
+        (g.names || []).forEach((name) => {
+          getCourseKeyVariants(name).forEach((k) => {
+            if (importedKeys.has(k)) score += 1;
+          });
+        });
+        if (score > bestScore) {
+          bestScore = score;
+          bestGroupId = g.id;
+        }
+      });
+
+      if (bestGroupId) {
+        nextChoice[cat.id] = bestGroupId;
+      }
+    });
+  });
+
+  return nextChoice;
+}
+
 function isFilledScore(row) {
   return String(row.score || '').trim() !== '';
 }
@@ -897,6 +935,12 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
 
       const nameMap = new Map();
       const looseMap = new Map();
+      const categoryMeta = new Map();
+      getCategoryGroups(grade).forEach((g) => {
+        g.categories.forEach((c) => {
+          categoryMeta.set(c.id, c);
+        });
+      });
       Object.keys(gradeData).forEach((catId) => {
         (gradeData[catId] || []).forEach((row, index) => {
           getCourseKeyVariants(row.name).forEach((key) => {
@@ -975,6 +1019,10 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
 
         allRefs.forEach((ref) => {
           const row = gradeData[ref.catId][ref.index];
+          const cat = categoryMeta.get(ref.catId);
+          if (cat && cat.selectable) {
+            row.selected = true;
+          }
           applyItemToRow(row, item);
         });
       });
@@ -982,6 +1030,16 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
       next[grade] = gradeData;
       return next;
     });
+
+    const autoChoice = detectRequiredGroupChoice(
+      parsed,
+      getCategoryGroups(grade),
+      groupChoiceByGrade[grade] || {}
+    );
+    setGroupChoiceByGrade((prev) => ({
+      ...prev,
+      [grade]: autoChoice,
+    }));
 
     const unmatchedPreview =
       unmatched.length > 0 ? ` 未匹配示例：${unmatched.slice(0, 5).join('、')}` : '';
@@ -994,60 +1052,6 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
         说明：左侧勾选表示“是否选修该课程”，保研成绩由算法自动计算。
         可选课程会在已勾选且已填成绩的课程中自动择优纳入（按模块要求），并在课程后显示绿色√。
         必修部分全部纳入；达标判断以“已填写成绩/合格”为准。
-      </div>
-      <div
-        style={{
-          marginBottom: 12,
-          padding: 12,
-          borderRadius: 12,
-          border: '1px solid var(--ifm-color-emphasis-200)',
-          background: 'var(--ifm-color-emphasis-100)',
-        }}
-      >
-        <div style={{display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap'}}>
-          <button
-            type="button"
-            className="button button--secondary"
-            onClick={() => setShowImportPanel((v) => !v)}
-          >
-            {showImportPanel ? '收起导入面板' : '展开导入面板'}
-          </button>
-          {importReport && <div style={{fontSize: '0.85rem', opacity: 0.75}}>{importReport}</div>}
-        </div>
-        {showImportPanel && (
-          <div style={{marginTop: 8}}>
-            <div style={{fontWeight: 650, marginBottom: 8}}>粘贴成绩文本自动填充</div>
-            <textarea
-              value={importText}
-              onChange={(e) => setImportText(e.target.value)}
-              placeholder="粘贴教务成绩查询返回文本（含课程名/课程号/学分/总成绩等列）"
-              style={{
-                width: '100%',
-                minHeight: 120,
-                resize: 'vertical',
-                borderRadius: 8,
-                border: '1px solid var(--ifm-color-emphasis-200)',
-                padding: '8px 10px',
-                background: 'var(--ifm-background-color)',
-              }}
-            />
-            <div style={{display: 'flex', gap: 10, alignItems: 'center', marginTop: 8, flexWrap: 'wrap'}}>
-              <button type="button" className="button button--primary" onClick={handleImportText}>
-                自动识别并填充
-              </button>
-              <button
-                type="button"
-                className="button button--secondary"
-                onClick={() => {
-                  setImportText('');
-                  setImportReport('');
-                }}
-              >
-                清空文本
-              </button>
-            </div>
-          </div>
-        )}
       </div>
       <div
         style={{
@@ -1075,6 +1079,14 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
         <button type="button" className="button button--secondary" onClick={clearCurrentGrade}>
           一键清空
         </button>
+        <button
+          type="button"
+          className="button button--success"
+          onClick={() => setShowImportPanel((v) => !v)}
+        >
+          {showImportPanel ? '收起导入面板' : '展开导入面板'}
+        </button>
+        {importReport && <div style={{fontSize: '0.85rem', opacity: 0.75}}>{importReport}</div>}
         <div
           style={{
             marginLeft: 'auto',
@@ -1088,7 +1100,6 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
           {computed.allOk ? '已达标' : '未达标'}
         </div>
       </div>
-
       <div style={{display: 'grid', gap: 16}}>
         {groups.map((group) => (
           <section
@@ -1315,6 +1326,84 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
           </section>
         ))}
       </div>
+      {showImportPanel && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setShowImportPanel(false)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(0, 0, 0, 0.16)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 16,
+            zIndex: 1200,
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              width: 'min(920px, 96vw)',
+              maxHeight: '85vh',
+              overflow: 'auto',
+              padding: 14,
+              borderRadius: 12,
+              border: '1px solid var(--ifm-color-emphasis-200)',
+              background: '#f0f0f0',
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                gap: 10,
+                marginBottom: 8,
+              }}
+            >
+              <div style={{fontWeight: 650}}>粘贴成绩文本自动填充</div>
+              <button
+                type="button"
+                className="button button--secondary"
+                onClick={() => setShowImportPanel(false)}
+              >
+                关闭
+              </button>
+            </div>
+            <textarea
+              value={importText}
+              onChange={(e) => setImportText(e.target.value)}
+              placeholder="粘贴教务成绩查询返回文本（含课程名/课程号/学分/总成绩等列）"
+              style={{
+                width: '100%',
+                minHeight: 180,
+                resize: 'vertical',
+                borderRadius: 8,
+                border: '1px solid var(--ifm-color-emphasis-200)',
+                padding: '8px 10px',
+                background: 'var(--ifm-background-color)',
+              }}
+            />
+            <div style={{display: 'flex', gap: 10, alignItems: 'center', marginTop: 8, flexWrap: 'wrap'}}>
+              <button type="button" className="button button--primary" onClick={handleImportText}>
+                自动识别并填充
+              </button>
+              <button
+                type="button"
+                className="button button--secondary"
+                onClick={() => {
+                  setImportText('');
+                  setImportReport('');
+                }}
+              >
+                清空文本
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
