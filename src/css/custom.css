@@ -109,8 +109,8 @@
   }
 }
 
-/* Busuanzi (site UV) */
-#busuanzi_container_site_uv {
+/* Busuanzi (site PV) */
+#busuanzi_container_site_pv {
   display: none;
 }
 
@@ -144,6 +144,6 @@
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-#busuanzi_value_site_uv {
+#busuanzi_value_site_pv {
   font-weight: 650;
 }
