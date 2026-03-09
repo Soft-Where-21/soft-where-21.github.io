@@ -17,7 +17,7 @@
         { "name": "庄耿雄", "studentId": "22374271", "role": "部长", "avatar": "/avatar/2025-2026/学业中心/庄耿雄.png" },
         { "name": "靳远畅", "studentId": "23373279", "role": "副部长", "avatar": "/avatar/2025-2026/学业中心/靳远畅.png" },
         { "name": "罗睿炫", "studentId": "24371320", "role": "干事", "avatar": "/avatar/2025-2026/学业中心/罗睿炫.png" },
-        { "name": "杨小乐", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "杨小乐", "studentId": "24373169", "role": "干事", "avatar": "/avatar/2025-2026/学业中心/杨小乐.png" },
         { "name": "刘晋如", "studentId": "", "role": "干事", "avatar": "" },
         { "name": "张弛", "studentId": "", "role": "干事", "avatar": "" },
         { "name": "赵若彤", "studentId": "", "role": "干事", "avatar": "" }
@@ -103,18 +103,18 @@
       "name": "宣媒",
       "color": "#4f46e5",
       "members": [
-        { "name": "马浩然", "studentId": "", "role": "部长", "avatar": "" },
+        { "name": "马浩然", "studentId": "23371350", "role": "部长", "avatar": "/avatar/2025-2026/宣媒/马浩然.png" },
         { "name": "张管倩", "studentId": "23371127", "role": "副部长", "avatar": "" },
         { "name": "孙嘉艺", "studentId": "23371095", "role": "副部长", "avatar": "/avatar/2025-2026/宣媒/孙嘉艺.png" },
         { "name": "吴星宇", "studentId": "24373197", "role": "干事", "avatar": "/avatar/2025-2026/宣媒/吴星宇.png" },
-        { "name": "余儒耀", "studentId": "23373028", "role": "干事", "avatar": "" },
+        { "name": "余儒耀", "studentId": "23373028", "role": "干事", "avatar": "/avatar/2025-2026/宣媒/余儒耀.png" },
         { "name": "叶茂然", "studentId": "24373066", "role": "干事", "avatar": "" },
         { "name": "李启扬", "studentId": "24373166", "role": "干事", "avatar": "/avatar/2025-2026/宣媒/李启扬.png" },
         { "name": "李默涵", "studentId": "", "role": "干事", "avatar": "" },
         { "name": "亢钰童", "studentId": "24371333", "role": "干事", "avatar": "" },
         { "name": "吴本昭", "studentId": "24375097", "role": "干事", "avatar": "/avatar/2025-2026/宣媒/吴本昭.png" },
         { "name": "余锐", "studentId": "24373008", "role": "干事", "avatar": "/avatar/2025-2026/宣媒/余锐.png" },
-        { "name": "刘庆泽", "studentId": "24373187", "role": "干事", "avatar": "" },
+        { "name": "刘庆泽", "studentId": "24373187", "role": "干事", "avatar": "/avatar/2025-2026/宣媒/刘庆泽.png" },
         { "name": "杨书涵", "studentId": "24373348", "role": "干事", "avatar": "/avatar/2025-2026/宣媒/杨书涵.jpg" },
         { "name": "蔡乐彦", "studentId": "", "role": "干事", "avatar": "" },
         { "name": "邹林利", "studentId": "24371482", "role": "干事", "avatar": "" },
@@ -131,7 +131,7 @@
         { "name": "胡思琪", "studentId": "24376370", "role": "干事", "avatar": "/avatar/2025-2026/体育部/胡思琪.png" },
         { "name": "祝境远", "studentId": "23373529", "role": "干事", "avatar": "/avatar/2025-2026/体育部/祝境远.png" },
         { "name": "罗邦鸿", "studentId": "24371349", "role": "干事", "avatar": "" },
-        { "name": "冯闻笛", "studentId": "22377206", "role": "干事", "avatar": "" }
+        { "name": "冯闻笛", "studentId": "22377206", "role": "干事", "avatar": "/avatar/2025-2026/体育部/冯闻笛.png" }
       ]
     }
   ]
