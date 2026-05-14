@@ -1,6 +1,64 @@
 {
   "shares": [
     {
+      "id": "2026-05-10-kaoyan-zhuogong-share",
+      "date": "2026-05-10",
+      "tag": "考研&卓工保研",
+      "title": "考研&卓工保研经验分享",
+      "summary": "学长学姐分享考研和卓工保研相关经验。",
+      "resources": [
+        {
+          "type": "meeting",
+          "name": "腾讯会议录制链接",
+          "url": "",
+          "password": "",
+          "note": "暂无会议录制链接"
+        },
+        {
+          "type": "slides",
+          "name": "讲座PPT",
+          "downloadUrl": "",
+          "note": "考研&卓工保研经验分享PPT文件",
+          "files": [
+            {
+              "name": "陆宇霖学姐考研分享",
+              "downloadUrl": "/file/share/陆宇霖学姐考研分享.pptx"
+            },
+            {
+              "name": "郑玉洁学姐考研分享",
+              "downloadUrl": "/file/share/郑玉洁学姐考研分享.pptx"
+            },
+            {
+              "name": "朱玉林学长考研分享",
+              "downloadUrl": "/file/share/朱玉林学长考研分享.pptx"
+            },
+            {
+              "name": "王飞阳学长卓工分享",
+              "downloadUrl": "/file/share/王飞阳学长卓工分享.pptx"
+            },
+            {
+              "name": "杨凯伟学长卓工分享",
+              "downloadUrl": "/file/share/杨凯伟学长卓工分享.pptx"
+            }
+          ]
+        },
+        {
+          "type": "video",
+          "name": "讲座录屏",
+          "url": "",
+          "downloadUrl": "",
+          "note": "可在北航网盘中下载相关视频资源"
+        },
+        {
+          "type": "buaa-drive",
+          "name": "北航网盘资源",
+          "url": "https://bhpan.buaa.edu.cn/link/AA014E925BAAF84B3FB301C94D3D73E780",
+          "password": "",
+          "note": ""
+        }
+      ]
+    },
+    {
       "id": "2025-12-27-java-chuanjiang",
       "date": "2025-12-27",
       "tag": "学业分享",
