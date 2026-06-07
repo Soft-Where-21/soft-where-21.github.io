@@ -1,6 +1,6 @@
 {
   "title": "优质博客",
-  "subtitle": "软院学长学姐与同学们的精彩博客，欢迎常来逛逛 (ノ≧∀≦)ノ",
+  "subtitle": "学长学姐与同学们的精彩博客，欢迎常来逛逛 (ノ≧∀≦)ノ",
   "blogs": [
     {
       "nickname": "rainel",
@@ -47,7 +47,7 @@
     {
       "nickname": "HaoyuehxのBlog",
       "url": "https://haoyuehx.github.io/",
-      "tagline": "算法、计算机系统与课程实验笔记（FFT、CO、6.S081、CSAPP 等）",
+      "tagline": "算法、计算机系统与课程实验笔记",
       "avatar": "/img/blogs/haoyuehx.png",
       "thumbnail": "/img/blogs/thumbnails/haoyuehx.png"
     },
@@ -57,6 +57,13 @@
       "tagline": "Spark、Linux 容器、并发与系统编程笔记",
       "avatar": "/img/blogs/yiki21.png",
       "thumbnail": "/img/blogs/thumbnails/yiki21.png"
+    },
+    {
+      "nickname": "GongHua1540",
+      "url": "https://awesome-buaa-cs.github.io/fch-tutorial/",
+      "tagline": "北航软院计算机组成原理实验教程",
+      "avatar": "/img/blogs/gonghua1540.png",
+      "thumbnail": "/img/blogs/thumbnails/fch-tutorial.png"
     }
   ]
 }
