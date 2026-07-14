@@ -64,6 +64,13 @@
       "tagline": "北航软院计算机组成原理实验教程",
       "avatar": "/img/blogs/gonghua1540.png",
       "thumbnail": "/img/blogs/thumbnails/fch-tutorial.png"
+    },
+    {
+      "nickname": "Connor",
+      "url": "https://connorz.site/",
+      "tagline": "计组、算法、操作系统与课程总结笔记",
+      "avatar": "/img/blogs/connorz.jpg",
+      "thumbnail": "/img/blogs/thumbnails/connorz.png"
     }
   ]
 }
