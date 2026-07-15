@@ -1,6 +1,49 @@
 {
   "shares": [
     {
+      "id": "2026-06-18-daer-ai-chuanjiang",
+      "date": "2026-06-18",
+      "tag": "学业分享",
+      "title": "大二人工智能课程串讲",
+      "summary": "大二人工智能课程相关经验。",
+      "resources": [
+        {
+          "type": "meeting",
+          "name": "腾讯会议录制链接",
+          "url": "",
+          "password": "",
+          "note": "暂无会议录制链接"
+        },
+        {
+          "type": "slides",
+          "name": "讲座PPT",
+          "downloadUrl": "",
+          "note": "大二人工智能课程串讲PPT文件",
+          "files": [
+            {
+              "name": "人工智能串讲PPT",
+              "downloadUrl": "/file/share/人工智能串讲.pptx",
+              "note": "人工智能串讲PPT文件"
+            }
+          ]
+        },
+        {
+          "type": "video",
+          "name": "讲座录屏",
+          "url": "",
+          "downloadUrl": "",
+          "note": "可在北航网盘中下载相关视频资源"
+        },
+        {
+          "type": "buaa-drive",
+          "name": "北航网盘资源",
+          "url": "https://bhpan.buaa.edu.cn/link/AABD2354A6D19943FBA7C6B375D13B9F83",
+          "password": "",
+          "note": ""
+        }
+      ]
+    },
+    {
       "id": "2026-05-10-kaoyan-zhuogong-share",
       "date": "2026-05-10",
       "tag": "考研&卓工保研",
