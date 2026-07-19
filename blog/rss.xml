@@ -4,84 +4,85 @@
         <title>Soft Where Blog</title>
         <link>https://soft-where-21.github.io/blog</link>
         <description>Soft Where Blog</description>
-        <lastBuildDate>Thu, 26 Aug 2021 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 19 Jul 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <item>
-            <title><![CDATA[Welcome]]></title>
-            <link>https://soft-where-21.github.io/blog/welcome</link>
-            <guid>https://soft-where-21.github.io/blog/welcome</guid>
-            <pubDate>Thu, 26 Aug 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[Docusaurus blogging features are powered by the blog plugin.]]></description>
-            <content:encoded><![CDATA[<p><a href="https://docusaurus.io/docs/blog" target="_blank" rel="noopener noreferrer" class="">Docusaurus blogging features</a> are powered by the <a href="https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog" target="_blank" rel="noopener noreferrer" class="">blog plugin</a>.</p>
-<p>Here are a few tips you might find useful.</p>
-<p>Simply add Markdown files (or folders) to the <code>blog</code> directory.</p>
-<p>Regular blog authors can be added to <code>authors.yml</code>.</p>
-<p>The blog post date can be extracted from filenames, such as:</p>
+            <title><![CDATA[毕设经验分享：流程、选题与答辩]]></title>
+            <link>https://soft-where-21.github.io/blog/graduation-experience-yan-jiahao</link>
+            <guid>https://soft-where-21.github.io/blog/graduation-experience-yan-jiahao</guid>
+            <pubDate>Sun, 19 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[闫佳豪同学分享软件学院本科毕业设计从选题、开题、中期到结题答辩的完整经验。]]></description>
+            <content:encoded><![CDATA[<p>毕业设计是毕业前的最后一环，基本正常对待都可以顺利完成。太摆可能会进入二辩或末位复审，流程上麻烦一些，所以大家还是应该认真对待，特别是指导老师也是自己读研导师的情况。</p>
+<p>开题、中期、结题环环相扣。前面做好了，一些文字材料和图片都可以复用。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="时间线">时间线<a href="https://soft-where-21.github.io/blog/graduation-experience-yan-jiahao#%E6%97%B6%E9%97%B4%E7%BA%BF" class="hash-link" aria-label="Direct link to 时间线" title="Direct link to 时间线" translate="no">​</a></h2>
+<p>软件学院的开题很早，中期也偏早，结题时间则和其他学院差不多。</p>
 <ul>
-<li class=""><code>2019-05-30-welcome.md</code></li>
-<li class=""><code>2019-05-30-welcome/index.md</code></li>
+<li class="">开题在 11 月底。为了完成开题报告和 PPT，大概需要提前 2～3 周开始准备。</li>
+<li class="">中期在 4 月中旬。</li>
+<li class="">结题在 6 月初。结题前，5 月 11 日就要进行自查重，随后是教师查重，相当于这时论文要全部完成。5 月 18 日截止提交盲审稿，之后根据反馈意见修改。最终稿则在答辩后修改并提交。</li>
 </ul>
-<p>A blog post folder can be convenient to co-locate blog post images:</p>
-<p><img decoding="async" loading="lazy" alt="Docusaurus Plushie" src="https://soft-where-21.github.io/assets/images/docusaurus-plushie-banner-a60f7593abca1e3eef26a9afa244e4fb.jpeg" width="1500" height="500" class="img_ev3q"></p>
-<p>The blog supports tags as well!</p>
-<p><strong>And if you don't want a blog</strong>: just delete this directory, and use <code>blog: false</code> in your Docusaurus config.</p>]]></content:encoded>
-            <category>Facebook</category>
-            <category>Hello</category>
-            <category>Docusaurus</category>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="选题">选题<a href="https://soft-where-21.github.io/blog/graduation-experience-yan-jiahao#%E9%80%89%E9%A2%98" class="hash-link" aria-label="Direct link to 选题" title="Direct link to 选题" translate="no">​</a></h2>
+<p>选题基本等于选择毕设导师，通常分为以下几种情况。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="本校保研">本校保研<a href="https://soft-where-21.github.io/blog/graduation-experience-yan-jiahao#%E6%9C%AC%E6%A0%A1%E4%BF%9D%E7%A0%94" class="hash-link" aria-label="Direct link to 本校保研" title="Direct link to 本校保研" translate="no">​</a></h3>
+<p>导师往往会直接指定题目，或者提供几个题目供选择。遵循导师安排即可。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="外校保研">外校保研<a href="https://soft-where-21.github.io/blog/graduation-experience-yan-jiahao#%E5%A4%96%E6%A0%A1%E4%BF%9D%E7%A0%94" class="hash-link" aria-label="Direct link to 外校保研" title="Direct link to 外校保研" translate="no">​</a></h3>
+<p>如果已经提前进组，题目一般由外校老师给出，同时需要在本校找一位老师挂名。这位老师主要负责在系统上填写信息、申报题目和最后签字等。</p>
+<p>如果没有提前进组，导师也没有给题目，则可以参照直接工作的选题方式。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="考研">考研<a href="https://soft-where-21.github.io/blog/graduation-experience-yan-jiahao#%E8%80%83%E7%A0%94" class="hash-link" aria-label="Direct link to 考研" title="Direct link to 考研" translate="no">​</a></h3>
+<p>如果有明确的考研目标并且已经联系老师，可以请老师指定题目；如果没有联系老师，同样可以参照直接工作的选题方式。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="直接工作">直接工作<a href="https://soft-where-21.github.io/blog/graduation-experience-yan-jiahao#%E7%9B%B4%E6%8E%A5%E5%B7%A5%E4%BD%9C" class="hash-link" aria-label="Direct link to 直接工作" title="Direct link to 直接工作" translate="no">​</a></h3>
+<p>可以主动联系感兴趣的导师，询问是否还有指导名额，再请导师分配题目；也可以直接在毕设系统中选题。老师会在系统里开放一些题目，可以根据兴趣选择，而且这部分没有学院限制。</p>
+<p>总体而言，读研的同学大多由自己读研阶段的导师指导本科毕设，这样部分研究工作也可以为读研做铺垫。直接工作的同学可以尽量选择简单、可控的题目。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="开题">开题<a href="https://soft-where-21.github.io/blog/graduation-experience-yan-jiahao#%E5%BC%80%E9%A2%98" class="hash-link" aria-label="Direct link to 开题" title="Direct link to 开题" translate="no">​</a></h2>
+<p>开题有详细模板，按照要求填写即可，页数和格式要求相对宽松。当时我的开题报告正文为 12 页，不包括参考文献。</p>
+<p>重点是完成文献综述，提出大致的研究目标和方法，并给出总体方案与论文工作计划。答辩时间为 10 分钟汇报加 5 分钟问答。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="中期">中期<a href="https://soft-where-21.github.io/blog/graduation-experience-yan-jiahao#%E4%B8%AD%E6%9C%9F" class="hash-link" aria-label="Direct link to 中期" title="Direct link to 中期" translate="no">​</a></h2>
+<p>中期同样有模板，但大部分应该是自己实际完成的内容。中期材料很大一部分可以用于结题，因此认真准备不会吃亏。当时我的中期报告正文为 18 页，不包括参考文献。</p>
+<p>一般来说，中期时毕设应该已经完成 80%，核心是介绍当前进展。答辩时间同样为 10 分钟汇报加 5 分钟问答。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="结题">结题<a href="https://soft-where-21.github.io/blog/graduation-experience-yan-jiahao#%E7%BB%93%E9%A2%98" class="hash-link" aria-label="Direct link to 结题" title="Direct link to 结题" translate="no">​</a></h2>
+<p>结题模板不太好用，而且格式要求很高，一定要严格对照毕设手册检查。字数没有硬性要求，但一般会达到正文 40 页或 2 万字，不足时老师通常会要求补充。我的最终版正文为 43 页、2.3 万字，不包括参考文献。</p>
+<p>结题材料需要完整呈现所有工作，具体内容按照模板要求组织即可，也可以复用开题和中期的内容。教务公布的答辩时间是 15 分钟汇报加 15 分钟问答，但实际执行与答辩组有关。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="做图">做图<a href="https://soft-where-21.github.io/blog/graduation-experience-yan-jiahao#%E5%81%9A%E5%9B%BE" class="hash-link" aria-label="Direct link to 做图" title="Direct link to 做图" translate="no">​</a></h2>
+<p>图片不仅可以更直观地展示内容，也很容易复用到答辩 PPT 中，应该认真制作。可以善用 AI 工具，也可以引用其他论文中的图片，但需要明确标注来源。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="关于末位复审">关于末位复审<a href="https://soft-where-21.github.io/blog/graduation-experience-yan-jiahao#%E5%85%B3%E4%BA%8E%E6%9C%AB%E4%BD%8D%E5%A4%8D%E5%AE%A1" class="hash-link" aria-label="Direct link to 关于末位复审" title="Direct link to 关于末位复审" translate="no">​</a></h2>
+<p>开题没有末位复审。</p>
+<p>中期通常每组最后 1～2 名需要再次答辩，一般为 1 名。结题同样通常每组最后 1～2 名需要末位复审，主要是修改论文后再由老师审核。即使没有进入末位复审，其他同学也需要按照意见修改论文，只是末位复审的审核可能更严格、修改内容更多。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="关于成绩评级">关于成绩评级<a href="https://soft-where-21.github.io/blog/graduation-experience-yan-jiahao#%E5%85%B3%E4%BA%8E%E6%88%90%E7%BB%A9%E8%AF%84%E7%BA%A7" class="hash-link" aria-label="Direct link to 关于成绩评级" title="Direct link to 关于成绩评级" translate="no">​</a></h2>
+<p>优秀有 20% 的比例限制。不同学院评选方式不同，有的学院评选优秀毕设还需要再次答辩，软件学院往年不需要，但规则也可能发生变化。</p>
+<p>良好没有比例限制。部分学校要求保研同学的毕设成绩达到良及以上，这些同学需要特别留意。中等和及格是否有比例要求则不清楚。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="关于查重与-ai">关于查重与 AI<a href="https://soft-where-21.github.io/blog/graduation-experience-yan-jiahao#%E5%85%B3%E4%BA%8E%E6%9F%A5%E9%87%8D%E4%B8%8E-ai" class="hash-link" aria-label="Direct link to 关于查重与 AI" title="Direct link to 关于查重与 AI" translate="no">​</a></h2>
+<p>查重要求为 8%。这虽然不是绝对的毕业条件，但超出后需要导师确认说明，流程会比较麻烦，而且任一环节超过 8% 都不能参评优秀毕业设计。</p>
+<p>使用 AI 时要注意提示词并提供适当范例，尤其不要保留明显的 AI 痕迹，例如不自然的分点、倒引号或中英文混杂等，否则很容易在答辩中被老师指出。</p>]]></content:encoded>
+            <category>毕设经验分享</category>
         </item>
         <item>
-            <title><![CDATA[MDX Blog Post]]></title>
-            <link>https://soft-where-21.github.io/blog/mdx-blog-post</link>
-            <guid>https://soft-where-21.github.io/blog/mdx-blog-post</guid>
-            <pubDate>Sun, 01 Aug 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[Blog posts support Docusaurus Markdown features, such as MDX.]]></description>
-            <content:encoded><![CDATA[<p>Blog posts support <a href="https://docusaurus.io/docs/markdown-features" target="_blank" rel="noopener noreferrer" class="">Docusaurus Markdown features</a>, such as <a href="https://mdxjs.com/" target="_blank" rel="noopener noreferrer" class="">MDX</a>.</p>
-<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>Use the power of React to create interactive blog posts.</p></div></div>
-<!-- -->
-<p>For example, use JSX to create an interactive button:</p>
-<div class="language-js codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-js codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token operator" style="color:#393A34">&lt;</span><span class="token plain">button onClick</span><span class="token operator" style="color:#393A34">=</span><span class="token punctuation" style="color:#393A34">{</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token arrow operator" style="color:#393A34">=&gt;</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">alert</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">'button clicked!'</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">}</span><span class="token operator" style="color:#393A34">&gt;</span><span class="token maybe-class-name">Click</span><span class="token plain"> me</span><span class="token operator" style="color:#393A34">!</span><span class="token operator" style="color:#393A34">&lt;</span><span class="token operator" style="color:#393A34">/</span><span class="token plain">button</span><span class="token operator" style="color:#393A34">&gt;</span><br></span></code></pre></div></div>
-<button>Click me!</button>]]></content:encoded>
-            <category>Docusaurus</category>
-        </item>
-        <item>
-            <title><![CDATA[Long Blog Post]]></title>
-            <link>https://soft-where-21.github.io/blog/long-blog-post</link>
-            <guid>https://soft-where-21.github.io/blog/long-blog-post</guid>
-            <pubDate>Wed, 29 May 2019 00:00:00 GMT</pubDate>
-            <description><![CDATA[This is the summary of a very long blog post,]]></description>
-            <content:encoded><![CDATA[<p>This is the summary of a very long blog post,</p>
-<p>Use a <code>&lt;!--</code> <code>truncate</code> <code>--&gt;</code> comment to limit blog post size in the list view.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content:encoded>
-            <category>Hello</category>
-            <category>Docusaurus</category>
-        </item>
-        <item>
-            <title><![CDATA[First Blog Post]]></title>
-            <link>https://soft-where-21.github.io/blog/first-blog-post</link>
-            <guid>https://soft-where-21.github.io/blog/first-blog-post</guid>
-            <pubDate>Tue, 28 May 2019 00:00:00 GMT</pubDate>
-            <description><![CDATA[Lorem ipsum dolor sit amet...]]></description>
-            <content:encoded><![CDATA[<p>Lorem ipsum dolor sit amet...</p>
-<p>...consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content:encoded>
-            <category>Hola</category>
-            <category>Docusaurus</category>
+            <title><![CDATA[毕设经验分享：重视规范，提前准备]]></title>
+            <link>https://soft-where-21.github.io/blog/graduation-experience-zhou-qi-shun</link>
+            <guid>https://soft-where-21.github.io/blog/graduation-experience-zhou-qi-shun</guid>
+            <pubDate>Sun, 19 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[周其顺同学分享软件学院本科毕业设计开题、中期与结题阶段的准备重点。]]></description>
+            <content:encoded><![CDATA[<p>毕设整体分为开题、中期、结题三个阶段。软件学院开题较早，在 11 月；中期在次年 4 月；结题在 6 月。这也意味着在中期时，基本已经要完成主要内容，中期以后则进入论文撰写阶段。</p>
+<p>本科毕业设计并不要求很高的创新性。虽然我在过程中的心态是“认为不会卡毕业，做完就行”，但依旧在最后的论文格式调整中体会到了它的严肃性。硕博阶段还会再次经历大论文写作，因此建议大家无论内容完成得如何，都要重视论文写作，多积累格式和版面方面的技巧。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="毕设开题">毕设开题<a href="https://soft-where-21.github.io/blog/graduation-experience-zhou-qi-shun#%E6%AF%95%E8%AE%BE%E5%BC%80%E9%A2%98" class="hash-link" aria-label="Direct link to 毕设开题" title="Direct link to 毕设开题" translate="no">​</a></h2>
+<p>这一阶段需要确定毕业设计的大方向和预期内容。PPT 主要陈述选题背景、意义、相关工作调研以及初步方案。开题报告应该没有二辩的硬性指标，但有的组仍可能安排部分同学二辩。</p>
+<p>每个阶段的 PPT 都建议认真构思，因为开题阶段准备好的背景、意义和相关工作，在中期和结题时基本可以直接复用。因此，开题时选好简洁大方的模板也很重要。</p>
+<p>总之，开题相对轻松，而且软件学院开题时间很早，过程中发现方向不合适时，通常还有调整或换题的空间。Just take it easy。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="毕设中期">毕设中期<a href="https://soft-where-21.github.io/blog/graduation-experience-zhou-qi-shun#%E6%AF%95%E8%AE%BE%E4%B8%AD%E6%9C%9F" class="hash-link" aria-label="Direct link to 毕设中期" title="Direct link to 毕设中期" translate="no">​</a></h2>
+<p>按常理来说，这一阶段基本需要完成毕设的所有实验内容，所以大家需要在寒假阶段稍微加一把劲。老师不会要求整个框架或系统的最终结果，但会检查设计是否合理、验证是否充分，以确认大家能够在结题前顺利完成所有内容。</p>
+<p>周围大多数同学的中期 PPT 和结题 PPT 相差不到 10%，所以中期基本可以按照结题要求来准备。</p>
+<p>尽量不要等到中期答辩后才发现题目不合理或者无法完成，否则再换题会比较麻烦。中期有二辩的硬性指标，应尽量避免成为组内末位。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="毕设结题">毕设结题<a href="https://soft-where-21.github.io/blog/graduation-experience-zhou-qi-shun#%E6%AF%95%E8%AE%BE%E7%BB%93%E9%A2%98" class="hash-link" aria-label="Direct link to 毕设结题" title="Direct link to 毕设结题" translate="no">​</a></h2>
+<p>我在这个过程中成功成为了 Word 高手。</p>
+<p>在系统上提交论文时，必须使用 Word 进行格式审查。即使系统中的大量格式检查都通过，论文实际上仍可能存在很多问题。我在答辩现场就因为格式问题被老师严厉指出。建议提前请要求严格的老师或学长帮助检查。</p>
+<p>答辩现场的老师通常不会再仔细看 PPT，也不会过分挑剔论文内容，主要检查论文格式，包括图片尺寸和字号、引用格式、公式格式以及文字表达是否清晰。</p>
+<p>组内末位会进入复审环节，相当于提前抽查。如果老师认为论文存在问题，会要求回来继续修改。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="总结">总结<a href="https://soft-where-21.github.io/blog/graduation-experience-zhou-qi-shun#%E6%80%BB%E7%BB%93" class="hash-link" aria-label="Direct link to 总结" title="Direct link to 总结" translate="no">​</a></h2>
+<p>本科毕设是一门更注重规范性、对创新性要求相对有限的课程。大家可以提前选择自己感兴趣的方向，尽量与升学后的研究方向保持一致，让所做的事情具有延续性。</p>
+<p>当大家看到这篇随笔时，已经步入大学的最后一个阶段。毕设本身的要求并不高，只需要认真完成即可，也别忘了享受大四最后的校园生活。</p>
+<p>祝前路坦荡，万事可期。</p>]]></content:encoded>
+            <category>毕设经验分享</category>
         </item>
     </channel>
 </rss>
