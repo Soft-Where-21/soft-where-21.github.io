@@ -1,0 +1,26 @@
+.blogHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.blogTitle {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.blogDescription {
+  margin: 0.35rem 0 0;
+  color: var(--ifm-color-emphasis-700);
+}
+
+@media (max-width: 576px) {
+  .blogHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

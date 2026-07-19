@@ -1,0 +1,28 @@
+---
+title: 2024级
+slug: /postgraduate-recommendation/2024
+sidebar_position: 2
+hide_table_of_contents: true
+description: 软件学院2024年推荐免试研究生实施细则
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+export function PdfViewer() {
+  const pdfUrl = useBaseUrl('/file/推免细则-2024.pdf');
+
+  return (
+    <iframe
+      src={pdfUrl}
+      width="100%"
+      height="1000"
+      style={{
+        border: '1px solid var(--ifm-color-emphasis-300)',
+        borderRadius: 8,
+      }}
+      title="软件学院2024年推荐免试研究生实施细则 PDF 预览"
+    />
+  );
+}
+
+<PdfViewer />

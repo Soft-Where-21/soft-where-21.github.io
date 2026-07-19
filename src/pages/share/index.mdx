@@ -611,15 +611,17 @@ export function SharePage() {
           justify-content:space-between;
           gap:14px;
           flex-wrap:wrap;
+          padding-bottom:18px;
+          border-bottom:1px solid var(--ifm-color-emphasis-200);
         }
         .shareTopHint{
           font-size:.92rem;
           color:var(--ifm-color-emphasis-700);
         }
         .shareMainLayout{
-          margin-top:18px;
+          margin-top:24px;
           display:flex;
-          gap:clamp(18px, 2.4vw, 30px);
+          gap:clamp(20px, 2.6vw, 32px);
           align-items:start;
           --share-sidebar-width: clamp(200px, 20vw, 248px);
         }
@@ -627,6 +629,7 @@ export function SharePage() {
           position:sticky;
           top:calc(var(--ifm-navbar-height, 0px) + 14px);
           display:grid;
+          grid-template-rows:auto minmax(0, 1fr);
           gap:10px;
           max-height:calc(100vh - var(--ifm-navbar-height, 0px) - 28px);
           overflow:hidden;
@@ -696,9 +699,23 @@ export function SharePage() {
         .shareTimelineWrap{
           display:grid;
           grid-template-rows:1fr;
+          min-height:0;
+          overflow-y:auto;
+          overscroll-behavior:contain;
+          scrollbar-gutter:stable;
+          padding-right:4px;
           opacity:1;
           transform:translateY(0);
           transition:grid-template-rows .4s cubic-bezier(.22,.61,.36,1), opacity .24s ease, transform .28s ease;
+        }
+        .shareTimelineWrap::-webkit-scrollbar{width:7px;}
+        .shareTimelineWrap::-webkit-scrollbar-track{background:transparent;}
+        .shareTimelineWrap::-webkit-scrollbar-thumb{
+          border-radius:999px;
+          background:var(--ifm-color-emphasis-300);
+        }
+        .shareTimelineWrap::-webkit-scrollbar-thumb:hover{
+          background:var(--ifm-color-emphasis-400);
         }
         .shareTimelineWrap > .shareTimeline{min-height:0;}
         .shareTimelineWrap.isCollapsed{
@@ -709,77 +726,32 @@ export function SharePage() {
         }
         .shareTimeline{
           display:grid;
-          gap:12px;
+          gap:8px;
           grid-template-columns:1fr;
         }
         .shareTimelineItem{
           position:relative;
-          overflow:hidden;
-          border:1px solid transparent;
-          background:
-            linear-gradient(165deg, color-mix(in srgb, var(--ifm-card-background-color) 94%, var(--ifm-color-primary-lightest)), var(--ifm-card-background-color)) padding-box,
-            linear-gradient(120deg, color-mix(in srgb, var(--ifm-color-primary) 42%, var(--ifm-color-emphasis-300)), var(--ifm-color-emphasis-300), color-mix(in srgb, var(--ifm-color-primary) 30%, var(--ifm-color-emphasis-300))) border-box;
-          border-radius:12px;
-          padding:12px 14px;
+          border:1px solid var(--ifm-color-emphasis-200);
+          background:var(--ifm-card-background-color);
+          border-radius:10px;
+          padding:11px 13px;
           cursor:pointer;
           text-align:left;
-          transition:background .25s ease,border-color .25s ease,transform .25s ease,box-shadow .25s ease;
+          transition:background .2s ease,border-color .2s ease,transform .2s ease,box-shadow .2s ease;
           animation:shareFadeUp .45s cubic-bezier(.2,.8,.2,1) both;
-          will-change:transform;
-        }
-        .shareTimelineItem::before{
-          content:'';
-          position:absolute;
-          left:12px;
-          right:12px;
-          top:0;
-          height:1px;
-          pointer-events:none;
-          background:linear-gradient(90deg, transparent, color-mix(in srgb, var(--ifm-color-primary) 65%, transparent), transparent);
-          opacity:.5;
-          transition:opacity .25s ease;
-        }
-        .shareTimelineItem::after{
-          content:'';
-          position:absolute;
-          inset:0;
-          pointer-events:none;
-          background:linear-gradient(
-            110deg,
-            transparent 0%,
-            transparent 42%,
-            color-mix(in srgb, var(--ifm-color-primary) 42%, transparent) 50%,
-            transparent 58%,
-            transparent 100%
-          );
-          transform:translateX(-130%);
-          opacity:0;
         }
         .shareTimelineItem:hover{
-          transform:translateY(-2px);
-          border-color:var(--ifm-color-emphasis-300);
-          box-shadow:0 10px 24px color-mix(in srgb, var(--ifm-color-emphasis-900) 10%, transparent);
-        }
-        .shareTimelineItem:hover::before{opacity:.85;}
-        .shareTimelineItem:hover::after{
-          opacity:.45;
-          animation:shareScanline 1.2s cubic-bezier(.22,.61,.36,1) 1;
+          transform:translateX(2px);
+          border-color:color-mix(in srgb, var(--ifm-color-primary) 35%, var(--ifm-color-emphasis-300));
+          background:color-mix(in srgb, var(--ifm-card-background-color) 96%, var(--ifm-color-primary-lightest));
         }
         .shareTimelineItem.isActive{
-          box-shadow:
-            0 0 0 1px color-mix(in srgb, var(--ifm-color-primary) 16%, transparent),
-            0 10px 22px color-mix(in srgb, var(--ifm-color-emphasis-900) 8%, transparent);
-          background:
-            linear-gradient(165deg, color-mix(in srgb, var(--ifm-card-background-color) 88%, var(--ifm-color-primary-lightest)), var(--ifm-card-background-color)) padding-box,
-            linear-gradient(120deg, color-mix(in srgb, var(--ifm-color-primary) 55%, var(--ifm-color-emphasis-300)), color-mix(in srgb, var(--ifm-color-primary) 20%, var(--ifm-color-emphasis-300)), color-mix(in srgb, var(--ifm-color-primary) 45%, var(--ifm-color-emphasis-300))) border-box;
+          border-color:color-mix(in srgb, var(--ifm-color-primary) 52%, var(--ifm-color-emphasis-300));
+          background:color-mix(in srgb, var(--ifm-card-background-color) 90%, var(--ifm-color-primary-lightest));
+          box-shadow:inset 4px 0 0 var(--ifm-color-primary);
+          padding-left:16px;
         }
-        .shareTimelineItem.isActive::before{
-          opacity:1;
-        }
-        .shareTimelineItem.isActive::after{
-          opacity:.5;
-          animation:shareScanlinePulse4s 4s linear infinite;
-        }
+        .shareTimelineItem:focus-visible{outline:2px solid var(--ifm-color-primary);outline-offset:2px;}
         .shareItemLine{opacity:.72;font-size:.88rem;line-height:1.35;}
         .shareItemTitle{font-weight:650;line-height:1.35;margin-top:2px;}
         .shareContent{
@@ -788,25 +760,16 @@ export function SharePage() {
           width:100%;
           min-width:0;
           border-radius:14px;
-          border:1px solid transparent;
+          border:1px solid var(--ifm-color-emphasis-200);
           overflow:hidden;
-          background:
-            linear-gradient(170deg, color-mix(in srgb, var(--ifm-card-background-color) 97%, var(--ifm-color-primary-lightest)), var(--ifm-card-background-color)) padding-box,
-            linear-gradient(130deg, color-mix(in srgb, var(--ifm-color-primary) 38%, var(--ifm-color-emphasis-300)), var(--ifm-color-emphasis-300), color-mix(in srgb, var(--ifm-color-primary) 22%, var(--ifm-color-emphasis-300))) border-box;
+          background:var(--ifm-card-background-color);
           animation:sharePanelIn .42s cubic-bezier(.2,.75,.2,1) both;
-          box-shadow:0 16px 36px color-mix(in srgb, var(--ifm-color-emphasis-900) 8%, transparent);
-        }
-        .shareContent::before{
-          content:'';
-          position:absolute;
-          inset:0;
-          pointer-events:none;
-          background:linear-gradient(145deg, color-mix(in srgb, var(--ifm-color-emphasis-200) 35%, transparent), transparent 44%);
-          opacity:.55;
+          box-shadow:0 12px 30px color-mix(in srgb, var(--ifm-color-emphasis-900) 7%, transparent);
         }
         .shareStageHeader{
-          padding:14px 18px;
+          padding:15px 18px;
           border-bottom:1px solid var(--ifm-color-emphasis-200);
+          background:color-mix(in srgb, var(--ifm-card-background-color) 94%, var(--ifm-color-emphasis-100));
           display:flex;
           align-items:center;
           justify-content:space-between;
@@ -815,12 +778,11 @@ export function SharePage() {
         }
         .shareStageBody{
           min-height:520px;
-          background:linear-gradient(180deg, color-mix(in srgb, var(--ifm-color-emphasis-200) 30%, transparent), transparent 24%);
+          background:var(--ifm-card-background-color);
         }
         .shareResourceCard{
           position:relative;
-          overflow:hidden;
-          border:1px solid transparent;
+          border:1px solid var(--ifm-color-emphasis-200);
           border-radius:12px;
           padding:14px;
           display:flex;
@@ -828,42 +790,13 @@ export function SharePage() {
           gap:12px;
           align-items:flex-start;
           flex-wrap:wrap;
-          background:
-            linear-gradient(170deg, color-mix(in srgb, var(--ifm-card-background-color) 96%, var(--ifm-color-primary-lightest)), var(--ifm-card-background-color)) padding-box,
-            linear-gradient(130deg, color-mix(in srgb, var(--ifm-color-primary) 34%, var(--ifm-color-emphasis-300)), var(--ifm-color-emphasis-300), color-mix(in srgb, var(--ifm-color-primary) 22%, var(--ifm-color-emphasis-300))) border-box;
+          background:color-mix(in srgb, var(--ifm-card-background-color) 97%, var(--ifm-color-emphasis-100));
           transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
           animation:shareFadeUp .38s cubic-bezier(.2,.85,.2,1) both;
         }
-        .shareResourceCard::after{
-          content:'';
-          position:absolute;
-          inset:-35% -45% auto auto;
-          width:180px;
-          height:180px;
-          border-radius:999px;
-          background:radial-gradient(circle, color-mix(in srgb, var(--ifm-color-emphasis-200) 45%, transparent) 0%, transparent 72%);
-          opacity:.45;
-          pointer-events:none;
-        }
         .shareResourceCard:hover{
-          transform:translateY(-2px);
-          box-shadow:0 14px 28px color-mix(in srgb, var(--ifm-color-emphasis-900) 10%, transparent);
-        }
-        .shareResourceCard::before{
-          content:'';
-          position:absolute;
-          left:14px;
-          right:14px;
-          top:0;
-          height:1px;
-          pointer-events:none;
-          background:linear-gradient(90deg, transparent, color-mix(in srgb, var(--ifm-color-primary) 62%, transparent), transparent);
-          opacity:.45;
-        }
-        .shareResourceCard:hover::before{opacity:.72;}
-        .shareResourceCard:hover::after{
-          animation:shareScanline 1.25s cubic-bezier(.22,.61,.36,1) 1;
-          opacity:.62;
+          border-color:color-mix(in srgb, var(--ifm-color-primary) 28%, var(--ifm-color-emphasis-300));
+          box-shadow:0 8px 20px color-mix(in srgb, var(--ifm-color-emphasis-900) 7%, transparent);
         }
         .shareResourceInfo{
           display:grid;
@@ -963,13 +896,10 @@ export function SharePage() {
           font-weight:600;
         }
         .sharePreviewWrap{
-          border:1px solid transparent;
+          border:1px solid var(--ifm-color-emphasis-200);
           border-radius:12px;
           padding:12px;
-          background:
-            linear-gradient(170deg, var(--ifm-background-color), var(--ifm-background-color)) padding-box,
-            linear-gradient(130deg, color-mix(in srgb, var(--ifm-color-primary) 28%, var(--ifm-color-emphasis-300)), var(--ifm-color-emphasis-300), color-mix(in srgb, var(--ifm-color-primary) 18%, var(--ifm-color-emphasis-300))) border-box;
-          box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--ifm-color-emphasis-200) 45%, transparent);
+          background:var(--ifm-background-color);
           animation:sharePreviewIn .34s cubic-bezier(.16,.84,.24,1) both;
         }
         .sharePreviewTitle{
@@ -1019,6 +949,11 @@ export function SharePage() {
             max-height:none;
             overflow:visible;
           }
+          .shareTimelineWrap{
+            overflow-y:visible;
+            scrollbar-gutter:auto;
+            padding-right:0;
+          }
           .shareMainLayout.isSidebarCollapsed .shareSidebarHeader{
             flex-direction:row;
             align-items:center;
@@ -1055,17 +990,6 @@ export function SharePage() {
           from{opacity:0;transform:translateY(6px)}
           to{opacity:1;transform:translateY(0)}
         }
-        @keyframes shareScanline{
-          from{transform:translateX(-130%)}
-          to{transform:translateX(130%)}
-        }
-        @keyframes shareScanlinePulse4s{
-          0%{transform:translateX(-130%);opacity:0}
-          6%{opacity:.55}
-          28%{transform:translateX(130%);opacity:0}
-          100%{transform:translateX(130%);opacity:0}
-        }
-
         @media (prefers-reduced-motion: reduce){
           .shareTimelineItem,
           .shareContent,
@@ -1079,12 +1003,6 @@ export function SharePage() {
           .shareActionRow .button,
           .shareToast{
             transition:none !important;
-          }
-          .shareTimelineItem::after,
-          .shareTimelineItem.isActive::after,
-          .shareResourceCard:hover::after{
-            animation:none !important;
-            opacity:0 !important;
           }
         }
       `}</style>

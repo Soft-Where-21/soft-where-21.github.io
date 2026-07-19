@@ -43,6 +43,46 @@ const modules = [
     ]
   },
   {
+    "title": "推免细则",
+    "description": "软件学院推荐免试研究生实施细则。",
+    "link": "/docs/postgraduate-recommendation",
+    "isCategory": true,
+    "items": [
+      {
+        "title": "2023年",
+        "description": "软件学院2023年推荐免试研究生实施细则",
+        "link": "/docs/postgraduate-recommendation/2023",
+        "isCategory": false
+      },
+      {
+        "title": "2024年",
+        "description": "软件学院2024年推荐免试研究生实施细则",
+        "link": "/docs/postgraduate-recommendation/2024",
+        "isCategory": false
+      }
+    ]
+  },
+  {
+    "title": "综测方案",
+    "description": "软件学院学生综合素质测评方案。",
+    "link": "/docs/comprehensive-assessment",
+    "isCategory": true,
+    "items": [
+      {
+        "title": "2021年",
+        "description": "软件学院2021年学生综合素质测评方案",
+        "link": "/docs/comprehensive-assessment/2021",
+        "isCategory": false
+      },
+      {
+        "title": "2022年",
+        "description": "软件学院2022年学生综合素质测评方案",
+        "link": "/docs/comprehensive-assessment/2022",
+        "isCategory": false
+      }
+    ]
+  },
+  {
     "title": "常用指令",
     "description": "关于 常用指令 的相关资料。",
     "link": "/docs/commands",

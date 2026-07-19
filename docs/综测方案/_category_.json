@@ -1,8 +1,8 @@
 {
-  "label": "培养方案",
+  "label": "综测方案",
   "position": 7,
   "link": {
     "type": "generated-index",
-    "slug": "/training-program"
+    "slug": "/comprehensive-assessment"
   }
 }
