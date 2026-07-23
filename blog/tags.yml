@@ -2,3 +2,8 @@ graduation-experience:
   label: 毕设经验分享
   permalink: /graduation-experience
   description: 软件学院本科毕业设计经验分享
+
+postgraduate-entrance-experience:
+  label: 考研经验分享
+  permalink: /postgraduate-entrance-experience
+  description: 软件学院同学的考研备考与择校经验分享
