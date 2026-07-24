@@ -18,6 +18,10 @@ export function MemberPage() {
   const [activeTermId, setActiveTermId] = useState(allTerms[0].id);
   const activeTerm = allTerms.find(t => t.id === activeTermId) || allTerms[0];
   const departments = Array.isArray(activeTerm.data?.departments) ? activeTerm.data.departments : [];
+  const totalMembers = departments.reduce(
+    (total, department) => total + (Array.isArray(department?.members) ? department.members.length : 0),
+    0
+  );
 
   const roleOrder = { '主席': 0, '部长': 1, '副部长': 2, '干事': 3 };
 
@@ -45,210 +49,387 @@ export function MemberPage() {
   }
 
   return (
-    <div className="container margin-vert--lg">
-      {/* Page Header */}
-      <div style={{ textAlign: 'center', marginBottom: 40 }}>
-        <Heading as="h1" style={{ marginBottom: 6 }}>
-          学生会成员
-        </Heading>
-        <p style={{ margin: 0, fontSize: '1rem', opacity: 0.55 }}>
-          {activeTerm.data?.term ?? ''} 届
-        </p>
-      </div>
+    <div className="memberPageShell">
+      <header className="memberPageHeader">
+        <Heading as="h1">学生会成员</Heading>
+      </header>
 
-      <div style={{ display: 'flex', gap: 36 }}>
-        {/* ───── Sidebar ───── */}
-        <aside style={{
-          width: 180,
-          flexShrink: 0,
-          position: 'sticky',
-          top: 76,
-          alignSelf: 'flex-start',
-        }}>
-          <div style={{
-            fontSize: '0.78rem',
-            fontWeight: 700,
-            textTransform: 'uppercase',
-            letterSpacing: 1.5,
-            opacity: 0.4,
-            marginBottom: 14,
-          }}>
-            届次
+      <div className="memberLayout">
+        <aside className="memberTermPanel">
+          <div className="memberTermSection">
+            <div className="memberNavLabel">届次</div>
+            <div className="memberTermList" role="group" aria-label="选择届次">
+              {allTerms.map((term) => {
+                const isActive = term.id === activeTermId;
+                return (
+                  <button
+                    key={term.id}
+                    type="button"
+                    className={`memberTermButton ${isActive ? 'isActive' : ''}`}
+                    aria-pressed={isActive}
+                    onClick={() => setActiveTermId(term.id)}
+                  >
+                    {term.label}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
-          {allTerms.map((term) => {
-            const isActive = term.id === activeTermId;
-            return (
-              <button
-                key={term.id}
-                onClick={() => setActiveTermId(term.id)}
-                style={{
-                  display: 'block',
-                  width: '100%',
-                  textAlign: 'left',
-                  padding: '9px 14px',
-                  borderRadius: 8,
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontWeight: isActive ? 600 : 400,
-                  fontSize: '0.92rem',
-                  background: isActive ? 'var(--ifm-color-emphasis-200)' : 'transparent',
-                  color: isActive ? 'var(--ifm-font-color-base)' : 'var(--ifm-color-emphasis-600)',
-                  marginBottom: 4,
-                  transition: 'background .15s',
-                }}
-              >
-                {term.label}
-              </button>
-            );
-          })}
+          <div className="memberDepartmentDirectory">
+            <div className="memberDirectoryHeader">
+              <span className="memberNavLabel">部门</span>
+              <span>{departments.length}</span>
+            </div>
+            <nav className="memberDepartmentLinks" aria-label="部门目录">
+              {departments.map((department, departmentIndex) => {
+                const departmentSize = Array.isArray(department?.members)
+                  ? department.members.length
+                  : 0;
+                return (
+                  <a
+                    key={department?.name}
+                    href={`#member-department-${departmentIndex}`}
+                    className="memberDepartmentLink"
+                    style={{'--member-department-color': department?.color || 'var(--ifm-color-primary)'}}
+                  >
+                    <span className="memberDepartmentMarker" aria-hidden="true" />
+                    <span className="memberDepartmentName">{department?.name}</span>
+                    <span className="memberDepartmentCount">{departmentSize}</span>
+                  </a>
+                );
+              })}
+            </nav>
+          </div>
+
+          <div className="memberTermStats">
+            共 {totalMembers} 人
+          </div>
         </aside>
 
-        {/* ───── Main Content ───── */}
-        <div style={{ flex: 1, minWidth: 0 }}>
-          {departments.map((dept) => {
+        <main className="memberDepartments">
+          {departments.map((dept, departmentIndex) => {
             const members = sortMembers(dept?.members || []);
 
             return (
-              <div key={dept?.name} style={{ marginBottom: 48 }}>
-                {/* Department Header */}
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  gap: 10,
-                  marginBottom: 20,
-                  paddingBottom: 10,
-                  borderBottom: '1.5px solid var(--ifm-color-emphasis-200)',
-                }}>
-                  <Heading as="h2" style={{ margin: 0, fontSize: '1.15rem', fontWeight: 600 }}>
-                    {dept?.name}
-                  </Heading>
-                  <span style={{ fontSize: '0.82rem', opacity: 0.45 }}>
-                    {members.length} 人
-                  </span>
+              <section
+                key={dept?.name}
+                id={`member-department-${departmentIndex}`}
+                className="memberDepartment"
+                style={{'--member-department-color': dept?.color || 'var(--ifm-color-primary)'}}
+              >
+                <div className="memberDepartmentHeader">
+                  <Heading as="h2">{dept?.name}</Heading>
+                  <span>{members.length} 人</span>
                 </div>
 
-                {/* Member Cards — 5 per row via flex */}
-                <div style={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  gap: 16,
-                }}>
+                <div className="memberGrid">
                   {members.map((m, idx) => {
                     const hasAvatar = m?.avatar && m.avatar.trim() !== '';
                     const rs = roleStyle(m?.role);
                     const sid = (m?.studentId ?? '').toString().trim();
 
                     return (
-                      <div
+                      <article
                         key={`${dept?.name}-${m?.name}-${idx}`}
-                        style={{
-                          flex: '0 0 calc(20% - 13px)',
-                          minWidth: 140,
-                          maxWidth: 200,
-                        }}
+                        className="memberCard"
                       >
-                        <div
-                          className="card"
-                          style={{
-                            height: '100%',
-                            borderRadius: 10,
-                            border: '1px solid var(--ifm-color-emphasis-200)',
-                            overflow: 'hidden',
-                            background: 'var(--ifm-card-background-color)',
-                            transition: 'box-shadow .2s, transform .2s',
-                          }}
-                          onMouseOver={(e) => {
-                            e.currentTarget.style.boxShadow = '0 6px 18px rgba(0,0,0,.08)';
-                            e.currentTarget.style.transform = 'translateY(-2px)';
-                          }}
-                          onMouseOut={(e) => {
-                            e.currentTarget.style.boxShadow = 'none';
-                            e.currentTarget.style.transform = 'none';
-                          }}
-                        >
-                          {/* Photo Area */}
-                          {hasAvatar ? (
-                            <div style={{
-                              width: '100%',
-                              aspectRatio: '3 / 4',
-                              overflow: 'hidden',
-                              background: 'var(--ifm-color-emphasis-100)',
-                            }}>
-                              <img
-                                src={m.avatar}
-                                alt={m.name}
-                                style={{
-                                  width: '100%',
-                                  height: '100%',
-                                  objectFit: 'cover',
-                                  display: 'block',
-                                }}
-                                loading="lazy"
-                              />
-                            </div>
-                          ) : (
-                            <div style={{
-                              width: '100%',
-                              aspectRatio: '3 / 4',
-                              background: 'var(--ifm-color-emphasis-100)',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              userSelect: 'none',
-                            }}>
-                              <span style={{
-                                fontSize: '2.2rem',
-                                fontWeight: 700,
-                                color: 'var(--ifm-color-emphasis-300)',
-                              }}>
-                                {getInitial(m?.name)}
-                              </span>
-                            </div>
-                          )}
-
-                          {/* Info Area */}
-                          <div style={{ padding: '12px 14px 14px' }}>
-                            <div style={{display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 10}}>
-                              <div style={{
-                                fontWeight: 600,
-                                fontSize: '0.95rem',
-                                marginBottom: 3,
-                                minWidth: 0,
-                              }}>
-                                {m?.name ?? '未知'}
-                              </div>
-                              {sid ? (
-                                <div
-                                  style={{
-                                    fontSize: '0.85rem',
-                                    opacity: 0.5,
-                                    fontFamily: 'var(--ifm-font-family-monospace)',
-                                    whiteSpace: 'nowrap',
-                                  }}
-                                  title="学号"
-                                >
-                                  {sid}
-                                </div>
-                              ) : null}
-                            </div>
-                            <div style={{
-                              fontSize: '0.8rem',
-                              ...rs,
-                            }}>
-                              {m?.role || '成员'}
-                            </div>
+                        {hasAvatar ? (
+                          <div className="memberPhoto">
+                            <img src={m.avatar} alt={m.name} loading="lazy" />
                           </div>
+                        ) : (
+                          <div className="memberPhoto memberPhotoFallback" aria-hidden="true">
+                            <span>{getInitial(m?.name)}</span>
+                          </div>
+                        )}
+
+                        <div className="memberInfo">
+                          <div className="memberNameRow">
+                            <div className="memberName">{m?.name ?? '未知'}</div>
+                            <div className="memberRole" style={rs}>{m?.role || '成员'}</div>
+                          </div>
+                          {sid ? <div className="memberStudentId">{sid}</div> : null}
                         </div>
-                      </div>
+                      </article>
                     );
                   })}
                 </div>
-              </div>
+              </section>
             );
           })}
-        </div>
+        </main>
       </div>
+
+      <style>{`
+        main.container.container--fluid:has(.memberPageShell){
+          margin-block:0 !important;
+          padding-inline:0;
+        }
+        main.container.container--fluid:has(.memberPageShell) > .row{
+          margin-inline:0;
+        }
+        main.container.container--fluid:has(.memberPageShell) > .row > .col{
+          padding-inline:0;
+        }
+        .memberPageShell{
+          width:min(1240px, calc(100vw - 28px));
+          margin:8px auto 32px;
+        }
+        .memberPageHeader{
+          min-height:56px;
+          padding:10px 2px 12px;
+          border-bottom:1px solid var(--ifm-color-emphasis-200);
+        }
+        .memberPageHeader h1{
+          margin:0;
+          font-size:clamp(1.3rem, 2vw, 1.6rem);
+          line-height:1.2;
+        }
+        .memberLayout{
+          display:grid;
+          grid-template-columns:176px minmax(0, 1fr);
+          gap:24px;
+          align-items:start;
+          padding-top:18px;
+        }
+        .memberTermPanel{
+          position:sticky;
+          top:calc(var(--ifm-navbar-height) + 16px);
+          max-height:calc(100vh - var(--ifm-navbar-height) - 32px);
+          overflow-y:auto;
+          padding:10px;
+          border:1px solid var(--ifm-color-emphasis-200);
+          border-radius:10px;
+          background:var(--ifm-card-background-color);
+          scrollbar-width:thin;
+        }
+        .memberTermSection{
+          display:grid;
+          gap:6px;
+        }
+        .memberNavLabel{
+          font-size:.78rem;
+          font-weight:650;
+          color:var(--ifm-color-emphasis-600);
+        }
+        .memberTermList{
+          display:grid;
+          gap:4px;
+        }
+        .memberTermButton{
+          width:100%;
+          padding:8px 9px;
+          border:1px solid transparent;
+          border-radius:7px;
+          background:transparent;
+          color:var(--ifm-font-color-base);
+          cursor:pointer;
+          text-align:left;
+          font-size:.84rem;
+          transition:background .12s ease,border-color .12s ease;
+        }
+        .memberTermButton:hover{
+          border-color:var(--ifm-color-emphasis-200);
+          background:var(--ifm-color-emphasis-100);
+        }
+        .memberTermButton.isActive{
+          border-color:var(--ifm-color-emphasis-200);
+          background:var(--ifm-color-emphasis-100);
+          box-shadow:inset 3px 0 0 var(--ifm-color-primary);
+          font-weight:650;
+        }
+        .memberTermButton:focus-visible,
+        .memberDepartmentLink:focus-visible{
+          outline:2px solid var(--ifm-color-primary);
+          outline-offset:2px;
+        }
+        .memberDepartmentDirectory{
+          margin-top:11px;
+          padding-top:10px;
+          border-top:1px solid var(--ifm-color-emphasis-200);
+        }
+        .memberDirectoryHeader{
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          gap:8px;
+          padding:0 3px 5px;
+        }
+        .memberDirectoryHeader > span:last-child{
+          font-size:.72rem;
+          color:var(--ifm-color-emphasis-500);
+        }
+        .memberDepartmentLinks{
+          display:grid;
+          gap:2px;
+        }
+        .memberDepartmentLink{
+          display:grid;
+          grid-template-columns:6px minmax(0, 1fr) auto;
+          align-items:center;
+          gap:8px;
+          padding:7px 6px;
+          border-radius:7px;
+          color:var(--ifm-font-color-base);
+          text-decoration:none;
+        }
+        .memberDepartmentLink:hover{
+          background:var(--ifm-color-emphasis-100);
+          color:var(--ifm-font-color-base);
+          text-decoration:none;
+        }
+        .memberDepartmentMarker{
+          width:5px;
+          height:16px;
+          border-radius:999px;
+          background:var(--member-department-color);
+        }
+        .memberDepartmentName{
+          min-width:0;
+          overflow:hidden;
+          font-size:.82rem;
+          font-weight:550;
+          text-overflow:ellipsis;
+          white-space:nowrap;
+        }
+        .memberDepartmentCount{
+          color:var(--ifm-color-emphasis-500);
+          font-size:.72rem;
+          font-variant-numeric:tabular-nums;
+        }
+        .memberTermStats{
+          margin-top:9px;
+          padding:9px 3px 1px;
+          border-top:1px solid var(--ifm-color-emphasis-200);
+          font-size:.78rem;
+          color:var(--ifm-color-emphasis-600);
+        }
+        .memberDepartments{min-width:0;}
+        .memberDepartment{
+          margin-bottom:30px;
+          scroll-margin-top:calc(var(--ifm-navbar-height) + 14px);
+        }
+        .memberDepartmentHeader{
+          margin-bottom:12px;
+          padding:0 0 8px 10px;
+          border-bottom:1px solid var(--ifm-color-emphasis-200);
+          border-left:4px solid var(--member-department-color);
+          display:flex;
+          align-items:baseline;
+          gap:9px;
+        }
+        .memberDepartmentHeader h2{
+          margin:0;
+          font-size:1.05rem;
+          font-weight:650;
+        }
+        .memberDepartmentHeader span{
+          font-size:.78rem;
+          color:var(--ifm-color-emphasis-600);
+        }
+        .memberGrid{
+          display:grid;
+          grid-template-columns:repeat(auto-fill, minmax(170px, 1fr));
+          gap:12px;
+        }
+        .memberCard{
+          min-width:0;
+          overflow:hidden;
+          border:1px solid var(--ifm-color-emphasis-200);
+          border-radius:10px;
+          background:var(--ifm-card-background-color);
+          transition:border-color .12s ease;
+        }
+        .memberCard:hover{border-color:var(--ifm-color-emphasis-300);}
+        .memberPhoto{
+          width:100%;
+          aspect-ratio:3 / 4;
+          overflow:hidden;
+          background:var(--ifm-color-emphasis-100);
+        }
+        .memberPhoto img{
+          width:100%;
+          height:100%;
+          object-fit:cover;
+          display:block;
+        }
+        .memberPhotoFallback{
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          user-select:none;
+        }
+        .memberPhotoFallback span{
+          font-size:2rem;
+          font-weight:700;
+          color:var(--ifm-color-emphasis-300);
+        }
+        .memberInfo{padding:10px 11px 11px;}
+        .memberNameRow{
+          display:flex;
+          align-items:baseline;
+          justify-content:space-between;
+          gap:8px;
+        }
+        .memberName{
+          min-width:0;
+          font-size:.93rem;
+          font-weight:650;
+        }
+        .memberRole{
+          flex:0 0 auto;
+          font-size:.76rem;
+        }
+        .memberStudentId{
+          margin-top:4px;
+          color:var(--ifm-color-emphasis-600);
+          font-family:var(--ifm-font-family-monospace);
+          font-size:.76rem;
+        }
+        @media (max-width: 996px){
+          .memberPageShell{
+            width:calc(100vw - 20px);
+            margin:6px auto 24px;
+          }
+          .memberLayout{
+            grid-template-columns:1fr;
+            gap:14px;
+            padding-top:14px;
+          }
+          .memberTermPanel{
+            position:static;
+            max-height:none;
+            overflow:visible;
+          }
+          .memberTermList{
+            display:flex;
+            gap:5px;
+            overflow-x:auto;
+          }
+          .memberTermButton{
+            width:auto;
+            min-width:124px;
+            flex:0 0 auto;
+          }
+          .memberDepartmentLinks{
+            grid-template-columns:repeat(auto-fit, minmax(145px, 1fr));
+          }
+          .memberGrid{
+            grid-template-columns:repeat(auto-fill, minmax(160px, 1fr));
+            gap:10px;
+          }
+        }
+        @media (max-width: 520px){
+          .memberDepartmentLinks{grid-template-columns:repeat(2, minmax(0, 1fr));}
+          .memberGrid{grid-template-columns:repeat(2, minmax(0, 1fr));}
+          .memberNameRow{display:block;}
+          .memberRole{margin-top:2px;}
+        }
+        @media (prefers-reduced-motion: reduce){
+          .memberCard{transition:none;}
+        }
+      `}</style>
     </div>
   );
 }

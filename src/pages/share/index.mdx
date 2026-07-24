@@ -5,7 +5,6 @@ hide_table_of_contents: true
 ---
 
 import React, {useEffect, useMemo, useState} from 'react';
-import Heading from '@theme/Heading';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import shareData from './shares.json';
@@ -340,18 +339,11 @@ export function SharePage() {
   }
 
   return (
-    <div className="container margin-vert--lg">
-      <div className="shareTopRow">
-        <div>
-          <Heading as="h1" style={{marginBottom: 6}}>学业分享</Heading>
-          <div className="shareTopHint">精选学业讲座资料，支持链接访问、文件下载与在线预览</div>
-        </div>
-      </div>
-
+    <div className="sharePageShell">
       <div className={`shareMainLayout ${isSidebarCollapsed ? 'isSidebarCollapsed' : ''}`}>
         <aside className="shareSidebar" aria-label="分享场次列表">
           <div className="shareSidebarHeader">
-            <div className="shareSidebarTitle">选择分享场次</div>
+            <div className="shareSidebarTitle">分享场次</div>
             <button
               type="button"
               className="button button--secondary button--sm shareSidebarToggle"
@@ -368,14 +360,14 @@ export function SharePage() {
 
           <div className={`shareTimelineWrap ${isSidebarCollapsed ? 'isCollapsed' : ''}`}>
             <div className="shareTimeline">
-              {shares.map((item, itemIndex) => {
+              {shares.map((item) => {
                 const isActive = item.id === activeId;
                 return (
                   <button
                     key={item.id}
                     onClick={() => setActiveId(item.id)}
                     className={`shareTimelineItem ${isActive ? 'isActive' : ''}`}
-                    style={{animationDelay: `${itemIndex * 70}ms`}}
+                    aria-current={isActive ? 'true' : undefined}
                     type="button"
                   >
                     <div className="shareItemLine">{item.date} [{item.tag}]</div>
@@ -389,7 +381,7 @@ export function SharePage() {
 
         <section className="shareContent" key={activeId}>
         <div className="shareStageHeader">
-          <div style={{fontWeight: 650}}>{activeShare?.title || '学业分享'}</div>
+          <h1 className="shareStageTitle">{activeShare?.title || '学业分享'}</h1>
           <div style={{opacity: 0.6, fontSize: '0.9rem'}}>{activeShare?.date || ''}</div>
         </div>
 
@@ -417,7 +409,7 @@ export function SharePage() {
                   const shouldShowPending = !hasDownload && !hasOpenLink && !hasPreview && !hasFiles;
 
                   return (
-                    <div key={resourceKey} className="shareResourceCard" style={{animationDelay: `${index * 55}ms`}}>
+                    <div key={resourceKey} className="shareResourceCard">
                       <div className="shareResourceInfo">
                         <div className="shareResourceTitleRow">
                           <span className="shareTypeIcon" aria-hidden="true">
@@ -501,7 +493,7 @@ export function SharePage() {
                             const hasFilePassword = !!file?.password;
 
                             return (
-                              <div key={fileKey} className="shareFileItem" style={{animationDelay: `${fileIndex * 45}ms`}}>
+                              <div key={fileKey} className="shareFileItem">
                                 <div className="shareFileTitleRow">
                                   <span className="shareTypeIcon" aria-hidden="true">
                                     <UIIcon name={getResourceIconName(file?.type || resource.type)} />
@@ -605,25 +597,25 @@ export function SharePage() {
       </div>
 
       <style>{`
-        .shareTopRow{
-          display:flex;
-          align-items:baseline;
-          justify-content:space-between;
-          gap:14px;
-          flex-wrap:wrap;
-          padding-bottom:18px;
-          border-bottom:1px solid var(--ifm-color-emphasis-200);
+        main.container.container--fluid:has(.sharePageShell){
+          margin-block:0 !important;
+          padding-inline:0;
         }
-        .shareTopHint{
-          font-size:.92rem;
-          color:var(--ifm-color-emphasis-700);
+        main.container.container--fluid:has(.sharePageShell) > .row{
+          margin-inline:0;
+        }
+        main.container.container--fluid:has(.sharePageShell) > .row > .col{
+          padding-inline:0;
+        }
+        .sharePageShell{
+          width:min(1680px, calc(100vw - 28px));
+          margin:8px auto 28px;
         }
         .shareMainLayout{
-          margin-top:24px;
           display:flex;
-          gap:clamp(20px, 2.6vw, 32px);
+          gap:14px;
           align-items:start;
-          --share-sidebar-width: clamp(200px, 20vw, 248px);
+          --share-sidebar-width:clamp(220px, 21vw, 292px);
         }
         .shareSidebar{
           position:sticky;
@@ -631,12 +623,12 @@ export function SharePage() {
           display:grid;
           grid-template-rows:auto minmax(0, 1fr);
           gap:10px;
-          max-height:calc(100vh - var(--ifm-navbar-height, 0px) - 28px);
+          max-height:calc(100vh - var(--ifm-navbar-height, 0px) - 22px);
           overflow:hidden;
           padding-right:2px;
           width:var(--share-sidebar-width);
           flex:0 0 var(--share-sidebar-width);
-          transition:width .38s cubic-bezier(.22,.61,.36,1), flex-basis .38s cubic-bezier(.22,.61,.36,1), gap .26s ease;
+          transition:width .18s ease, flex-basis .18s ease;
         }
         .shareMainLayout.isSidebarCollapsed{--share-sidebar-width:56px;}
         .shareSidebarHeader{
@@ -649,8 +641,6 @@ export function SharePage() {
           font-size:.86rem;
           font-weight:650;
           color:var(--ifm-color-emphasis-700);
-          letter-spacing:.08em;
-          text-transform:uppercase;
         }
         .shareSidebarToggle{
           min-width:56px;
@@ -705,8 +695,7 @@ export function SharePage() {
           scrollbar-gutter:stable;
           padding-right:4px;
           opacity:1;
-          transform:translateY(0);
-          transition:grid-template-rows .4s cubic-bezier(.22,.61,.36,1), opacity .24s ease, transform .28s ease;
+          transition:grid-template-rows .18s ease, opacity .14s ease;
         }
         .shareTimelineWrap::-webkit-scrollbar{width:7px;}
         .shareTimelineWrap::-webkit-scrollbar-track{background:transparent;}
@@ -721,7 +710,6 @@ export function SharePage() {
         .shareTimelineWrap.isCollapsed{
           grid-template-rows:0fr;
           opacity:0;
-          transform:translateY(-6px);
           pointer-events:none;
         }
         .shareTimeline{
@@ -737,18 +725,16 @@ export function SharePage() {
           padding:11px 13px;
           cursor:pointer;
           text-align:left;
-          transition:background .2s ease,border-color .2s ease,transform .2s ease,box-shadow .2s ease;
-          animation:shareFadeUp .45s cubic-bezier(.2,.8,.2,1) both;
+          transition:background .12s ease,border-color .12s ease;
         }
         .shareTimelineItem:hover{
-          transform:translateX(2px);
-          border-color:color-mix(in srgb, var(--ifm-color-primary) 35%, var(--ifm-color-emphasis-300));
-          background:color-mix(in srgb, var(--ifm-card-background-color) 96%, var(--ifm-color-primary-lightest));
+          border-color:var(--ifm-color-emphasis-300);
+          background:var(--ifm-color-emphasis-100);
         }
         .shareTimelineItem.isActive{
-          border-color:color-mix(in srgb, var(--ifm-color-primary) 52%, var(--ifm-color-emphasis-300));
-          background:color-mix(in srgb, var(--ifm-card-background-color) 90%, var(--ifm-color-primary-lightest));
-          box-shadow:inset 4px 0 0 var(--ifm-color-primary);
+          border-color:var(--ifm-color-emphasis-300);
+          background:var(--ifm-color-emphasis-100);
+          box-shadow:inset 3px 0 0 var(--ifm-color-primary);
           padding-left:16px;
         }
         .shareTimelineItem:focus-visible{outline:2px solid var(--ifm-color-primary);outline-offset:2px;}
@@ -759,25 +745,29 @@ export function SharePage() {
           flex:1 1 auto;
           width:100%;
           min-width:0;
-          border-radius:14px;
+          border-radius:12px;
           border:1px solid var(--ifm-color-emphasis-200);
           overflow:hidden;
           background:var(--ifm-card-background-color);
-          animation:sharePanelIn .42s cubic-bezier(.2,.75,.2,1) both;
-          box-shadow:0 12px 30px color-mix(in srgb, var(--ifm-color-emphasis-900) 7%, transparent);
         }
         .shareStageHeader{
-          padding:15px 18px;
+          min-height:58px;
+          padding:10px 16px;
           border-bottom:1px solid var(--ifm-color-emphasis-200);
-          background:color-mix(in srgb, var(--ifm-card-background-color) 94%, var(--ifm-color-emphasis-100));
           display:flex;
           align-items:center;
           justify-content:space-between;
           gap:12px;
           flex-wrap:wrap;
         }
+        .shareStageTitle{
+          margin:0;
+          font-size:1rem;
+          font-weight:650;
+          line-height:1.35;
+        }
         .shareStageBody{
-          min-height:520px;
+          min-height:calc(100vh - var(--ifm-navbar-height, 0px) - 86px);
           background:var(--ifm-card-background-color);
         }
         .shareResourceCard{
@@ -790,13 +780,11 @@ export function SharePage() {
           gap:12px;
           align-items:flex-start;
           flex-wrap:wrap;
-          background:color-mix(in srgb, var(--ifm-card-background-color) 97%, var(--ifm-color-emphasis-100));
-          transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-          animation:shareFadeUp .38s cubic-bezier(.2,.85,.2,1) both;
+          background:var(--ifm-card-background-color);
+          transition:border-color .12s ease;
         }
         .shareResourceCard:hover{
-          border-color:color-mix(in srgb, var(--ifm-color-primary) 28%, var(--ifm-color-emphasis-300));
-          box-shadow:0 8px 20px color-mix(in srgb, var(--ifm-color-emphasis-900) 7%, transparent);
+          border-color:var(--ifm-color-emphasis-300);
         }
         .shareResourceInfo{
           display:grid;
@@ -811,15 +799,12 @@ export function SharePage() {
           flex-wrap:wrap;
         }
         .shareTypeIcon{
-          width:22px;
-          height:22px;
-          border-radius:7px;
+          width:20px;
+          height:20px;
           display:inline-flex;
           align-items:center;
           justify-content:center;
           color:var(--ifm-color-primary);
-          background:color-mix(in srgb, var(--ifm-color-primary-lightest) 70%, var(--ifm-background-color));
-          border:1px solid color-mix(in srgb, var(--ifm-color-primary) 25%, var(--ifm-color-emphasis-300));
           flex:0 0 auto;
         }
         .shareTypeIcon svg{font-size:.86rem;}
@@ -829,12 +814,8 @@ export function SharePage() {
         }
         .shareResourceType{
           font-size:.74rem;
-          font-weight:650;
+          font-weight:600;
           color:var(--ifm-color-emphasis-700);
-          background:var(--ifm-color-emphasis-100);
-          border:1px solid var(--ifm-color-emphasis-300);
-          border-radius:999px;
-          padding:2px 8px;
           line-height:1.35;
         }
         .shareResourceMeta{
@@ -852,9 +833,6 @@ export function SharePage() {
           justify-content:flex-start;
           align-items:center;
         }
-        .shareActionRow .button{
-          transition:transform .16s ease, box-shadow .22s ease, background .2s ease, border-color .2s ease;
-        }
         .shareActionButton{
           display:inline-flex;
           align-items:center;
@@ -867,10 +845,6 @@ export function SharePage() {
           font-size:.95rem;
           line-height:1;
         }
-        .shareActionRow .button:hover{
-          transform:translateY(-1px);
-          box-shadow:0 8px 14px color-mix(in srgb, var(--ifm-color-emphasis-900) 11%, transparent);
-        }
         .shareFileList{
           width:100%;
           display:grid;
@@ -879,11 +853,11 @@ export function SharePage() {
         }
         .shareFileItem{
           position:relative;
-          border:1px dashed color-mix(in srgb, var(--ifm-color-primary) 22%, var(--ifm-color-emphasis-300));
+          border:1px solid var(--ifm-color-emphasis-200);
+          border-left:2px solid var(--ifm-color-primary);
           border-radius:10px;
           padding:10px 12px;
-          background:color-mix(in srgb, var(--ifm-background-color) 95%, var(--ifm-color-primary-lightest));
-          animation:shareFadeUp .32s cubic-bezier(.2,.85,.2,1) both;
+          background:var(--ifm-background-color);
         }
         .shareFileTitleRow{
           display:flex;
@@ -900,7 +874,6 @@ export function SharePage() {
           border-radius:12px;
           padding:12px;
           background:var(--ifm-background-color);
-          animation:sharePreviewIn .34s cubic-bezier(.16,.84,.24,1) both;
         }
         .sharePreviewTitle{
           font-size:.9rem;
@@ -941,6 +914,10 @@ export function SharePage() {
             grid-template-columns:1fr;
             gap:14px;
           }
+          .sharePageShell{
+            width:calc(100vw - 20px);
+            margin:6px auto 20px;
+          }
           .shareSidebar{
             position:static;
             top:auto;
@@ -974,33 +951,13 @@ export function SharePage() {
           .shareMainLayout.isSidebarCollapsed .shareSidebarToggleText{
             display:inline;
           }
-          .shareTopHint{font-size:.88rem;}
           .sharePreviewFrame{height:420px;}
-        }
-
-        @keyframes shareFadeUp{
-          from{opacity:0;transform:translateY(8px)}
-          to{opacity:1;transform:translateY(0)}
-        }
-        @keyframes sharePanelIn{
-          from{opacity:0;transform:translateY(6px) scale(.996)}
-          to{opacity:1;transform:translateY(0) scale(1)}
-        }
-        @keyframes sharePreviewIn{
-          from{opacity:0;transform:translateY(6px)}
-          to{opacity:1;transform:translateY(0)}
         }
         @media (prefers-reduced-motion: reduce){
           .shareTimelineItem,
-          .shareContent,
           .shareResourceCard,
-          .shareFileItem,
-          .sharePreviewWrap{
-            animation:none !important;
-          }
-          .shareTimelineItem,
-          .shareResourceCard,
-          .shareActionRow .button,
+          .shareSidebar,
+          .shareTimelineWrap,
           .shareToast{
             transition:none !important;
           }

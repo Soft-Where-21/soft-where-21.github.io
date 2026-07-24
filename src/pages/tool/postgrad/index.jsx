@@ -1047,11 +1047,9 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
   }
 
   return (
-    <div style={{padding: 18}}>
+    <div style={{padding: '14px 16px 18px'}}>
       <div style={{marginBottom: 12, fontSize: '0.85rem', opacity: 0.65, lineHeight: 1.6}}>
-        说明：左侧勾选表示“是否选修该课程”，保研成绩由算法自动计算。
-        可选课程会在已勾选且已填成绩的课程中自动择优纳入（按模块要求），并在课程后显示绿色√。
-        必修部分全部纳入；达标判断以“已填写成绩/合格”为准。
+        勾选已修课程并填写成绩，系统会按模块要求自动择优计入；绿色 √ 表示已纳入计算。
       </div>
       <div
         style={{
