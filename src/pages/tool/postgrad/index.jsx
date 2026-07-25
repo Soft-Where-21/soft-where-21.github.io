@@ -1,689 +1,89 @@
 import React, {useEffect, useMemo, useState} from 'react';
 
-const STORAGE_KEY = 'tool:postgrad:data:v10';
+import {getCalculator, SUPPORTED_GRADES} from '../../../lib/postgrad/index.js';
+import {
+  formatNumber,
+  isCountable,
+  STANDARD_FIVE_LEVEL_OPTIONS,
+} from '../../../lib/postgrad/shared.js';
+import {parseTranscriptText} from '../../../lib/postgrad/transcript.js';
 
-const FIVE_LEVEL_OPTIONS = [
-  {label: '优秀', value: 'excellent', gp: 4},
-  {label: '良好', value: 'good', gp: 3.5},
-  {label: '中等', value: 'medium', gp: 2.8},
-  {label: '及格', value: 'pass', gp: 1.7},
-  {label: '不及格', value: 'fail', gp: 0},
-];
+const STORAGE_KEY = 'tool:postgrad:data:v11';
+const LEGACY_STORAGE_KEY = 'tool:postgrad:data:v10';
+const GROUP_STORAGE_KEY = 'tool:postgrad:groups:v1';
 
-function normalizeRows(rows) {
-  if (!Array.isArray(rows)) return rows;
-  return rows.map((row) => {
-    let name = row.name;
-    if (name === '基础物理学（1）（2）') name = '基础物理学A(1)';
-    if (name === '基础物理学（1）') name = '基础物理学A(1)';
-    if (name === '基础物理实验（1）（2）') name = '基础物理实验（1）';
-    const scoreType =
-      name === '社会实践' ? 'five' : row.scoreType ? row.scoreType : 'percent';
-    return {...row, name, scoreType};
-  });
+function createInitialDataByGrade() {
+  return Object.fromEntries(
+    SUPPORTED_GRADES.map((grade) => [grade, getCalculator(grade).createInitialData()])
+  );
 }
 
-function normalizeGradeData(gradeData) {
-  if (!gradeData || typeof gradeData !== 'object') return gradeData;
-  const next = {...gradeData};
-  Object.keys(next).forEach((key) => {
-    next[key] = normalizeRows(next[key]);
-  });
-  return next;
+function createEmptyGradeState() {
+  return Object.fromEntries(SUPPORTED_GRADES.map((grade) => [grade, {}]));
 }
 
-const CATEGORY_GROUPS_BY_GRADE = {
-  '23': [
-    {
-      module: 'I 基础课',
-      categories: [
-        {id: 'A', name: '数理基础课', requirement: '最低 6 门', minCount: 6},
-        {id: 'B', name: '工程基础课', requirement: '最低 4 门', minCount: 4},
-        {
-          id: 'C',
-          name: '外语课',
-          requirement: '英语阅读/写作必修 + 大英A(1)(2) 或 大英B(1)(2)',
-          requiredMode: 'score',
-          requiredNames: ['英语阅读（1）', '英语写作（1）'],
-          requiredGroups: [
-            {
-              id: 'A',
-              label: '大学英语A（1）（2）',
-              names: ['大学英语A（1）', '大学英语A（2）'],
-            },
-            {
-              id: 'B',
-              label: '大学英语B（1）（2）',
-              names: ['大学英语B（1）', '大学英语B（2）'],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      module: 'II 通修课',
-      categories: [
-        {id: 'D1', name: '思政课', requirement: '最低 12 门', minCount: 12},
-        {id: 'D2', name: '军理课', requirement: '最低 1 门', minCount: 1},
-        {id: 'F', name: '体育课', requirement: '最低 6 门', minCount: 6},
-        {
-          id: 'G',
-          name: '综合素养课',
-          requirement: '前 7 门择优 1 门，后 3 门必修',
-          minCount: 1,
-          selectable: true,
-          requiredMode: 'score',
-          optionalNames: [
-            '电子信息工程导论',
-            '自动化科学与电气工程导论',
-            '计算机导论与伦理学',
-            '仪器科学概论',
-            '走进软件',
-            '网络空间安全导论',
-            '集成电路导论',
-          ],
-          requiredNames: ['航空航天概论B', '经济管理', '互联网软件创新创意创业'],
-        },
-        {id: 'H', name: '一般通识课', requirement: '最低 0 门', minCount: 0, selectable: true},
-        {id: 'I-2', name: '素质教育实践必修课', requirement: '最低 6 门', minCount: 6},
-      ],
-    },
-    {
-      module: 'III 专业课',
-      categories: [
-        {id: 'I-3', name: '核心专业类', requirement: '最低 14 门', minCount: 14},
-        {
-          id: 'J',
-          name: '一般专业类',
-          requirement: '含方向课 6 学分（≥6 学分部分） 指定 4 门',
-          note:
-            '指定：英文科技写作（软件工程）/ 跨文化交流/ 软件工程伦理与职业规范/ 学科前沿讲座',
-          minCredits: 6,
-          selectable: true,
-          requiredMode: 'passfail',
-          requiredNames: [
-            '英文科技写作（软件工程）',
-            '跨文化交流',
-            '软件工程伦理与职业规范',
-            '学科前沿讲座',
-          ],
-        },
-      ],
-    },
-  ],
-  '24': [
-    {
-      module: 'I 基础课',
-      categories: [
-        {id: 'A', name: '数理基础课', requirement: '最低 6 门', minCount: 6},
-        {id: 'B', name: '工程基础课', requirement: '最低 4 门', minCount: 4},
-        {id: 'C', name: '外语课', requirement: '最低 6 学分', minCredits: 6},
-      ],
-    },
-    {
-      module: 'II 通修课',
-      categories: [{id: 'D', name: '思政课', requirement: '最低 6 门', minCount: 6}],
-    },
-    {
-      module: 'III 专业课',
-      categories: [
-        {id: 'E', name: '核心专业类', requirement: '最低 14 门', minCount: 14},
-        {
-          id: 'F',
-          name: '一般专业类',
-          requirement: '含方向课 6 学分（≥6 学分部分） 指定 4 门',
-          note:
-            '指定：英文科技写作（软件工程）/ 跨文化交流/ 软件工程伦理与职业规范/ 学科前沿讲座',
-          minCredits: 6,
-          selectable: true,
-          requiredMode: 'passfail',
-          requiredNames: [
-            '英文科技写作（软件工程）',
-            '跨文化交流',
-            '软件工程伦理与职业规范',
-            '学科前沿讲座',
-          ],
-        },
-      ],
-    },
-  ],
-};
-
-const COURSE_PRESETS = {
-  '23': {
-    A: [
-      {name: '工科数学分析（1）', credits: 6},
-      {name: '工科高等代数', credits: 6},
-      {name: '工科数学分析（2）', credits: 6},
-      {name: '基础物理学A(1)', credits: 4},
-      {name: '概率统计A', credits: 3},
-      {name: '基础物理实验（1）', credits: 1},
-    ],
-    B: [
-      {name: '程序设计基础', credits: 2},
-      {name: '电子设计基础训练', credits: 2},
-      {name: '离散数学（信息类）', credits: 2},
-      {name: '数据结构与程序设计（信息类）', credits: 3},
-    ],
-    C: [
-      {name: '大学英语A（1）', credits: 2},
-      {name: '大学英语A（2）', credits: 2},
-      {name: '大学英语B（1）', credits: 2},
-      {name: '大学英语B（2）', credits: 2},
-      {name: '英语阅读（1）', credits: 1},
-      {name: '英语写作（1）', credits: 1},
-    ],
-    D1: [
-      {name: '思想道德与法治', credits: 3},
-      {name: '习近平新时代中国特色社会主义思想概论', credits: 3},
-      {name: '中国近现代史纲要', credits: 3},
-      {name: '毛泽东思想和中国特色社会主义理论体系概论', credits: 3},
-      {name: '社会实践', credits: 2, scoreType: 'five'},
-      {name: '马克思主义基本原理', credits: 3},
-      {name: '形势与政策（1）', credits: 0.2},
-      {name: '形势与政策（2）', credits: 0.3},
-      {name: '形势与政策（3）', credits: 0.2},
-      {name: '形势与政策（4）', credits: 0.3},
-      {name: '形势与政策（5）', credits: 0.2},
-      {name: '形势与政策（6）', credits: 0.3},
-    ],
-    D2: [{name: '军事理论', credits: 2}],
-    F: [
-      {name: '体育（1）', credits: 0.5},
-      {name: '体育（2）', credits: 0.5},
-      {name: '体育（3）', credits: 0.5},
-      {name: '体育（4）', credits: 0.5},
-      {name: '体育（5）', credits: 0.5},
-      {name: '体育（6）', credits: 0.5},
-    ],
-    G: [
-      {name: '电子信息工程导论', credits: 1.5},
-      {name: '自动化科学与电气工程导论', credits: 1.5},
-      {name: '计算机导论与伦理学', credits: 1.5},
-      {name: '仪器科学概论', credits: 1.5},
-      {name: '走进软件', credits: 1.5},
-      {name: '网络空间安全导论', credits: 1.5},
-      {name: '集成电路导论', credits: 1.5},
-      {name: '航空航天概论B', credits: 1.5},
-      {name: '经济管理', credits: 2},
-      {name: '互联网软件创新创意创业', credits: 1.5},
-    ],
-    H: [],
-    'I-2': [
-      {name: '素质教育（博雅课程）（1）', credits: 0.2},
-      {name: '素质教育（博雅课程）（2）', credits: 0.3},
-      {name: '素质教育（博雅课程）（3）', credits: 0.2},
-      {name: '素质教育（博雅课程）（4）', credits: 0.3},
-      {name: '素质教育（博雅课程）（5）', credits: 0.2},
-      {name: '素质教育（博雅课程）（6）', credits: 0.3},
-    ],
-    'I-3': [
-      {name: '离散数学（2）', credits: 2},
-      {name: '计算机硬件基础（软件专业）', credits: 4},
-      {name: '算法分析与设计', credits: 3},
-      {name: '面向对象程序设计（Java）', credits: 2.5},
-      {name: '数据管理技术', credits: 3},
-      {name: '软件工程基础', credits: 3},
-      {name: '操作系统', credits: 4.5},
-      {name: '人工智能', credits: 2},
-      {name: '计算机网络与应用', credits: 3},
-      {name: '编译技术', credits: 4.5},
-      {name: '软件系统分析与设计', credits: 3},
-      {name: '软件过程与质量', credits: 3},
-      {name: '程序设计实践', credits: 2},
-      {name: '软件工程基础实践', credits: 2},
-    ],
-    J: [
-      {name: '分布式系统导论', credits: 2},
-      {name: '并行程序设计', credits: 2},
-      {name: '云计算技术基础', credits: 2},
-      {name: '嵌入式软件设计', credits: 2},
-      {name: '数值计算与算法', credits: 2},
-      {name: '计算机辅助设计与制造', credits: 2},
-      {name: '工业互联网技术基础', credits: 2},
-      {name: '工业大数据技术', credits: 2},
-      {name: '物联网技术基础', credits: 2},
-      {name: '智能计算系统', credits: 2},
-      {name: '图像处理和计算机视觉', credits: 2},
-      {name: '智能软件工程', credits: 2},
-      {name: '开源软件开发导论', credits: 2},
-      {name: '英文科技写作（软件工程）', credits: 2},
-      {name: '跨文化交流', credits: 1},
-      {name: '软件工程伦理与职业规范', credits: 1},
-      {name: '学科前沿讲座', credits: 0.5},
-    ],
-  },
-  '24': {
-    A: [
-      {name: '工科数学分析（1）', credits: 5},
-      {name: '工科高等代数', credits: 6},
-      {name: '工科数学分析（2）', credits: 5},
-      {name: '基础物理学A(1)', credits: 4},
-      {name: '概率统计A', credits: 3},
-      {name: '基础物理实验（1）', credits: 1},
-    ],
-    B: [
-      {name: '程序设计基础', credits: 2},
-      {name: '电子设计基础训练', credits: 2},
-      {name: '离散数学（信息类）', credits: 2},
-      {name: '数据结构与程序设计（信息类）', credits: 3},
-    ],
-    C: [
-      {name: '英语阅读（1）', credits: 1},
-      {name: '英语写作（1）', credits: 0.5},
-      {name: '英语口语（1）', credits: 0.5},
-      {name: '英语阅读（2）', credits: 1},
-      {name: '英语写作（2）', credits: 0.5},
-      {name: '英语口语（2）', credits: 0.5},
-      {name: '英语阅读（3）', credits: 1},
-      {name: '英语写作（3）', credits: 1},
-    ],
-    D: [
-      {name: '思想道德与法治', credits: 3},
-      {name: '习近平新时代中国特色社会主义思想概论', credits: 3},
-      {name: '中国近现代史纲要', credits: 3},
-      {name: '毛泽东思想和中国特色社会主义理论体系概论', credits: 3},
-      {name: '社会实践', credits: 2, scoreType: 'five'},
-      {name: '马克思主义基本原理', credits: 3},
-    ],
-    E: [
-      {name: '离散数学（2）', credits: 2},
-      {name: '计算机硬件基础（软件专业）', credits: 4},
-      {name: '算法分析与设计', credits: 3},
-      {name: '面向对象程序设计（Java）', credits: 2.5},
-      {name: '数据管理技术', credits: 3},
-      {name: '软件工程基础', credits: 3},
-      {name: '操作系统', credits: 4.5},
-      {name: '人工智能', credits: 2},
-      {name: '计算机网络与应用', credits: 3},
-      {name: '编译技术', credits: 4.5},
-      {name: '软件系统分析与设计', credits: 3},
-      {name: '软件过程与质量', credits: 3},
-      {name: '程序设计实践', credits: 2},
-      {name: '软件工程基础实践', credits: 2},
-    ],
-    F: [
-      {name: '分布式系统导论', credits: 2},
-      {name: '并行程序设计', credits: 2},
-      {name: '云计算技术基础', credits: 2},
-      {name: '嵌入式软件设计', credits: 2},
-      {name: '数值计算与算法', credits: 2},
-      {name: '计算机辅助设计与制造', credits: 2},
-      {name: '工业互联网技术基础', credits: 2},
-      {name: '工业大数据技术', credits: 2},
-      {name: '物联网技术基础', credits: 2},
-      {name: '智能计算系统', credits: 2},
-      {name: '图像处理和计算机视觉', credits: 2},
-      {name: '智能软件工程', credits: 2},
-      {name: '开源软件开发导论', credits: 2},
-      {name: '英文科技写作（软件工程）', credits: 2},
-      {name: '跨文化交流', credits: 1},
-      {name: '软件工程伦理与职业规范', credits: 1},
-      {name: '学科前沿讲座', credits: 0.5},
-    ],
-  },
-};
-
-function getCategoryGroups(grade) {
-  return CATEGORY_GROUPS_BY_GRADE[grade] || CATEGORY_GROUPS_BY_GRADE['23'];
+function createEmptyGradeMessages() {
+  return Object.fromEntries(SUPPORTED_GRADES.map((grade) => [grade, '']));
 }
 
-function scoreToGp(score) {
-  if (!Number.isFinite(score)) return null;
-  if (score < 60) return 0;
-  const x = Math.min(100, Math.max(60, score));
-  return 4 - (3 * Math.pow(100 - x, 2)) / 1600;
-}
-
-function formatNumber(value, digits = 2) {
-  if (!Number.isFinite(value)) return '-';
-  return value.toFixed(digits);
-}
-
-function toCourseKey(name) {
-  return String(name || '')
-    .trim()
-    .toLowerCase()
-    .replace(/[（(]/g, '(')
-    .replace(/[）)]/g, ')')
-    .replace(/\s+/g, '')
-    .replace(/（java）|[(]java[)]/gi, '(java)')
-    .replace('基础物理学a(1)', '基础物理学(1)')
-    .replace('基础物理学a(2)', '基础物理学(2)');
-}
-
-function getCourseKeyVariants(name) {
-  const base = toCourseKey(name);
-  const set = new Set([base]);
-  // Variant: unify basic physics A-name
-  set.add(base.replace('基础物理学a', '基础物理学'));
-  return Array.from(set).filter(Boolean);
-}
-
-function toLooseCourseKey(name) {
-  return toCourseKey(name)
-    .replace(/[()]/g, '')
-    .replace(/a(?=\d)/g, '')
-    .replace(/[^0-9a-z\u4e00-\u9fa5]/g, '');
-}
-
-function splitTranscriptLine(raw) {
-  if (raw.includes('\t')) {
-    // Keep empty cells for tabular data so fixed-offset columns (e.g. 替代课程名) remain addressable.
-    return raw.split('\t').map((v) => v.trim());
-  }
-  // Fallback for copied plain text with spaces instead of tabs
-  return raw.split(/\s{2,}|\s+/).map((v) => v.trim()).filter((v) => v !== '');
-}
-
-function parseNumeric(raw) {
-  const num = Number(String(raw || '').trim());
-  return Number.isFinite(num) ? num : null;
-}
-
-function parseTranscriptText(text) {
-  if (!text || !text.trim()) return [];
-  const lines = text.split(/\r?\n/);
-  const entries = [];
-  const codePattern = /^[A-Z][A-Z0-9]{6,}$/;
-  const fiveLabels = new Set(['优秀', '良好', '中等', '及格', '不及格']);
-
-  for (const line of lines) {
-    const raw = line.trim();
-    if (!raw) continue;
-    const cells = splitTranscriptLine(raw);
-    if (cells.length < 5) continue;
-
-    let codeIndex = -1;
-    for (let i = 1; i < cells.length - 2; i += 1) {
-      if (codePattern.test(cells[i])) {
-        codeIndex = i;
-        break;
-      }
-    }
-    if (codeIndex <= 0) continue;
-
-    const course = cells[codeIndex - 1];
-    const creditsRaw = cells[codeIndex + 1];
-    const scoreRaw = cells[codeIndex + 2];
-    const substituteName = String(cells[codeIndex + 11] || '').trim();
-    if (!course) continue;
-
-    const credits = parseNumeric(creditsRaw);
-    let scoreType = 'percent';
-    let score = null;
-    let passStatus = '';
-
-    if (fiveLabels.has(scoreRaw)) {
-      scoreType = 'five';
-    } else if (scoreRaw === '通过' || scoreRaw === '不通过') {
-      scoreType = 'passfail';
-      passStatus = scoreRaw === '通过' ? 'pass' : 'fail';
-    } else {
-      const n = parseNumeric(scoreRaw);
-      if (n === null) continue;
-      scoreType = 'percent';
-      score = n;
-    }
-
-    entries.push({
-      name: course,
-      keys: getCourseKeyVariants(course),
-      substituteName,
-      substituteKeys: substituteName ? getCourseKeyVariants(substituteName) : [],
-      credits,
-      scoreRaw,
-      scoreType,
-      score,
-      passStatus,
-    });
-  }
-  return entries;
-}
-
-function detectRequiredGroupChoice(parsedEntries, groups, currentChoice = {}) {
-  const nextChoice = {...currentChoice};
-  if (!Array.isArray(parsedEntries) || parsedEntries.length === 0) return nextChoice;
-
-  const importedKeys = new Set();
-  parsedEntries.forEach((item) => {
-    (item.keys || []).forEach((k) => importedKeys.add(k));
-    (item.substituteKeys || []).forEach((k) => importedKeys.add(k));
-  });
-
-  groups.forEach((group) => {
-    group.categories.forEach((cat) => {
-      if (!Array.isArray(cat.requiredGroups) || cat.requiredGroups.length === 0) return;
-      let bestGroupId = '';
-      let bestScore = 0;
-
-      cat.requiredGroups.forEach((g) => {
-        let score = 0;
-        (g.names || []).forEach((name) => {
-          getCourseKeyVariants(name).forEach((k) => {
-            if (importedKeys.has(k)) score += 1;
-          });
-        });
-        if (score > bestScore) {
-          bestScore = score;
-          bestGroupId = g.id;
-        }
-      });
-
-      if (bestGroupId) {
-        nextChoice[cat.id] = bestGroupId;
-      }
-    });
-  });
-
-  return nextChoice;
-}
-
-function isFilledScore(row) {
-  return String(row.score || '').trim() !== '';
-}
-
-function isCountable(row) {
-  return row.scoreType !== 'five' && row.scoreType !== 'passfail';
-}
-
-function getRowGpa(row, baseAvgGpa) {
-  if (row.scoreType === 'five') {
-    const found = FIVE_LEVEL_OPTIONS.find((opt) => opt.value === row.score);
-    if (found) return found.gp;
-    return baseAvgGpa;
-  }
-  const scoreNum = Number(row.score);
-  if (Number.isFinite(scoreNum)) return scoreToGp(scoreNum);
-  return baseAvgGpa;
-}
-
-function selectTopByCredits(rows, targetCredits, baseAvgGpa) {
-  const candidates = rows
-    .map((row) => ({
-      row,
-      gpa: getRowGpa(row, baseAvgGpa),
-    }))
-    .filter((item) => Number.isFinite(item.gpa));
-
-  candidates.sort((a, b) => b.gpa - a.gpa);
-
-  const selected = new Set();
-  let credits = 0;
-  let qp = 0;
-  for (const item of candidates) {
-    if (credits >= targetCredits) break;
-    const c = Number(item.row.credits) || 0;
-    selected.add(item.row.id);
-    credits += c;
-    qp += c * (item.gpa ?? 0);
-  }
-  return {selected, credits, qp};
-}
-
-function selectTopByCount(rows, targetCount, baseAvgGpa) {
-  const candidates = rows
-    .map((row) => ({
-      row,
-      gpa: getRowGpa(row, baseAvgGpa),
-    }))
-    .filter((item) => Number.isFinite(item.gpa));
-
-  candidates.sort((a, b) => b.gpa - a.gpa);
-
-  const selected = new Set();
-  let count = 0;
-  let credits = 0;
-  let qp = 0;
-  for (const item of candidates) {
-    if (count >= targetCount) break;
-    const c = Number(item.row.credits) || 0;
-    selected.add(item.row.id);
-    count += 1;
-    credits += c;
-    qp += c * (item.gpa ?? 0);
-  }
-  return {selected, count, credits, qp};
-}
-
-function buildRowsFromEntries(entries) {
-  if (!Array.isArray(entries) || entries.length === 0) return [];
-  return entries.map((entry, index) => ({
-    id: index + 1,
-    name: entry.name,
-    credits: entry.credits,
-    score: '',
-    passStatus: '',
-    selected: false,
-    scoreType: entry.scoreType || 'percent',
-  }));
-}
-
-function buildInitialDataForGrade(grade) {
-  const data = {};
-  const presets = COURSE_PRESETS[grade] || {};
-  const groups = getCategoryGroups(grade);
-  groups.forEach((group) => {
-    group.categories.forEach((cat) => {
-      const rows = buildRowsFromEntries(presets[cat.id]);
-      const requiredNames = Array.isArray(cat.requiredNames) ? cat.requiredNames : [];
-      if (!cat.selectable) {
-        rows.forEach((row) => {
-          row.selected = true;
-        });
-      } else if (Array.isArray(cat.requiredNames)) {
-        rows.forEach((row) => {
-          row.selected = cat.requiredNames.includes(row.name);
-        });
-      }
-      if (cat.requiredMode === 'passfail' && requiredNames.length) {
-        rows.forEach((row) => {
-          if (requiredNames.includes(row.name)) {
-            row.scoreType = 'passfail';
-          }
-        });
-      }
-      data[cat.id] = rows;
-    });
-  });
-  return data;
-}
-
-function normalizeDataByGroups(gradeData, groups) {
-  if (!gradeData || typeof gradeData !== 'object') return gradeData;
-  const next = {...gradeData};
-  groups.forEach((group) => {
-    group.categories.forEach((cat) => {
-      const requiredNames = Array.isArray(cat.requiredNames) ? cat.requiredNames : [];
-      if (cat.requiredMode !== 'passfail' || !requiredNames.length) return;
-      const rows = next[cat.id];
-      if (!Array.isArray(rows)) return;
-      next[cat.id] = rows.map((row) =>
-        requiredNames.includes(row.name) ? {...row, scoreType: 'passfail'} : row
-      );
-    });
-  });
-  return next;
-}
-
-function alignGradeDataNames(grade, gradeData) {
-  if (!gradeData || typeof gradeData !== 'object') return gradeData;
-  const presets = COURSE_PRESETS[grade] || {};
-  const next = {...gradeData};
-  Object.keys(next).forEach((catId) => {
-    const rows = Array.isArray(next[catId]) ? next[catId] : [];
-    const presetRows = Array.isArray(presets[catId]) ? presets[catId] : [];
-    next[catId] = rows.map((row, idx) => {
-      const preset = presetRows[idx];
-      if (!preset || !preset.name) return row;
-      return {
-        ...row,
-        name: preset.name,
-      };
-    });
-  });
-  return next;
+function selectStyle(width = 140) {
+  return {
+    width,
+    padding: '8px 10px',
+    borderRadius: 8,
+    border: '1px solid var(--ifm-color-emphasis-300)',
+    background: 'var(--ifm-background-color)',
+    color: 'var(--ifm-font-color-base)',
+    height: 40,
+  };
 }
 
 export default function PostgradTool() {
   const [grade, setGrade] = useState('23');
-  const [dataByGrade, setDataByGrade] = useState(() => ({
-    '23': buildInitialDataForGrade('23'),
-    '24': buildInitialDataForGrade('24'),
-  }));
+  const [dataByGrade, setDataByGrade] = useState(createInitialDataByGrade);
+  const [groupChoiceByGrade, setGroupChoiceByGrade] = useState(createEmptyGradeState);
+  const [importedByGrade, setImportedByGrade] = useState(() =>
+    Object.fromEntries(SUPPORTED_GRADES.map((item) => [item, false]))
+  );
+  const [importReportByGrade, setImportReportByGrade] = useState(
+    createEmptyGradeMessages
+  );
   const [showImportPanel, setShowImportPanel] = useState(false);
   const [importText, setImportText] = useState('');
-  const [importReport, setImportReport] = useState('');
-  const [groupChoiceByGrade, setGroupChoiceByGrade] = useState(() => ({
-    '23': {},
-    '24': {},
-  }));
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
     try {
-      const raw = window.localStorage.getItem(STORAGE_KEY);
+      const raw =
+        window.localStorage.getItem(STORAGE_KEY) ||
+        window.localStorage.getItem(LEGACY_STORAGE_KEY);
       if (!raw) return;
-      const parsed = JSON.parse(raw);
-      if (parsed && typeof parsed === 'object') {
-        if (parsed['23'] && typeof parsed['23'] === 'object') {
-          if (parsed['23'].D && !parsed['23'].D1) parsed['23'].D1 = parsed['23'].D;
-          if (parsed['23'].E && !parsed['23'].D2) parsed['23'].D2 = parsed['23'].E;
-          delete parsed['23'].D;
-          delete parsed['23'].E;
-          parsed['23'] = normalizeGradeData(parsed['23']);
-          parsed['23'] = normalizeDataByGroups(parsed['23'], getCategoryGroups('23'));
-          parsed['23'] = alignGradeDataNames('23', parsed['23']);
-        }
-        if (parsed['24'] && typeof parsed['24'] === 'object') {
-          parsed['24'] = normalizeGradeData(parsed['24']);
-          parsed['24'] = normalizeDataByGroups(parsed['24'], getCategoryGroups('24'));
-          parsed['24'] = alignGradeDataNames('24', parsed['24']);
-        }
-        setDataByGrade((prev) => ({
-          '23': parsed['23'] || prev['23'],
-          '24': parsed['24'] || prev['24'],
-        }));
-      }
-    } catch (e) {
-      // ignore broken cache
+      const stored = JSON.parse(raw);
+      if (!stored || typeof stored !== 'object') return;
+      setDataByGrade((previous) => {
+        const hydrated = {...previous};
+        SUPPORTED_GRADES.forEach((item) => {
+          if (stored[item]) {
+            hydrated[item] = getCalculator(item).hydrateData(stored[item]);
+          }
+        });
+        return hydrated;
+      });
+    } catch {
+      // Ignore broken browser cache and keep a clean calculator.
     }
   }, []);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
     try {
-      const raw = window.localStorage.getItem('tool:postgrad:groups:v1');
+      const raw = window.localStorage.getItem(GROUP_STORAGE_KEY);
       if (!raw) return;
-      const parsed = JSON.parse(raw);
-      if (parsed && typeof parsed === 'object') {
-        setGroupChoiceByGrade((prev) => ({
-          '23': parsed['23'] || prev['23'],
-          '24': parsed['24'] || prev['24'],
-        }));
-      }
-    } catch (e) {
-      // ignore broken cache
+      const stored = JSON.parse(raw);
+      if (!stored || typeof stored !== 'object') return;
+      setGroupChoiceByGrade((previous) => ({...previous, ...stored}));
+    } catch {
+      // Ignore broken browser cache.
     }
   }, []);
 
@@ -691,8 +91,8 @@ export default function PostgradTool() {
     if (typeof window === 'undefined') return;
     try {
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify(dataByGrade));
-    } catch (e) {
-      // ignore storage errors
+    } catch {
+      // Ignore storage errors (private mode or full storage).
     }
   }, [dataByGrade]);
 
@@ -700,40 +100,39 @@ export default function PostgradTool() {
     if (typeof window === 'undefined') return;
     try {
       window.localStorage.setItem(
-        'tool:postgrad:groups:v1',
+        GROUP_STORAGE_KEY,
         JSON.stringify(groupChoiceByGrade)
       );
-    } catch (e) {
-      // ignore storage errors
+    } catch {
+      // Ignore storage errors.
     }
   }, [groupChoiceByGrade]);
 
+  const calculator = getCalculator(grade);
+  const groups = calculator.groups;
   const currentData = dataByGrade[grade];
-  const groups = getCategoryGroups(grade);
-
-  const baseAvgGpa = useMemo(() => {
-    let totalCredits = 0;
-    let totalQp = 0;
-    Object.values(currentData).forEach((rows) => {
-      rows.forEach((row) => {
-        if (!isFilledScore(row) || !isCountable(row)) return;
-        const gp = getRowGpa(row, 0);
-        if (gp === null) return;
-        const credits = Number(row.credits) || 0;
-        totalCredits += credits;
-        totalQp += gp * credits;
-      });
-    });
-    if (totalCredits <= 0) return 0;
-    return totalQp / totalCredits;
-  }, [currentData]);
+  const currentGroupChoices = groupChoiceByGrade[grade] || {};
+  const computed = useMemo(
+    () => calculator.calculate(currentData, currentGroupChoices),
+    [calculator, currentData, currentGroupChoices]
+  );
+  const pendingRows = useMemo(
+    () =>
+      importedByGrade[grade]
+        ? calculator.getPendingRows(currentData, currentGroupChoices)
+        : new Set(),
+    [calculator, currentData, currentGroupChoices, grade, importedByGrade]
+  );
+  const importReport = importReportByGrade[grade] || '';
 
   function updateRows(categoryId, updater) {
-    setDataByGrade((prev) => {
-      const next = {...prev};
-      next[grade] = {...next[grade], [categoryId]: updater(next[grade][categoryId])};
-      return next;
-    });
+    setDataByGrade((previous) => ({
+      ...previous,
+      [grade]: {
+        ...previous[grade],
+        [categoryId]: updater(previous[grade][categoryId] || []),
+      },
+    }));
   }
 
   function updateRow(categoryId, id, patch) {
@@ -742,315 +141,63 @@ export default function PostgradTool() {
     );
   }
 
-  function computeSelectable(rows, cat) {
-    const requiredNames = Array.isArray(cat.requiredNames) ? cat.requiredNames : [];
-    const requiredMode = cat.requiredMode || 'passfail';
-    const optionalNames = Array.isArray(cat.optionalNames) ? cat.optionalNames : null;
-    const requiredRows = rows.filter((r) => requiredNames.includes(r.name));
-    const requiredOk =
-      requiredMode === 'passfail'
-        ? requiredRows.every((r) => r.passStatus === 'pass')
-        : requiredRows.every((r) => isFilledScore(r));
-    const requiredIncluded = new Set(
-      requiredMode === 'passfail'
-        ? requiredRows.filter((r) => r.passStatus === 'pass').map((r) => r.id)
-        : requiredRows.filter((r) => isFilledScore(r)).map((r) => r.id)
-    );
-
-    const optionalRows = rows.filter((r) => {
-      if (requiredNames.includes(r.name)) return false;
-      if (!r.selected) return false;
-      if (!isFilledScore(r)) return false;
-      if (optionalNames) return optionalNames.includes(r.name);
-      return true;
-    });
-
-    const targetCount = typeof cat.minCount === 'number' ? cat.minCount : 0;
-    const targetCredits = typeof cat.minCredits === 'number' ? cat.minCredits : 0;
-    const picked =
-      targetCount > 0
-        ? selectTopByCount(optionalRows, targetCount, baseAvgGpa)
-        : selectTopByCredits(optionalRows, targetCredits, baseAvgGpa);
-
-    const requiredCredits =
-      requiredMode === 'passfail'
-        ? 0
-        : requiredRows
-            .filter((r) => isFilledScore(r))
-            .reduce((s, r) => s + (Number(r.credits) || 0), 0);
-    const requiredQp =
-      requiredMode === 'passfail'
-        ? 0
-        : requiredRows
-            .filter((r) => isFilledScore(r))
-            .reduce((s, r) => {
-              const gp = getRowGpa(r, baseAvgGpa);
-              return s + (Number(r.credits) || 0) * (gp ?? 0);
-            }, 0);
-
-    const included = new Set([...requiredIncluded, ...picked.selected]);
-    const hasEnough =
-      targetCount > 0 ? picked.count >= targetCount : picked.credits >= targetCredits;
-    const ok = requiredOk && hasEnough;
-    return {
-      included,
-      ok,
-      credits: requiredCredits + picked.credits,
-      qp: requiredQp + picked.qp,
-    };
-  }
-
-function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
-  const requiredNames = Array.isArray(cat.requiredNames) ? cat.requiredNames : [];
-  const requiredGroups = Array.isArray(cat.requiredGroups) ? cat.requiredGroups : [];
-  const requiredRows = rows.filter((r) => requiredNames.includes(r.name));
-  const requiredOk = requiredRows.every((r) => isFilledScore(r));
-  const selectedGroup = requiredGroups.find((g) => g.id === selectedGroupId);
-  const groupRows = selectedGroup
-    ? rows.filter((r) => selectedGroup.names.includes(r.name))
-    : [];
-  const groupOk = selectedGroup ? groupRows.every((r) => isFilledScore(r)) : false;
-
-    const includedRows = [
-      ...requiredRows.filter((r) => isFilledScore(r) && isCountable(r)),
-      ...groupRows.filter((r) => isFilledScore(r) && isCountable(r)),
-    ];
-  const included = new Set(includedRows.map((r) => r.id));
-    const credits = includedRows.reduce((s, r) => s + (Number(r.credits) || 0), 0);
-    const qp = includedRows.reduce((s, r) => {
-      const gp = getRowGpa(r, baseAvgGpa);
-      return s + (Number(r.credits) || 0) * (gp ?? 0);
-    }, 0);
-
-  const ok = requiredOk && groupOk;
-  return {included, ok, credits, qp};
-}
-
-  const computed = useMemo(() => {
-    const categoryResults = {};
-    let totalCredits = 0;
-    let totalQp = 0;
-    let allOk = true;
-
-    groups.forEach((group) => {
-      group.categories.forEach((cat) => {
-        const rows = currentData[cat.id] || [];
-        if (cat.requiredGroups) {
-          const selectedGroupId = groupChoiceByGrade[grade]?.[cat.id];
-          const best = computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId);
-          categoryResults[cat.id] = best;
-          totalCredits += best.credits;
-          totalQp += best.qp;
-          if (!best.ok) {
-            allOk = false;
-          }
-        } else if (cat.selectable) {
-          const best = computeSelectable(rows, cat);
-          categoryResults[cat.id] = best;
-          totalCredits += best.credits;
-          totalQp += best.qp;
-          if (!best.ok) {
-            allOk = false;
-          }
-        } else {
-          const minCount = typeof cat.minCount === 'number' ? cat.minCount : rows.length;
-          const minCredits = typeof cat.minCredits === 'number' ? cat.minCredits : 0;
-          const filledRows = rows.filter((r) => isFilledScore(r));
-          const filledCredits = filledRows.reduce((s, r) => s + (Number(r.credits) || 0), 0);
-          const countOk = filledRows.length >= minCount;
-          const creditsOk = filledCredits >= minCredits;
-          const isOk = countOk && creditsOk;
-
-          const countableRows = filledRows.filter((r) => isCountable(r));
-          const credits = countableRows.reduce((s, r) => s + (Number(r.credits) || 0), 0);
-          const qp = countableRows.reduce((s, r) => {
-            const gp = getRowGpa(r, baseAvgGpa);
-            return s + (Number(r.credits) || 0) * (gp ?? 0);
-          }, 0);
-
-          const includedSet = new Set(
-            rows.filter((r) => isFilledScore(r) && isCountable(r)).map((r) => r.id)
-          );
-          categoryResults[cat.id] = {
-            included: includedSet,
-            ok: isOk,
-            credits,
-            qp,
-          };
-          totalCredits += credits;
-          totalQp += qp;
-          if (!isOk) {
-            allOk = false;
-          }
-        }
-      });
-    });
-
-    const avg = totalCredits > 0 ? totalQp / totalCredits : 0;
-    return {categoryResults, totalCredits, avg, allOk};
-  }, [currentData, groups, baseAvgGpa, groupChoiceByGrade, grade]);
-
   function clearCurrentGrade() {
-    setDataByGrade((prev) => {
-      const next = {...prev};
-      const cleared = {};
-      const gradeGroups = getCategoryGroups(grade);
-      gradeGroups.forEach((group) => {
-        group.categories.forEach((cat) => {
-          const rows = next[grade][cat.id] || [];
-          const requiredNames = Array.isArray(cat.requiredNames) ? cat.requiredNames : [];
-          cleared[cat.id] = rows.map((row) => {
-            const isRequired = requiredNames.includes(row.name);
-            return {
-              ...row,
-              score: '',
-              passStatus: '',
-              selected: cat.selectable ? isRequired : true,
-            };
-          });
-        });
-      });
-      next[grade] = cleared;
-      return next;
-    });
+    setDataByGrade((previous) => ({
+      ...previous,
+      [grade]: calculator.createInitialData(),
+    }));
+    setGroupChoiceByGrade((previous) => ({...previous, [grade]: {}}));
+    setImportedByGrade((previous) => ({...previous, [grade]: false}));
+    setImportReportByGrade((previous) => ({...previous, [grade]: ''}));
   }
 
   function handleImportText() {
     const parsed = parseTranscriptText(importText);
     if (!parsed.length) {
-      setImportReport('未识别到可导入的成绩行，请确认粘贴的是教务返回文本。');
+      setImportReportByGrade((previous) => ({
+        ...previous,
+        [grade]: '未识别到成绩行，请确认粘贴内容包含课程名、课程号、学分和总成绩。',
+      }));
       return;
     }
 
-    let matched = 0;
-    let updated = 0;
-    const unmatched = [];
-    setDataByGrade((prev) => {
-      const next = {...prev};
-      const gradeData = alignGradeDataNames(grade, {...(next[grade] || {})});
-
-      Object.keys(gradeData).forEach((catId) => {
-        gradeData[catId] = (gradeData[catId] || []).map((row) => ({...row}));
-      });
-
-      const nameMap = new Map();
-      const looseMap = new Map();
-      const categoryMeta = new Map();
-      getCategoryGroups(grade).forEach((g) => {
-        g.categories.forEach((c) => {
-          categoryMeta.set(c.id, c);
-        });
-      });
-      Object.keys(gradeData).forEach((catId) => {
-        (gradeData[catId] || []).forEach((row, index) => {
-          getCourseKeyVariants(row.name).forEach((key) => {
-            if (!nameMap.has(key)) nameMap.set(key, []);
-            nameMap.get(key).push({catId, index});
-          });
-          const loose = toLooseCourseKey(row.name);
-          if (!looseMap.has(loose)) looseMap.set(loose, []);
-          looseMap.get(loose).push({catId, index});
-        });
-      });
-
-      const resolveRefs = (keys) => {
-        let refs = [];
-        keys.forEach((key) => {
-          const hit = nameMap.get(key);
-          if (hit && hit.length) refs = refs.concat(hit);
-        });
-        if (!refs.length) {
-          const looseKeys = keys.map((k) => toLooseCourseKey(k));
-          looseKeys.forEach((lk) => {
-            const hit = looseMap.get(lk);
-            // Only accept unique loose match to avoid wrong mapping
-            if (hit && hit.length === 1) refs = refs.concat(hit);
-          });
-        }
-        const dedup = new Map();
-        refs.forEach((ref) => {
-          dedup.set(`${ref.catId}-${ref.index}`, ref);
-        });
-        return Array.from(dedup.values());
-      };
-
-      const applyItemToRow = (row, item) => {
-        if (item.credits !== null && item.credits > 0) {
-          row.credits = item.credits;
-          updated += 1;
-        }
-
-        if (item.scoreType === 'percent') {
-          row.score = String(item.score);
-          row.passStatus = '';
-          updated += 1;
-        } else if (item.scoreType === 'five' && row.scoreType === 'five') {
-          const labelMap = {
-            优秀: 'excellent',
-            良好: 'good',
-            中等: 'medium',
-            及格: 'pass',
-            不及格: 'fail',
-          };
-          row.score = labelMap[item.scoreRaw] || '';
-          row.passStatus = '';
-          updated += 1;
-        } else if (item.scoreType === 'passfail' || row.scoreType === 'passfail') {
-          row.passStatus = item.passStatus || '';
-          row.score = '';
-          updated += 1;
-        }
-      };
-
-      parsed.forEach((item) => {
-        const refs = resolveRefs(item.keys);
-        const substituteRefs = item.substituteKeys.length
-          ? resolveRefs(item.substituteKeys)
-          : [];
-        const union = new Map();
-        refs.forEach((ref) => union.set(`${ref.catId}-${ref.index}`, ref));
-        substituteRefs.forEach((ref) => union.set(`${ref.catId}-${ref.index}`, ref));
-        const allRefs = Array.from(union.values());
-        if (!allRefs || allRefs.length === 0) {
-          unmatched.push(item.name);
-          return;
-        }
-        matched += 1;
-
-        allRefs.forEach((ref) => {
-          const row = gradeData[ref.catId][ref.index];
-          const cat = categoryMeta.get(ref.catId);
-          if (cat && cat.selectable) {
-            row.selected = true;
-          }
-          applyItemToRow(row, item);
-        });
-      });
-
-      next[grade] = gradeData;
-      return next;
-    });
-
-    const autoChoice = detectRequiredGroupChoice(
+    const nextGroupChoices = calculator.detectGroupChoices(
       parsed,
-      getCategoryGroups(grade),
-      groupChoiceByGrade[grade] || {}
+      currentGroupChoices
     );
-    setGroupChoiceByGrade((prev) => ({
-      ...prev,
-      [grade]: autoChoice,
-    }));
+    const result = calculator.importTranscript(currentData, parsed);
+    const nextPending = calculator.getPendingRows(result.data, nextGroupChoices);
+    const unmatchedPreview = result.unmatchedNames.length
+      ? `；未匹配示例：${result.unmatchedNames.slice(0, 5).join('、')}`
+      : '';
 
-    const unmatchedPreview =
-      unmatched.length > 0 ? ` 未匹配示例：${unmatched.slice(0, 5).join('、')}` : '';
-    setImportReport(`已识别 ${parsed.length} 条。${unmatchedPreview}`);
+    setDataByGrade((previous) => ({...previous, [grade]: result.data}));
+    setGroupChoiceByGrade((previous) => ({
+      ...previous,
+      [grade]: nextGroupChoices,
+    }));
+    setImportedByGrade((previous) => ({...previous, [grade]: true}));
+    setImportReportByGrade((previous) => ({
+      ...previous,
+      [grade]: `已识别 ${parsed.length} 条，填充 ${result.updatedRows} 项，待补全 ${nextPending.size} 项${unmatchedPreview}`,
+    }));
+    setShowImportPanel(false);
   }
 
   return (
     <div style={{padding: '14px 16px 18px'}}>
-      <div style={{marginBottom: 12, fontSize: '0.85rem', opacity: 0.65, lineHeight: 1.6}}>
-        勾选已修课程并填写成绩，系统会按模块要求自动择优计入；绿色 √ 表示已纳入计算。
+      <div
+        style={{
+          marginBottom: 12,
+          fontSize: '0.85rem',
+          opacity: 0.7,
+          lineHeight: 1.6,
+        }}
+      >
+        填写成绩或快速导入成绩单；系统按对应年级细则择优计入，绿色 √
+        表示已纳入计算。
       </div>
+
       <div
         style={{
           display: 'flex',
@@ -1065,39 +212,80 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
         }}
       >
         <div style={{fontWeight: 650}}>年级</div>
-        <label style={{display: 'inline-flex', gap: 6, alignItems: 'center'}}>
-          <input type="radio" checked={grade === '23'} onChange={() => setGrade('23')} />
-          23 届
-        </label>
-        <label style={{display: 'inline-flex', gap: 6, alignItems: 'center'}}>
-          <input type="radio" checked={grade === '24'} onChange={() => setGrade('24')} />
-          24 届
-        </label>
-        <div style={{opacity: 0.6, fontSize: '0.9rem'}}>平均 GPA：{formatNumber(computed.avg, 3)}</div>
-        <button type="button" className="button button--secondary" onClick={clearCurrentGrade}>
+        {SUPPORTED_GRADES.map((item) => (
+          <label
+            key={item}
+            style={{display: 'inline-flex', gap: 6, alignItems: 'center'}}
+          >
+            <input
+              type="radio"
+              checked={grade === item}
+              onChange={() => setGrade(item)}
+            />
+            {getCalculator(item).label}
+          </label>
+        ))}
+        <div style={{opacity: 0.68, fontSize: '0.9rem'}}>
+          平均 GPA：{formatNumber(computed.avg, 3)}
+        </div>
+        <button
+          type="button"
+          className="button button--secondary"
+          onClick={clearCurrentGrade}
+        >
           一键清空
         </button>
         <button
           type="button"
           className="button button--success"
-          onClick={() => setShowImportPanel((v) => !v)}
+          onClick={() => setShowImportPanel(true)}
         >
-          {showImportPanel ? '收起导入面板' : '快速导入'}
+          快速导入
         </button>
-        {importReport && <div style={{fontSize: '0.85rem', opacity: 0.75}}>{importReport}</div>}
+        {importedByGrade[grade] && (
+          <div
+            role="status"
+            style={{
+              padding: '4px 10px',
+              borderRadius: 999,
+              border: '1px solid rgba(190, 54, 68, 0.28)',
+              background: 'rgba(220, 53, 69, 0.08)',
+              color: 'var(--ifm-font-color-base)',
+              fontSize: '0.85rem',
+              fontWeight: 650,
+            }}
+          >
+            待补全 {pendingRows.size} 项
+          </div>
+        )}
         <div
           style={{
             marginLeft: 'auto',
             padding: '4px 10px',
             borderRadius: 999,
             border: '1px solid var(--ifm-color-emphasis-200)',
-            background: computed.allOk ? 'rgba(30, 160, 90, 0.12)' : 'var(--ifm-color-emphasis-100)',
+            background: computed.allOk
+              ? 'rgba(30, 160, 90, 0.12)'
+              : 'var(--ifm-color-emphasis-100)',
             color: computed.allOk ? 'rgb(24, 120, 70)' : 'inherit',
           }}
         >
           {computed.allOk ? '已达标' : '未达标'}
         </div>
+        {importReport && (
+          <div
+            style={{
+              flexBasis: '100%',
+              fontSize: '0.85rem',
+              opacity: 0.78,
+              lineHeight: 1.5,
+            }}
+          >
+            {importReport}
+          </div>
+        )}
       </div>
+
       <div style={{display: 'grid', gap: 16}}>
         {groups.map((group) => (
           <section
@@ -1111,14 +299,18 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
           >
             <div style={{fontWeight: 700, marginBottom: 10}}>{group.module}</div>
             <div style={{display: 'grid', gap: 12}}>
-              {group.categories.map((cat) => {
-                const rows = currentData[cat.id] || [];
-                const result = computed.categoryResults[cat.id] || {included: new Set(), ok: false};
-                const requiredNames = Array.isArray(cat.requiredNames) ? cat.requiredNames : [];
-                const selectedGroupId = groupChoiceByGrade[grade]?.[cat.id] || '';
+              {group.categories.map((category) => {
+                const rows = currentData[category.id] || [];
+                const result = computed.categoryResults[category.id] || {
+                  included: new Set(),
+                  ok: false,
+                };
+                const requiredNames = category.requiredNames || [];
+                const selectedGroupId = currentGroupChoices[category.id] || '';
+
                 return (
                   <div
-                    key={cat.id}
+                    key={category.id}
                     style={{
                       border: '1px solid var(--ifm-color-emphasis-200)',
                       borderRadius: 10,
@@ -1138,35 +330,32 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
                     >
                       <div style={{minWidth: 220}}>
                         <div style={{fontWeight: 650}}>
-                          {cat.name}（{cat.id}）
+                          {category.name}（{category.id}）
                         </div>
-                        <div style={{fontSize: '0.85rem', opacity: 0.6}}>
-                          {cat.requirement}
-                          {cat.note ? `，${cat.note}` : ''}
+                        <div style={{fontSize: '0.85rem', opacity: 0.65}}>
+                          {category.requirement}
+                          {category.note ? `，${category.note}` : ''}
                         </div>
                       </div>
-                      {Array.isArray(cat.requiredGroups) && (
+                      {Array.isArray(category.requiredGroups) && (
                         <select
                           value={selectedGroupId}
-                          onChange={(e) =>
-                            setGroupChoiceByGrade((prev) => ({
-                              ...prev,
-                              [grade]: {...prev[grade], [cat.id]: e.target.value},
+                          onChange={(event) =>
+                            setGroupChoiceByGrade((previous) => ({
+                              ...previous,
+                              [grade]: {
+                                ...previous[grade],
+                                [category.id]: event.target.value,
+                              },
                             }))
                           }
-                          style={{
-                            minWidth: 200,
-                            padding: '6px 10px',
-                            borderRadius: 8,
-                            border: '1px solid var(--ifm-color-emphasis-200)',
-                            background: 'var(--ifm-background-color)',
-                            height: 36,
-                          }}
+                          style={selectStyle(220)}
+                          aria-label={`${category.name}课程组`}
                         >
                           <option value="">请选择大英 A / B</option>
-                          {cat.requiredGroups.map((g) => (
-                            <option key={g.id} value={g.id}>
-                              {g.label}
+                          {category.requiredGroups.map((requiredGroup) => (
+                            <option key={requiredGroup.id} value={requiredGroup.id}>
+                              {requiredGroup.label}
                             </option>
                           ))}
                         </select>
@@ -1177,7 +366,9 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
                           padding: '4px 10px',
                           borderRadius: 999,
                           border: '1px solid var(--ifm-color-emphasis-200)',
-                          background: result.ok ? 'rgba(30, 160, 90, 0.12)' : 'var(--ifm-color-emphasis-100)',
+                          background: result.ok
+                            ? 'rgba(30, 160, 90, 0.12)'
+                            : 'var(--ifm-color-emphasis-100)',
                           color: result.ok ? 'rgb(24, 120, 70)' : 'inherit',
                         }}
                       >
@@ -1185,14 +376,17 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
                       </div>
                     </div>
 
-                    <div style={{display: 'grid', gap: 10}}>
+                    <div style={{display: 'grid', gap: 4}}>
                       {rows.length === 0 && (
-                        <div style={{opacity: 0.6, fontSize: '0.85rem'}}>暂无课程</div>
+                        <div style={{opacity: 0.6, fontSize: '0.85rem'}}>
+                          该类别无需录入课程
+                        </div>
                       )}
                       {rows.map((row) => {
                         const isRequired = requiredNames.includes(row.name);
-                        const requiredMode = cat.requiredMode || 'passfail';
                         const included = result.included.has(row.id) && isCountable(row);
+                        const isPending = pendingRows.has(`${category.id}:${row.id}`);
+
                         return (
                           <div
                             key={row.id}
@@ -1200,29 +394,53 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
                               display: 'flex',
                               gap: 10,
                               alignItems: 'center',
-                              padding: '6px 0',
-                              borderBottom: '1px dashed var(--ifm-color-emphasis-200)',
+                              flexWrap: 'wrap',
+                              padding: '8px 10px',
+                              borderRadius: 8,
+                              borderBottom:
+                                '1px dashed var(--ifm-color-emphasis-200)',
+                              background: isPending
+                                ? 'rgba(220, 53, 69, 0.08)'
+                                : 'transparent',
+                              boxShadow: isPending
+                                ? 'inset 3px 0 0 rgba(190, 54, 68, 0.42)'
+                                : 'none',
                             }}
+                            aria-label={isPending ? `${row.name}待补全` : undefined}
                           >
-                            {cat.selectable && !isRequired && (
+                            {category.selectable && !isRequired && (
                               <input
                                 type="checkbox"
                                 checked={row.selected}
-                                onChange={(e) =>
-                                  updateRow(cat.id, row.id, {selected: e.target.checked})
+                                onChange={(event) =>
+                                  updateRow(category.id, row.id, {
+                                    selected: event.target.checked,
+                                  })
                                 }
+                                aria-label={`选择${row.name}`}
                               />
                             )}
                             <div
                               style={{
                                 fontWeight: 600,
-                                flex: '1 1 320px',
+                                flex: '1 1 300px',
                                 display: 'flex',
                                 gap: 8,
                                 alignItems: 'center',
                               }}
                             >
                               <span>{row.name}</span>
+                              {isPending && (
+                                <span
+                                  style={{
+                                    color: 'rgb(176, 48, 60)',
+                                    fontSize: '0.78rem',
+                                    fontWeight: 650,
+                                  }}
+                                >
+                                  待补全
+                                </span>
+                              )}
                               {included && (
                                 <span
                                   style={{
@@ -1250,25 +468,28 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
                                 display: 'flex',
                                 gap: 10,
                                 alignItems: 'center',
+                                flexWrap: 'wrap',
                               }}
                             >
-                              <div style={{fontSize: '0.9rem', opacity: 0.85, minWidth: 90}}>
+                              <div
+                                style={{
+                                  fontSize: '0.9rem',
+                                  opacity: 0.85,
+                                  minWidth: 90,
+                                }}
+                              >
                                 学分 {row.credits ?? '-'}
                               </div>
-                              {isRequired && requiredMode === 'passfail' ? (
+                              {row.scoreType === 'passfail' ? (
                                 <select
                                   value={row.passStatus}
-                                  onChange={(e) =>
-                                    updateRow(cat.id, row.id, {passStatus: e.target.value})
+                                  onChange={(event) =>
+                                    updateRow(category.id, row.id, {
+                                      passStatus: event.target.value,
+                                    })
                                   }
-                                  style={{
-                                    width: 140,
-                                    padding: '8px 10px',
-                                    borderRadius: 8,
-                                    border: '1px solid var(--ifm-color-emphasis-200)',
-                                    background: 'var(--ifm-background-color)',
-                                    height: 40,
-                                  }}
+                                  style={selectStyle()}
+                                  aria-label={`${row.name}是否通过`}
                                 >
                                   <option value="">请选择</option>
                                   <option value="pass">合格</option>
@@ -1277,39 +498,33 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
                               ) : row.scoreType === 'five' ? (
                                 <select
                                   value={row.score}
-                                  onChange={(e) =>
-                                    updateRow(cat.id, row.id, {score: e.target.value})
+                                  onChange={(event) =>
+                                    updateRow(category.id, row.id, {
+                                      score: event.target.value,
+                                    })
                                   }
-                                  style={{
-                                    width: 140,
-                                    padding: '8px 10px',
-                                    borderRadius: 8,
-                                    border: '1px solid var(--ifm-color-emphasis-200)',
-                                    background: 'var(--ifm-background-color)',
-                                    height: 40,
-                                  }}
+                                  style={selectStyle()}
+                                  aria-label={`${row.name}五级制成绩`}
                                 >
                                   <option value="">请选择</option>
-                                  {FIVE_LEVEL_OPTIONS.map((opt) => (
-                                    <option key={opt.value} value={opt.value}>
-                                      {opt.label}
+                                  {STANDARD_FIVE_LEVEL_OPTIONS.map((option) => (
+                                    <option key={option.value} value={option.value}>
+                                      {option.label}
                                     </option>
                                   ))}
                                 </select>
                               ) : (
                                 <input
                                   value={row.score}
-                                  onChange={(e) => updateRow(cat.id, row.id, {score: e.target.value})}
+                                  onChange={(event) =>
+                                    updateRow(category.id, row.id, {
+                                      score: event.target.value,
+                                    })
+                                  }
                                   placeholder="成绩"
                                   inputMode="decimal"
-                                  style={{
-                                    width: 140,
-                                    padding: '8px 10px',
-                                    borderRadius: 8,
-                                    border: '1px solid var(--ifm-color-emphasis-200)',
-                                    background: 'var(--ifm-background-color)',
-                                    height: 40,
-                                  }}
+                                  style={selectStyle()}
+                                  aria-label={`${row.name}成绩`}
                                 />
                               )}
                             </div>
@@ -1324,15 +539,17 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
           </section>
         ))}
       </div>
+
       {showImportPanel && (
         <div
           role="dialog"
           aria-modal="true"
+          aria-label="快速导入成绩"
           onClick={() => setShowImportPanel(false)}
           style={{
             position: 'fixed',
             inset: 0,
-            background: 'rgba(0, 0, 0, 0.16)',
+            background: 'rgba(0, 0, 0, 0.2)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -1341,15 +558,16 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
           }}
         >
           <div
-            onClick={(e) => e.stopPropagation()}
+            onClick={(event) => event.stopPropagation()}
             style={{
               width: 'min(920px, 96vw)',
               maxHeight: '85vh',
               overflow: 'auto',
-              padding: 14,
+              padding: 16,
               borderRadius: 12,
-              border: '1px solid var(--ifm-color-emphasis-200)',
-              background: '#f0f0f0',
+              border: '1px solid var(--ifm-color-emphasis-300)',
+              background: 'var(--ifm-background-surface-color)',
+              boxShadow: '0 18px 60px rgba(0, 0, 0, 0.22)',
             }}
           >
             <div
@@ -1361,7 +579,12 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
                 marginBottom: 8,
               }}
             >
-              <div style={{fontWeight: 650}}>粘贴成绩自动填充</div>
+              <div>
+                <div style={{fontWeight: 650}}>粘贴成绩自动填充</div>
+                <div style={{fontSize: '0.82rem', opacity: 0.68, marginTop: 2}}>
+                  当前按 {calculator.label} 规则识别，支持“替代课程名”成绩认定。
+                </div>
+              </div>
               <button
                 type="button"
                 className="button button--secondary"
@@ -1372,20 +595,33 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
             </div>
             <textarea
               value={importText}
-              onChange={(e) => setImportText(e.target.value)}
-              placeholder="复制并粘贴本研系统成绩查询页面的表格信息，实现自动识别（含课程名/课程号/学分/总成绩等列，支持课程成绩认定）"
+              onChange={(event) => setImportText(event.target.value)}
+              placeholder="复制并粘贴本研系统成绩查询页面的完整表格（含课程名、课程号、学分、总成绩、是否有效和替代课程名等列）"
               style={{
                 width: '100%',
-                minHeight: 180,
+                minHeight: 210,
                 resize: 'vertical',
                 borderRadius: 8,
-                border: '1px solid var(--ifm-color-emphasis-200)',
-                padding: '8px 10px',
+                border: '1px solid var(--ifm-color-emphasis-300)',
+                padding: '10px 12px',
                 background: 'var(--ifm-background-color)',
+                color: 'var(--ifm-font-color-base)',
               }}
             />
-            <div style={{display: 'flex', gap: 10, alignItems: 'center', marginTop: 8, flexWrap: 'wrap'}}>
-              <button type="button" className="button button--primary" onClick={handleImportText}>
+            <div
+              style={{
+                display: 'flex',
+                gap: 10,
+                alignItems: 'center',
+                marginTop: 10,
+                flexWrap: 'wrap',
+              }}
+            >
+              <button
+                type="button"
+                className="button button--primary"
+                onClick={handleImportText}
+              >
                 自动识别并填充
               </button>
               <button
@@ -1393,7 +629,10 @@ function computeRequiredGroups(rows, cat, baseAvgGpa, selectedGroupId) {
                 className="button button--secondary"
                 onClick={() => {
                   setImportText('');
-                  setImportReport('');
+                  setImportReportByGrade((previous) => ({
+                    ...previous,
+                    [grade]: '',
+                  }));
                 }}
               >
                 清空文本
