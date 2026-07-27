@@ -3,21 +3,25 @@
     {
       "id": "postgrad",
       "name": "保研成绩计算器",
+      "shortName": "保研",
       "tagline": "按模块录入课程成绩"
     },
     {
       "id": "comprehensive",
       "name": "综测加分计算器",
+      "shortName": "综测",
       "tagline": "按年级折合综测 GPA 加分"
     },
     {
       "id": "gpa",
       "name": "GPA 计算器",
+      "shortName": "GPA",
       "tagline": "计算 GPA / 加权 / 算数"
     },
     {
       "id":"color-picker",
       "name":"取色器",
+      "shortName":"取色",
       "tagline":"HEX / RGB / HSL 转换与取色"
     }
   ]

@@ -170,10 +170,15 @@ export function MemberPage() {
           margin-inline:0;
         }
         main.container.container--fluid:has(.memberPageShell) > .row > .col{
+          --ifm-col-width:100%;
+          flex:0 0 100%;
+          width:100%;
+          max-width:100%;
+          margin-inline:0;
           padding-inline:0;
         }
         .memberPageShell{
-          width:min(1240px, calc(100vw - 28px));
+          width:min(1240px, calc(100% - 28px));
           margin:8px auto 32px;
         }
         .memberPageHeader{
@@ -389,7 +394,7 @@ export function MemberPage() {
         }
         @media (max-width: 996px){
           .memberPageShell{
-            width:calc(100vw - 20px);
+            width:calc(100% - 20px);
             margin:6px auto 24px;
           }
           .memberLayout{

@@ -59,6 +59,10 @@ export function ToolPage() {
       <div className="toolLayout">
         {/* Sidebar */}
         <aside className="toolSidebar">
+          <div className="toolSidebarMeta">
+            <span>工具</span>
+            <small>{tools.length}</small>
+          </div>
           <div className="toolSidebarList">
             {tools.map((t) => {
               const isActive = t.id === activeId;
@@ -68,9 +72,15 @@ export function ToolPage() {
                   onClick={() => setActiveId(t.id)}
                   className={`toolItem ${isActive ? 'isActive' : ''}`}
                   type="button"
+                  aria-label={`${t.name}：${t.tagline}`}
                 >
-                  <div className="toolItemName">{t.name}</div>
-                  <div className="toolItemTagline">{t.tagline}</div>
+                  <span className="toolItemShort" aria-hidden="true">
+                    {t.shortName || t.name}
+                  </span>
+                  <span className="toolItemCopy">
+                    <span className="toolItemName">{t.name}</span>
+                    <span className="toolItemTagline">{t.tagline}</span>
+                  </span>
                 </button>
               );
             })}
@@ -131,24 +141,55 @@ export function ToolPage() {
           margin-inline:0;
         }
         main.container.container--fluid:has(.toolPageShell) > .row > .col{
+          --ifm-col-width:100%;
+          flex:0 0 100%;
+          width:100%;
+          max-width:100%;
+          margin-inline:0;
           padding-inline:0;
         }
         .toolPageShell{
-          width:min(1720px, calc(100vw - 28px));
+          width:min(1720px, calc(100% - 28px));
           margin:8px auto 28px;
         }
         .toolLayout{
           display:grid;
-          grid-template-columns:minmax(190px, 220px) minmax(0, 1fr);
+          grid-template-columns:clamp(184px, 14vw, 220px) minmax(0, 1fr);
           gap:14px;
           align-items:start;
         }
         .toolSidebar{
           position:sticky;
           top:calc(var(--ifm-navbar-height) + 12px);
+          max-height:calc(100vh - var(--ifm-navbar-height) - 24px);
+          overflow-y:auto;
+          padding-right:2px;
+          scrollbar-width:thin;
         }
-        .toolSidebarList{display:flex;flex-direction:column;gap:5px;}
+        .toolSidebarMeta{
+          min-height:32px;
+          padding:0 10px 6px;
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          color:var(--ifm-color-emphasis-600);
+          font-size:.72rem;
+          font-weight:650;
+          letter-spacing:.04em;
+        }
+        .toolSidebarMeta small{
+          font-family:var(--ifm-font-family-monospace);
+          font-size:.68rem;
+          font-variant-numeric:tabular-nums;
+        }
+        .toolSidebarList{
+          display:flex;
+          flex-direction:column;
+          gap:5px;
+        }
         .toolItem{
+          min-width:0;
+          min-height:58px;
           border:1px solid transparent;
           background:transparent;
           border-radius:10px;
@@ -166,9 +207,17 @@ export function ToolPage() {
           border-color:var(--ifm-color-emphasis-200);
           box-shadow:inset 3px 0 0 var(--ifm-color-primary);
         }
+        .toolItemCopy,
+        .toolItemName,
+        .toolItemTagline{
+          display:block;
+        }
+        .toolItemShort{display:none;}
         .toolItemName{font-weight:650;line-height:1.2;}
-        .toolItemTagline{opacity:.55;font-size:.82rem;margin-top:3px;line-height:1.35;}
-        .toolMain{min-width:0;}
+        .toolItemTagline{opacity:.55;font-size:.78rem;margin-top:4px;line-height:1.35;}
+        .toolMain{
+          min-width:0;
+        }
         .toolStage{
           border-radius:12px;
           border:1px solid var(--ifm-color-emphasis-200);
@@ -277,32 +326,63 @@ export function ToolPage() {
           height:auto;
           overflow:visible;
         }
-        @media (max-width: 996px){
+        @media (max-width: 1280px){
           .toolPageShell{
-            width:calc(100vw - 20px);
+            width:calc(100% - 20px);
             margin:6px auto 20px;
           }
-          .toolLayout{display:block;}
-          .toolSidebar{
-            position:static;
-            margin-bottom:8px;
-          }
-          .toolSidebarList{
-            flex-direction:row;
-            gap:6px;
-            overflow-x:auto;
-            padding-bottom:3px;
-          }
-          .toolItem{flex:0 0 auto;min-width:170px;}
           .toolStageHeader{align-items:flex-start;}
           .gradeExtensionActions{
             overflow-x:auto;
           }
           .toolStageBody{
-            min-height:calc(100vh - var(--ifm-navbar-height) - 150px);
+            min-height:calc(100vh - var(--ifm-navbar-height) - 86px);
           }
         }
-        @media (max-width: 560px){
+        @media (max-width: 960px){
+          .toolLayout{
+            grid-template-columns:132px minmax(0, 1fr);
+            gap:10px;
+          }
+          .toolItem{
+            min-height:48px;
+            padding:8px 9px;
+          }
+          .toolItemTagline{
+            display:none;
+          }
+        }
+        @media (max-width: 640px){
+          .toolPageShell{
+            width:calc(100% - 12px);
+          }
+          .toolLayout{
+            grid-template-columns:64px minmax(0, 1fr);
+            gap:8px;
+          }
+          .toolSidebar{
+            top:calc(var(--ifm-navbar-height) + 6px);
+          }
+          .toolSidebarMeta{
+            min-height:28px;
+            padding:0 4px 5px;
+            justify-content:center;
+          }
+          .toolSidebarMeta small{display:none;}
+          .toolItem{
+            min-height:48px;
+            padding:7px 3px;
+            display:grid;
+            place-items:center;
+            text-align:center;
+          }
+          .toolItemCopy{display:none;}
+          .toolItemShort{
+            display:block;
+            font-size:.72rem;
+            font-weight:680;
+            line-height:1.15;
+          }
           .toolStageTitle{
             display:block;
           }
@@ -310,6 +390,13 @@ export function ToolPage() {
             display:block;
             margin-top:2px;
           }
+        }
+        @media (max-width: 400px){
+          .toolLayout{
+            grid-template-columns:58px minmax(0, 1fr);
+            gap:6px;
+          }
+          .toolItemShort{font-size:.68rem;}
         }
       `}</style>
     </div>
