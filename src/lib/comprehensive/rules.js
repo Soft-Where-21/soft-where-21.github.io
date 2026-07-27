@@ -623,7 +623,6 @@ const ITEM_RULES = {
       let baseScore = matrix[awardIndex]?.[authorIndex] || 0;
       let factor = 1;
       if (values.specialTrack === 'special') {
-        baseScore = matrix[awardIndex]?.[0] || 0;
         factor = authorIndex === 0 ? 0.5 : 1 / 3;
       }
       return result({
@@ -728,6 +727,11 @@ const ITEM_RULES = {
       const level = optionByValue(PAPER_LEVEL_OPTIONS, values.level);
       const coauthorCount = Math.max(1, Number(values.coauthorCount) || 1);
       const factor = values.authorship === 'cofirst' ? 1 / coauthorCount : 1;
+      const paperKey = cleanKey(values.paperName);
+      const dedupeKeys = paperKey ? [`paper:${paperKey}`] : [];
+      if (grade === '22' && values.authorship === 'cofirst') {
+        dedupeKeys.push('paper-cofirst');
+      }
       return result({
         baseScore: level?.score || 0,
         factor,
@@ -738,10 +742,7 @@ const ITEM_RULES = {
         ]
           .filter(Boolean)
           .join(' · '),
-        dedupeKeys:
-          grade === '22' && values.authorship === 'cofirst'
-            ? ['paper-cofirst']
-            : [],
+        dedupeKeys,
       });
     },
   },
@@ -804,6 +805,7 @@ const ITEM_RULES = {
     label: '社会工作岗位',
     fields: [
       selectField('position', '岗位', SERVICE_POSITION_OPTIONS),
+      textField('positionName', '具体岗位', '用于区分同一学期的不同岗位'),
       selectField('rating', '考评等级', SERVICE_RATING_OPTIONS),
       selectField('semester', '任职学期', SEMESTER_OPTIONS),
     ],
@@ -812,12 +814,16 @@ const ITEM_RULES = {
       const rating = optionByValue(SERVICE_RATING_OPTIONS, values.rating);
       const semesterLabel = optionLabel(rule, 'semester', values, grade);
       const key = `service-semester:${values.semester}`;
+      const positionName = cleanKey(values.positionName);
       return result({
         baseScore: position?.score || 0,
         factor: rating?.factor ?? 0,
         detail: [position?.label, rating?.label, semesterLabel]
           .filter(Boolean)
           .join(' · '),
+        dedupeKeys: positionName
+          ? [`service-position:${values.semester}:${positionName}`]
+          : [],
         constraints: [
           {
             kind: 'topN',
@@ -895,6 +901,9 @@ const ITEM_RULES = {
         ]
           .filter(Boolean)
           .join(' · '),
+        dedupeKeys: [
+          `individual-honor:${values.academicYear}:${values.level}:${values.honor}`,
+        ],
         constraints,
       });
     },
