@@ -10,7 +10,7 @@
 
 
 <script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer="defer"></script><link rel="stylesheet" href="/assets/css/styles.c31c607c.css">
-<script src="/assets/js/runtime~main.55f4b135.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.679bfcab.js" defer="defer"></script>
 <script src="/assets/js/main.15b05a9f.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -26,10 +26,15 @@
           margin-inline:0;
         }
         main.container.container--fluid:has(.sharePageShell) > .row > .col{
+          --ifm-col-width:100%;
+          flex:0 0 100%;
+          width:100%;
+          max-width:100%;
+          margin-inline:0;
           padding-inline:0;
         }
         .sharePageShell{
-          width:min(1680px, calc(100vw - 28px));
+          width:min(1680px, calc(100% - 28px));
           margin:8px auto 28px;
         }
         .shareMainLayout{
@@ -336,7 +341,7 @@
             gap:14px;
           }
           .sharePageShell{
-            width:calc(100vw - 20px);
+            width:calc(100% - 20px);
             margin:6px auto 20px;
           }
           .shareSidebar{
