@@ -39,6 +39,12 @@ const modules = [
         "description": "软件学院软件工程2024级培养方案",
         "link": "/docs/training-program/software-engineering-2024",
         "isCategory": false
+      },
+      {
+        "title": "2025级",
+        "description": "软件学院软件工程2025级培养方案",
+        "link": "/docs/training-program/software-engineering-2025",
+        "isCategory": false
       }
     ]
   },
@@ -49,13 +55,13 @@ const modules = [
     "isCategory": true,
     "items": [
       {
-        "title": "2023年",
+        "title": "2023级",
         "description": "软件学院2023年推荐免试研究生实施细则",
         "link": "/docs/postgraduate-recommendation/2023",
         "isCategory": false
       },
       {
-        "title": "2024年",
+        "title": "2024级",
         "description": "软件学院2024年推荐免试研究生实施细则",
         "link": "/docs/postgraduate-recommendation/2024",
         "isCategory": false
@@ -69,13 +75,13 @@ const modules = [
     "isCategory": true,
     "items": [
       {
-        "title": "2021年",
+        "title": "2021级",
         "description": "软件学院2021年学生综合素质测评方案",
         "link": "/docs/comprehensive-assessment/2021",
         "isCategory": false
       },
       {
-        "title": "2022年",
+        "title": "2022级",
         "description": "软件学院2022年学生综合素质测评方案",
         "link": "/docs/comprehensive-assessment/2022",
         "isCategory": false
@@ -89,9 +95,27 @@ const modules = [
     "isCategory": true,
     "items": [
       {
-        "title": "Git",
-        "description": "Git 安装配置 / 本地版本管理 / 远程协作",
+        "title": "Git 安装与配置",
+        "description": "Git 安装、全局配置与 SSH 密钥",
         "link": "/docs/commands/git/install-config",
+        "isCategory": false
+      },
+      {
+        "title": "Git 本地版本管理",
+        "description": "提交、回退与本地分支管理",
+        "link": "/docs/commands/git/local-version-control",
+        "isCategory": false
+      },
+      {
+        "title": "Git 远程协作",
+        "description": "远程仓库、分支协作与 Pull Request",
+        "link": "/docs/commands/git/remote-collaboration",
+        "isCategory": false
+      },
+      {
+        "title": "Git 备忘清单",
+        "description": "常用 Git 命令速查",
+        "link": "/docs/commands/git/cheatsheet",
         "isCategory": false
       },
       {
@@ -113,9 +137,15 @@ const modules = [
         "isCategory": false
       },
       {
-        "title": "Tmux",
-        "description": "Tmux 安装与使用教程",
+        "title": "Tmux 安装与配置",
+        "description": "Tmux 安装配置与会话管理",
         "link": "/docs/commands/tmux/install-config",
+        "isCategory": false
+      },
+      {
+        "title": "Tmux 使用教程",
+        "description": "Tmux 常用操作与使用场景示例",
+        "link": "/docs/commands/tmux/usage",
         "isCategory": false
       }
     ]

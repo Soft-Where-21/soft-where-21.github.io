@@ -7,3 +7,8 @@ postgraduate-entrance-experience:
   label: 考研经验分享
   permalink: /postgraduate-entrance-experience
   description: 软件学院同学的考研备考与择校经验分享
+
+school-life:
+  label: 学校生活分享
+  permalink: /school-life
+  description: 软件学院同学的校园生活经验与实用指南分享
