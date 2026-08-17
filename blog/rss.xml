@@ -4,10 +4,81 @@
         <title>Soft Where Blog</title>
         <link>https://soft-where-21.github.io/blog</link>
         <description>Soft Where Blog</description>
-        <lastBuildDate>Thu, 23 Jul 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 17 Aug 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[ihome 使用指南（非官方）]]></title>
+            <link>https://soft-where-21.github.io/blog/school-life-ihome-guide</link>
+            <guid>https://soft-where-21.github.io/blog/school-life-ihome-guide</guid>
+            <pubDate>Mon, 17 Aug 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[闫佳豪同学分享北航 ihome 平台的使用方法、诉求撰写技巧与真实案例。]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<p>以下内容仅代表个人观点，读者可以认为每一句话前面都加了“我认为”。</p>
+</blockquote>
+<p>最近和低年级的同学聊天发现很多人没用过甚至没听说过 ihome。作为一名北航人，善于使用 ihome 发布诉求将会对学习生活带来一定便捷，然而几乎没有官方的关于如何使用 ihome 的介绍。因此我撰写了此文档供大家参考。</p>
+<p>此外，由于我已经毕业无法登陆 ihome，因此本文档缺少一些示意图，欢迎补充。</p>
+<p>ihome 网址：<a href="https://i.buaa.edu.cn/" target="_blank" rel="noopener noreferrer" class="">i.buaa.edu.cn</a>，需要校园网环境，校外请使用 VPN。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="0-什么是-ihome">0. 什么是 ihome<a href="https://soft-where-21.github.io/blog/school-life-ihome-guide#0-%E4%BB%80%E4%B9%88%E6%98%AF-ihome" class="hash-link" aria-label="Direct link to 0. 什么是 ihome" title="Direct link to 0. 什么是 ihome" translate="no">​</a></h2>
+<p>以下内容源自百度百科：</p>
+<blockquote>
+<p>北航 ihome 社区（i 北航社区）以北京航空航天大学校长怀进鹏院士提出的为同学们打造一流社区、服务广大师生校友、方便北航人交流和互动的宗旨，于 2012 年 5 月 28 日在学校各级领导的支持下、网络信息中心工作人员主导下，以师生共建的方式，推出的一款基于 SNS 社交网络模式，为北航人量身打造的校园网络互动社区。社区服务的对象不仅有在校师生、校友，还有即将进入北航的新生，通过社区入学新生可以提前了解学校环境、校园文化和报到流程。</p>
+</blockquote>
+<p>简单来说就是怀校长在 2012 年搞的一个平台，历经发展（阉割）后，目前主要接诉平台，“接诉”的含义就是“接受诉求”，然后将诉求分派到各个部分，各个部门的负责人来解决问题。因此，同学们在日常科研学习生活中，遇到的与学校相关的任何问题理论上都在 ihome 的处理范围，都可以通过 ihome 平台反馈。</p>
+<p>不过针对特定问题可能有更直接的解决办法，比如宿舍报修找楼下宿管会更快更直接。对于不知道找谁解决，或者是找人了但没解决，或者是单纯投诉不满要求整改，都适合发 ihome 解决。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-如何使用">1. 如何使用<a href="https://soft-where-21.github.io/blog/school-life-ihome-guide#1-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8" class="hash-link" aria-label="Direct link to 1. 如何使用" title="Direct link to 1. 如何使用" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="11-发布诉求">1.1 发布诉求<a href="https://soft-where-21.github.io/blog/school-life-ihome-guide#11-%E5%8F%91%E5%B8%83%E8%AF%89%E6%B1%82" class="hash-link" aria-label="Direct link to 1.1 发布诉求" title="Direct link to 1.1 发布诉求" translate="no">​</a></h3>
+<p>登陆后主页左侧有“我要提诉求”的字样，点击“前往”即跳转至发布界面。所谓“界面”也不过是一个弹出的输入框，在这里可以选择发布“诉求”、“建议”、“表扬”，注意这是一个弹出框，退出后输入的内容并不会保留，如果写了一半请再其他地方保存备份。</p>
+<p>ihome 输入框限制 300 个字符，包括英文一个字母算一个字符，标点、空格、换行符（换行符发不出来就不显示了，因此如果字数紧张，不必换行）均计入数目。我曾与负责人讨论过此事，他认为 300 字足以讲清楚问题，可以避免某些同学宣泄情绪写小作文，这点我认同，但是如果同学想在这里写一下自己的建议考量就有点不够了，我也见过有人附上北航云盘的链接以补充更多材料。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="12-查看诉求">1.2 查看诉求<a href="https://soft-where-21.github.io/blog/school-life-ihome-guide#12-%E6%9F%A5%E7%9C%8B%E8%AF%89%E6%B1%82" class="hash-link" aria-label="Direct link to 1.2 查看诉求" title="Direct link to 1.2 查看诉求" translate="no">​</a></h3>
+<p>尽管历经阉割之后，ihome 现在只能查看最近 20 条诉求，但是也可以方便关注一下其他同学的诉求，很有可能你关心的问题在这里就提到了。</p>
+<p>另外 ihome 是有搜索功能的，可以通过关键词搜索找关心的内容（这个似乎就不局限于最近 20 条了），不过目前这个搜索不够智能，还是比较机械的原文匹配。我曾经给负责人提过接点大模型或者语义相似度匹配，但是似乎没有后话。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-使用技巧">2. 使用技巧<a href="https://soft-where-21.github.io/blog/school-life-ihome-guide#2-%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7" class="hash-link" aria-label="Direct link to 2. 使用技巧" title="Direct link to 2. 使用技巧" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="21-引经据典型">2.1 引经据典型<a href="https://soft-where-21.github.io/blog/school-life-ihome-guide#21-%E5%BC%95%E7%BB%8F%E6%8D%AE%E5%85%B8%E5%9E%8B" class="hash-link" aria-label="Direct link to 2.1 引经据典型" title="Direct link to 2.1 引经据典型" translate="no">​</a></h3>
+<p>“以彼之矛，攻彼之盾”，“用魔法打败魔法”。</p>
+<p>引用学校、工信部（教育部）及更高层面官方发言作为依据。</p>
+<p>比如党代会报告，以下是关于新北区家属在宿舍楼前制造噪声相关的一条诉求：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">学院路北区公寓楼下存在家属带小孩游玩制造大量噪声，严重影响同学（尤其是低层同学）学习休息；部分小孩在宿舍楼前骑自行车，存在安全隐患，这也是明确禁止的。</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">对此，我提出以下诉求：</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">1.评估小孩是否有必要进入校园必要，特别是宿舍区、教学区、科研区等；</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">2.加强监管，严禁在宿舍楼前大声喧哗，严禁使用自行车，滑板等快速移动设备，对违反人员采取包括但不限于口头警告、驱逐出校等处罚措施；</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">北航第十七次党代会报告指出，要实施幸福北航工程，坚持以人民为中心的发展思想，全面提升服务保障品质，营造和谐美丽的宜学宜居生态。家属区小孩在宿舍区肆意奔跑呼喊，严重影响了同学们的休息生活，纵容此行为与党代会精神违背，请有关部</span><br></span></code></pre></div></div>
+<p>这是一条关于增加羽毛球场的诉求：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">学院路校区亟待增加羽毛球场，目前主馆副馆仅18个场地，且如羽毛球、气排球、匹克球等体育课均占用羽毛球馆场地，此外还有院/校甚至附中羽毛球队训练占用羽毛球场馆，排球队亦占用羽毛球场，虽难以避免但也让本就不富裕的羽毛球场雪上加霜。</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">横向对比，北京部分高校（如清华）除体育馆外会开放额外的室内场地，为学生提供丰富的体育锻炼机会。</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">去年召开的北京航空航天大学第十七届党代会指出，今后五年主要任务之一就是“健全与一流大学建设目标相适应的治理体系，打造一流大学文化”，“坚持师生为本”，羽毛球运动对师生身心健康发展大有裨益，提供充足的羽毛球场地实为必由之路。</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">对此我诉求：新/扩建球馆如主馆看台，延长时间等。</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="22-旁征博引">2.2 旁征博引<a href="https://soft-where-21.github.io/blog/school-life-ihome-guide#22-%E6%97%81%E5%BE%81%E5%8D%9A%E5%BC%95" class="hash-link" aria-label="Direct link to 2.2 旁征博引" title="Direct link to 2.2 旁征博引" translate="no">​</a></h3>
+<p>北航是一所高校，同样中国有很多高校，其他高校优秀的治理经验可供北航学习，因此在提诉求时，可以举例其他学校优秀的管理方式。</p>
+<p>例如，我曾针对网络计费提出以下诉求：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">增加校园网免费额度！</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">据调查，清华大学、同济大学校园网免费，中国人民大学校园网每月免费100G，如此看来我校每月30G的额度相形见绌。</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">日常学习生活、科研交流对流量有很大需求，特别是没有工位免费网的本科生，随便一个模型的下载就要几个G的流量。超出部分0.25元/G的费用极大限制了科研学习的正常进行。</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">对此我诉求：校园网免费，或者提高到人大同等标准，每月免费100G流量。</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="23-风险规避">2.3 风险规避<a href="https://soft-where-21.github.io/blog/school-life-ihome-guide#23-%E9%A3%8E%E9%99%A9%E8%A7%84%E9%81%BF" class="hash-link" aria-label="Direct link to 2.3 风险规避" title="Direct link to 2.3 风险规避" translate="no">​</a></h3>
+<p>ihome 一贯作风喜欢给学生打电话、找导员/学院书记，如果感到困扰，可以直接在诉求中明确要求不要打电话/不要找辅导员等。不过你发的每一条 ihome 都会推送至学院分管学生工作的副书记，所以发之前也可以多掂量一下。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-案例展示">3. 案例展示<a href="https://soft-where-21.github.io/blog/school-life-ihome-guide#3-%E6%A1%88%E4%BE%8B%E5%B1%95%E7%A4%BA" class="hash-link" aria-label="Direct link to 3. 案例展示" title="Direct link to 3. 案例展示" translate="no">​</a></h2>
+<p>由于本人登陆不上账号，目前仅一个案例有原文。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="31-校园网资费">3.1 校园网资费<a href="https://soft-where-21.github.io/blog/school-life-ihome-guide#31-%E6%A0%A1%E5%9B%AD%E7%BD%91%E8%B5%84%E8%B4%B9" class="hash-link" aria-label="Direct link to 3.1 校园网资费" title="Direct link to 3.1 校园网资费" translate="no">​</a></h3>
+<p>30G 流量不够用，我提出要修改计费规则相关诉求，以下为诉求原文及答复：</p>
+<p><img decoding="async" loading="lazy" alt="校园网资费诉求原文及答复" src="https://soft-where-21.github.io/assets/images/3.1.1-199765a5be83566d08eb16a40dba06c8.jpg" width="1080" height="1284" class="img_ev3q"></p>
+<p>然后送了全校学生 30G 流量：</p>
+<p><img decoding="async" loading="lazy" alt="校园网赠送 30G 流量通知" src="https://soft-where-21.github.io/assets/images/3.1.2-68f0c7509a487da8b4c871ed65f9e17e.jpg" width="1954" height="402" class="img_ev3q"></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="32-学院路游泳馆设施">3.2 学院路游泳馆设施<a href="https://soft-where-21.github.io/blog/school-life-ihome-guide#32-%E5%AD%A6%E9%99%A2%E8%B7%AF%E6%B8%B8%E6%B3%B3%E9%A6%86%E8%AE%BE%E6%96%BD" class="hash-link" aria-label="Direct link to 3.2 学院路游泳馆设施" title="Direct link to 3.2 学院路游泳馆设施" translate="no">​</a></h3>
+<p>在我某次前往游泳馆游泳时，发现馆内部分柜子缺少挡板，导致鞋子与衣服无法分区放置，且柜子存在严重异味，公共吹风机仅 2 个可用，因此我发布了一条诉求反馈此事。</p>
+<p>结果是第二天电话告知我已经在采购新的设备，并将逐步更换，其中吹风机之前就购买了新的，但没有投入使用，打电话时已更新（确实我第三天去的时候已经是新的、数量充足的吹风机了）。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="33-插座报修">3.3 插座报修<a href="https://soft-where-21.github.io/blog/school-life-ihome-guide#33-%E6%8F%92%E5%BA%A7%E6%8A%A5%E4%BF%AE" class="hash-link" aria-label="Direct link to 3.3 插座报修" title="Direct link to 3.3 插座报修" translate="no">​</a></h3>
+<p>我曾经在教室上课时，课前发现旁边插座没电，所以发了一条 ihome 反映此事。大概 9:15 发布的诉求，9:40 左右就到了，课前就修好了，效率非常之高。</p>
+<p>但其实这是一个反面教材，这种事情使用“随手拍”更方便，发 ihome 有点浪费资源，不过这也是我当时不熟悉北航各个问题反馈渠道导致的。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-有趣的历史">4. 有趣的历史<a href="https://soft-where-21.github.io/blog/school-life-ihome-guide#4-%E6%9C%89%E8%B6%A3%E7%9A%84%E5%8E%86%E5%8F%B2" class="hash-link" aria-label="Direct link to 4. 有趣的历史" title="Direct link to 4. 有趣的历史" translate="no">​</a></h2>
+<p>本人是 21 年入学的，更早的 ihome 尚未见过，但是 23 年大改革之前是可以自由评论的，并且之前发布诉求，如果学生不满意处理结果，就会反馈至更高一级的管理层，但此制度显然现在是没有了。</p>
+<p>23 年改革后变成先审后发就已经名存实亡了，25 年不知道什么时候又改了，更是只能查看最近 20 条内容，已经懒得喷了。</p>
+<p>这里附上一个知乎问题<a href="https://www.zhihu.com/question/2014752300523091877/answer/2014752957124601339" target="_blank" rel="noopener noreferrer" class="">链接</a>，当然这个也是我的提问，还有很多热心同学补充了他们眼中的 ihome。</p>
+<p>以下是一些珍贵历史图像（上文的知乎链接中有更丰富的内容）：</p>
+<p><img decoding="async" loading="lazy" alt="ihome 历史截图" src="https://soft-where-21.github.io/assets/images/4.1-f126f23db205a14e2753fafe301b05b8.jpg" width="1080" height="5579" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-不要想多了">5. 不要想多了<a href="https://soft-where-21.github.io/blog/school-life-ihome-guide#5-%E4%B8%8D%E8%A6%81%E6%83%B3%E5%A4%9A%E4%BA%86" class="hash-link" aria-label="Direct link to 5. 不要想多了" title="Direct link to 5. 不要想多了" translate="no">​</a></h2>
+<p>ihome 说到底还是一个诉求处理平台，只是接诉，但不一定办呀，提一些核心问题肯定不会解决的，比如研究生补助、新生奖学金等问题。</p>
+<p>我曾经以为与学校核心利益无关的小事都能很好的解决，但是我也见证了关于学院路操场东南侧、东北侧小门开放的坎坷，曾经 ihome 各位同学发了几十条诉求（仅仅是通过审核放出来的数目），但是仍拖了很长时间没有解决，答复十分人机感觉答非所问。更让人气愤的是最近大运村宿舍装修问题，在学生还在宿舍居住的情况下大面积刷漆，异味严重，经测量甲醛超标，但学校声称符合安全标准并继续施工，ihome 上多条诉求均无事发生，下面是一个例子（注意时间）：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">2026/7/27</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">: @总务部 关于大运村某公寓楼道墙面粉刷事宜，目前因施工后空气流通不畅，室内异味较为明显。据同学自行使用甲醛检测试剂盒初测，结果显示甲醛浓度已超出参考限值。</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">考虑到暑期仍有部分同学留宿，健康安全不容忽视。恳请学校予以重视，协调具备CMA资质的专业检测机构，对楼道及宿舍室内空气质量进行规范检测；同时，结合实际情况，制定并落实切实有效的通风换气措施，切实保障留宿同学的身体健康。感谢学校的关注与支持！ (2026-07-22)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">==========</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">总务部: 同学你好，你的诉求已收悉并与你电话沟通，因粉刷施工给你带来的不便敬请谅解，感谢你对物业工作的理解和支持。 (2026-07-27)</span><br></span></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-写在最后">6. 写在最后<a href="https://soft-where-21.github.io/blog/school-life-ihome-guide#6-%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E" class="hash-link" aria-label="Direct link to 6. 写在最后" title="Direct link to 6. 写在最后" translate="no">​</a></h2>
+<blockquote>
+<p>权利不是施舍来的，而是斗争来的。通过此平台斗争相比于罢课和游行已经是很温和的手段了。</p>
+</blockquote>
+<p>好歹也是在北航生活了五年，但是严格意义上在这里的第三年才开始使用 ihome，为我争取权利提供了一定帮助。我也根据我和身边同学的使用情况，写了很详细的建议反馈，并且和相关负责人进行了线下面谈，不过目前看来可能并没有落实。</p>
+<p>希望 ihome 能越来越好，真正起到“接诉即办”的作用，也希望同学们能善于使用。</p>]]></content:encoded>
+            <category>学校生活分享</category>
+        </item>
         <item>
             <title><![CDATA[上岸南京大学软件学院专硕复试第一经验贴]]></title>
             <link>https://soft-where-21.github.io/blog/postgraduate-entrance-experience-zhao-shijin</link>
