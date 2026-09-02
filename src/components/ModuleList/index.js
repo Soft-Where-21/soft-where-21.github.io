@@ -75,15 +75,21 @@ const modules = [
     "isCategory": true,
     "items": [
       {
-        "title": "2021级",
-        "description": "软件学院2021年学生综合素质测评方案",
-        "link": "/docs/comprehensive-assessment/2021",
+        "title": "2023级",
+        "description": "软件学院2023年学生综合素质测评方案",
+        "link": "/docs/comprehensive-assessment/2023",
         "isCategory": false
       },
       {
         "title": "2022级",
         "description": "软件学院2022年学生综合素质测评方案",
         "link": "/docs/comprehensive-assessment/2022",
+        "isCategory": false
+      },
+      {
+        "title": "2021级",
+        "description": "软件学院2021年学生综合素质测评方案",
+        "link": "/docs/comprehensive-assessment/2021",
         "isCategory": false
       }
     ]

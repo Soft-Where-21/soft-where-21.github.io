@@ -93,7 +93,7 @@ function FieldControl({field, item, grade, onChange}) {
 }
 
 export default function ComprehensiveTool() {
-  const [grade, setGrade] = useState('21');
+  const [grade, setGrade] = useState('23');
   const [activeCategoryId, setActiveCategoryId] = useState('technology');
   const [itemsByGrade, setItemsByGrade] = useState(() =>
     emptyGradeState(() => [])
@@ -190,6 +190,7 @@ export default function ComprehensiveTool() {
   const currentBaseGpa = baseGpaByGrade[grade] ?? '';
   const currentCategory = CATEGORY_BY_ID[activeCategoryId];
   const gradeRule = GRADE_OPTIONS.find((option) => option.value === grade);
+  const weightedDigits = grade === '23' ? 5 : 4;
   const addableRules = getItemRulesForCategory(activeCategoryId);
   const calculation = useMemo(
     () => calculateComprehensive(currentItems, grade, currentBaseGpa),
@@ -426,7 +427,9 @@ export default function ComprehensiveTool() {
                       </div>
                       <div>
                         <span>折合 GPA</span>
-                        <strong>{formatNumber(entry.weightedScore)}</strong>
+                        <strong>
+                          {formatNumber(entry.weightedScore, weightedDigits)}
+                        </strong>
                       </div>
                       <div className={styles.itemStatus}>
                         <span>{status}</span>
@@ -515,7 +518,9 @@ export default function ComprehensiveTool() {
                     <strong>{formatNumber(summary.cappedScore)}</strong>
                   </span>
                   <code>× {category.weight}</code>
-                  <strong>{formatNumber(summary.weightedScore)}</strong>
+                  <strong>
+                    {formatNumber(summary.weightedScore, weightedDigits)}
+                  </strong>
                 </div>
               );
             })}
@@ -523,7 +528,9 @@ export default function ComprehensiveTool() {
 
           <div className={styles.formula}>
             <span>综合素质量化加分</span>
-            <strong>+ {formatNumber(calculation.weightedAddition)}</strong>
+            <strong>
+              + {formatNumber(calculation.weightedAddition, weightedDigits)}
+            </strong>
           </div>
 
           <div className={styles.finalScore}>
@@ -531,13 +538,14 @@ export default function ComprehensiveTool() {
             <strong>
               {calculation.finalScore == null
                 ? '-'
-                : formatNumber(calculation.finalScore)}
+                : formatNumber(calculation.finalScore, weightedDigits)}
             </strong>
             <small>
               {calculation.finalScore == null
                 ? '填写平均学分绩点后显示'
                 : `${formatNumber(calculation.baseGpa)} + ${formatNumber(
-                    calculation.weightedAddition
+                    calculation.weightedAddition,
+                    weightedDigits
                   )}`}
             </small>
           </div>

@@ -1,13 +1,18 @@
 export const GRADE_OPTIONS = [
   {
-    value: '21',
-    label: '2021 级',
-    pdfUrl: '/file/综测方案-2021.pdf',
+    value: '23',
+    label: '2023 级',
+    pdfUrl: '/file/综测方案-2023.pdf',
   },
   {
     value: '22',
     label: '2022 级',
     pdfUrl: '/file/综测方案-2022.pdf',
+  },
+  {
+    value: '21',
+    label: '2021 级',
+    pdfUrl: '/file/综测方案-2021.pdf',
   },
 ];
 
@@ -63,7 +68,7 @@ const AUTHOR_OPTIONS = [
   {value: '3', label: '第三作者'},
 ];
 
-const FENGRU_TRACKS = [
+const LEGACY_FENGRU_TRACKS = [
   {value: 'main', label: '主赛道制作组 / 论文组'},
   {value: 'philosophy', label: '主赛道哲社组'},
   {value: 'red', label: '红旅赛道'},
@@ -71,6 +76,24 @@ const FENGRU_TRACKS = [
   {value: 'creative', label: '学生创意赛道'},
   {value: 'valid', label: '有效项目但未获奖'},
 ];
+
+const GRADE_23_FENGRU_TRACKS = [
+  {value: 'main', label: '主赛道制作组 / 论文组'},
+  {value: 'philosophy', label: '主赛道哲社组'},
+  {value: 'red', label: '红旅赛道'},
+  {value: 'discipline-agent', label: '“学科智能体”专项竞赛'},
+  {
+    value: 'industry-special',
+    label: '产业赛道 / 其他主赛道专项竞赛',
+  },
+  {value: 'innovation-cup', label: '主赛道创新杯专项竞赛（不额外加分）'},
+  {value: 'creative', label: '学生创意赛道'},
+  {value: 'valid', label: '有效项目但未获奖'},
+];
+
+function fengruTracksForGrade(grade) {
+  return grade === '23' ? GRADE_23_FENGRU_TRACKS : LEGACY_FENGRU_TRACKS;
+}
 
 const FENGRU_AWARDS = {
   main: [
@@ -88,11 +111,22 @@ const FENGRU_AWARDS = {
     {value: '2', label: '银奖'},
     {value: '3', label: '铜奖'},
   ],
+  'discipline-agent': [
+    {value: '1', label: '金奖'},
+    {value: '2', label: '银奖'},
+    {value: '3', label: '铜奖'},
+  ],
   industry: [
     {value: '1', label: '一等奖'},
     {value: '2', label: '二等奖'},
     {value: '3', label: '三等奖'},
   ],
+  'industry-special': [
+    {value: '1', label: '一等奖'},
+    {value: '2', label: '二等奖'},
+    {value: '3', label: '三等奖'},
+  ],
+  'innovation-cup': [{value: 'not-counted', label: '不单独计分'}],
   creative: [
     {value: '0', label: '特等奖'},
     {value: '1', label: '一等奖'},
@@ -277,6 +311,135 @@ const TECHNOLOGY_COMPETITIONS = {
       scoreClass: 'C',
     },
   ],
+  '23': [
+    {
+      value: 'innovation-national',
+      label: '中国国际大学生创新大赛（国家级）',
+      scoreClass: 'A',
+    },
+    {
+      value: 'challenge-academic-national',
+      label: '“挑战杯”全国大学生课外学术科技作品竞赛',
+      scoreClass: 'A',
+    },
+    {
+      value: 'challenge-business-national',
+      label: '“挑战杯”中国大学生创业计划大赛',
+      scoreClass: 'A',
+    },
+    {
+      value: 'asc-champion',
+      label: 'ASC 世界大学生超级计算机竞赛（国际级，冠亚季军）',
+      scoreClass: 'B',
+    },
+    {
+      value: 'huawei-ict-international',
+      label: '华为 ICT 大赛（国际级）',
+      scoreClass: 'B',
+    },
+    {
+      value: 'robot-contest-international',
+      label: '全国大学生机器人大赛（国际级）',
+      scoreClass: 'B',
+    },
+    {
+      value: 'china-us-maker-final',
+      label: '中美青年创客大赛（总决赛）',
+      scoreClass: 'B',
+    },
+    {
+      value: 'career-planning-national',
+      label: '全国大学生职业规划大赛（国家级）',
+      scoreClass: 'B',
+    },
+    {
+      value: 'software-innovation',
+      label: '全国大学生软件创新大赛（国家级）',
+      scoreClass: 'B',
+    },
+    {
+      value: 'innovation-beijing',
+      label: '中国国际大学生创新大赛（北京赛区）',
+      scoreClass: 'B',
+    },
+    {
+      value: 'capital-challenge-academic',
+      label: '“青创北京”“挑战杯”首都大学生课外学术科技作品竞赛',
+      scoreClass: 'B',
+    },
+    {
+      value: 'capital-challenge-business',
+      label: '“青创北京”“挑战杯”首都大学生创业计划竞赛',
+      scoreClass: 'B',
+    },
+    {
+      value: 'asc-award',
+      label: 'ASC 世界大学生超级计算机竞赛（国际级，一二三等奖）',
+      scoreClass: 'C',
+    },
+    {value: 'software-cup', label: '中国软件杯（国家级）', scoreClass: 'C'},
+    {
+      value: 'information-security',
+      label: '全国大学生信息安全竞赛（国家级）',
+      scoreClass: 'C',
+    },
+    {
+      value: 'college-computer',
+      label: '中国高校计算机大赛（国家级）',
+      scoreClass: 'C',
+    },
+    {
+      value: 'computer-design',
+      label: '全国大学生计算机设计大赛（国家级）',
+      scoreClass: 'C',
+    },
+    {value: 'openatom', label: '开放原子大赛（国家级）', scoreClass: 'C'},
+    {
+      value: 'huawei-ict-national',
+      label: '华为 ICT 大赛（国家级）',
+      scoreClass: 'C',
+    },
+    {
+      value: 'embedded-chip',
+      label: '全国大学生嵌入式芯片与系统设计竞赛',
+      scoreClass: 'C',
+    },
+    {
+      value: 'robot-ai',
+      label: '中国机器人及人工智能大赛（国家级）',
+      scoreClass: 'C',
+    },
+    {
+      value: 'robot-contest-national',
+      label: '全国大学生机器人大赛（国家级）',
+      scoreClass: 'C',
+    },
+    {
+      value: 'ican',
+      label: 'iCAN 大学生创新创业大赛（国家级）',
+      scoreClass: 'C',
+    },
+    {
+      value: 'china-us-maker-regional',
+      label: '中美青年创客大赛（分赛区）',
+      scoreClass: 'C',
+    },
+    {
+      value: 'new-domain',
+      label: '新域新质创新大赛（国家级）',
+      scoreClass: 'C',
+    },
+    {
+      value: 'jingcai',
+      label: '“京彩大创”北京大学生创新创业大赛',
+      scoreClass: 'C',
+    },
+    {
+      value: 'career-planning-provincial',
+      label: '全国大学生职业规划大赛（省部级）',
+      scoreClass: 'C',
+    },
+  ],
 };
 
 const TECHNOLOGY_RANK_OPTIONS = [
@@ -296,7 +459,7 @@ const INNOVATION_OUTCOMES = {
     {value: 'excellent', label: '优秀'},
     {value: 'good', label: '良好'},
   ],
-  national22: [
+  nationalWithAnnualMeeting: [
     {value: 'annual', label: '入围年会'},
     {value: 'excellent', label: '优秀'},
     {value: 'good', label: '良好'},
@@ -372,6 +535,32 @@ const DISCIPLINE_COMPETITIONS = {
     {value: 'systems', label: '全国大学生计算机系统能力大赛（华为毕昇杯）'},
     {value: 'zhongwang', label: '“中望杯”工业软件大赛'},
   ],
+  '23': [
+    {value: 'math', label: '全国大学生数学竞赛（非数学类）'},
+    {value: 'modeling', label: '全国大学生数学建模竞赛'},
+    {value: 'mcm', label: '国际大学生数学建模竞赛（美赛）'},
+    {value: 'statistics-modeling', label: '全国大学生统计建模大赛'},
+    {
+      value: 'physics',
+      label: '全国部分地区大学生物理竞赛（非物理类 A 组）',
+    },
+    {value: 'zhou-peiyuan', label: '全国周培源大学生力学竞赛'},
+    {value: 'buaa-physics', label: '北航物理竞赛'},
+    {value: 'english', label: '全国大学生英语竞赛'},
+    {value: 'fltrp', label: '“外研社·国才杯”全国大学生英语挑战赛'},
+    {value: '21st-century', label: '“21 世纪杯”全国英语演讲比赛'},
+    {
+      value: 'sflep-cross-cultural',
+      label: '“外教社杯”全国高校学生跨文化能力大赛',
+    },
+    {
+      value: 'sflep-words',
+      label: '“外教社·词达人杯”全国大学生英语词汇能力大赛',
+    },
+    {value: 'systems', label: '全国大学生计算机系统能力大赛'},
+    {value: 'matiji', label: '“码蹄杯”全国大学生程序设计大赛'},
+    {value: 'baidu-star', label: '百度之星程序设计大赛'},
+  ],
 };
 
 const DISCIPLINE_LEVEL_OPTIONS = [
@@ -405,7 +594,7 @@ const MCM_SCORES = {
   meritorious: 0.0348,
 };
 
-const SERVICE_POSITION_OPTIONS = [
+const LEGACY_SERVICE_POSITION_OPTIONS = [
   {
     value: 'a',
     label: 'A 类岗位：执行主席团成员 / 学院宣媒中心部长',
@@ -428,6 +617,35 @@ const SERVICE_POSITION_OPTIONS = [
   },
 ];
 
+const GRADE_23_SERVICE_POSITION_OPTIONS = [
+  {
+    value: 'a',
+    label: 'A 类岗位：执行主席团 / 分团委副书记 / 学院宣媒中心部长',
+    score: 0.0348,
+  },
+  {
+    value: 'b',
+    label: 'B 类岗位：各部部长 / 五星社团社长 / 大班长 / 党支部书记等',
+    score: 0.0261,
+  },
+  {
+    value: 'c',
+    label: 'C 类岗位：副部长 / 四星社团社长 / 班委 / 党支部支委等',
+    score: 0.0174,
+  },
+  {
+    value: 'd',
+    label: 'D 类岗位：三星社团社长 / 部门干事 / 小班班委等',
+    score: 0.0087,
+  },
+];
+
+function servicePositionOptionsForGrade(grade) {
+  return grade === '23'
+    ? GRADE_23_SERVICE_POSITION_OPTIONS
+    : LEGACY_SERVICE_POSITION_OPTIONS;
+}
+
 const SERVICE_RATING_OPTIONS = [
   {value: 'outstanding', label: '表现突出', factor: 2},
   {value: 'excellent', label: '优秀', factor: 1.5},
@@ -441,7 +659,7 @@ const HONOR_LEVEL_OPTIONS = [
   {value: 'school', label: '校级'},
 ];
 
-const HONOR_OPTIONS = [
+const LEGACY_HONOR_OPTIONS = [
   {value: 'three-good', label: '三好学生', city: 0.0261, school: 0.0087},
   {value: 'zhuhang', label: '助航之星', city: null, school: 0.0087},
   {value: 'student-leader', label: '优秀学生干部', city: 0.0464, school: 0.0116},
@@ -452,22 +670,77 @@ const HONOR_OPTIONS = [
   {value: 'volunteer', label: '十佳志愿者', city: 0.0464, school: 0.0232},
 ];
 
+const GRADE_23_HONOR_OPTIONS = [
+  {
+    value: 'excellent-party-member',
+    label: '优秀共产党员',
+    city: 0.0928,
+    school: 0.0464,
+  },
+  {
+    value: 'excellent-party-worker',
+    label: '优秀党务工作者',
+    city: 0.0928,
+    school: 0.0464,
+  },
+  {value: 'annual-person', label: '大学生年度人物', city: 0.0928, school: 0.0464},
+  {value: 'shen-yuan', label: '沈元奖章', city: null, school: 0.0464},
+  {value: 'buaa-role-model', label: '北航榜样', city: null, school: 0.0464},
+  {value: 'may-fourth', label: '五四奖章', city: 0.0928, school: 0.0464},
+  {value: 'three-good', label: '三好学生', city: 0.0261, school: 0.0087},
+  {value: 'student-leader', label: '优秀学生干部', city: 0.0464, school: 0.0116},
+  {value: 'league-leader', label: '优秀团干部', city: 0.0464, school: 0.0116},
+  {value: 'league-member', label: '优秀团员', city: 0.0348, school: 0.0087},
+  {value: 'volunteer', label: '十佳志愿者', city: 0.0464, school: 0.0232},
+];
+
+function honorOptionsForGrade(grade) {
+  return grade === '23' ? GRADE_23_HONOR_OPTIONS : LEGACY_HONOR_OPTIONS;
+}
+
 const SPORTS_LEVEL_OPTIONS = [
   {value: 'city', label: '市级（含市级以上）'},
   {value: 'school', label: '校级'},
 ];
 
-const SPORTS_PLACEMENT_OPTIONS = [
+const LEGACY_SPORTS_PLACEMENT_OPTIONS = [
   {value: 'first', label: '第一名'},
   {value: 'second', label: '第二名'},
   {value: 'third', label: '第三名'},
   {value: 'four-eight', label: '第四至第八名'},
 ];
 
+const GRADE_23_SPORTS_PLACEMENT_OPTIONS = [
+  ...LEGACY_SPORTS_PLACEMENT_OPTIONS,
+  {value: 'completed', label: '报名参与并顺利完赛'},
+];
+
 const SPORTS_SCORES = {
-  city: {first: 0.1392, second: 0.1044, third: 0.0696, 'four-eight': 0.0348},
-  school: {first: 0.0696, second: 0.0522, third: 0.0348, 'four-eight': 0.0174},
+  city: {
+    first: 0.1392,
+    second: 0.1044,
+    third: 0.0696,
+    'four-eight': 0.0348,
+    completed: 0.0174,
+  },
+  school: {
+    first: 0.0696,
+    second: 0.0522,
+    third: 0.0348,
+    'four-eight': 0.0174,
+    completed: 0.0087,
+  },
 };
+
+const LEGACY_SPORTS_PROJECT_TYPES = [
+  {value: 'standard', label: '学院代表队 / 田径项目', factor: 1},
+  {value: 'mass', label: '定向越野 / 毽绳 / 棋类 / 游泳等', factor: 0.8},
+];
+
+const GRADE_23_SPORTS_PROJECT_TYPES = [
+  {value: 'standard', label: '校院代表队 / 田径项目', factor: 1},
+  {value: 'mass', label: '群众体育 / 院级球类项目', factor: 0.8},
+];
 
 const ART_AWARD_OPTIONS = [
   {value: 'first', label: '一等奖'},
@@ -551,10 +824,11 @@ const ITEM_RULES = {
     categoryId: 'technology',
     label: '冯如杯',
     fields: [
-      selectField('track', '赛道', FENGRU_TRACKS),
+      selectField('track', '赛道', (_values, grade) => fengruTracksForGrade(grade)),
       selectField('award', '奖项', (values) => FENGRU_AWARDS[values.track] || []),
       selectField('author', '作者顺序', AUTHOR_OPTIONS, {
-        visible: (values) => !['creative', 'valid'].includes(values.track),
+        visible: (values) =>
+          !['creative', 'valid', 'innovation-cup'].includes(values.track),
       }),
       selectField('academicYear', '获奖学年', ACADEMIC_YEAR_OPTIONS),
       commonAchievementField,
@@ -566,11 +840,20 @@ const ITEM_RULES = {
       let factor = 1;
       if (track === 'valid') {
         baseScore = 0.0025;
+      } else if (track === 'innovation-cup') {
+        baseScore = 0;
       } else if (track === 'creative') {
         const awardIndex = Number(values.award);
         baseScore = FENGRU_SCORES.creative[awardIndex] || 0;
       } else {
-        const scoreTrack = track === 'philosophy' ? 'main' : track;
+        const scoreTrack =
+          track === 'philosophy'
+            ? 'main'
+            : track === 'discipline-agent'
+              ? 'red'
+              : track === 'industry-special'
+                ? 'industry'
+                : track;
         const awardIndex = Math.max(0, Number(values.award) - 1);
         baseScore = FENGRU_SCORES[scoreTrack]?.[awardIndex]?.[authorIndex] || 0;
         if (track === 'philosophy') factor = 0.5;
@@ -590,6 +873,10 @@ const ITEM_RULES = {
           `fengru-year:${values.academicYear}`,
           achievementKey,
         ].filter(Boolean),
+        warnings:
+          track === 'innovation-cup'
+            ? ['创新杯专项本身不额外加分；获主赛道奖项时请按主赛道申报。']
+            : [],
       });
     },
   },
@@ -648,9 +935,9 @@ const ITEM_RULES = {
       selectField('level', '项目级别', INNOVATION_LEVEL_OPTIONS),
       selectField('outcome', '结题结果', (values, grade) => {
         if (values.level === 'national') {
-          return grade === '22'
-            ? INNOVATION_OUTCOMES.national22
-            : INNOVATION_OUTCOMES.national21;
+          return grade === '21'
+            ? INNOVATION_OUTCOMES.national21
+            : INNOVATION_OUTCOMES.nationalWithAnnualMeeting;
         }
         return INNOVATION_OUTCOMES[values.level] || [];
       }),
@@ -706,13 +993,19 @@ const ITEM_RULES = {
       selectField(
         'authorship',
         '署名方式',
-        (_values, grade) => [
-          {value: 'first', label: '第一作者'},
-          {value: 'second', label: '第二作者（第一作者为软件学院教师）'},
-          ...(grade === '22'
-            ? [{value: 'cofirst', label: '共同一作'}]
-            : []),
-        ]
+        (_values, grade) =>
+          grade === '23'
+            ? [
+                {value: 'first', label: '第一学生作者（非共同一作）'},
+                {value: 'cofirst', label: '共同一作'},
+              ]
+            : [
+                {value: 'first', label: '第一作者'},
+                {value: 'second', label: '第二作者（第一作者为软件学院教师）'},
+                ...(grade === '22'
+                  ? [{value: 'cofirst', label: '共同一作'}]
+                  : []),
+              ]
       ),
       numberField('coauthorCount', '共同一作人数', '人数', {
         min: 1,
@@ -729,7 +1022,7 @@ const ITEM_RULES = {
       const factor = values.authorship === 'cofirst' ? 1 / coauthorCount : 1;
       const paperKey = cleanKey(values.paperName);
       const dedupeKeys = paperKey ? [`paper:${paperKey}`] : [];
-      if (grade === '22' && values.authorship === 'cofirst') {
+      if (grade !== '21' && values.authorship === 'cofirst') {
         dedupeKeys.push('paper-cofirst');
       }
       return result({
@@ -804,13 +1097,18 @@ const ITEM_RULES = {
     categoryId: 'service',
     label: '社会工作岗位',
     fields: [
-      selectField('position', '岗位', SERVICE_POSITION_OPTIONS),
+      selectField('position', '岗位', (_values, grade) =>
+        servicePositionOptionsForGrade(grade)
+      ),
       textField('positionName', '具体岗位', '用于区分同一学期的不同岗位'),
       selectField('rating', '考评等级', SERVICE_RATING_OPTIONS),
       selectField('semester', '任职学期', SEMESTER_OPTIONS),
     ],
     evaluate(values, grade, rule) {
-      const position = optionByValue(SERVICE_POSITION_OPTIONS, values.position);
+      const position = optionByValue(
+        servicePositionOptionsForGrade(grade),
+        values.position
+      );
       const rating = optionByValue(SERVICE_RATING_OPTIONS, values.rating);
       const semesterLabel = optionLabel(rule, 'semester', values, grade);
       const key = `service-semester:${values.semester}`;
@@ -874,13 +1172,15 @@ const ITEM_RULES = {
       selectField(
         'honor',
         '荣誉称号',
-        (values) =>
-          HONOR_OPTIONS.filter((honor) => honor[values.level] != null)
+        (values, grade) =>
+          honorOptionsForGrade(grade).filter(
+            (honor) => honor[values.level] != null
+          )
       ),
       selectField('academicYear', '获奖学年', ACADEMIC_YEAR_OPTIONS),
     ],
     evaluate(values, grade, rule) {
-      const honor = optionByValue(HONOR_OPTIONS, values.honor);
+      const honor = optionByValue(honorOptionsForGrade(grade), values.honor);
       const constraints =
         values.level === 'school'
           ? [
@@ -949,14 +1249,38 @@ const ITEM_RULES = {
     categoryId: 'service',
     label: '社会实践',
     fields: [
-      selectField('achievementType', '认定类型', [
-        {value: 'individual', label: '校级及以上先进个人 / 先进工作者', score: 0.0116},
-        {
-          value: 'team',
-          label: '校级及以上优秀实践队主要材料准备者 / 答辩者',
-          score: 0.0086,
-        },
-      ]),
+      selectField('achievementType', '认定类型', (_values, grade) =>
+        grade === '23'
+          ? [
+              {
+                value: 'individual',
+                label: '校级及以上社会实践先进个人 / 先进工作者',
+                score: 0.0232,
+              },
+              {
+                value: 'team-school',
+                label: '校级及以上优秀实践队主要材料准备者 / 答辩者',
+                score: 0.0116,
+              },
+              {
+                value: 'team-college',
+                label: '院级优秀实践队主要材料准备者 / 答辩者',
+                score: 0.0086,
+              },
+            ]
+          : [
+              {
+                value: 'individual',
+                label: '校级及以上先进个人 / 先进工作者',
+                score: 0.0116,
+              },
+              {
+                value: 'team',
+                label: '校级及以上优秀实践队主要材料准备者 / 答辩者',
+                score: 0.0086,
+              },
+            ]
+      ),
       selectField('academicYear', '获奖学年', ACADEMIC_YEAR_OPTIONS),
       textField('projectName', '实践项目', '同一项目请填写完全相同的名称'),
     ],
@@ -984,11 +1308,16 @@ const ITEM_RULES = {
     label: '体育活动',
     fields: [
       selectField('level', '赛事级别', SPORTS_LEVEL_OPTIONS),
-      selectField('placement', '名次', SPORTS_PLACEMENT_OPTIONS),
-      selectField('projectType', '项目类别', [
-        {value: 'standard', label: '学院代表队 / 田径项目', factor: 1},
-        {value: 'mass', label: '定向越野 / 毽绳 / 棋类 / 游泳等', factor: 0.8},
-      ]),
+      selectField('placement', '名次', (_values, grade) =>
+        grade === '23'
+          ? GRADE_23_SPORTS_PLACEMENT_OPTIONS
+          : LEGACY_SPORTS_PLACEMENT_OPTIONS
+      ),
+      selectField('projectType', '项目类别', (_values, grade) =>
+        grade === '23'
+          ? GRADE_23_SPORTS_PROJECT_TYPES
+          : LEGACY_SPORTS_PROJECT_TYPES
+      ),
       selectField('form', '参赛形式', [
         {value: 'individual', label: '个人项目', factor: 1},
         {value: 'team', label: '集体项目', factor: 0.5},
