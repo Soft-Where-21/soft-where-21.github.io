@@ -1,0 +1,9 @@
+{
+  "label": "北航校历",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "slug": "/calendar",
+    "description": "查看不同学年的北航校历"
+  }
+}

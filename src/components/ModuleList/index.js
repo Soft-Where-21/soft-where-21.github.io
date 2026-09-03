@@ -12,9 +12,23 @@ const modules = [
   },
   {
     "title": "北航校历",
-    "description": "北航 2025-2026 校历",
+    "description": "查看不同学年的北航校历。",
     "link": "/docs/calendar",
-    "isCategory": false
+    "isCategory": true,
+    "items": [
+      {
+        "title": "2026-2027 学年",
+        "description": "北航 2026-2027 学年校历",
+        "link": "/docs/calendar/2026-2027",
+        "isCategory": false
+      },
+      {
+        "title": "2025-2026 学年",
+        "description": "北航 2025-2026 学年校历",
+        "link": "/docs/calendar/2025-2026",
+        "isCategory": false
+      }
+    ]
   },
   {
     "title": "贡献指南",
