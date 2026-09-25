@@ -194,6 +194,15 @@ export function SharePage() {
 
   const shares = Array.isArray(shareData?.shares) ? shareData.shares : [];
   const shareById = useMemo(() => new Map(shares.map((item) => [item.id, item])), [shares]);
+  const shareGroups = useMemo(() => {
+    const groups = new Map();
+    shares.forEach((item) => {
+      const year = item.date.slice(0, 4);
+      if (!groups.has(year)) groups.set(year, []);
+      groups.get(year).push(item);
+    });
+    return Array.from(groups, ([year, items]) => ({year, items}));
+  }, [shares]);
 
   const defaultId = shares[0]?.id || '';
   const [activeId, setActiveId] = useState(defaultId);
@@ -343,39 +352,56 @@ export function SharePage() {
       <div className={`shareMainLayout ${isSidebarCollapsed ? 'isSidebarCollapsed' : ''}`}>
         <aside className="shareSidebar" aria-label="分享场次列表">
           <div className="shareSidebarHeader">
-            <div className="shareSidebarTitle">分享场次</div>
+            <div className="shareSidebarHeading">
+              <div className="shareSidebarTitle">分享场次</div>
+              <span className="shareSidebarCount">{shares.length} 场</span>
+            </div>
             <button
               type="button"
-              className="button button--secondary button--sm shareSidebarToggle"
+              className="shareSidebarToggle"
               onClick={() => setIsSidebarCollapsed((value) => !value)}
               aria-expanded={!isSidebarCollapsed}
-              aria-label={isSidebarCollapsed ? '展开左侧标签栏' : '折叠左侧标签栏'}
+              aria-controls="share-session-list"
+              aria-label={isSidebarCollapsed ? '展开分享场次' : '折叠分享场次'}
+              title={isSidebarCollapsed ? '展开分享场次' : '折叠分享场次'}
             >
               <span className="shareSidebarToggleIcon" aria-hidden="true">
                 <UIIcon name={isSidebarCollapsed ? 'chevron-right' : 'chevron-left'} />
               </span>
-              <span className="shareSidebarToggleText">{isSidebarCollapsed ? '展开' : '折叠'}</span>
             </button>
           </div>
 
-          <div className={`shareTimelineWrap ${isSidebarCollapsed ? 'isCollapsed' : ''}`}>
-            <div className="shareTimeline">
-              {shares.map((item) => {
-                const isActive = item.id === activeId;
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => setActiveId(item.id)}
-                    className={`shareTimelineItem ${isActive ? 'isActive' : ''}`}
-                    aria-current={isActive ? 'true' : undefined}
-                    type="button"
-                  >
-                    <div className="shareItemLine">{item.date} [{item.tag}]</div>
-                    <div className="shareItemTitle">{item.title}</div>
-                  </button>
-                );
-              })}
-            </div>
+          <div className="shareTimelineWrap" id="share-session-list" hidden={isSidebarCollapsed}>
+            {shareGroups.map(({year, items}) => (
+              <section className="shareYearGroup" key={year} aria-labelledby={`share-year-${year}`}>
+                <h2 className="shareYearHeading" id={`share-year-${year}`}>
+                  <span className="shareYearLabel">{year}</span>
+                  <span className="shareYearCount">{items.length} 场</span>
+                </h2>
+                <div className="shareTimeline">
+                  {items.map((item) => {
+                    const isActive = item.id === activeId;
+                    return (
+                      <button
+                        key={item.id}
+                        onClick={() => setActiveId(item.id)}
+                        className={`shareTimelineItem ${isActive ? 'isActive' : ''}`}
+                        aria-current={isActive ? 'true' : undefined}
+                        type="button"
+                      >
+                        <span className="shareTimelineDot" aria-hidden="true" />
+                        <span className="shareItemMeta">
+                          <time className="shareItemDate" dateTime={item.date}>{item.date.slice(5).replace('-', '.')}</time>
+                          <span className="shareItemTag">{item.tag}</span>
+                        </span>
+                        <span className="shareItemTitle">{item.title}</span>
+                        <UIIcon name="chevron-right" className="shareItemArrow" />
+                      </button>
+                    );
+                  })}
+                </div>
+              </section>
+            ))}
           </div>
         </aside>
 
@@ -620,19 +646,25 @@ export function SharePage() {
           display:flex;
           gap:14px;
           align-items:start;
-          --share-sidebar-width:clamp(220px, 21vw, 292px);
+          --share-sidebar-width:clamp(260px, 23vw, 310px);
         }
         .shareSidebar{
+          --share-nav-accent:var(--ifm-color-primary);
+          --share-nav-active:color-mix(in srgb, var(--share-nav-accent) 9%, var(--ifm-card-background-color));
+          --share-nav-muted:var(--ifm-color-emphasis-700);
+          --share-nav-line:color-mix(in srgb, var(--share-nav-accent) 14%, var(--ifm-color-emphasis-200));
           position:sticky;
           top:calc(var(--ifm-navbar-height, 0px) + 14px);
           display:grid;
           grid-template-rows:auto minmax(0, 1fr);
-          gap:10px;
           max-height:calc(100vh - var(--ifm-navbar-height, 0px) - 22px);
+          max-height:calc(100dvh - var(--ifm-navbar-height, 0px) - 22px);
           overflow:hidden;
-          padding-right:2px;
           width:var(--share-sidebar-width);
           flex:0 0 var(--share-sidebar-width);
+          border:1px solid var(--ifm-color-emphasis-200);
+          border-radius:12px;
+          background:var(--ifm-card-background-color);
           transition:width .18s ease, flex-basis .18s ease;
         }
         .shareMainLayout.isSidebarCollapsed{--share-sidebar-width:56px;}
@@ -641,19 +673,50 @@ export function SharePage() {
           align-items:center;
           justify-content:space-between;
           gap:8px;
+          min-height:58px;
+          padding:12px 14px 12px 18px;
+          border-bottom:1px solid var(--ifm-color-emphasis-200);
+        }
+        .shareSidebarHeading{
+          display:flex;
+          align-items:center;
+          gap:9px;
+          min-width:0;
         }
         .shareSidebarTitle{
-          font-size:.86rem;
-          font-weight:650;
-          color:var(--ifm-color-emphasis-700);
+          font-size:.9rem;
+          font-weight:700;
+          letter-spacing:.04em;
+          white-space:nowrap;
+        }
+        .shareSidebarCount{
+          font-size:.73rem;
+          color:var(--share-nav-muted);
+          white-space:nowrap;
+          font-variant-numeric:tabular-nums;
         }
         .shareSidebarToggle{
-          min-width:56px;
-          padding:0 10px;
+          width:32px;
+          height:32px;
+          flex:0 0 32px;
+          padding:0;
           display:inline-flex;
           align-items:center;
           justify-content:center;
-          gap:6px;
+          border:1px solid transparent;
+          border-radius:8px;
+          background:transparent;
+          color:var(--share-nav-muted);
+          cursor:pointer;
+          transition:background .15s ease, color .15s ease;
+        }
+        .shareSidebarToggle:hover{
+          background:var(--ifm-color-emphasis-100);
+          color:var(--share-nav-accent);
+        }
+        .shareSidebarToggle:focus-visible{
+          outline:2px solid var(--share-nav-accent);
+          outline-offset:2px;
         }
         .shareSidebarToggleIcon{
           display:inline-flex;
@@ -661,48 +724,33 @@ export function SharePage() {
           justify-content:center;
           font-size:1.02rem;
         }
-        .shareSidebarToggleText{
-          font-size:.8rem;
-          letter-spacing:.02em;
-        }
-        .shareMainLayout.isSidebarCollapsed .shareSidebar{
-          gap:6px;
-        }
         .shareMainLayout.isSidebarCollapsed .shareSidebarHeader{
-          flex-direction:column;
+          flex-direction:column-reverse;
           align-items:center;
+          gap:14px;
+          padding:12px 8px 18px;
+          border-bottom:0;
         }
         .shareMainLayout.isSidebarCollapsed .shareSidebarTitle{
-          display:none;
+          writing-mode:vertical-rl;
+          letter-spacing:.18em;
+          font-size:.8rem;
+          color:var(--share-nav-muted);
         }
-        .shareMainLayout.isSidebarCollapsed .shareSidebarToggle{
-          min-width:34px;
-          width:34px;
-          height:34px;
-          padding:0;
-          border-radius:8px;
-          display:inline-flex;
-          align-items:center;
-          justify-content:center;
-          font-weight:700;
-          letter-spacing:0;
-          line-height:1;
-        }
-        .shareMainLayout.isSidebarCollapsed .shareSidebarToggleText{
+        .shareMainLayout.isSidebarCollapsed .shareSidebarCount{
           display:none;
         }
         .shareTimelineWrap{
-          display:grid;
-          grid-template-rows:1fr;
           min-height:0;
           overflow-y:auto;
           overscroll-behavior:contain;
           scrollbar-gutter:stable;
-          padding-right:4px;
-          opacity:1;
-          transition:grid-template-rows .18s ease, opacity .14s ease;
+          scrollbar-width:thin;
+          scrollbar-color:var(--ifm-color-emphasis-300) transparent;
+          padding:6px 6px 16px 12px;
         }
-        .shareTimelineWrap::-webkit-scrollbar{width:7px;}
+        .shareTimelineWrap[hidden]{display:none;}
+        .shareTimelineWrap::-webkit-scrollbar{width:6px;}
         .shareTimelineWrap::-webkit-scrollbar-track{background:transparent;}
         .shareTimelineWrap::-webkit-scrollbar-thumb{
           border-radius:999px;
@@ -711,40 +759,123 @@ export function SharePage() {
         .shareTimelineWrap::-webkit-scrollbar-thumb:hover{
           background:var(--ifm-color-emphasis-400);
         }
-        .shareTimelineWrap > .shareTimeline{min-height:0;}
-        .shareTimelineWrap.isCollapsed{
-          grid-template-rows:0fr;
-          opacity:0;
-          pointer-events:none;
+        .shareYearGroup + .shareYearGroup{margin-top:8px;}
+        .shareYearHeading{
+          display:flex;
+          align-items:center;
+          gap:9px;
+          margin:0;
+          padding:14px 8px 10px;
+          border:0;
+          line-height:1;
+        }
+        .shareYearLabel{
+          font-family:var(--ifm-font-family-monospace);
+          font-size:.87rem;
+          font-weight:700;
+          letter-spacing:.04em;
+        }
+        .shareYearCount{
+          color:var(--share-nav-muted);
+          font-size:.7rem;
+          font-weight:400;
         }
         .shareTimeline{
+          position:relative;
           display:grid;
-          gap:8px;
+          gap:4px;
           grid-template-columns:1fr;
+          padding-left:20px;
+        }
+        .shareTimeline::before{
+          content:'';
+          position:absolute;
+          left:9px;
+          top:20px;
+          bottom:20px;
+          width:1px;
+          background:var(--share-nav-line);
         }
         .shareTimelineItem{
           position:relative;
-          border:1px solid var(--ifm-color-emphasis-200);
-          background:var(--ifm-card-background-color);
-          border-radius:10px;
-          padding:11px 13px;
+          width:100%;
+          min-width:0;
+          border:1px solid transparent;
+          background:transparent;
+          color:var(--ifm-font-color-base);
+          font:inherit;
+          border-radius:8px;
+          padding:10px 22px 10px 10px;
           cursor:pointer;
           text-align:left;
-          transition:background .12s ease,border-color .12s ease;
+          transition:background .15s ease, color .15s ease;
         }
         .shareTimelineItem:hover{
-          border-color:var(--ifm-color-emphasis-300);
           background:var(--ifm-color-emphasis-100);
         }
         .shareTimelineItem.isActive{
-          border-color:var(--ifm-color-emphasis-300);
-          background:var(--ifm-color-emphasis-100);
-          box-shadow:inset 3px 0 0 var(--ifm-color-primary);
-          padding-left:16px;
+          background:var(--share-nav-active);
+          color:var(--share-nav-accent);
         }
-        .shareTimelineItem:focus-visible{outline:2px solid var(--ifm-color-primary);outline-offset:2px;}
-        .shareItemLine{opacity:.72;font-size:.88rem;line-height:1.35;}
-        .shareItemTitle{font-weight:650;line-height:1.35;margin-top:2px;}
+        .shareTimelineDot{
+          position:absolute;
+          left:-15px;
+          top:18px;
+          width:7px;
+          height:7px;
+          border:1px solid var(--ifm-color-emphasis-400);
+          border-radius:50%;
+          background:var(--ifm-card-background-color);
+        }
+        .shareTimelineItem.isActive .shareTimelineDot{
+          border-color:var(--share-nav-accent);
+          background:var(--share-nav-accent);
+          box-shadow:0 0 0 3px var(--share-nav-active);
+        }
+        .shareTimelineItem:focus-visible{outline:2px solid var(--share-nav-accent);outline-offset:1px;}
+        .shareItemMeta{
+          display:flex;
+          align-items:center;
+          flex-wrap:wrap;
+          gap:5px 8px;
+          color:var(--share-nav-muted);
+          line-height:1.4;
+        }
+        .shareItemDate{
+          font-family:var(--ifm-font-family-monospace);
+          font-size:.73rem;
+          font-variant-numeric:tabular-nums;
+        }
+        .shareItemTag{
+          border-radius:4px;
+          padding:1px 5px;
+          background:var(--ifm-color-emphasis-100);
+          font-size:.66rem;
+        }
+        .shareTimelineItem.isActive .shareItemTag{
+          color:var(--share-nav-accent);
+          background:color-mix(in srgb, var(--share-nav-accent) 10%, var(--share-nav-active));
+        }
+        .shareItemTitle{
+          display:block;
+          font-size:.86rem;
+          font-weight:500;
+          line-height:1.55;
+          margin-top:5px;
+          overflow-wrap:anywhere;
+        }
+        .shareTimelineItem.isActive .shareItemTitle{font-weight:650;}
+        .shareItemArrow{
+          position:absolute;
+          right:7px;
+          top:50%;
+          margin-top:-6px;
+          font-size:.75rem;
+          opacity:0;
+        }
+        .shareTimelineItem.isActive .shareItemArrow,
+        .shareTimelineItem:hover .shareItemArrow,
+        .shareTimelineItem:focus-visible .shareItemArrow{opacity:1;}
         .shareContent{
           position:relative;
           flex:1 1 auto;
@@ -929,31 +1060,32 @@ export function SharePage() {
             width:auto;
             flex:auto;
             max-height:none;
-            overflow:visible;
+            overflow:hidden;
           }
           .shareTimelineWrap{
-            overflow-y:visible;
-            scrollbar-gutter:auto;
-            padding-right:0;
+            max-height:320px;
+            max-height:min(320px, 42dvh);
           }
+          .shareSidebarToggle{
+            width:36px;
+            height:36px;
+            flex-basis:36px;
+            background:var(--ifm-color-emphasis-100);
+          }
+          .shareSidebarToggleIcon{transform:rotate(90deg);}
           .shareMainLayout.isSidebarCollapsed .shareSidebarHeader{
             flex-direction:row;
             align-items:center;
+            gap:8px;
+            padding:12px 14px 12px 18px;
           }
           .shareMainLayout.isSidebarCollapsed .shareSidebarTitle{
-            display:block;
+            writing-mode:horizontal-tb;
+            letter-spacing:.04em;
+            font-size:.9rem;
+            color:var(--ifm-font-color-base);
           }
-          .shareMainLayout.isSidebarCollapsed .shareSidebarToggle{
-            min-height:0;
-            width:auto;
-            height:auto;
-            min-width:46px;
-            padding-left:8px;
-            padding-right:8px;
-            border-radius:var(--ifm-button-border-radius);
-            display:inline-flex;
-          }
-          .shareMainLayout.isSidebarCollapsed .shareSidebarToggleText{
+          .shareMainLayout.isSidebarCollapsed .shareSidebarCount{
             display:inline;
           }
           .sharePreviewFrame{height:420px;}
@@ -962,6 +1094,7 @@ export function SharePage() {
           .shareTimelineItem,
           .shareResourceCard,
           .shareSidebar,
+          .shareSidebarToggle,
           .shareTimelineWrap,
           .shareToast{
             transition:none !important;

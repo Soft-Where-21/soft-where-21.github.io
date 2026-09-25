@@ -34,6 +34,10 @@ const config = {
 
   onBrokenLinks: 'throw',
 
+  plugins: [[require.resolve('./plugins/materials-index'), {
+    collectionNames: {'付宁远': '付宁远 / 软院保研资料分享'},
+  }]],
+
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -110,6 +114,7 @@ const config = {
           {to: '/tool', label: '工具', position: 'left'},
           {to: '/blog', label: '经验分享', position: 'left'},
           {to: '/share', label: '学业分享', position: 'left'},
+          {to: '/materials', label: '资料分享', position: 'left'},
           {to: '/member', label: '学生会', position: 'left'},
           {
             type: 'html',

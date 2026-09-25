@@ -1,0 +1,120 @@
+.preview {
+  width: 100%;
+  min-width: 0;
+  min-height: 22rem;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-background-color);
+}
+
+.state {
+  min-height: 25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  color: var(--ifm-color-emphasis-600);
+  text-align: center;
+}
+
+.state > svg {color: var(--ifm-color-emphasis-400);}
+.state p {margin: 1rem 0 0; font-size: 0.9rem; line-height: 1.8;}
+.stateActions {display: flex; gap: 1.1rem; align-items: center; margin-top: 1.2rem; font-size: 0.85rem;}
+.stateActions button {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  font: inherit;
+  cursor: pointer;
+}
+.stateActions button:hover {background: var(--ifm-color-emphasis-100);}
+.spinner {
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 2px solid var(--ifm-color-emphasis-200);
+  border-top-color: var(--ifm-color-primary);
+  border-radius: 50%;
+  animation: rotate 0.8s linear infinite;
+}
+
+.pdfPreview {height: 100%; min-height: 0;}
+.pdfCanvas {display: flex; flex-direction: column; height: 100%; min-height: 0; background: var(--ifm-color-emphasis-100);}
+.pdf {display: block; flex: 1; border: 0; width: 100%; height: 0; min-height: 0; background: #e8eaed;}
+.pdfHint {flex-shrink: 0; margin: 0; padding: 0.35rem 0.75rem; text-align: center; font-size: 0.72rem; color: var(--ifm-color-emphasis-600);}
+.pdfHint a {margin: 0 0.2rem;}
+.imageCanvas {display: flex; justify-content: center; align-items: flex-start; padding: clamp(1rem, 3vw, 3rem); min-height: 28rem; background: var(--ifm-color-emphasis-100);}
+.image {display: block; max-width: 100%; width: auto; height: auto; box-shadow: 0 2px 16px #0000000d;}
+
+.markdown {
+  width: min(100%, 1040px);
+  padding: 1.5rem 1.5rem 3rem;
+  margin: 0 auto;
+  font-size: 0.9375rem;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+.markdown > :first-child {margin-top: 0;}
+.markdown h1 {font-size: 1.85rem; letter-spacing: -0.04em; font-weight: 700; padding-bottom: 0.8rem; border-bottom: 1px solid var(--ifm-color-emphasis-200); margin: 0 0 1.5rem;}
+.markdown h2 {font-size: 1.4rem; letter-spacing: -0.025em; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--ifm-color-emphasis-200);}
+.markdown h3 {font-size: 1.12rem; margin: 2rem 0 0.8rem; line-height: 1.65;}
+.markdown h4, .markdown h5, .markdown h6 {font-size: 1rem; margin: 1.6rem 0 0.7rem;}
+.markdown [id] {scroll-margin-top: 1.5rem;}
+.markdown p {margin: 0 0 1.1rem;}
+.markdown a {text-underline-offset: 3px;}
+.markdown a:hover {text-decoration: underline;}
+.markdown img {display: block; max-width: 100%; height: auto; margin: 1.4rem auto; border-radius: 3px;}
+.markdown blockquote {margin: 1.5rem 0; padding: 0.7rem 1.2rem; border-left: 3px solid var(--ifm-color-primary); color: var(--ifm-color-emphasis-700); background: var(--ifm-color-emphasis-100); font-size: 0.9rem;}
+.markdown blockquote > :last-child {margin-bottom: 0;}
+.markdown ul, .markdown ol {padding-left: 1.5rem;}
+.markdown li + li {margin-top: 0.2rem;}
+.markdown table {display: block; max-width: 100%; overflow-x: auto; font-size: 0.85rem; margin-bottom: 1.5rem;}
+.markdown th, .markdown td {padding: 0.55rem 0.8rem; min-width: 4rem;}
+.markdown th {font-weight: 600; background: var(--ifm-color-emphasis-100);}
+.markdown hr {margin: 2rem 0; height: 1px; background: var(--ifm-color-emphasis-200);}
+.markdown pre {font-size: 0.82rem; line-height: 1.65;}
+.markdown :global(.katex-display) {max-width: 100%; overflow-x: auto; overflow-y: hidden; padding: 0.35rem 0;}
+.markdown :global(.katex) {font-size: 1.08em;}
+.markdown :global(.contains-task-list) {list-style: none; padding-left: 0.3rem;}
+.markdown input[type='checkbox'] {margin-right: 0.5rem; accent-color: var(--ifm-color-primary);}
+.missingImage {display: block; padding: 0.8rem 1rem; margin: 1rem 0; border: 1px dashed var(--ifm-color-emphasis-300); border-radius: 6px; color: var(--ifm-color-emphasis-600); background: var(--ifm-color-emphasis-100); font-size: 0.8rem; overflow-wrap: anywhere;}
+
+.source {padding: 1.25rem; min-width: 0;}
+.source > div {margin: 0; box-shadow: none;}
+.source pre {max-height: none; font-size: 0.85rem; border-radius: 6px;}
+
+.workbook {min-width: 0; width: 100%;}
+.sheetBar {display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1rem; padding: 0.65rem 1rem; border-bottom: 1px solid var(--ifm-color-emphasis-200); background: var(--ifm-background-surface-color);}
+.sheetTabs {display: flex; gap: 0.35rem; max-width: 100%; overflow-x: auto;}
+.sheetTabs button {padding: 0.4rem 0.75rem; border: 1px solid transparent; border-radius: 5px; background: transparent; color: var(--ifm-color-emphasis-700); font: inherit; font-size: 0.82rem; white-space: nowrap; cursor: pointer;}
+.sheetTabs button:hover {background: var(--ifm-color-emphasis-100);}
+.sheetTabs button.activeSheet {border-color: var(--ifm-color-emphasis-300); background: var(--ifm-color-emphasis-100); color: var(--ifm-color-primary); font-weight: 600;}
+.sheetMeta {font-size: 0.74rem; color: var(--ifm-color-emphasis-600); white-space: nowrap;}
+.sheetScroller {width: 100%; max-height: calc(100dvh - 20rem); min-height: 20rem; overflow: auto;}
+.sheet {display: table; width: max-content; min-width: 100%; border-collapse: separate; border-spacing: 0; margin: 0; font-size: 0.8rem; line-height: 1.7;}
+.sheet tr {border: 0; background: var(--ifm-background-color);}
+.sheet tr:nth-child(2n) {background: var(--ifm-background-color);}
+.sheet td, .sheet th {border: 0; border-right: 1px solid var(--ifm-color-emphasis-200); border-bottom: 1px solid var(--ifm-color-emphasis-200); padding: 0.6rem 0.85rem;}
+.sheet td {min-width: 9rem; max-width: 28rem; white-space: pre-wrap; overflow-wrap: anywhere; vertical-align: top;}
+.sheet th {background: var(--ifm-color-emphasis-100); color: var(--ifm-color-emphasis-600); text-align: center; font-family: var(--ifm-font-family-monospace); font-size: 0.7rem; font-weight: 400;}
+.sheet thead th {position: sticky; top: 0; z-index: 2;}
+.sheet tbody th {position: sticky; left: 0; z-index: 1; min-width: 3rem;}
+.sheet thead th:first-child {position: sticky; left: 0; z-index: 3;}
+.sheetHint {padding: 0.7rem 1rem; margin: 0; border-top: 1px solid var(--ifm-color-emphasis-200); color: var(--ifm-color-emphasis-600); font-size: 0.74rem;}
+.emptySheet {padding: 3rem 1rem; color: var(--ifm-color-emphasis-600); text-align: center;}
+.stateActions button:focus-visible, .sheetTabs button:focus-visible, .sheetScroller:focus-visible {outline: 2px solid var(--ifm-color-primary); outline-offset: 2px;}
+
+@keyframes rotate {to {transform: rotate(360deg);}}
+@media (prefers-reduced-motion: reduce) {.spinner {animation: none;}}
+@media (max-width: 600px) {
+  .markdown {padding: 1rem 0.8rem 2rem; font-size: 0.88rem;}
+  .markdown h1 {font-size: 1.45rem;}
+  .markdown h2 {font-size: 1.2rem;}
+  .markdown h3 {font-size: 1rem;}
+  .source {padding: 0.65rem;}
+  .source pre {font-size: 0.75rem;}
+  .state {min-height: 20rem;}
+  .sheet td {min-width: 8rem; max-width: 18rem;}
+  .sheetScroller {max-height: 65dvh;}
+}
