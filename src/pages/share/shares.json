@@ -16,14 +16,14 @@
         },
         {
           "type": "slides",
-          "name": "讲座PPT",
+          "name": "讲座 PPT",
           "downloadUrl": "",
-          "note": "大二人工智能课程串讲PPT文件",
+          "note": "大二人工智能课程串讲 PPT 文件",
           "files": [
             {
-              "name": "人工智能串讲PPT",
+              "name": "人工智能串讲 PPT",
               "downloadUrl": "/file/share/人工智能串讲.pptx",
-              "note": "人工智能串讲PPT文件"
+              "note": "人工智能串讲 PPT 文件"
             }
           ]
         },
@@ -46,8 +46,8 @@
     {
       "id": "2026-05-10-kaoyan-zhuogong-share",
       "date": "2026-05-10",
-      "tag": "考研&卓工保研",
-      "title": "考研&卓工保研经验分享",
+      "tag": "考研 & 卓工保研",
+      "title": "考研 & 卓工保研经验分享",
       "summary": "学长学姐分享考研和卓工保研相关经验。",
       "resources": [
         {
@@ -59,9 +59,9 @@
         },
         {
           "type": "slides",
-          "name": "讲座PPT",
+          "name": "讲座 PPT",
           "downloadUrl": "",
-          "note": "考研&卓工保研经验分享PPT文件",
+          "note": "考研 & 卓工保研经验分享 PPT 文件",
           "files": [
             {
               "name": "陆宇霖学姐考研分享",
@@ -105,8 +105,8 @@
       "id": "2025-12-27-java-chuanjiang",
       "date": "2025-12-27",
       "tag": "学业分享",
-      "title": "Java课程串讲",
-      "summary": "Java课程知识点总结复习。",
+      "title": "Java 课程串讲",
+      "summary": "Java 课程知识点总结复习。",
       "resources": [
         {
           "type": "meeting",
@@ -117,9 +117,9 @@
         },
         {
           "type": "slides",
-          "name": "讲座PPT",
+          "name": "讲座 PPT",
           "downloadUrl": "/file/share/面向对象期末串讲.pptx",
-          "note": "面向对象期末串讲PPT文件"
+          "note": "面向对象期末串讲 PPT 文件"
         },
         {
           "type": "video",
@@ -153,9 +153,9 @@
         },
         {
           "type": "slides",
-          "name": "串讲PPT",
+          "name": "串讲 PPT",
           "downloadUrl": "/file/share/计组2025串讲.pptx",
-          "note": "计组串讲PPT文件"
+          "note": "计组串讲 PPT 文件"
         },
         {
           "type": "video",
@@ -168,15 +168,15 @@
           "name": "北航网盘资源",
           "url": "https://bhpan.buaa.edu.cn/link/AAD2754C1FED084CA9AB664483E997764F",
           "password": "1oUz",
-          "note": "12.27计组串讲.mp4"
+          "note": "12.27 计组串讲.mp4"
         }
       ]
     },
     {
       "id": "2025-10-22-xueye-zhaoxin",
       "date": "2025-10-22",
-      "tag": "学业&招新",
-      "title": "23to24学业经验分享和学生会招新",
+      "tag": "学业 & 招新",
+      "title": "23 to 24 学业经验分享和学生会招新",
       "summary": "围绕课程学习方法与学生会招新进行分享。",
       "resources": [
         {
@@ -188,12 +188,12 @@
         },
         {
           "type": "slides",
-          "name": "讲座PPT",
+          "name": "讲座 PPT",
           "downloadUrl": "",
-          "note": "学生会宣讲PPT",
+          "note": "学生会宣讲 PPT",
           "files": [
             {
-              "name": "学生会招新PPT",
+              "name": "学生会招新 PPT",
               "downloadUrl": "/file/share/10-22学生会宣讲.pptx"
             }
           ]
@@ -218,7 +218,7 @@
       "id": "2025-10-22-baoyan-kaoyan",
       "date": "2025-10-22",
       "tag": "保研",
-      "title": "22to23保研经验分享讲座",
+      "title": "22 to 23 保研经验分享讲座",
       "summary": "分享保研相关经验。",
       "resources": [
         {
@@ -229,7 +229,7 @@
         },
         {
           "type": "slides",
-          "name": "讲座PPT",
+          "name": "讲座 PPT",
           "downloadUrl": "",
           "note": "暂无"
         },
@@ -264,9 +264,9 @@
         },
         {
           "type": "slides",
-          "name": "讲座PPT",
+          "name": "讲座 PPT",
           "downloadUrl": "",
-          "note": "考研经验分享PPT",
+          "note": "考研经验分享 PPT",
           "files": [
             {
               "name": "吴志文-考研经验分享.pptx",
@@ -301,7 +301,7 @@
       "id": "2024-2025-daer-chuanjiang",
       "date": "2024-12-28",
       "tag": "学业分享",
-      "title": "2024-2025大二上串讲",
+      "title": "2024-2025 大二上串讲",
       "summary": "大二上有关课程知识点总结复习。",
       "resources": [
         {
@@ -313,16 +313,16 @@
         },
         {
           "type": "slides",
-          "name": "讲座PPT",
+          "name": "讲座 PPT",
           "downloadUrl": "",
-          "note": "串讲PPT文件",
+          "note": "串讲 PPT 文件",
           "files": [
             {
               "name": "算法串讲资料",
               "downloadUrl": "/file/share/算法串讲.pdf"
             },
             {
-              "name": "OOP串讲资料",
+              "name": "OOP 串讲资料",
               "downloadUrl": "/file/share/《面向对象程序设计》期末串讲.pdf"
             }
           ]
@@ -359,12 +359,12 @@
         },
         {
           "type": "slides",
-          "name": "讲座PPT",
+          "name": "讲座 PPT",
           "downloadUrl": "",
-          "note": "学生会宣讲PPT",
+          "note": "学生会宣讲 PPT",
           "files": [
             {
-              "name": "学生会招新PPT.pdf",
+              "name": "学生会招新 PPT.pdf",
               "downloadUrl": "/file/share/10-18学生会宣讲.pdf"
             }
           ]
