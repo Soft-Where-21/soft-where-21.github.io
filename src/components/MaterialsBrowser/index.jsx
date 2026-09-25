@@ -7,6 +7,8 @@ import SearchBox from './SearchBox';
 import FilePreview from './FilePreview';
 import DirectoryView from './DirectoryView';
 import CollectionOverview from './CollectionOverview';
+import CollectionAvatar from './CollectionAvatar';
+import WechatContact from './WechatContact';
 import styles from './styles.module.css';
 
 function getLocationSelection() {
@@ -114,8 +116,9 @@ export default function MaterialsBrowser({materials}) {
             <div className={styles.sectionLabel}>资料集<span>{materials.collections.length}</span></div>
             <button type="button" className={`${styles.collectionLink} ${selectedPath === null ? styles.collectionLinkActive : ''}`} onClick={() => navigate(null)} aria-current={selectedPath === null ? 'page' : undefined}><MaterialIcon name="library" /><span>全部资料</span></button>
             <div className={styles.collectionList}>
-              {materials.collections.map((item) => <button type="button" className={`${styles.collectionLink} ${collection?.path === item.path ? styles.collectionLinkActive : ''}`} key={item.path} onClick={() => navigate(item.path)} aria-current={collection?.path === item.path ? 'true' : undefined}><span className={styles.smallAvatar} aria-hidden="true">{item.name.slice(0, 1)}</span><span>{item.name}</span><span className={styles.collectionFileCount}>{item.fileCount}</span></button>)}
+              {materials.collections.map((item) => <button type="button" className={`${styles.collectionLink} ${collection?.path === item.path ? styles.collectionLinkActive : ''}`} key={item.path} onClick={() => navigate(item.path)} aria-current={collection?.path === item.path ? 'true' : undefined}><CollectionAvatar collection={item} className={styles.smallAvatar} /><span>{item.name}</span><span className={styles.collectionFileCount}>{item.fileCount}</span></button>)}
             </div>
+            {collection?.wechat && <div className={styles.sidebarContact}><WechatContact key={collection.path} wechat={collection.wechat} /></div>}
           </div>
           {collection && <div className={styles.treeSection}>
             <div className={styles.treeHeader}><span className={styles.sectionLabel}>文件目录</span><button className={styles.iconButton} type="button" aria-label="收起所有目录" title="收起所有目录" onClick={() => setExpanded(new Set())}><MaterialIcon name="collapse" /></button></div>

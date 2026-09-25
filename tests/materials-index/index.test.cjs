@@ -103,6 +103,63 @@ test('missing roots return an empty manifest and symlink roots are rejected', as
   await assert.rejects(buildMaterialsIndex(rootLink), /must be a directory/);
 });
 
+test('reserves only the root avatar directory and repo config without changing material counts', async (t) => {
+  const {root, write} = await fixture(t);
+  await write('avatar/头像.png', 'avatar image');
+  await write('repos.json', '{"同学":{"avatar":"avatar/头像.png"}}');
+  await write('同学/notes.md', 'abc');
+  await write('同学/avatar/示例.png', 'png');
+  await write('同学/repos.json', '{}');
+
+  const content = await buildMaterialsIndex(root);
+  assert.deepEqual(content.collections.map((node) => node.path), ['同学']);
+  assert.equal(content.totalFiles, 3);
+  assert.equal(content.totalSize, 8);
+  assert.ok(content.collections[0].children.some((node) => node.name === 'repos.json'));
+  assert.ok(content.collections[0].children.some((node) => node.name === 'avatar'));
+});
+
+test('loads optional repo profiles by directory path and refreshes metadata on reload', async (t) => {
+  const {siteDir, root, write} = await fixture(t);
+  await write('付宁远/notes.md');
+  await write('新同学/notes.pdf');
+  const plugin = materialsIndexPlugin({siteDir}, {collectionNames: {'付宁远': '原名称'}});
+  const original = await plugin.loadContent();
+  assert.equal(original.collections.find((node) => node.path === '付宁远').name, '原名称');
+  assert.equal(original.collections[0].avatar, '');
+  assert.equal(original.collections[0].wechat, '');
+  await write('avatar/付宁远 #1.png');
+  await write('repos.json', JSON.stringify({'付宁远': {
+    name: '付宁远 / 软院保研资料分享', avatar: 'avatar/付宁远 #1.png', wechat: ' profile-test ',
+  }}));
+  const content = await plugin.loadContent();
+  const student = content.collections.find((node) => node.path === '付宁远');
+  assert.equal(student.name, '付宁远 / 软院保研资料分享');
+  assert.equal(student.avatar, 'avatar/付宁远 #1.png');
+  assert.equal(student.wechat, 'profile-test');
+  assert.deepEqual(student.children, original.collections.find((node) => node.path === '付宁远').children);
+  assert.equal(content.totalFiles, 2);
+  assert.equal(content.collections.find((node) => node.path === '新同学').name, '新同学');
+
+  await write('repos.json', JSON.stringify({'付宁远': {wechat: 'updated-test'}}));
+  assert.equal((await plugin.loadContent()).collections.find((node) => node.path === '付宁远').wechat, 'updated-test');
+  await fs.unlink(path.join(root, 'repos.json'));
+  assert.equal((await plugin.loadContent()).collections.find((node) => node.path === '付宁远').wechat, '');
+});
+
+test('invalid repo metadata reports the config and rejects avatars outside the avatar directory', async (t) => {
+  const {siteDir, write} = await fixture(t);
+  const plugin = materialsIndexPlugin({siteDir});
+  for (const invalid of ['{', '[]', '{"同学":null}', '{"同学":{"wechat":123}}']) {
+    await write('repos.json', invalid);
+    await assert.rejects(plugin.loadContent(), /repos\.json/);
+  }
+  for (const avatar of ['https://example.com/avatar.png', 'avatar/../other.png', 'other/avatar.png', 'avatar/code.js']) {
+    await write('repos.json', JSON.stringify({'同学': {avatar}}));
+    await assert.rejects(plugin.loadContent(), /同学\.avatar/);
+  }
+});
+
 test('Docusaurus lifecycle writes generated JSON and aliases its exact path', async (t) => {
   const {siteDir, write} = await fixture(t);
   await write('同学/notes.md');

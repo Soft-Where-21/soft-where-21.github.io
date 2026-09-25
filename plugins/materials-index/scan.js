@@ -1,5 +1,6 @@
 const fs = require('node:fs/promises');
 const path = require('node:path');
+const {CONFIG_FILE, AVATAR_DIRECTORY} = require('./metadata');
 
 const collator = new Intl.Collator('zh-CN', {
   numeric: true,
@@ -49,6 +50,7 @@ async function readDirectory(rootPath, relativePath = '') {
     // Symlinks are intentionally excluded, including links into this tree:
     // the index describes physical assets and cannot recurse into a link cycle.
     if (isIgnored(entry.name) || entry.isSymbolicLink()) continue;
+    if (!relativePath && [CONFIG_FILE, AVATAR_DIRECTORY].includes(entry.name)) continue;
 
     const relative = relativePath ? `${relativePath}/${entry.name}` : entry.name;
     if (entry.isDirectory()) {

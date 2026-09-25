@@ -97,9 +97,26 @@
 .contentBody:focus { outline: none; }
 .overview { padding: 12px 24px; }
 .collectionGrid { display: grid; gap: 8px; }
-.collectionCard { display: grid; grid-template-columns: minmax(220px, 280px) minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 14px; border: 1px solid var(--materials-border); border-radius: 7px; background: var(--materials-surface); }
+.collectionCard { display: grid; grid-template-columns: minmax(220px, 260px) minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 12px; border: 1px solid var(--materials-border); border-radius: 7px; background: var(--materials-surface); }
 .collectionCardTop { display: flex; align-items: center; gap: 10px; min-width: 0; }
 .collectionAvatar { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 6px; background: var(--materials-active); color: var(--ifm-color-primary); font-size: .95rem; font-weight: 600; flex-shrink: 0; }
+.collectionAvatar, .smallAvatar { overflow: hidden; }
+.collectionAvatar img, .smallAvatar img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.wechatContact { display: flex; align-items: center; flex-wrap: wrap; gap: 3px 6px; margin-top: 3px; color: var(--materials-muted); font-size: .7rem; }
+.wechatText { display: inline-flex; align-items: baseline; gap: 5px; min-width: 0; line-height: 1.5; }
+.wechatText > :first-child { flex-shrink: 0; white-space: nowrap; }
+.wechatId { color: var(--ifm-font-color-base); user-select: text; overflow-wrap: anywhere; min-width: 0; }
+.wechatContact button { padding: 1px 3px; border: 0; border-radius: 3px; background: none; color: var(--ifm-color-primary); font: inherit; cursor: pointer; }
+.wechatContact button:hover { background: var(--materials-active); }
+.copyFeedback:empty { display: none; }
+.sidebarContact { padding: 3px 8px 0; }
+.collectionActions { display: flex; align-items: center; gap: 8px; }
+.wechatBadge { position: relative; flex-wrap: nowrap; min-height: 32px; margin: 0; padding: 3px 4px 3px 8px; gap: 5px; border: 1px solid var(--materials-border); border-radius: 5px; background: var(--materials-surface); font-size: .75rem; white-space: nowrap; }
+.wechatBadge > svg { width: 15px; height: 15px; flex-shrink: 0; color: var(--ifm-color-primary); }
+.wechatBadge .wechatId { max-width: 12ch; white-space: normal; }
+.wechatBadge button { display: grid; place-items: center; width: 24px; height: 24px; padding: 4px; flex-shrink: 0; }
+.wechatBadge button svg { width: 14px; height: 14px; }
+.wechatBadge .copyFeedback:not(:empty) { position: absolute; top: calc(100% + 6px); right: 0; z-index: 5; padding: 5px 8px; border: 1px solid var(--materials-border); border-radius: 5px; background: var(--materials-surface); color: var(--ifm-color-primary); box-shadow: 0 3px 12px #00000014; }
 .collectionCardTop h2 { margin: 0 0 2px; font-size: .9rem; }
 .collectionCardTop > div { min-width: 0; }
 .collectionCardTop h2 button { padding: 0; border: 0; color: var(--ifm-font-color-base); background: none; cursor: pointer; font-size: inherit; font-weight: 650; overflow-wrap: anywhere; text-align: left; }
@@ -176,7 +193,10 @@
   .fileActions { margin-left: auto; }
   .fileSize { font-size: .65rem; }
   .overview, .directoryView, .searchResults { padding: 10px; }
-  .collectionCard { grid-template-columns: minmax(0, 1fr) auto; gap: 10px; padding: 12px; }
+  .collectionCard { grid-template-columns: minmax(0, 1fr) auto; gap: 8px; padding: 10px; }
+  .collectionActions { flex-direction: column; align-items: stretch; gap: 2px; }
+  .wechatBadge { min-height: 34px; }
+  .wechatBadge > svg { display: none; }
   .topicLinks { grid-column: 1 / -1; grid-row: 2; }
   .topicLinks button { min-height: 36px; }
   .openCollection { min-height: 36px; }

@@ -34,9 +34,7 @@ const config = {
 
   onBrokenLinks: 'throw',
 
-  plugins: [[require.resolve('./plugins/materials-index'), {
-    collectionNames: {'付宁远': '付宁远 / 软院保研资料分享'},
-  }]],
+  plugins: [require.resolve('./plugins/materials-index')],
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
