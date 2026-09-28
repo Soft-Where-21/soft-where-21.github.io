@@ -1,17 +1,23 @@
 yanjiahao:
   name: 闫佳豪
   title: '微信：guangmingzhengda64'
-  image_url: https://soft-where-21.github.io/file/graduation_work/avatar/%E9%97%AB%E4%BD%B3%E8%B1%AA.jpg
+  image_url: /file/graduation_work/avatar/%E9%97%AB%E4%BD%B3%E8%B1%AA.jpg
   page: true
 
 zhouqishun:
   name: 周其顺
   title: '微信：zqs15755083308'
-  image_url: https://soft-where-21.github.io/file/graduation_work/avatar/%E5%91%A8%E5%85%B6%E9%A1%BA.jpg
+  image_url: /file/graduation_work/avatar/%E5%91%A8%E5%85%B6%E9%A1%BA.jpg
   page: true
 
 zhaoshijin:
   name: 赵世锦
   title: '微信：Blonde_Marisa'
-  image_url: https://soft-where-21.github.io/file/%E8%80%83%E7%A0%94%E7%9B%B8%E5%85%B3/avatar/%E8%B5%B5%E4%B8%96%E9%94%A6.jpg
+  image_url: /file/%E8%80%83%E7%A0%94%E7%9B%B8%E5%85%B3/avatar/%E8%B5%B5%E4%B8%96%E9%94%A6.jpg
+  page: true
+
+zhengyujie:
+  name: 郑宇杰
+  title: '微信：z18959198900'
+  image_url: /file/%E4%BF%9D%E7%A0%94%E7%9B%B8%E5%85%B3/avatar/%E9%83%91%E5%AE%87%E6%9D%B0.png
   page: true

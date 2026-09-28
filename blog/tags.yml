@@ -8,6 +8,11 @@ postgraduate-entrance-experience:
   permalink: /postgraduate-entrance-experience
   description: 软件学院同学的考研备考与择校经验分享
 
+postgraduate-recommendation-experience:
+  label: 保研经验分享
+  permalink: /postgraduate-recommendation-experience
+  description: 软件学院同学的保研择校、考核与录取经验分享
+
 school-life:
   label: 学校生活分享
   permalink: /school-life
