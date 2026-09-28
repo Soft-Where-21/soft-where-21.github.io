@@ -3,16 +3,18 @@ slug: postgraduate-recommendation-experience-zheng-yu-jie-fudan
 title: 复旦计算与智能学院直博保研经验分享
 authors: [zhengyujie]
 tags: [postgraduate-recommendation-experience]
-description: 郑宇杰同学分享复旦计算与智能学院直博保研的个人背景、申请时间线、机试与面试经验。
+description: 郑宇杰同学回顾复旦计算与智能学院直博申请中的机试、英语口试与专业面试，并分享提前联系导师、跟进候补进展的体会。
 ---
+
+复旦计算与智能学院的直博考核分为机试、英语口试和专业面试，准备工作需要同时覆盖算法、英语表达与项目细节。结合这次申请经历，我也想提醒准备直博的同学：提前联系合适的导师，并在考核结束后及时与教务沟通、跟进候补进展，同样值得重视。
+
+<!-- truncate -->
 
 ## 个人bg
 
 前五/六学期成绩排名10%，综合成绩5%，2B在投
 
 因为没联系到合适的老师，在候补list中，最后拒绝
-
-<!-- truncate -->
 
 ## 院校介绍
 

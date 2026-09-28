@@ -3,16 +3,18 @@ slug: postgraduate-recommendation-experience-zheng-yu-jie-ruc
 title: 人大高瓴工程硕士保研经验分享
 authors: [zhengyujie]
 tags: [postgraduate-recommendation-experience]
-description: 郑宇杰同学分享人大高瓴工程硕士保研的个人背景、申请时间线、笔试与面试经验。
+description: 郑宇杰同学从夏令营未入营到工程硕士候补录取，分享人大高瓴工程硕博专项的笔试、面试与准备细节。
 ---
+
+夏令营申请直博未能入营后，我又参加了人大高瓴工程硕博专项的考核，最终通过候补获得工程硕士名额。这篇分享重点记录笔试和面试中的数学、数据结构、算法与机器学习考查，也整理了 CSP 加分、英语翻译、纸质候考材料等准备细节，希望给考虑高瓴卓工项目的同学一些参考。
+
+<!-- truncate -->
 
 ## 个人bg
 
 前五/六学期成绩排名10%，综合成绩5%，2B在投
 
 录取9位，我是候补第9，最后一名录取
-
-<!-- truncate -->
 
 ## 院校介绍
 

@@ -3,16 +3,18 @@ slug: postgraduate-recommendation-experience-zheng-yu-jie-zju
 title: 浙大计算机学院专硕保研经验分享
 authors: [zhengyujie]
 tags: [postgraduate-recommendation-experience]
-description: 郑宇杰同学分享浙大计算机学院专硕保研的个人背景、院校情况、申请时间线与面试经验。
+description: 郑宇杰同学分享浙大计算机学院专硕的二十分钟面试经历，介绍中英文自我陈述、专业题与项目问答，以及联系导师的时机。
 ---
+
+浙大计算机学院的这次专硕考核集中在二十分钟面试里：八分钟自我介绍需要包含英文陈述，之后还有抽签专业题和围绕项目、简历的提问。这篇分享记录了报名与考核的时间线、面试形式和提问范围，也谈到了联系导师的时机，供准备浙大计专的同学参考。
+
+<!-- truncate -->
 
 ## 个人bg
 
 前五/六学期成绩排名10%，综合成绩5%，2B在投，没参加夏令营
 
 录取84人，候补24位，最终候补到33位
-
-<!-- truncate -->
 
 ## 院校介绍
 
