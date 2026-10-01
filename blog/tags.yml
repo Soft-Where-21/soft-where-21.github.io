@@ -13,6 +13,11 @@ postgraduate-recommendation-experience:
   permalink: /postgraduate-recommendation-experience
   description: 软件学院同学的保研择校、考核与录取经验分享
 
+course-experience:
+  label: 课程经验分享
+  permalink: /course-experience
+  description: 软件学院同学的选课、课程学习与复习经验分享
+
 school-life:
   label: 学校生活分享
   permalink: /school-life
