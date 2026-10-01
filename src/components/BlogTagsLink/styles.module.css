@@ -1,0 +1,46 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: calc(100% - 1.5rem);
+  min-height: 2.75rem;
+  margin: 0 0.75rem 0.5rem;
+  padding: 0.5rem 0.75rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.compact {
+  flex-shrink: 0;
+  width: auto;
+  min-height: 2rem;
+  margin: 0;
+  padding: 0 0.2rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.8rem;
+}
+
+.link:hover,
+.active {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.link:hover span {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: -2px;
+  border-radius: 3px;
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 0.9rem;
+  height: 0.9rem;
+}
