@@ -1,6 +1,7 @@
 ---
 slug: postgraduate-recommendation-experience-zheng-yu-jie-ruc
 title: 人大高瓴工程硕士保研经验分享
+published_at: '2026-09-28T21:06:49+08:00'
 authors: [zhengyujie]
 tags: [postgraduate-recommendation-experience]
 description: 郑宇杰同学从夏令营未入营到工程硕士候补录取，分享人大高瓴工程硕博专项的笔试、面试与准备细节。

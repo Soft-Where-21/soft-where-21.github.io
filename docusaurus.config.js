@@ -60,6 +60,21 @@ const config = {
         },
         blog: {
           showReadingTime: true,
+          processBlogPosts: async ({blogPosts}) => {
+            // Sort by publication time while preserving each post's displayed date.
+            const posts = blogPosts.map((post) => {
+              const publishedAt = new Date(
+                post.metadata.frontMatter.published_at ?? post.metadata.date,
+              ).getTime();
+              if (!Number.isFinite(publishedAt)) {
+                throw new Error(`Invalid published_at for blog post: ${post.metadata.source}`);
+              }
+              return {post, publishedAt};
+            });
+            return posts
+              .sort((a, b) => b.publishedAt - a.publishedAt)
+              .map(({post}) => post);
+          },
           beforeDefaultRemarkPlugins: [require('./plugins/remark-preserve-escaped-autolinks.cjs')],
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],

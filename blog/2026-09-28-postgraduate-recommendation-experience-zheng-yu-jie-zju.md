@@ -1,6 +1,7 @@
 ---
 slug: postgraduate-recommendation-experience-zheng-yu-jie-zju
 title: 浙大计算机学院专硕保研经验分享
+published_at: '2026-09-28T21:06:49+08:00'
 authors: [zhengyujie]
 tags: [postgraduate-recommendation-experience]
 description: 郑宇杰同学分享浙大计算机学院专硕的二十分钟面试经历，介绍中英文自我陈述、专业题与项目问答，以及联系导师的时机。

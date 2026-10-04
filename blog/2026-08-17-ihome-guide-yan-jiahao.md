@@ -1,6 +1,7 @@
 ---
 slug: school-life-ihome-guide
 title: ihome 使用指南（非官方）
+published_at: '2026-08-17T22:00:37+08:00'
 authors: [yanjiahao]
 tags: [school-life]
 description: 闫佳豪同学分享北航 ihome 平台的使用方法、诉求撰写技巧与真实案例。

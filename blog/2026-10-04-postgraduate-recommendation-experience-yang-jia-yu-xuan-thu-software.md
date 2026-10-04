@@ -1,6 +1,7 @@
 ---
 slug: postgraduate-recommendation-experience-yang-jia-yu-xuan-thu-software
 title: 清华大学软件学院预推免经验分享
+published_at: '2026-10-04T23:58:39+08:00'
 authors: [yangjiayuxuan]
 tags: [postgraduate-recommendation-experience]
 mdx:

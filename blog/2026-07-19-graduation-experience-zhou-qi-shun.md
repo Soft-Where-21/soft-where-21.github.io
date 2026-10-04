@@ -1,6 +1,7 @@
 ---
 slug: graduation-experience-zhou-qi-shun
 title: 毕设经验分享：重视规范，提前准备
+published_at: '2026-07-19T13:05:45+08:00'
 authors: [zhouqishun]
 tags: [graduation-experience]
 description: 周其顺同学分享软件学院本科毕业设计开题、中期与结题阶段的准备重点。

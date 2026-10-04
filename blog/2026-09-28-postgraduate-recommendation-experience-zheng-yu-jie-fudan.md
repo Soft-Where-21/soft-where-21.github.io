@@ -1,6 +1,7 @@
 ---
 slug: postgraduate-recommendation-experience-zheng-yu-jie-fudan
 title: 复旦计算与智能学院直博保研经验分享
+published_at: '2026-09-28T21:06:49+08:00'
 authors: [zhengyujie]
 tags: [postgraduate-recommendation-experience]
 description: 郑宇杰同学回顾复旦计算与智能学院直博申请中的机试、英语口试与专业面试，并分享提前联系导师、跟进候补进展的体会。

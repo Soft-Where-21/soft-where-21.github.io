@@ -1,6 +1,7 @@
 ---
 slug: graduation-experience-yan-jiahao
 title: 毕设经验分享：流程、选题与答辩
+published_at: '2026-07-19T13:05:45+08:00'
 authors: [yanjiahao]
 tags: [graduation-experience]
 description: 闫佳豪同学分享软件学院本科毕业设计从选题、开题、中期到结题答辩的完整经验。

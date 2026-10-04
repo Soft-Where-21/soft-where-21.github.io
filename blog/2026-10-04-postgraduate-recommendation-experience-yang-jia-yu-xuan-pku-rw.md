@@ -1,6 +1,7 @@
 ---
 slug: postgraduate-recommendation-experience-yang-jia-yu-xuan-pku-rw
 title: 北京大学软件与微电子学院夏令营经验分享
+published_at: '2026-10-04T21:50:16+08:00'
 authors: [yangjiayuxuan]
 tags: [postgraduate-recommendation-experience]
 mdx:

@@ -1,6 +1,7 @@
 ---
 slug: postgraduate-recommendation-experience-liu-yue-tong-cai
 title: 清华人工智能学院（CAI）保研经验分享
+published_at: '2026-10-04T20:33:37+08:00'
 authors: [liuyuetong]
 tags: [postgraduate-recommendation-experience]
 preserve_escaped_autolinks: true

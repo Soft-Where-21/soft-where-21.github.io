@@ -1,6 +1,7 @@
 ---
 slug: course-experience-fu-ning-yuan
 title: 大三学习经验：选课、课程复习与时间安排
+published_at: '2026-10-01T14:16:30+08:00'
 authors: [funingyuan]
 tags: [course-experience]
 description: 付宁远同学分享大三选课、专业课学习与复习经验，以及保研和实习的时间安排。
