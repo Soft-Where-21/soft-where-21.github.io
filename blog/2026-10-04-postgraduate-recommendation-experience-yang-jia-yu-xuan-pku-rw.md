@@ -1,5 +1,5 @@
 ---
-slug: postgraduate-recommendation-experience-yang-jia-yu-xuan-pku-ss
+slug: postgraduate-recommendation-experience-yang-jia-yu-xuan-pku-rw
 title: 北京大学软件与微电子学院夏令营经验分享
 authors: [yangjiayuxuan]
 tags: [postgraduate-recommendation-experience]
@@ -101,11 +101,11 @@ description: 杨佳宇轩同学分享北京大学软件与微电子学院夏令�
 
 ![yjyx-rw-2](/file/保研相关/figure/yjyx-rw-2.jpeg)
 
-### **简历筛：6.18～6.30**
+### 简历筛：6.18～6.30
 
-### **论文筛：6.30～7.1**
+### 论文筛：6.30～7.1
 
-### **入营通知：7.5**
+### 入营通知：7.5
 
 总计入营 337 人
 

@@ -5,6 +5,8 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import {themes as prismThemes} from 'prism-react-renderer';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -59,6 +61,8 @@ const config = {
         blog: {
           showReadingTime: true,
           beforeDefaultRemarkPlugins: [require('./plugins/remark-preserve-escaped-autolinks.cjs')],
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
           blogSidebarCount: 'ALL',
           blogSidebarTitle: '全部文章',
           feedOptions: {
@@ -75,7 +79,7 @@ const config = {
           onUntruncatedBlogPosts: 'warn',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: [require.resolve('katex/dist/katex.min.css'), './src/css/custom.css'],
         },
       }),
     ],
