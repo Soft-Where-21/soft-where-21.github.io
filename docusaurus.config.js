@@ -58,6 +58,7 @@ const config = {
         },
         blog: {
           showReadingTime: true,
+          beforeDefaultRemarkPlugins: [require('./plugins/remark-preserve-escaped-autolinks.cjs')],
           blogSidebarCount: 'ALL',
           blogSidebarTitle: '全部文章',
           feedOptions: {
