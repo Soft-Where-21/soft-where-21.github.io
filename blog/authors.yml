@@ -60,3 +60,17 @@ wangyuzhen:
   title: '微信：candy051019'
   image_url: /file/%E4%BF%9D%E7%A0%94%E7%9B%B8%E5%85%B3/avatar/%E7%8E%8B%E5%AE%87%E7%A5%AF.jpg
   page: true
+
+zhuanggengxiong:
+  name: 庄耿雄
+  student_id: '22374271'
+  title: '微信：ZgXkSyGdSdR'
+  image_url: /file/%E4%BF%9D%E7%A0%94%E7%9B%B8%E5%85%B3/avatar/%E5%BA%84%E8%80%BF%E9%9B%84.jpg
+  page: true
+
+xiehaoyu:
+  name: 谢昊宇
+  student_id: '23373296'
+  title: '微信：X448972741'
+  image_url: /file/%E4%BF%9D%E7%A0%94%E7%9B%B8%E5%85%B3/avatar/%E8%B0%A2%E6%98%8A%E5%AE%87.jpg
+  page: true

@@ -5,6 +5,7 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import {themes as prismThemes} from 'prism-react-renderer';
+import remarkCjkFriendly from 'remark-cjk-friendly';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
@@ -76,7 +77,8 @@ const config = {
               .map(({post}) => post);
           },
           beforeDefaultRemarkPlugins: [require('./plugins/remark-preserve-escaped-autolinks.cjs')],
-          remarkPlugins: [remarkMath],
+          // Support Chinese punctuation beside emphasis without rewriting posts.
+          remarkPlugins: [remarkCjkFriendly, remarkMath],
           rehypePlugins: [rehypeKatex],
           blogSidebarCount: 'ALL',
           blogSidebarTitle: '全部文章',
