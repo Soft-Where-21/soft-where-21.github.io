@@ -42,7 +42,7 @@
         { "name": "李依焓", "studentId": "23373308", "role": "副部长", "avatar": "/avatar/2025-2026/文艺部/李依焓.png" },
         { "name": "郭谦", "studentId": "23377267", "role": "干事", "avatar": "" },
         { "name": "吴昌骏", "studentId": "24371379", "role": "干事", "avatar": "/avatar/2025-2026/文艺部/吴昌骏.png" },
-        { "name": "孙铭扬", "studentId": "", "role": "干事", "avatar": "" },
+        { "name": "孙铭扬", "studentId": "24371396", "role": "干事", "avatar": "/avatar/2025-2026/文艺部/孙铭扬.jpg" },
         { "name": "赵琦", "studentId": "24373195", "role": "干事", "avatar": "" },
         { "name": "张学程", "studentId": "", "role": "干事", "avatar": "" }
       ]
@@ -78,7 +78,7 @@
       "color": "#ea580c",
       "members": [
         { "name": "杨心茹", "studentId": "22241098", "role": "部长", "avatar": "" },
-        { "name": "赵长杉", "studentId": "23371454", "role": "副部长", "avatar": "" },
+        { "name": "赵长杉", "studentId": "23371454", "role": "副部长", "avatar": "/avatar/2025-2026/办公室/赵长杉.jpg" },
         { "name": "汤斯杰", "studentId": "23101078", "role": "干事", "avatar": "" },
         { "name": "汪士超", "studentId": "23373515", "role": "干事", "avatar": "" },
         { "name": "张曹远臻", "studentId": "24371078", "role": "干事", "avatar": "/avatar/2025-2026/办公室/张曹远臻.png" },
@@ -109,7 +109,7 @@
         { "name": "吴星宇", "studentId": "24373197", "role": "干事", "avatar": "/avatar/2025-2026/宣媒/吴星宇.png" },
         { "name": "余儒耀", "studentId": "23373028", "role": "干事", "avatar": "/avatar/2025-2026/宣媒/余儒耀.png" },
         { "name": "叶茂然", "studentId": "24373066", "role": "干事", "avatar": "" },
-        { "name": "李启扬", "studentId": "24373166", "role": "干事", "avatar": "/avatar/2025-2026/宣媒/李启扬.png" },
+        { "name": "李启扬", "studentId": "24373166", "role": "干事", "avatar": "/avatar/2025-2026/宣媒/李启扬.jpg" },
         { "name": "李默涵", "studentId": "", "role": "干事", "avatar": "" },
         { "name": "亢钰童", "studentId": "24371333", "role": "干事", "avatar": "" },
         { "name": "吴本昭", "studentId": "24375097", "role": "干事", "avatar": "/avatar/2025-2026/宣媒/吴本昭.png" },
