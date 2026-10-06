@@ -4,10 +4,426 @@
         <title>Soft Where Blog</title>
         <link>https://soft-where-21.github.io/blog</link>
         <description>Soft Where Blog</description>
-        <lastBuildDate>Tue, 06 Oct 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 07 Oct 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[北航计算机学院推免经验分享]]></title>
+            <link>https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-xie-hao-yu-buaa-cs</link>
+            <guid>https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-xie-hao-yu-buaa-cs</guid>
+            <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[谢昊宇同学分享北航计算机学院推免的报名时间线、C 语言机试与面试经历，并提醒注意材料二维码和邮件通知。]]></description>
+            <content:encoded><![CDATA[<p>北航计院基本属于强com，且机试占比非常高，因此只要机试发挥较好基本不用担心。</p>
+<p>机试使用北航的Judge平台，只能使用C语言，分值是60+40，纯粹的数据结构课的题目， 纯粹的大模拟，纯粹的数据结构风格。</p>
+<p>计算机学院所有的材料都有个额外的二维码！如果不想和教务battle，就一定要注意这个二维码的正确性。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="时间线">时间线<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-xie-hao-yu-buaa-cs#%E6%97%B6%E9%97%B4%E7%BA%BF" class="hash-link" aria-label="Direct link to 时间线" title="Direct link to 时间线" translate="no">​</a></h2>
+<p>9.7 公布了推免相关的方案</p>
+<p>9.12 网上报名截止</p>
+<p>9.16 公布报名名单</p>
+<p>9.18 机试</p>
+<p>9.19 面试</p>
+<p>9.20出结果</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="游记">游记<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-xie-hao-yu-buaa-cs#%E6%B8%B8%E8%AE%B0" class="hash-link" aria-label="Direct link to 游记" title="Direct link to 游记" translate="no">​</a></h2>
+<p>北航计院基本属于强com，且机试占比非常高，因此只要机试发挥较好基本不用担心。</p>
+<p>机试使用北航的Judge平台，只能使用C语言，分值是60+40，纯粹的数据结构课的题目， 纯粹的大模拟，纯粹的数据结构风格。</p>
+<p>面试大概就是四五个老师围在一起问你问题，首先是宣读诚信承诺书，之后会问你思政问题，一般只要不要回答太离谱就不会有事。然后是英语方面，要求朗读并且翻译随机文本，语法没啥难度，但是相关科技名词可能比较专业，之后开始专业知识提问，数学上会有各种概念和定义，比如卡方分布，专业课随机408抽取，项目经历取决于你的简历，记得打印几份。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="额外提醒">额外提醒<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-xie-hao-yu-buaa-cs#%E9%A2%9D%E5%A4%96%E6%8F%90%E9%86%92" class="hash-link" aria-label="Direct link to 额外提醒" title="Direct link to 额外提醒" translate="no">​</a></h2>
+<p>计算机学院所有的材料都有个额外的二维码！如果不想和教务battle，就一定要注意这个二维码的正确性。</p>
+<p>计算机学院的通知向来是发邮件，一定要及时看邮箱。</p>]]></content:encoded>
+            <category>保研经验分享</category>
+        </item>
+        <item>
+            <title><![CDATA[庄耿雄同学的保研经验分享]]></title>
+            <link>https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong</link>
+            <guid>https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong</guid>
+            <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[庄耿雄同学分享创智学院、中关村学院、河套学院、清华软件与复旦机器人的申请和考核经历，记录从 5 月夏令营到 9 月确认录取的时间线，以及最终选择复旦机器人与创智学院联培的思考。]]></description>
+            <content:encoded><![CDATA[<p>从 5 月 7 日下午那封 HE 邮件，到 9 月 24 日按下确认键，一共四个多月。</p>
+<ul>
+<li class=""><strong>创智学院（SII）</strong>：🧳 5 月 16 日 9:30—16:00：到上海创智学院报到。</li>
+<li class=""><strong>中关村学院（ZGCA）</strong>：🚄 5 月 22 日：从上海赶回北京，直接衔接 ZGCA。</li>
+<li class=""><strong>河套学院（SLAI）</strong>：📚 7 月 7 日：SLAI 开营与全英文笔试。</li>
+<li class=""><strong>复旦机器人</strong>：9 月 5 日：复旦专业面试。</li>
+<li class=""><strong>清华软件</strong>：9 月 7 日：清华软件面试，当晚出结果。</li>
+</ul>
+<p>🤖 申请方向与最终去向：<strong>复旦机器人 + 创智学院联培</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="写在前面-">写在前面 🌱<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2-" class="hash-link" aria-label="Direct link to 写在前面 🌱" title="Direct link to 写在前面 🌱" translate="no">​</a></h2>
+<p>写于 2026 年 9 月 29 日，国庆前夕。保研总算结束了。</p>
+<p>大一时总觉得保研是一件很神圣的事，如今，它变成了一条轻描淡写的朋友圈。往后，又是旅途的新起点。</p>
+<p>刚进大学的时候不知深浅，这件事于我而言就像小马过河，当时觉得能拿到保研资格便很好了。大二看到了一些希望，又总想着尽力冲一下 Top 2。中间经历过不少次绩点起落时的绝望，也有过不知道该往哪里努力的迷茫。后来，我又慢慢祛魅了所谓的 title，以至于 Top 2 的 offer 如约而至时，最终还是被我亲手拒掉了。</p>
+<p>我的 <strong>final choice</strong> 也许不是最好的，但与其反复纠结，不如在未来努力 <strong>make it the best choice</strong>。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="我的基本情况-">我的基本情况 👤<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E6%88%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%83%85%E5%86%B5-" class="hash-link" aria-label="Direct link to 我的基本情况 👤" title="Direct link to 我的基本情况 👤" translate="no">​</a></h2>
+<ul>
+<li class="">🎓 本科院校与专业：北航软件工程</li>
+<li class="">📈 成绩与排名：<strong>2/158</strong></li>
+<li class="">🌐 英语情况：CET-4 611，CET-6 593</li>
+<li class="">🧪 科研、项目或竞赛经历：一些水赛，科研 zero</li>
+<li class="">🤖 申请方向与最终去向：<strong>复旦机器人 + 创智学院联培</strong></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="我的保研时间线-️">我的保研时间线 🗓️<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E6%88%91%E7%9A%84%E4%BF%9D%E7%A0%94%E6%97%B6%E9%97%B4%E7%BA%BF-%EF%B8%8F" class="hash-link" aria-label="Direct link to 我的保研时间线 🗓️" title="Direct link to 我的保研时间线 🗓️" translate="no">​</a></h2>
+<p>回头看，保研季并不是某一场决定命运的考试，而是一连串不断刷新的邮件：<strong>入营通知、确认截止、材料清单、考核安排、候补消息和录取确认</strong>。有时刚从一座城市回来，下一封邮件已经在催你收拾行李；有时考完觉得彻底寄了，几周后又会收到新的机会。</p>
+<p>下面这条时间线，基本就是我从“先试试看”到最终按下确认键的全过程。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-月先走进科研现场-">4 月：先走进科研现场 🔬<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#4-%E6%9C%88%E5%85%88%E8%B5%B0%E8%BF%9B%E7%A7%91%E7%A0%94%E7%8E%B0%E5%9C%BA-" class="hash-link" aria-label="Direct link to 4 月：先走进科研现场 🔬" title="Direct link to 4 月：先走进科研现场 🔬" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>4 月：PKU 非 CS 学院的 VLM 实习。</strong>这是我第一次比较认真地接触实验室和具体课题。后来发现组内资源更多集中在硬件方向，做算法的人较少，组会时间也比较长，与我希望投入的方向不完全一致，所以在 6 月离开了。虽然没有留下成果，但学长确实教了我很多，也让我更早意识到：选实验室不能只看学校和 title，还要看课题、资源以及日常工作方式是否适合自己。</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-月邮箱开始加速一场接一场-">5 月：邮箱开始加速，一场接一场 📬<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#5-%E6%9C%88%E9%82%AE%E7%AE%B1%E5%BC%80%E5%A7%8B%E5%8A%A0%E9%80%9F%E4%B8%80%E5%9C%BA%E6%8E%A5%E4%B8%80%E5%9C%BA-" class="hash-link" aria-label="Direct link to 5 月：邮箱开始加速，一场接一场 📬" title="Direct link to 5 月：邮箱开始加速，一场接一场 📬" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p><strong>📩 5 月 7 日 14:25：收到创智学院 HE 考试通知。</strong>邮件下午到达，考试在当天 <strong>16:00</strong> 就开放，截止时间是 <strong>5 月 9 日 00:00</strong>。留给我的反应时间很短，需要提交带有 <code>MyHarness</code> 完整实现的 <code>solution.py</code>，以及一份说明设计策略、实验效果和分析过程的 PDF 报告。官方预估用时只有 1～3 小时，我简单 vibe 了一下，分数还可以，就赶在截止前交了上去。</p>
+</li>
+<li class="">
+<p><strong>🎉 5 月 11 日 22:16：收到 SII 入营邮件。</strong>晚上十点多看到邮件时，第一反应当然是开心，紧接着就是看确认截止时间、报到地点和住宿安排。邮件提到，当年不到三周收到了近 <strong>3000 份申请</strong>；最终入营 300+ 人，竞争比我最初想象得更激烈。</p>
+</li>
+<li class="">
+<p><strong>5 月 12 日 12:00 前：确认参加 SII。</strong>系统要求在中午前完成确认，逾期视为放弃。保研季里这类窗口通常很短，邮件不能只看标题，最好当场把截止时间写进日历。</p>
+</li>
+<li class="">
+<p><strong>📨 5 月 12 日 18:53：中关村学院发来入营结果。</strong>同一天里，上午刚确认完 SII，傍晚又收到了 ZGCA 的通知。后来我一直记成 5 月 14 日收到通知，是因为那天 14:54 我又回信询问了心理测评入口。翻过邮箱才发现，真正的入营邮件其实早了两天。</p>
+</li>
+<li class="">
+<p><strong>5 月 13 日 9:00 至 14 日 10:00：选择 SII 实训赛题。</strong>学院先公布题目，再留出一天左右的时间选题。后来我们选了“用 Codex 解决程序设计竞赛题”。当时对 agent 的了解还不多，却已经要开始想队伍和技术路线，多少有点边上车边学开车的感觉。</p>
+</li>
+<li class="">
+<p><strong>5 月 15 日 12:00 前：完成 ZGCA 入营确认和心理测评。</strong>两个环节共用同一个截止时间。那几天邮箱里同时放着两个学院的安排，既要确认下一场活动，也要准备马上开始的 SII，保研季第一次有了“多线程运行”的感觉。</p>
+</li>
+<li class="">
+<p><strong>🧳 5 月 16 日 9:30—16:00：到上海创智学院报到。</strong>地点在徐汇区华泾镇华发路 699 弄 3 号。住宿是单人间，附近就是商圈，实际体验很 nice。当天晚上还可以和导师面对面交流；直到真的坐进学院里，夏令营才从邮件里的几行字变成了现实。</p>
+</li>
+<li class="">
+<p><strong>📝 5 月 17 日：SII 笔试与机试。</strong>上午考逻辑与数理基础，涉及数学分析、概率统计、机器学习和深度学习，可以携带不带存储功能的计算器。很多知识学过但已经生疏，AI 相关内容更像天书，体感大约能做一半。下午在头歌平台机试，题目按时间逐道开放：第一题做完也不能马上进入下一题，只能等当前阶段结束。前两题很快 AC，第三题是基础树形 DP——但我不会 😭。</p>
+</li>
+<li class="">
+<p><strong>⏳ 5 月 18 日：个人面试，随后进入 48 小时实训。</strong>面试会问“为什么你适合创智学院”一类的问题，也有围绕项目和 PPT 的追问。我的面试现场有 QXP 大佬，整体发挥还行，但技术问题答不上来时，还是会清楚地意识到自己只有半桶水。当天 <strong>18:00</strong>，48 小时实训正式开始，生活节奏从面试模式瞬间切换成通宵赶项目模式 ☕。</p>
+</li>
+<li class="">
+<p><strong>5 月 18～21 日：SII 实训与答辩。</strong>实训地点不在学院本楼，需要坐班车去另一栋大楼，最晚一班车到凌晨 2 点，也可以选择通宵。窗外能看到江景，旁边还有无限量糕点；环境很美，但脑子里基本只有代码、agent 和第二天的进度。赛题只有两支队伍参加，最后做得都比较抽象，答辩时并没有真正拉开差距。21 日活动结束，第一场完整夏令营告一段落。</p>
+</li>
+<li class="">
+<p><strong>🚄 5 月 22 日：从上海赶回北京，直接衔接 ZGCA。</strong>报到时间是 9:30—15:30，学院在地铁 16 号线永丰站 A 口安排了摆渡车。16:00 开营，晚上还有自我认知评估和机考环境测试。上午还在赶路，晚上已经坐到统一提供的 ThinkBook + Ubuntu 前熟悉环境，整个切换非常极限。</p>
+</li>
+<li class="">
+<p><strong>💻 5 月 23 日：ZGCA 代码机试与笔试。</strong>上午 9:00—12:00 机试，允许带材料。我靠着板子，第一次在现场写出了线段树。三道题大概完成了两道半，第三题不搞竞赛的人几乎没有 AC。下午 14:00—16:00 是笔试，依旧做得比较痛苦，数学系同学则表现得很 well。晚上继续参加科研实训培训。</p>
+</li>
+<li class="">
+<p><strong>5 月 24 日：8 小时科研实训。</strong>赛题只印在纸上，电脑里没有电子版，现场一度变成“金山打字通大赛”：大家要重新把题目描述给自己的 agent。统一电脑允许安装个人工具，于是又变成了“配梯子 + 装 Codex 大赛”。我 11 点左右基本做完，12 点吃完盒饭就告辞了；现场还有很多人一直优化到 17:00。</p>
+</li>
+<li class="">
+<p><strong>🚀 5 月 25～26 日：黑客松、个人面试和项目路演。</strong>黑客松要求快速做出一个“互联网+”项目，再拿着 demo 向投资人争取分数。有人连夜准备易拉宝和海报，既拼 coding agent，也拼展示和 social 能力。我们没有进入决赛。最后一天的个人面试持续 20 多分钟，老师们提问很循循善诱，是一场比预想中更放松的面试。26 日退宿时，五月最密集的一段行程终于结束。</p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="67-月结果陆续落地也不断面对被筛-">6～7 月：结果陆续落地，也不断面对被筛 🎢<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#67-%E6%9C%88%E7%BB%93%E6%9E%9C%E9%99%86%E7%BB%AD%E8%90%BD%E5%9C%B0%E4%B9%9F%E4%B8%8D%E6%96%AD%E9%9D%A2%E5%AF%B9%E8%A2%AB%E7%AD%9B-" class="hash-link" aria-label="Direct link to 6～7 月：结果陆续落地，也不断面对被筛 🎢" title="Direct link to 6～7 月：结果陆续落地，也不断面对被筛 🎢" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p><strong>🌟 6 月中旬：SII 公布优营结果。</strong>从活动结束到结果公布，大约等了一个月。SII 只公布优营，没有候补；等待期间很难判断自己的位置，邮件弹出来的那一刻才算真正落地。</p>
+</li>
+<li class="">
+<p><strong>6 月 16 日：ZGCA 公布优营结果。</strong>ZGCA 设置了候补。到这个时候，我才开始更直观地理解“优营、候补、释放 offer”会怎样一层层影响后面的人。</p>
+</li>
+<li class="">
+<p><strong>6 月 30 日 7:05：通过北大软微简历筛选。</strong>下一关是论文筛：一天之内选一篇论文，完成并提交阅读报告。我的报告基本纯 AI，最后被筛掉了；也有其他同学用相似方式通过，所以至今不太明白具体原因。再见，PKU……</p>
+</li>
+<li class="">
+<p><strong>7 月 1 日：河套学院公布入营结果。</strong>这一批 claim 的是面向 Top 2 的特殊班型，最后华五、Top 2 的同学都有入营，总人数 30+。同一时期 AI Lab 也出了结果，我被筛掉了。回头看，AI Lab 可能比较弱 com，提前联系老师会更有帮助。</p>
+</li>
+<li class="">
+<p><strong>✈️ 7 月 6 日 14:30—16:30：到深圳报到。</strong>地点是秋果酒店三楼餐厅，距离石厦地铁站 F 口步行约 370 米。现场核验身份证、学生证等证件，还要准备成绩单和简历各 3～5 份。酒店两人一间，按报到顺序分配室友；从酒店到学院有统一大巴接送。</p>
+</li>
+<li class="">
+<p><strong>📚 7 月 7 日：SLAI 开营与全英文笔试。</strong>上午开营，下午笔试。试卷全英文，我基本没怎么做出来。前两场夏令营积累的那点自信，又被这张卷子迅速打回原形 🫠。</p>
+</li>
+<li class="">
+<p><strong>7 月 8～9 日：自由选题项目实训。</strong>学院要求自带电脑，并提前装好 CodeBuddy Code、CNB、CloudStudio 和 Git 等环境。题目完全自选，用几个小时完成项目后汇报。因为只有一个答辩室，交得晚就只能排队，现场安排多少有些混乱。</p>
+</li>
+<li class="">
+<p><strong>🎤 7 月 10 日：SLAI 面试。</strong>需要准备 6 分钟英文自我介绍 PPT，第 5 分钟举牌提醒，第 6 分钟强制结束，之后是大约 20 分钟的中英文问答。实际选择中文回答也不会被为难。完整参加活动后有 <strong>1000 元税前差旅补贴</strong>；后来我拿到了优秀营员，这趟深圳之行算是有了不错的结局。</p>
+</li>
+<li class="">
+<p><strong>7 月中旬：人大高瓴硕士项目未入营。</strong>高瓴硕士的 bar 还是很高。保研季里很常见的一种状态是：手里已经有了一些结果，邮箱里仍会不断出现新的拒信。情绪不会像最开始那样大起大落，但每一次被筛还是会让人重新审视自己的背景。</p>
+</li>
+<li class="">
+<p><strong>7 月 20 日：通过清华软件材料形式审查。</strong>清华系统最多可以填写三个志愿，但我因为填错信息导致系统提前锁定，最后只报了一个。这是整个申请季里很具体的一次教训：<strong>系统操作也属于申请能力的一部分，提交前一定要逐项检查。</strong></p>
+</li>
+<li class="">
+<p><strong>7 月下旬：上交 CS 入营，但最终没有参加。</strong>我当时联系了一位老师，报名的是上交 CS 直博 + SII 联培，后来又改变了想法。因为上交只能报一个学院，这个选择也意味着没有其他 chance 了。</p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="89-月预推免冲刺行程精确到小时-️">8～9 月：预推免冲刺，行程精确到小时 ⏱️<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#89-%E6%9C%88%E9%A2%84%E6%8E%A8%E5%85%8D%E5%86%B2%E5%88%BA%E8%A1%8C%E7%A8%8B%E7%B2%BE%E7%A1%AE%E5%88%B0%E5%B0%8F%E6%97%B6-%EF%B8%8F" class="hash-link" aria-label="Direct link to 8～9 月：预推免冲刺，行程精确到小时 ⏱️" title="Direct link to 8～9 月：预推免冲刺，行程精确到小时 ⏱️" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p><strong>8 月 25 日：获得清华软件综合考核资格。</strong>方向是智能软件工程专业学位硕士，需要缴纳 100 元复试费。到这里，清软正式进入我的最终选择范围。</p>
+</li>
+<li class="">
+<p><strong>🤖 8 月 31 日：收到复旦机器人复试安排。</strong>英语口试和专业面试都在上海市杨浦区国权北路 1566 弄湾谷科技园二期 D2 栋 6 楼进行。邮件里的材料清单很长：身份证、学生证、手写签名的诚信考核承诺书，以及 6 套简历、成绩单、外语证明和成果材料。九月的日程由此彻底排满。</p>
+</li>
+<li class="">
+<p><strong>9 月 4 日 9:00—12:00：复旦英语口试。</strong>每场面试要提前 30 分钟候考并核验材料。老师问我遇到过什么 challenge，我回答自己容易 distraction，学五分钟就想开一把二十分钟的 King Glory，现场一片笑声。下午还有机试，但国智院学生免试，据说机试也只作参考。</p>
+</li>
+<li class="">
+<p><strong>9 月 5 日：复旦专业面试。</strong>我提前联系的老师也在现场，因此被问了比较多的问题。同一天晚上 <strong>21:00 前</strong>，还要把清软个人陈述 PPT 转成 PDF 上传，而且文件中不能出现报考导师姓名。一个面试刚结束，马上就要切换到下一所学校的材料和状态。</p>
+</li>
+<li class="">
+<p><strong>💯 9 月 6 日：清华软件资格审查与机试。</strong>8:30—10:00 在自强科技楼 2 号楼 14 层进行资格审查，外校生需要携带最新成绩单、排名证明原件，以及两封由推荐人手写签字并密封的专家推荐信。下午 14:00—18:00 正式机试，三道题共 300 分。我第一题拿满，后两题靠暴力和逐测试点优化，最后拿到 <strong>100 + 70 + 80，共 250 分</strong>。</p>
+</li>
+<li class="">
+<p><strong>9 月 7 日：清华软件面试，当晚出结果。</strong>早上 7:50 前到自强科技楼 2 号楼 13 层 1319 会议室候场，面试分布在 14 层几个考场。现场还要准备 7～8 套简历、成绩单和成果材料。老师问了黑盒测试、白盒测试，也问我手里是否有其他 offer、为什么不报直博。中午结束面试，晚上就收到了结果，学院只给两天时间确认或拒绝。纠结了很久，我最终还是放弃了这个 Top 2 offer。</p>
+</li>
+<li class="">
+<p><strong>9 月 14 日：向复旦提交就读承诺。</strong>学院要求签署《承诺书》确认意向，提交后才启动后续录取流程。到这里，选择基本已经做出，但只要国家系统还没有确认，心里就不会完全踏实。</p>
+</li>
+<li class="">
+<p><strong>9 月 21 日：收到复旦预选拔通过通知，并在国家推免系统报名。</strong>系统要求当天 13:00 前完成缴费和报名。经历了几个月的夏令营、预推免和选择，所有事情终于汇聚到同一个系统里。</p>
+</li>
+<li class="">
+<p><strong>9 月 22 日 10 点多：收到复旦复试通知。</strong>学院从当天 8:30 起依次发通知。虽然已经签过承诺、走过预选拔，但系统通知真正出现时，还是会反复确认学校、学院和方向有没有填错。</p>
+</li>
+<li class="">
+<p><strong>✅ 9 月 24 日 14:00：接受待录取通知。</strong>学院从当天 8:30 起发出待录取通知，系统在 14:00 开放确认，并要求在 <strong>15:00 前接受</strong>，否则名额就会顺延给候补。点下“接受”的那一刻没有想象中那么戏剧化，只是长长地松了一口气。与此同时，其他人放弃的名额开始顺着候补名单往下流动，所谓的“鸽子链”也正式起飞。</p>
+</li>
+</ul>
+<p>从 5 月 7 日下午那封 HE 邮件，到 9 月 24 日按下确认键，一共四个多月。中间有通宵、赶路、候补、被筛，也有几次意料之外的通过。最后留在朋友圈里的可能只有一句“上岸了”，但真正构成保研季的，其实是这些精确到小时的截止时间，以及每一次看到新邮件时短暂又真实的心跳。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="前期准备-">前期准备 🧰<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87-" class="hash-link" aria-label="Direct link to 前期准备 🧰" title="Direct link to 前期准备 🧰" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="成绩英语与专业基础-">成绩、英语与专业基础 📚<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E6%88%90%E7%BB%A9%E8%8B%B1%E8%AF%AD%E4%B8%8E%E4%B8%93%E4%B8%9A%E5%9F%BA%E7%A1%80-" class="hash-link" aria-label="Direct link to 成绩、英语与专业基础 📚" title="Direct link to 成绩、英语与专业基础 📚" translate="no">​</a></h3>
+<p>这部分好像没怎么专门准备。参加 SII 和中关村学院考核时，我用 GPT 稍微复习了一下，但考试涉及的 AI 理论、数学之类，基本还是不会。</p>
+<p>有些项目会安排英语面试，不过我比较随意，基本都是现场 free style。参加过的面试似乎也没怎么问专业基础，更多还是围绕 PPT 展开。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="科研项目与竞赛-">科研、项目与竞赛 🧪<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E4%B8%8E%E7%AB%9E%E8%B5%9B-" class="hash-link" aria-label="Direct link to 科研、项目与竞赛 🧪" title="Direct link to 科研、项目与竞赛 🧪" translate="no">​</a></h3>
+<p>几个挑战杯的水项目。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="简历与申请材料-">简历与申请材料 📄<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E7%AE%80%E5%8E%86%E4%B8%8E%E7%94%B3%E8%AF%B7%E6%9D%90%E6%96%99-" class="hash-link" aria-label="Direct link to 简历与申请材料 📄" title="Direct link to 简历与申请材料 📄" translate="no">​</a></h3>
+<p>这方面也没什么 special。PPT 复用了以前的答辩材料——<strong>一个 PPT 用了三年</strong>。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="申请与面试经历-">申请与面试经历 🚄<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E7%94%B3%E8%AF%B7%E4%B8%8E%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86-" class="hash-link" aria-label="Direct link to 申请与面试经历 🚄" title="Direct link to 申请与面试经历 🚄" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="创智学院sii">创智学院（SII）🧠<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E5%88%9B%E6%99%BA%E5%AD%A6%E9%99%A2sii" class="hash-link" aria-label="Direct link to 创智学院（SII）🧠" title="Direct link to 创智学院（SII）🧠" translate="no">​</a></h3>
+<p>2026 年 5 月 7 日 14:25，我收到了创智学院的 HE 考试通知。</p>
+<p>HE 考试从 <strong>5 月 7 日 16:00 开放，到 5 月 9 日 00:00 截止</strong>，官方预估完成时间为 1～3 小时。需要提交两个文件：一个是包含 <code>MyHarness</code> 完整实现的 <code>solution.py</code>，另一个是记录不同 Harness 设计策略、效果和分析的探索报告 PDF。</p>
+<p>考试内容可以自己搜索了解。我简单 vibe 了一下，分数还可以，就提交了申请。5 月 11 日 22:16，我收到了创智学院的入营邮件。通知里提到，当年不到三周就收到了近 3000 份申请。</p>
+<ul>
+<li class=""><strong>确认入营：</strong>5 月 12 日 12:00 前在报名系统确认，逾期视为放弃</li>
+<li class=""><strong>报到时间：</strong>5 月 16 日 9:30—16:00</li>
+<li class=""><strong>报到地点：</strong>上海创智学院（上海市徐汇区华泾镇华发路 699 弄 3 号）</li>
+<li class=""><strong>正式活动时间：</strong>5 月 16 日至 21 日（16 日至 21 日晚提供住宿）</li>
+</ul>
+<p>入营人数是 300+，最后大约有一半的人获得优营。</p>
+<p>筛选的 bar 很迷：有论文、有 rank 的被筛掉了，拿了 Luce Wu 推荐信的也有被筛掉的。另外，因为活动时间与 CAI 冲突，所以双方可能进行了一些错峰安排。</p>
+<p>住宿是单人间，真的很 nice。学院附近就是商圈，不过学院本身其实只有一栋楼。</p>
+<p>第一天晚上可以和导师面对面交流。第二天上午是逻辑与数理基础考试，可以携带不带存储功能的计算器。内容包括数学分析、概率统计、机器学习和深度学习。学过的内容有些忘了，比较生疏；AI 相关的更像天书，但也不至于完全不会，体感大概能做 50%。</p>
+<p>下午是代码机考，使用头歌平台，入营前需要先注册账号并完成模拟题。比较奇怪的是，每隔一段时间才放出一道题。即便第一题提前做完了，也要等四十分钟、等这一题截止提交后，才能继续做第二题。前两道题我很快就 AC 了，第三题考的是树形 DP，很基础，但是我不会……</p>
+<p>18 日应该是个人面试。老师会问“为什么你适合创智学院”一类的问题，之后还有分组面试。我的面试现场有 QXP 大佬，整体情况还行，只是答不上来 QXP 老师的问题。说到底，自己的技术水平还是半桶水。</p>
+<p>18 日 18:00，<strong>48 小时实训</strong>正式开始。</p>
+<p>实训按赛题分组，每个题目可能有若干支队伍。学院在 5 月 13 日 9:00 公布题目，要求大家在 5 月 14 日 10:00 前完成选题。我们的赛题只有两组参加，有些赛题则有十几组。</p>
+<p>我们选的是“用 Codex 解决程序设计竞赛题”。当时对 agent 的理解还是太少了，全程都在 vibe，感觉有些摸不到问题的本质。现场无限量供应 GPT-5.5——当时最强的模型了，hhh。</p>
+<p>实训地点不在创智学院，而是在另一栋大楼，有班车接送，最晚一班是凌晨 2 点，也可以直接通宵。大楼里能看到很漂亮的江景，旁边还有无限量供应的糕点。</p>
+<p>最后一天是实训答辩。因为两支队伍做得差不多——都挺烂的——所以感觉没有拉开差距。</p>
+<p>一个月后，学院公布了优营结果。<strong>SII 的优营没有候补。</strong></p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="中关村学院zgca">中关村学院（ZGCA）💻<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E4%B8%AD%E5%85%B3%E6%9D%91%E5%AD%A6%E9%99%A2zgca" class="hash-link" aria-label="Direct link to 中关村学院（ZGCA）💻" title="Direct link to 中关村学院（ZGCA）💻" translate="no">​</a></h3>
+<p>2026 年 5 月 12 日 18:53，中关村学院发来了入营结果通知。我在 5 月 14 日 14:54 回信询问心理测评入口，没想到后来一直记成了收到通知的时间。</p>
+<p>具体安排如下：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>日期</th><th>时间</th><th>活动</th></tr></thead><tbody><tr><td>5 月 22 日（周五）</td><td>9:30—15:30</td><td>报到</td></tr><tr><td>5 月 22 日（周五）</td><td>16:00—18:00</td><td>开营仪式</td></tr><tr><td>5 月 22 日（周五）</td><td>19:30—21:00</td><td>自我认知评估、机考环境测试</td></tr><tr><td>5 月 23 日（周六）</td><td>9:00—12:00</td><td>代码机试</td></tr><tr><td>5 月 23 日（周六）</td><td>14:00—16:00</td><td>笔试</td></tr><tr><td>5 月 23 日（周六）</td><td>19:00—20:00</td><td>科研实训培训</td></tr><tr><td>5 月 24 日（周日）</td><td>9:00—17:00</td><td>科研实训</td></tr><tr><td>5 月 24 日（周日）</td><td>19:00—20:30</td><td>黑客松培训</td></tr><tr><td>5 月 25 日（周一）</td><td>9:00—21:00</td><td>黑客松</td></tr><tr><td>5 月 26 日（周二）</td><td>9:00—18:00</td><td>个人面试、项目路演</td></tr><tr><td>5 月 26 日（周二）</td><td>12:00—18:00</td><td>退宿离院</td></tr></tbody></table>
+<p>入营确认和心理测评的截止时间都是 <strong>5 月 15 日 12:00</strong>。代码机试和科研实训的电脑、鼠标与电源适配器由学院统一提供，不需要自带设备。5 月 22 日 9:30—15:30，学院在地铁 16 号线永丰站 A 口安排了摆渡车；食宿和意外保险也由学院统一解决。</p>
+<p>整个行程非常极限，我 22 日早上才从上海回来。</p>
+<p>机试允许携带材料。我靠着板子，第一次现场写出了线段树。题目同样是三道，应该做出了两道半。线段树那题估计卡掉了不少人，嘿嘿。第三题不搞竞赛的人几乎没有 AC，解法确实有点复杂。</p>
+<p>下午的笔试依旧做不出来，不过现场很多数学系的同学表现得很 well。</p>
+<p>再说一下入营情况：<strong>一共放进来了 600+ 人。</strong></p>
+<p>科研实训是极限 8 小时。比较搞笑的是，大家统一使用学院提供的 ThinkBook + Ubuntu，但允许使用自己的 agent，前一天晚上还专门安排了熟悉环境的时间。</p>
+<p>于是，这场科研实训在很大程度上变成了“<strong>配梯子 + 装 Codex 大赛</strong>” 🧑‍💻。</p>
+<p>第二天，赛题印在卷子上发下来，电脑里却没有电子版，于是现场又变成了一场“<strong>金山打字通大赛</strong>”：大家需要把卷面上的题目重新描述给自己的 Codex。</p>
+<p>我一开始用电脑前置摄像头拍摄卷面，再让网页版 ChatGPT 解读题面，节省了不少时间——拍完之后，监考人员才进来说不允许这么做。</p>
+<p>一共四道题。因为全程纯 vibe，所以我也不知道题目具体在讲什么。11 点基本做完，12 点吃了现场的盒饭，我就告辞了……不过，整个方案应该还有很大的优化空间，现场很多人一直做到了 17:00，太卷了。</p>
+<p>之后的黑客松，是快速完成一个“互联网+”项目，再拿着 demo 给投资人讲解，争取他们手里的分数。现场非常卷，好多组连夜联系外援，把易拉宝和海报都做好了。又是一场酣畅淋漓的 coding agent 竞赛，同时还很考验 social 能力。我们最终没有入围决赛。</p>
+<p>最后一天是个人面试，总时长 20+ 分钟。老师们人都很好，提问循循善诱，让我这么个半桶水也有挺多内容可以讲。整体是一次很愉快的面试。</p>
+<p>6 月 16 日，学院公布优营结果，<strong>设有候补</strong>。</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="河套学院slai">河套学院（SLAI）🌴<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E6%B2%B3%E5%A5%97%E5%AD%A6%E9%99%A2slai" class="hash-link" aria-label="Direct link to 河套学院（SLAI）🌴" title="Direct link to 河套学院（SLAI）🌴" translate="no">​</a></h3>
+<p>7 月 1 日，河套学院公布了入营结果。这一批 claim 的是面向 Top 2 的特殊班型，但最终华五、Top 2 的同学也都入营了，总人数 30+。</p>
+<p>日程安排如下：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>时间</th><th>任务</th><th>地点</th></tr></thead><tbody><tr><td>7 月 6 日 14:30—16:30</td><td>入营报到</td><td>秋果酒店（深圳会展中心石厦地铁站店）</td></tr><tr><td>7 月 7 日上午</td><td>开营仪式</td><td>深圳河套学院</td></tr><tr><td>7 月 7 日下午</td><td>笔试</td><td>深圳河套学院</td></tr><tr><td>7 月 8～9 日</td><td>项目实训</td><td>深圳河套学院</td></tr><tr><td>7 月 10 日</td><td>面试</td><td>深圳河套学院</td></tr></tbody></table>
+<p>报到在酒店三楼餐厅，地址是深圳市福田区石厦东村 321 号，距离石厦地铁站 F 口步行约 370 米。现场需要核验身份证、学生证等证件，并准备本科阶段成绩单和个人简历各 3～5 份。</p>
+<p>酒店是两人间，按照报到顺序分配室友。酒店和学院之间有统一大巴接送，所有笔试、实训和面试都在深圳河套学院进行。</p>
+<p>笔试采用全英文试卷，我基本没怎么做出来……</p>
+<p>项目实训很自由，题目完全自选。学院要求自带笔记本电脑，并提前装好 CodeBuddy Code、CNB、CloudStudio 和 Git 等环境。大家用几个小时完成项目，再进行汇报。现场只设置了一个答辩室，所以提交较晚的队伍需要排队。</p>
+<p>整体感觉管理稍微有些混乱。</p>
+<p>面试需要提前准备一份英文自我介绍 PPT：<strong>展示 6 分钟，第 5 分钟举牌提醒，第 6 分钟强制结束</strong>；之后还有约 20 分钟的中英文问答。实际现场如果选择用中文回答，老师一般也不会为难你。</p>
+<p>活动本身不收费，完整参加报到、笔试、实训和面试后，可以获得 1000 元税前差旅补贴。后来我也拿到了优秀营员 🌟。</p>
+<hr>
+<p>这里顺便介绍一下“国智院”。它的全称是“国家人工智能学院”，采用与高校联合培养的模式。一般来说，有了国智院的 offer，华五人大的 offer 基本点击即送。不过，实际培养主要在国智院完成，华五人大更多是你的 title，与原高校的联系会比较少。</p>
+<p>当然也有例外。我认识一位 Top 2 的同学，他的导师在中关村学院有项目，所以可以去 ZGCA 联培，依然由原导师指导，相当于多拿了一份工资和资源。</p>
+<p>从地理位置来看，北京和上海的实习资源更多。ZGCA 目前的位置比较偏远，不过据说之后会搬到蓟门桥，届时找实习会方便很多。</p>
+<p>原本只有 SII 明确允许实习；ZGCA 明面上不允许实习，SLAI 则有打卡要求。但前一阵子 SII 调整了政策，增加了更严格的打卡制度和闭卷博资考，实习条件因此变得非常恶劣。不少人此前考虑 SII，正是因为可以自由实习，这项变化在推免前夕公布，应该劝退了不少人。</p>
+<p>待遇方面，几个学院基本都在 <strong>1 万元/月左右</strong>。SII 和 ZGCA 是单人间，实测都很 nice。河套好像是多人套间，但每个人有独立卧室。我去河套时没有住学院宿舍，住的是学院统一预订的酒店。</p>
+<p>从考核组织来看，SII 的安排比 ZGCA 和 SLAI 更完善一些。</p>
+<p>国智院的另一个优势是可以自由选择导师，但这也是一把双刃剑：一方面，你有机会接触到更厉害的导师；另一方面，导师也可能完全放养你。不少 SII 的学生抱怨得不到足够指导，因为很多导师只是领域大佬来兼职。听说创智学院后续可能不再招兼职导师，这也可能导致师资力量下降。</p>
+<p>最终决定去 SII，是多方面因素共同作用的结果：我提前联系了一位挺 nice 的老师，自己也比较喜欢这个方向；这里换方向相对自由，有单人间宿舍；我不想交学费，也想换一座南方城市生活。至于实习问题，只能希望未来一年政策有所转机。</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="北大软微-">北大软微 📑<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E5%8C%97%E5%A4%A7%E8%BD%AF%E5%BE%AE-" class="hash-link" aria-label="Direct link to 北大软微 📑" title="Direct link to 北大软微 📑" translate="no">​</a></h3>
+<p>2026 年 6 月 30 日 7:05，我通过了简历筛选，进入论文筛环节。</p>
+<p>所谓论文筛，就是选择一篇论文，在一天之内完成并提交一份阅读报告。</p>
+<p>我的报告基本纯 AI，然后被筛掉了。不过，也有其他同学纯 AI 通过。再见，PKU……</p>
+<p>其他学院因为听说是弱 com，加上我没有提前联系老师，所以都没有报名。不过，身边也有同学凭纯 rank 上岸北大计算机，所以大家还是可以多试试。</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="人大高瓴-">人大高瓴 🎓<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E4%BA%BA%E5%A4%A7%E9%AB%98%E7%93%B4-" class="hash-link" aria-label="Direct link to 人大高瓴 🎓" title="Direct link to 人大高瓴 🎓" translate="no">​</a></h3>
+<p>7 月 12 日左右截止报名。</p>
+<p>好像几天后就出了结果，我没有入营。</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="交大-cs-">交大 CS 🚆<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E4%BA%A4%E5%A4%A7-cs-" class="hash-link" aria-label="Direct link to 交大 CS 🚆" title="Direct link to 交大 CS 🚆" translate="no">​</a></h3>
+<p>这里发生了一个小乌龙，时间大概是 7 月下旬。</p>
+<p>当时我联系了一位上交的老师，报名了上交 CS 直博 + SII 联培，后来又跑路了——对不起老师 🧎。</p>
+<p>之后虽然入营了，但我没有去参加。因为上交只能报名一个学院，所以也没有其他 chance 了。</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="清华软件-️">清华软件 🏛️<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E6%B8%85%E5%8D%8E%E8%BD%AF%E4%BB%B6-%EF%B8%8F" class="hash-link" aria-label="Direct link to 清华软件 🏛️" title="Direct link to 清华软件 🏛️" translate="no">​</a></h3>
+<p>7 月 20 日通过材料形式审查；8 月 25 日，学院通知我获得智能软件工程专业学位硕士的综合考核资格，需要缴纳 100 元复试费。</p>
+<p>By the way，清华可以填报三个志愿。我因为填错了系统，导致系统提前锁定，最后只报了一个志愿。</p>
+<p>考核安排在 9 月 6 日和 7 日，复旦则是 4 日和 5 日，时间刚好错开，又是一场极限行程。</p>
+<p>9 月 6 日 8:30—10:00 先进行资格审查，地点在清华大学自强科技楼 2 号楼 14 层会议室。外校生需要携带最新成绩单和排名证明原件，以及两封由推荐人手写签字并密封的专家推荐信。之后是上机环境测试，下午 14:00—18:00 正式开考。软件学院与网安、贵系使用的是同一套题目，总分 300 分，共三道题。</p>
+<p>第一题基本是送分题，可以用状压 DP。后面两道题我都不会正解，只能使用暴力做法，再针对每个 case 逐个优化，最后拿到了 <strong>100 + 70 + 80，共 250 分</strong>。</p>
+<p>每道题有 32 次提交机会。其中第二题包含 20 个测试点，每个测试点的数据范围和限制条件几乎都不相同，因此可以针对不同条件逐个 case 优化。</p>
+<p>考试总时长四个小时。我有两个小时都在优化第二题，把分数从 55 提到了 70。最后一小时实在无事可做——对于只会暴力的选手来说，四个小时还是太长了。</p>
+<p>第二天是面试。通知要求 9 月 7 日 7:50 前到自强科技楼 2 号楼 13 层 1319 会议室候场，正式考场在 14 层的 1403、1405、1406 和 1407。个人陈述 PPT 需要转为 PDF，不能出现报考导师姓名，并在 9 月 5 日 21:00 前上传；现场还要准备 7～8 套简历、成绩单和个人成果材料。</p>
+<p>据说只要机试成绩足够好，最后基本就能通过。我应该是所在面试考场的最高分。</p>
+<p>老师们都比较和善。专业课问的是黑盒测试与白盒测试，虽然没有专门复习，但也能说个差不多。老师还问了我是否有其他 offer、为什么不报直博等问题，我都如实回答了。</p>
+<p>学院效率很高：中午结束面试，晚上就出了结果。不过，学院要求在两天内确认或拒绝。经过一番痛苦的纠结，我最终还是拒绝了。</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="复旦机器人-">复旦机器人 🤖<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E5%A4%8D%E6%97%A6%E6%9C%BA%E5%99%A8%E4%BA%BA-" class="hash-link" aria-label="Direct link to 复旦机器人 🤖" title="Direct link to 复旦机器人 🤖" translate="no">​</a></h3>
+<p>8 月 31 日，学院发来了复试安排。本次复试分为英语口试和专业面试，两部分都在<strong>上海市杨浦区国权北路 1566 弄湾谷科技园二期 D2 栋 6 楼</strong>进行。</p>
+<p>9 月 4 日 9:00—12:00 是英语口试，整体比较轻松。每场面试需要提前 30 分钟到场候考并核验材料。现场要携带身份证、学生证和手写签名的诚信考核承诺书，同时准备 6 套个人简历、盖章成绩单、外语水平证明以及获奖与科研成果复印件。英语口试和专业面试都不需要 PPT。</p>
+<p>老师问我遇到过什么 challenge。我回答说，自己比较容易 distraction，学习五分钟就想开一把二十分钟的 King Glory 🎮，现场一片笑声。据说大家的英语面试得分都差不多，而且这部分只占 10%。</p>
+<p>当天下午还有机试，但国智院学生免试。听说机试成绩也不计入总分，只作为参考。</p>
+<p>9 月 5 日全天是正式面试，分为上午场和下午场。我提前联系的老师也在现场，所以问了我比较多的问题。</p>
+<p>9 月 14 日，学院要求签署《承诺书》确认就读意向，提交后才启动正式录取流程；9 月 21 日又发来了预选拔通过通知。国智院的同学一开始拿到的都是候补，需要签订协议后才会正式发 offer。</p>
+<p>最后的系统流程也很紧：9 月 21 日 13:00 前要在国家推免系统完成缴费和报名；学院从 9 月 22 日 8:30 起依次发复试通知，从 9 月 24 日 8:30 起发待录取通知。系统在 14:00 开放确认，要求在 15:00 前接受，否则就会顺延给候补考生。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="我如何做出最终选择-">我如何做出最终选择 🧭<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E6%88%91%E5%A6%82%E4%BD%95%E5%81%9A%E5%87%BA%E6%9C%80%E7%BB%88%E9%80%89%E6%8B%A9-" class="hash-link" aria-label="Direct link to 我如何做出最终选择 🧭" title="Direct link to 我如何做出最终选择 🧭" translate="no">​</a></h2>
+<p>SII 一开始确实很有吸引力——当然，是在新政策出台之前——所以我很早就报名了。</p>
+<p>ZGCA 也在我的考虑范围内。它位于北京，本身也是一个很好的机会，不过我后来及时释放了 offer。SLAI 可以报销 1000 元路费，我正好借这个机会回了一趟家。SLAI 的港校导师都很强，但因为自己太菜，一个都没联系上。</p>
+<p>国智院提供的都是直博机会，而我当时还没有想清楚是否要读博，所以一直在 <strong>actively seeking 硕士的 chance</strong>。</p>
+<p>最后真正让我纠结的是清软和 SII。权衡之后，我还是选择了<strong>更喜欢的方向和更合适的导师</strong>。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="走过之后的反思-">走过之后的反思 🔭<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E8%B5%B0%E8%BF%87%E4%B9%8B%E5%90%8E%E7%9A%84%E5%8F%8D%E6%80%9D-" class="hash-link" aria-label="Direct link to 走过之后的反思 🔭" title="Direct link to 走过之后的反思 🔭" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="做得比较好的地方-">做得比较好的地方 ✅<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E5%81%9A%E5%BE%97%E6%AF%94%E8%BE%83%E5%A5%BD%E7%9A%84%E5%9C%B0%E6%96%B9-" class="hash-link" aria-label="Direct link to 做得比较好的地方 ✅" title="Direct link to 做得比较好的地方 ✅" translate="no">​</a></h3>
+<p>首先，感谢自己的 coding 还可以，在关键时刻给我带来了很多机会。</p>
+<p>其次，我参加面试时基本比较随缘，也比较松弛。虽然英语口语不算好，但至少能够表达清楚自己的意思，也能让对方听懂。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="如果重来一次-">如果重来一次 🔁<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E5%A6%82%E6%9E%9C%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1-" class="hash-link" aria-label="Direct link to 如果重来一次 🔁" title="Direct link to 如果重来一次 🔁" translate="no">​</a></h3>
+<p>保研季最大的遗憾，是自己的科研经历几乎为零。</p>
+<p>主要原因，一是前期没有意识到科研的重要性；二是担心投入科研会影响学业成绩和排名。但事实上，到了后期，学业排名已经不会有太大波动了。</p>
+<p>身边许多 peer 已经拿到了一作 A 会，而我甚至还读不明白 paper……</p>
+<p><strong>如果再来一次，我可能会少参加一些竞赛，把更多时间投入真正有意义的科研工作。</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="写在最后-">写在最后 💬<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zhuang-geng-xiong#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E-" class="hash-link" aria-label="Direct link to 写在最后 💬" title="Direct link to 写在最后 💬" translate="no">​</a></h2>
+<p>读研最重要的也许是导师，读博更是如此。导师能给你多少指导、提供哪些资源，他的 taste 如何、是否允许实习，以及性格是否好相处，这些因素都会直接影响未来几年的体验。</p>
+<p>了解这些信息，一方面可以询问学长学姐和导师组里的学生；另一方面，也可以看看导师的论文产出，以及他真正做过哪些 solid 的工作。</p>
+<p>通常来说，了解本校导师比了解外校导师容易得多。因此，有时放下外保的执念，选择本校一位 nice 的导师，反而可能是更优解。Top 2 也有比较坑的组，也有普通的学生。<strong>一个人最后能走多远，未必主要取决于 title，更可能取决于自身能力和能够获得的资源。</strong></p>
+<p>如果你决定外保，希望你能尽早行动，尽快找到一位自己确认不错的导师。对于 Top 2 的一些组来说，这个“尽早”可能意味着提前一到两年。</p>
+<p>北航本科生普遍很卷，所以选择一个没那么卷的院系，把更多时间和精力投入科研，也是一条值得考虑的路。</p>
+<p>保研不只是 9 月 24 日下午的那条朋友圈，还意味着之后几年的研究生生活。相比朋友圈里的结果，这些内容可能显得枯燥无趣，却更值得认真考虑。</p>
+<p>此外，建议大家尽量多拿几个可以保底的 offer。</p>
+<p>保研其实包含两个过程：<strong>推免</strong>和<strong>接收</strong>。推免是指拿到本校的保研名额；获得名额后，还需要参加目标学院的考核，通过后才会被接收。</p>
+<p>不同学院的考核时间并不一样。清华和人大的预推免开放得比较早，通常不举办夏令营。所谓夏令营，本质上是更早一批的招生。参加这些学校的预推免时，你可能还没有正式拿到本校的推免名额。</p>
+<p>北大的夏令营很早，基本可以在夏令营阶段招满学生——软微除外，软微夏令营据说会鸽掉一半。北大信科四个学院招收的直博生比较多，通常是极弱 com；如果提前联系导师，也可能被捞进入营名单。</p>
+<p>北航各院系的考核，则安排在北航公布推免名额之后。建议尽量多报几个。我认识不少同学参加了本校的预推免考核，却最终没有拿到推免名额，只能在九推阶段捡漏。</p>
+<p>那么，什么是“九推”？</p>
+<p>如果走预推免，你可以在 9 月 24 日系统开放前拿到确定的 offer。假设一个人拿到了 n 个 offer，系统开放后，他就要放弃其中 n-1 个。这样一来，原本被占用的 offer 就会重新空出来。</p>
+<p>每个学院考核结束后都会公布一份名单：排名靠前的人拟录取，中间一部分进入候补，后面的人可能被判定为不及格，意味着基本候补不到了。</p>
+<p>当拟录取的人放弃后，名额会顺延给候补，也就是 waiting list，简称 <strong>WL</strong>。如果候补名单也被鸽完，教务就会开始查看有哪些人填报了系统，临时发出复试通知。接到通知后，你可能只需要仓促地参加一次面试，就被直接录取。因此，九推阶段一定要保持电话畅通。</p>
+<p>不过，还是希望大家都不需要经历这样危险的时刻，能够被自己心仪的导师稳稳接住。</p>
+<p>最后，很感谢你看到了这里。如果你在推免过程中有一些疑惑，欢迎与我交流：📮 <strong><a href="mailto:ggengx101199@gmail.com" target="_blank" rel="noopener noreferrer" class="">ggengx101199@gmail.com</a></strong></p>]]></content:encoded>
+            <category>保研经验分享</category>
+        </item>
         <item>
             <title><![CDATA[上海 AI Lab 保研经验贴]]></title>
             <link>https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-wang-yu-zhen-shanghai-ai-lab</link>
@@ -873,7 +1289,7 @@
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="考核方式">考核方式<a href="https://soft-where-21.github.io/blog/postgraduate-recommendation-experience-zheng-yu-jie-ruc#%E8%80%83%E6%A0%B8%E6%96%B9%E5%BC%8F" class="hash-link" aria-label="Direct link to 考核方式" title="Direct link to 考核方式" translate="no">​</a></h2>
 <p>高瓴的一个口号是“我们拥有全国最强的com”，我在其中一位老师处实习近一年，但老师对入营没法提供任何帮助（如果在面试时幸运碰到的话也许能加分？），夏令营我报名直博没入营（据说当时rk5也没入）</p>
 <p>整体入营情况属于大海营，报录比大约在1 : 5.5-6左右（考虑到有一些中途放弃的最后可能在1 : 5左右），结果是按照成绩从上到下组成录取+候补，1:1发放offer。夏令营鸽的好像不多，我是工程硕9/18，最后一个录到；工程博据说鸽穿了（可能是第一年大家觉得不确定性比较大）。</p>
-<p>考核包括笔试和面试（夏令营和工程硕博考试流程相同，工程硕博考核应该是简单一点，由于我没入夏令营，主要讲一些我当时收集到的信息**【好像每年的题型会有一些变化，仅供参考】**：</p>
+<p>考核包括笔试和面试（夏令营和工程硕博考试流程相同，工程硕博考核应该是简单一点，由于我没入夏令营，主要讲一些我当时收集到的信息<strong>【好像每年的题型会有一些变化，仅供参考】</strong>：</p>
 <blockquote>
 <p><strong>高瓴的面试都收电子设备，等候的时候只能看纸质材料，运气不好会坐牢等很久，建议去之前提前准备一些纸质材料</strong></p>
 </blockquote>
