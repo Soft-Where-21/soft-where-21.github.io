@@ -8,7 +8,11 @@ export default [
       paragraphs: [
         '智慧北航显示的是全部已修课程的总绩点。需要自己算 GPA 可以用下面的 GPA 计算器。',
       ],
-      link: {href: '/tool#gpa', label: 'GPA 计算器'},
+      links: [
+        {href: '/tool#gpa', label: 'GPA 计算器'},
+        {href: '/tool#postgrad', label: '保研成绩计算器'},
+        {href: '/tool#comprehensive', label: '综测加分计算器'},
+      ],
     },
     events: [
       {date: '2026-07-24', text: '2026 年春季学期课程成绩已录入并核算完毕。可查询入学以来全部课程（含 2026 年春季学期）的正考成绩及排名。这个查询结果和当时智慧北航的GPA应该是一致的，这时小学期还没出分（无关紧要）'},

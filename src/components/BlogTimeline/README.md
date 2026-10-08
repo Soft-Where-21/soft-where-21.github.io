@@ -1,6 +1,6 @@
 # 博客时间线
 
-保留 Docusaurus 默认博客布局：左侧文章导航，中间时间线，右侧文字切换。窄屏时，时间线选项放在正文上方。
+保留 Docusaurus 默认博客布局，在正文中按数据数组的顺序展示全部时间线。每条时间线包含标题、事件，以及可选的引言、结语和配图；窄屏时自动调整日期与正文的间距。
 
 ## 文件分工
 
@@ -9,17 +9,17 @@
 | `blog/<文章目录>/index.mdx` | 标题、摘要与时间线入口 |
 | `blog/<文章目录>/timelines.js` | 这篇文章的全部时间线内容 |
 | `src/components/BlogTimeline/index.js` | 日期和一句话事件的展示 |
-| `src/components/BlogTimeline/TimelineNavigation.js` | 桌面与手机共用的文字选择器 |
 | `src/components/BlogTimeline/TimelineImages.js` | 多图展示与原图链接 |
+| `src/components/BlogTimeline/TimelineLinks.js` | 单个链接与多个并列链接 |
 | `src/components/BlogTimeline/imagePath.js` | 本地图片路径与公网 URL 解析 |
-| `src/components/BlogTimeline/context.js` | 当前文章的选中状态 |
-| `src/components/BlogTimeline/styles.module.css` | 时间线和选择器的样式 |
+| `src/components/BlogTimeline/context.js` | 当前文章的数据与节点标识 |
+| `src/components/BlogTimeline/toc.js` | 时间线标题目录与固定跳转锚点 |
+| `src/components/BlogTimeline/styles.module.css` | 时间线、配图和窄屏样式 |
 | `src/components/BlogTimeline/theme.js` | 本地 Docusaurus theme 注册入口 |
-| `src/components/BlogTimeline/theme/BlogPostPage/index.js` | 读取文章导出的数据，提供切换状态 |
-| `src/components/BlogTimeline/theme/BlogLayout/index.js` | 将右侧目录替换为时间线选择器 |
-| `static/file/timeline/` | 本地配图，可按文章创建子目录 |
+| `src/components/BlogTimeline/theme/BlogPostPage/index.js` | 读取文章导出的数据，传给正文组件并补充标题目录 |
+| `static/file/timeline/` | 按需创建的本地配图目录，可按文章创建子目录 |
 
-时间线的展示、状态和主题接入集中在 `src/components/BlogTimeline/`。`docusaurus.config.js` 通过 `themes: ['./src/components/BlogTimeline/theme.js']` 注册本地主题；主题入口和配置调整后需重启开发服务，文章内容与样式继续支持热更新。
+时间线的展示、数据传递和主题接入集中在 `src/components/BlogTimeline/`。`docusaurus.config.js` 通过 `themes: ['./src/components/BlogTimeline/theme.js']` 注册本地主题；主题入口和配置调整后需重启开发服务，文章内容与样式继续支持热更新。
 
 ## 增加内容
 
@@ -39,6 +39,25 @@ export default [
 ```
 
 时间线 `id` 在同一篇文章中保持唯一；日期用 `YYYY-MM-DD` 格式，事件按时间排列。每个事件包含日期、一句话及可选配图。
+
+时间线标题会按数组顺序自动加入文章右侧目录，支持点击跳转和滚动高亮。标题锚点固定为 `timeline-<id>`；修改标题不影响已有章节链接，因此应保持 `id` 稳定，且避免与正文中手动指定的锚点重名。目录沿用 Docusaurus 默认样式和标题层级设置（时间线标题为二级），窄屏时与普通博客一样隐藏右侧目录。需要隐藏目录时，可在文章顶部添加 `hide_table_of_contents: true`。
+
+## 配置并列链接
+
+引言 `intro`、结语 `outro` 和每个事件都支持 `links` 数组。链接按数组顺序并列显示，窄屏时自动换行：
+
+```js
+intro: {
+  paragraphs: ['核对成绩时可使用以下工具。'],
+  links: [
+    {href: '/tool#gpa', label: 'GPA 计算器'},
+    {href: '/tool#postgrad', label: '保研成绩计算器'},
+    {href: '/tool#comprehensive', label: '综测加分计算器'},
+  ],
+},
+```
+
+原有单链接写法 `link: {href, label}` 仍然有效；同时配置时以 `links` 为准。不要重复写多个同名的 `link` 属性，否则 JavaScript 只会保留最后一个。
 
 ## 配置多张图片
 
@@ -62,7 +81,7 @@ export default [
 - 图片按数组顺序显示为缩略图，保持比例且不裁切，点击在新标签页查看原图。窄屏时自动换行。
 - 可通过 `{src, alt}` 提供图片说明；示例公网 URL 请替换为自己的实际地址。
 
-示例文章第一条事件混合使用两张本地软院猫配图和一张公网配图，本地文件位于 `static/file/timeline/demo/`。
+需要本地配图时，再创建 `static/file/timeline/` 及文章对应的子目录，并放入实际图片；没有本地配图时无需保留空目录。
 
 ## 新建时间线博客
 
@@ -72,7 +91,7 @@ export default [
 ---
 title: 我的时间线
 slug: my-timeline
-hide_table_of_contents: true
+reading_time: 6
 ---
 
 一句话摘要。
@@ -86,4 +105,6 @@ export {default as timelines} from './timelines';
 <BlogTimeline />
 ```
 
-命名导出 `timelines` 会自动启用右侧选择器，不需要额外配置开关或全局注册。每篇文章只加载自己的数据；未导出时间线的普通博客使用原有目录。
+命名导出 `timelines` 会将这篇文章的数据交给 `<BlogTimeline />`，按数组顺序展示全部时间线，不需要额外配置开关或全局注册。每篇文章只加载自己的数据；未导出时间线的普通博客保持默认行为。
+
+`reading_time` 是可选的阅读时长，单位为分钟，必须是有限的非负数字，例如 `6` 或 `2.5`。省略此属性或填写无效值时，沿用自动计算的阅读时长。

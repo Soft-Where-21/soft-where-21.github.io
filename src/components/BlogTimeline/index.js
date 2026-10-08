@@ -1,6 +1,9 @@
 import React from 'react';
+import Heading from '@theme/Heading';
 import {useTimeline} from './context';
 import TimelineImages from './TimelineImages';
+import TimelineLinks from './TimelineLinks';
+import {getTimelineHeadingId} from './toc';
 import styles from './styles.module.css';
 
 export default function BlogTimeline() {
@@ -11,12 +14,12 @@ export default function BlogTimeline() {
   return (
     <>
       {timelines.map((timeline) => (
-        <section key={timeline.id} id={`${panelId}-${timeline.id}`} aria-labelledby={`${panelId}-${timeline.id}-title`} className={styles.timeline}>
-          <h2 id={`${panelId}-${timeline.id}-title`} className={styles.title}>{timeline.title}</h2>
+        <section key={timeline.id} id={`${panelId}-${timeline.id}`} aria-labelledby={getTimelineHeadingId(timeline)} className={styles.timeline}>
+          <Heading as="h2" id={getTimelineHeadingId(timeline)} className={styles.title}>{timeline.title}</Heading>
           {timeline.intro && (
             <div className={styles.intro}>
               {timeline.intro.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-              {timeline.intro.link && <p><a href={timeline.intro.link.href}>{timeline.intro.link.label}</a></p>}
+              <TimelineLinks links={timeline.intro.links} link={timeline.intro.link} />
             </div>
           )}
           <ol className={styles.events}>
@@ -25,7 +28,7 @@ export default function BlogTimeline() {
                 <time dateTime={event.date}>{event.date.replaceAll('-', '.')}</time>
                 <div className={styles.eventContent}>
                   <p>{event.text}</p>
-                  {event.link && <a href={event.link.href}>{event.link.label}</a>}
+                  <TimelineLinks links={event.links} link={event.link} />
                   <TimelineImages images={event.images} />
                 </div>
               </li>
@@ -34,7 +37,7 @@ export default function BlogTimeline() {
           {timeline.outro && (
             <div className={styles.outro}>
               {timeline.outro.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-              {timeline.outro.link && <p><a href={timeline.outro.link.href}>{timeline.outro.link.label}</a></p>}
+              <TimelineLinks links={timeline.outro.links} link={timeline.outro.link} />
             </div>
           )}
         </section>

@@ -82,10 +82,13 @@ function Spacer() {
 
 export default function BlogPostItemHeaderInfo({className}) {
   const {metadata, frontMatter, isBlogPostPage} = useBlogPost();
-  const {date, readingTime, permalink} = metadata;
+  const {date, readingTime} = metadata;
+  const customReadingTime = frontMatter.reading_time;
   const displayedReadingTime =
-    permalink === '/blog/campus-timelines' && typeof frontMatter.reading_time === 'number'
-      ? frontMatter.reading_time
+    typeof customReadingTime === 'number' &&
+    Number.isFinite(customReadingTime) &&
+    customReadingTime >= 0
+      ? customReadingTime
       : readingTime;
   const dateTimeFormat = useDateTimeFormat({
     day: 'numeric',
