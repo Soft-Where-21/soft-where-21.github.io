@@ -81,8 +81,12 @@ function Spacer() {
 }
 
 export default function BlogPostItemHeaderInfo({className}) {
-  const {metadata, isBlogPostPage} = useBlogPost();
-  const {date, readingTime} = metadata;
+  const {metadata, frontMatter, isBlogPostPage} = useBlogPost();
+  const {date, readingTime, permalink} = metadata;
+  const displayedReadingTime =
+    permalink === '/blog/campus-timelines' && typeof frontMatter.reading_time === 'number'
+      ? frontMatter.reading_time
+      : readingTime;
   const dateTimeFormat = useDateTimeFormat({
     day: 'numeric',
     month: 'long',
@@ -93,10 +97,10 @@ export default function BlogPostItemHeaderInfo({className}) {
   return (
     <div className={clsx(styles.container, 'margin-vert--md', className)}>
       <time dateTime={date}>{dateTimeFormat.format(new Date(date))}</time>
-      {typeof readingTime !== 'undefined' && (
+      {typeof displayedReadingTime !== 'undefined' && (
         <>
           <Spacer />
-          <ReadingTime readingTime={readingTime} />
+          <ReadingTime readingTime={displayedReadingTime} />
         </>
       )}
       {isBlogPostPage && (

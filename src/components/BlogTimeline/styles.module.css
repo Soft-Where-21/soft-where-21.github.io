@@ -4,7 +4,20 @@
 
 .timeline .title {
   margin: 0 0 1.5rem;
-  font-size: 1.3rem;
+}
+
+.intro {
+  margin: 0 0 1.5rem;
+}
+
+.outro {
+  margin-top: 0.25rem;
+}
+
+.intro p,
+.outro p {
+  margin: 0 0 0.75rem;
+  line-height: 1.8;
 }
 
 .timeline .events {
