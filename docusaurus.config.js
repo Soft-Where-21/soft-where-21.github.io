@@ -47,6 +47,8 @@ const config = {
     locales: ['en'],
   },
 
+  themes: ['./src/components/BlogTimeline/theme.js'],
+
   presets: [
     [
       'classic',
