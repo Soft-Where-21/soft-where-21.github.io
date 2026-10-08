@@ -1,6 +1,7 @@
 ---
 slug: postgraduate-entrance-experience-zhao-shijin
 title: 上岸南京大学软件学院专硕复试第一经验贴
+published_at: '2026-07-23T21:00:30+08:00'
 authors: [zhaoshijin]
 tags: [postgraduate-entrance-experience]
 description: 赵世锦同学分享26考研11408备考、择校、心态调整以及上岸南京大学软件学院专硕的完整经验。

@@ -1,0 +1,49 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  margin: -0.5rem -0.5rem 0.5rem;
+  padding-inline: 0.75rem;
+  background: var(--ifm-menu-color-background-active);
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.75rem;
+  padding: 0.4rem 0.25rem;
+  border: 0;
+  background: none;
+  color: var(--ifm-font-color-base);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.backButton svg {
+  flex-shrink: 0;
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.backButton:hover {
+  color: var(--ifm-color-primary);
+}
+
+.backButton:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: -2px;
+  border-radius: 3px;
+}
+
+.toolbar .tagsLink {
+  min-height: 2.75rem;
+  margin-inline-start: auto;
+  padding: 0.4rem 0.5rem;
+  font-size: 0.8125rem;
+}

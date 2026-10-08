@@ -5,6 +5,9 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import {themes as prismThemes} from 'prism-react-renderer';
+import remarkCjkFriendly from 'remark-cjk-friendly';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -34,6 +37,8 @@ const config = {
 
   onBrokenLinks: 'throw',
 
+  plugins: [require.resolve('./plugins/materials-index')],
+
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -58,6 +63,27 @@ const config = {
         },
         blog: {
           showReadingTime: true,
+          processBlogPosts: async ({blogPosts}) => {
+            // Sort by publication time while preserving each post's displayed date.
+            const posts = blogPosts.map((post) => {
+              const publishedAt = new Date(
+                post.metadata.frontMatter.published_at ?? post.metadata.date,
+              ).getTime();
+              if (!Number.isFinite(publishedAt)) {
+                throw new Error(`Invalid published_at for blog post: ${post.metadata.source}`);
+              }
+              return {post, publishedAt};
+            });
+            return posts
+              .sort((a, b) => b.publishedAt - a.publishedAt)
+              .map(({post}) => post);
+          },
+          beforeDefaultRemarkPlugins: [require('./plugins/remark-preserve-escaped-autolinks.cjs')],
+          // Support Chinese punctuation beside emphasis without rewriting posts.
+          remarkPlugins: [remarkCjkFriendly, remarkMath],
+          rehypePlugins: [rehypeKatex],
+          blogSidebarCount: 'ALL',
+          blogSidebarTitle: '全部文章',
           feedOptions: {
             type: ['rss', 'atom'],
             xslt: true,
@@ -72,7 +98,7 @@ const config = {
           onUntruncatedBlogPosts: 'warn',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: [require.resolve('katex/dist/katex.min.css'), './src/css/custom.css'],
         },
       }),
     ],
@@ -112,6 +138,7 @@ const config = {
           {to: '/tool', label: '工具', position: 'left'},
           {to: '/blog', label: '经验分享', position: 'left'},
           {to: '/share', label: '学业分享', position: 'left'},
+          {to: '/materials', label: '资料分享', position: 'left'},
           {to: '/member', label: '学生会', position: 'left'},
           {
             type: 'html',
