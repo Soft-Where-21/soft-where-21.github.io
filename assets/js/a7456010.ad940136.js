@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunksoft_where=globalThis.webpackChunksoft_where||[]).push([[1235],{2536(e){e.exports=JSON.parse('{"name":"docusaurus-plugin-content-pages","id":"default"}')}}]);
