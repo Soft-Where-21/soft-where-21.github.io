@@ -47,7 +47,11 @@ const config = {
     locales: ['en'],
   },
 
-  themes: ['./src/components/BlogTimeline/theme.js'],
+  markdown: {
+    mermaid: true,
+  },
+
+  themes: ['./src/components/BlogTimeline/theme.js', '@docusaurus/theme-mermaid'],
 
   presets: [
     [
