@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunksoft_where=globalThis.webpackChunksoft_where||[]).push([[3192],{13192(e,h,r){r.d(h,{createArchitectureServices:()=>s.S});var s=r(84549);r(80184)}}]);
