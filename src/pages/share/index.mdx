@@ -6,6 +6,7 @@ hide_table_of_contents: true
 
 import React, {useEffect, useMemo, useState} from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useIsBrowser from '@docusaurus/useIsBrowser';
 
 import shareData from './shares.json';
 
@@ -35,8 +36,7 @@ export function getAbsoluteResourceUrl(rawUrl = '', siteBaseUrl = '') {
   if (!rawUrl) return '';
   if (/^https?:\/\//i.test(rawUrl)) return rawUrl;
 
-  const runtimeBase = typeof window === 'undefined' ? '' : window.location.origin;
-  const base = runtimeBase || siteBaseUrl;
+  const base = siteBaseUrl;
   if (!base) return '';
 
   try {
@@ -181,16 +181,19 @@ export function UIIcon({name, className = ''}) {
 
 export function SharePage() {
   const {siteConfig} = useDocusaurusContext();
+  const isBrowser = useIsBrowser();
   const baseUrl = siteConfig?.baseUrl || '/';
   const siteBaseUrl = useMemo(() => {
-    const siteUrl = siteConfig?.url || '';
+    // Keep the static HTML and first browser render identical. Local preview
+    // eligibility may change only after hydration knows the actual origin.
+    const siteUrl = isBrowser ? window.location.origin : siteConfig?.url || '';
     if (!siteUrl) return '';
     try {
       return new URL(baseUrl, siteUrl).toString();
     } catch (e) {
       return siteUrl;
     }
-  }, [siteConfig?.url, baseUrl]);
+  }, [siteConfig?.url, baseUrl, isBrowser]);
 
   const shares = Array.isArray(shareData?.shares) ? shareData.shares : [];
   const shareById = useMemo(() => new Map(shares.map((item) => [item.id, item])), [shares]);
@@ -284,13 +287,13 @@ export function SharePage() {
     const previewUrl =
       first.type === 'video'
         ? firstVideoUrl
-        : first.previewUrl || (isPptFile(first.downloadUrl) ? getOfficePreviewUrl(first.downloadUrl) : first.downloadUrl);
+        : first.previewUrl || (isPptFile(first.downloadUrl) ? getOfficePreviewUrl(first.downloadUrl, siteBaseUrl) : first.downloadUrl);
     setActivePreview({
       type: first.type || '',
       url: previewUrl || '',
       title: first.name || '资料预览',
     });
-  }, [previewableResources]);
+  }, [previewableResources, siteBaseUrl]);
 
   async function handleCopyPassword(password, key) {
     if (!password || typeof window === 'undefined') return;

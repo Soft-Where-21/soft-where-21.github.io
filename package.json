@@ -12,6 +12,8 @@
     "serve": "docusaurus serve",
     "test:comprehensive": "node scripts/test-comprehensive.mjs",
     "test:materials": "node --test tests/materials-browser.test.mjs tests/materials-index/*.test.cjs",
+    "test:search": "node --test tests/search/*.test.mjs tests/search-index/*.test.cjs",
+    "verify:search": "node scripts/verify-search.mjs",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids"
   },

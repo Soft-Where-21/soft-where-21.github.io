@@ -1,0 +1,2477 @@
+{
+  "/docs/intro": {
+    "description": "浏览学院常用资源、文件和工具的分类导航。",
+    "aliases": [
+      "资源导航",
+      "资源介绍",
+      "资料介绍",
+      "学院资源",
+      "学习资源导航"
+    ],
+    "keywords": [
+      "课程",
+      "地图",
+      "校历",
+      "培养方案",
+      "综测方案",
+      "推免细则"
+    ]
+  },
+  "/docs/contribute": {
+    "description": "了解开源仓库、学习资料与文件的贡献入口和提交方式。",
+    "aliases": [
+      "贡献指南",
+      "投稿",
+      "贡献资料",
+      "上传资料",
+      "分享笔记",
+      "资源共建"
+    ],
+    "keywords": [
+      "学习资料共享共建计划",
+      "开源仓库贡献",
+      "资料投喂",
+      "北航网盘",
+      "提交申请"
+    ]
+  },
+  "/docs/comprehensive-assessment": {
+    "title": "综测方案",
+    "description": "查看软件学院不同年级的学生综合素质测评方案。",
+    "aliases": [
+      "综测方案",
+      "综合素质测评方案",
+      "综测政策",
+      "综测规则",
+      "综测细则",
+      "综测评分标准",
+      "综合测评办法"
+    ],
+    "keywords": [
+      "综测",
+      "综合测评",
+      "综合素质测评",
+      "年级",
+      "加分规则"
+    ]
+  },
+  "/docs/postgraduate-recommendation": {
+    "title": "推免细则",
+    "description": "查看软件学院不同年级的推荐免试研究生实施细则。",
+    "aliases": [
+      "推免细则",
+      "保研细则",
+      "推免政策",
+      "保研政策",
+      "保研规则",
+      "保研资格",
+      "推免实施细则"
+    ],
+    "keywords": [
+      "推免",
+      "保研",
+      "推荐免试研究生",
+      "年级",
+      "实施细则"
+    ]
+  },
+  "/docs/training-program": {
+    "title": "培养方案",
+    "description": "查看软件学院软件工程专业不同年级的培养方案。",
+    "aliases": [
+      "培养方案",
+      "软件工程培养方案",
+      "本科培养方案",
+      "专业培养方案"
+    ],
+    "keywords": [
+      "课程安排",
+      "学分要求",
+      "必修课",
+      "选修课",
+      "软件工程",
+      "本科"
+    ]
+  },
+  "/docs/calendar": {
+    "title": "北航校历",
+    "description": "查看北航不同学年的校历图片。",
+    "aliases": [
+      "校历",
+      "北航校历",
+      "学校校历",
+      "学年校历"
+    ],
+    "keywords": [
+      "开学",
+      "放假",
+      "教学周",
+      "寒假",
+      "暑假",
+      "学期安排"
+    ]
+  },
+  "/docs/campus-map": {
+    "title": "校园地图",
+    "description": "查看学院路、沙河两个校区的校园地图。",
+    "aliases": [
+      "校园地图",
+      "北航地图",
+      "校区地图",
+      "校园平面图"
+    ],
+    "keywords": [
+      "地图",
+      "学院路",
+      "沙河",
+      "校园"
+    ]
+  },
+  "/docs/campus-map/xueyuan-road": {
+    "title": "学院路校区地图",
+    "description": "查看北航学院路校区校园地图。",
+    "aliases": [
+      "学院路地图",
+      "学院路校区地图",
+      "学院路校区平面图",
+      "学院路校园地图",
+      "北航学院路地图"
+    ],
+    "keywords": [
+      "学院路",
+      "学院路校区",
+      "校园地图",
+      "教学楼",
+      "校园位置"
+    ]
+  },
+  "/docs/campus-map/shahe": {
+    "title": "沙河校区地图",
+    "description": "查看北航沙河校区校园地图。",
+    "aliases": [
+      "沙河地图",
+      "沙河校区地图",
+      "沙河校区平面图",
+      "沙河校园地图",
+      "北航沙河地图"
+    ],
+    "keywords": [
+      "沙河",
+      "沙河校区",
+      "校园地图",
+      "教学楼",
+      "校园位置"
+    ]
+  },
+  "/docs/comprehensive-assessment/2021": {
+    "title": "2021级综测方案",
+    "description": "预览软件学院 2021 年学生综合素质测评方案。",
+    "aliases": [
+      "2021级综测方案",
+      "21级综测方案",
+      "2021级综测",
+      "2021年综测方案",
+      "2021级综合素质测评方案"
+    ],
+    "keywords": [
+      "2021级",
+      "综测方案",
+      "综测规则",
+      "综合素质测评",
+      "PDF"
+    ]
+  },
+  "/docs/comprehensive-assessment/2022": {
+    "title": "2022级综测方案",
+    "description": "预览软件学院 2022 年学生综合素质测评方案。",
+    "aliases": [
+      "2022级综测方案",
+      "22级综测方案",
+      "2022级综测",
+      "2022年综测方案",
+      "2022级综合素质测评方案"
+    ],
+    "keywords": [
+      "2022级",
+      "综测方案",
+      "综测规则",
+      "综合素质测评",
+      "PDF"
+    ]
+  },
+  "/docs/comprehensive-assessment/2023": {
+    "title": "2023级综测方案",
+    "description": "预览软件学院 2023 年学生综合素质测评方案。",
+    "aliases": [
+      "2023级综测方案",
+      "23级综测方案",
+      "2023级综测",
+      "2023年综测方案",
+      "2023级综合素质测评方案"
+    ],
+    "keywords": [
+      "2023级",
+      "综测方案",
+      "综测规则",
+      "综合素质测评",
+      "PDF"
+    ]
+  },
+  "/docs/postgraduate-recommendation/2023": {
+    "title": "2023级推免细则",
+    "description": "预览软件学院 2023 年推荐免试研究生实施细则。",
+    "aliases": [
+      "2023级推免细则",
+      "23级保研细则",
+      "2023年推免细则",
+      "2023级保研政策"
+    ],
+    "keywords": [
+      "2023级",
+      "推免细则",
+      "保研政策",
+      "推荐免试研究生",
+      "PDF"
+    ]
+  },
+  "/docs/postgraduate-recommendation/2024": {
+    "title": "2024级推免细则",
+    "description": "预览软件学院 2024 年推荐免试研究生实施细则。",
+    "aliases": [
+      "2024级推免细则",
+      "24级保研细则",
+      "2024年推免细则",
+      "2024级保研政策"
+    ],
+    "keywords": [
+      "2024级",
+      "推免细则",
+      "保研政策",
+      "推荐免试研究生",
+      "PDF"
+    ]
+  },
+  "/docs/training-program/software-engineering-2023": {
+    "title": "2023级软件工程培养方案",
+    "description": "预览软件学院软件工程 2023 级培养方案。",
+    "aliases": [
+      "2023级培养方案",
+      "23级培养方案",
+      "2023级软件工程培养方案"
+    ],
+    "keywords": [
+      "2023级",
+      "软件工程",
+      "培养方案",
+      "学分要求",
+      "PDF"
+    ]
+  },
+  "/docs/training-program/software-engineering-2024": {
+    "title": "2024级软件工程培养方案",
+    "description": "预览软件学院软件工程 2024 级培养方案。",
+    "aliases": [
+      "2024级培养方案",
+      "24级培养方案",
+      "2024级软件工程培养方案"
+    ],
+    "keywords": [
+      "2024级",
+      "软件工程",
+      "培养方案",
+      "学分要求",
+      "PDF"
+    ]
+  },
+  "/docs/training-program/software-engineering-2025": {
+    "title": "2025级软件工程培养方案",
+    "description": "预览软件学院软件工程 2025 级培养方案。",
+    "aliases": [
+      "2025级培养方案",
+      "25级培养方案",
+      "2025级软件工程培养方案"
+    ],
+    "keywords": [
+      "2025级",
+      "软件工程",
+      "培养方案",
+      "学分要求",
+      "PDF"
+    ]
+  },
+  "/docs/calendar/2025-2026": {
+    "title": "2025-2026学年校历",
+    "description": "查看北航 2025-2026 学年校历。",
+    "aliases": [
+      "2025-2026校历",
+      "2025-2026学年校历",
+      "北航2025-2026校历"
+    ],
+    "keywords": [
+      "2025-2026",
+      "校历",
+      "开学",
+      "放假",
+      "学期安排"
+    ]
+  },
+  "/docs/calendar/2026-2027": {
+    "title": "2026-2027学年校历",
+    "description": "查看北航 2026-2027 学年校历。",
+    "aliases": [
+      "2026-2027校历",
+      "2026-2027学年校历",
+      "北航2026-2027校历"
+    ],
+    "keywords": [
+      "2026-2027",
+      "校历",
+      "开学",
+      "放假",
+      "学期安排"
+    ]
+  },
+  "/docs/commands": {
+    "title": "常用指令",
+    "description": "浏览 Git、Linux、Vim、Docker 和 Tmux 的常用指令与教程。",
+    "aliases": [
+      "常用指令",
+      "命令速查",
+      "命令行教程",
+      "开发命令"
+    ],
+    "keywords": [
+      "Git",
+      "Linux",
+      "Shell",
+      "Vim",
+      "Docker",
+      "Tmux"
+    ]
+  },
+  "/docs/commands/git/install-config": {
+    "title": "Git 安装与配置",
+    "description": "Git 的安装、用户信息设置和远程连接配置。",
+    "aliases": [
+      "Git安装配置",
+      "安装Git",
+      "Git账户配置",
+      "Git配置SSH"
+    ],
+    "keywords": [
+      "Git",
+      "安装",
+      "用户名",
+      "邮箱",
+      "默认分支",
+      "SSH",
+      "远程配置"
+    ]
+  },
+  "/docs/commands/git/local-version-control": {
+    "title": "Git 本地版本管理",
+    "description": "介绍 Git 本地工作流、提交历史、版本回退和文件忽略。",
+    "aliases": [
+      "Git本地版本管理",
+      "Git版本回退",
+      "撤销提交",
+      "Git撤销修改"
+    ],
+    "keywords": [
+      "Git",
+      "暂存区",
+      "版本库",
+      "git add",
+      "git commit",
+      "git reset",
+      "git restore",
+      "git revert",
+      "gitignore"
+    ]
+  },
+  "/docs/commands/git/remote-collaboration": {
+    "title": "Git 远程协作指南",
+    "description": "介绍 Git 远程仓库、分支追踪、拉取推送和协作流程。",
+    "aliases": [
+      "Git远程协作",
+      "Git分支协作",
+      "Git拉取推送",
+      "Git合并分支"
+    ],
+    "keywords": [
+      "Git",
+      "远程仓库",
+      "分支",
+      "upstream",
+      "clone",
+      "fetch",
+      "pull",
+      "push",
+      "merge",
+      "PR",
+      "冲突"
+    ]
+  },
+  "/docs/commands/git/cheatsheet": {
+    "title": "Git 备忘清单",
+    "description": "查询 Git 常用命令、子模块、配置、统计和补丁操作。",
+    "aliases": [
+      "Git备忘清单",
+      "Git速查",
+      "Git命令大全",
+      "Git速查表"
+    ],
+    "keywords": [
+      "Git",
+      "stash",
+      "rebase",
+      "submodule",
+      "子模块",
+      "patch",
+      "补丁",
+      "cherry-pick",
+      "代理",
+      "Conventional Commits"
+    ]
+  },
+  "/docs/commands/linux/shell": {
+    "title": "Linux / Shell 快速上手",
+    "description": "Linux 文件目录、权限、系统监控、网络和软件包管理入门。",
+    "aliases": [
+      "Linux命令",
+      "Linux教程",
+      "Shell教程",
+      "终端命令"
+    ],
+    "keywords": [
+      "Linux",
+      "Shell",
+      "文件目录",
+      "权限",
+      "系统监控",
+      "网络",
+      "软件包管理"
+    ]
+  },
+  "/docs/commands/linux/vim": {
+    "title": "Vim 快速上手",
+    "description": "介绍 Vim 的三种模式、移动编辑和保存退出命令。",
+    "aliases": [
+      "Vim教程",
+      "Vim快捷键",
+      "Vim保存退出",
+      "Vim使用方法"
+    ],
+    "keywords": [
+      "Vim",
+      "编辑器",
+      "模式切换",
+      "光标移动",
+      "编辑",
+      "保存",
+      "退出"
+    ]
+  },
+  "/docs/commands/docker": {
+    "title": "Docker 常用指令",
+    "description": "查询 Docker 镜像、容器、Compose、网络和数据卷的常用命令。",
+    "aliases": [
+      "Docker命令",
+      "Docker教程",
+      "Docker Compose教程",
+      "容器命令"
+    ],
+    "keywords": [
+      "Docker",
+      "Docker Compose",
+      "镜像",
+      "容器",
+      "数据卷",
+      "网络",
+      "环境部署"
+    ]
+  },
+  "/docs/commands/tmux/install-config": {
+    "title": "Tmux 安装与配置",
+    "description": "Tmux 的安装和基础配置，包括前缀键、鼠标与分屏设置。",
+    "aliases": [
+      "Tmux安装配置",
+      "安装Tmux",
+      "Tmux配置文件"
+    ],
+    "keywords": [
+      "Tmux",
+      "终端复用",
+      "安装",
+      "前缀键",
+      "鼠标",
+      "状态栏",
+      "分屏配置"
+    ]
+  },
+  "/docs/commands/tmux/usage": {
+    "title": "Tmux 使用教程",
+    "description": "查询 Tmux 会话、窗口、面板、分屏和复制粘贴操作。",
+    "aliases": [
+      "Tmux使用教程",
+      "Tmux分屏",
+      "Tmux快捷键",
+      "终端会话管理"
+    ],
+    "keywords": [
+      "Tmux",
+      "终端复用",
+      "会话",
+      "窗口",
+      "面板",
+      "Session",
+      "Window",
+      "Pane",
+      "分屏",
+      "复制粘贴"
+    ]
+  },
+  "/docs/buaa-tools": {
+    "description": "汇集北航校园门户、教务选课、课程实验、网络和奖助服务入口。",
+    "aliases": [
+      "北航常用工具",
+      "北航工具",
+      "BUAA工具",
+      "校园系统导航",
+      "学校网站导航"
+    ],
+    "keywords": [
+      "校园门户",
+      "教务",
+      "选课",
+      "校园网",
+      "邮箱",
+      "图书馆",
+      "课程实验",
+      "财务奖助"
+    ]
+  },
+  "/docs/research-tools": {
+    "description": "汇集论文检索写作、文献管理、实验记录、编程和协作工具。",
+    "aliases": [
+      "科研工具",
+      "科研工具导航",
+      "论文工具",
+      "科研软件"
+    ],
+    "keywords": [
+      "文献管理",
+      "论文写作",
+      "实验追踪",
+      "代码托管",
+      "模型库",
+      "数据可视化"
+    ]
+  },
+  "/blog": {
+    "description": "阅读同学们分享的升学、课程、毕业设计和校园生活经验。",
+    "aliases": [
+      "经验博客",
+      "经验分享",
+      "学长学姐经验",
+      "学院博客",
+      "学习经验"
+    ],
+    "keywords": [
+      "毕业设计",
+      "考研",
+      "推免",
+      "课程学习",
+      "校园生活"
+    ]
+  },
+  "/repo": {
+    "description": "查看学院课程资料、实验项目和开源代码仓库。",
+    "aliases": [
+      "开源仓库",
+      "课程仓库",
+      "代码仓库",
+      "学习资料仓库"
+    ],
+    "keywords": [
+      "GitHub",
+      "课程资料",
+      "课程项目",
+      "开源",
+      "21CoreDocs"
+    ]
+  },
+  "/recommend": {
+    "description": "浏览同学们的技术博客与学习笔记网站。",
+    "aliases": [
+      "优质博客",
+      "推荐博客",
+      "同学博客",
+      "个人博客导航"
+    ],
+    "keywords": [
+      "技术博客",
+      "课程笔记",
+      "学习笔记",
+      "博客推荐"
+    ]
+  },
+  "/materials": {
+    "description": "按贡献者和目录浏览、预览学习笔记与课程资料。",
+    "aliases": [
+      "资料分享",
+      "资料库",
+      "学习资料",
+      "课程资料",
+      "文件预览",
+      "复习资料"
+    ],
+    "keywords": [
+      "笔记",
+      "文档",
+      "PDF",
+      "Markdown",
+      "资料下载",
+      "共享资源"
+    ]
+  },
+  "/share": {
+    "description": "查找课程串讲、升学经验讲座和学生会宣讲的资料与录制链接。",
+    "aliases": [
+      "分享会",
+      "分享会资源",
+      "讲座资源",
+      "课程串讲",
+      "串讲资料",
+      "经验讲座"
+    ],
+    "keywords": [
+      "PPT",
+      "讲座录屏",
+      "网盘",
+      "期末复习",
+      "学生会招新"
+    ]
+  },
+  "/tool": {
+    "description": "使用保研成绩、综测加分、GPA 计算器和取色器。",
+    "aliases": [
+      "在线工具",
+      "实用工具",
+      "计算器"
+    ],
+    "keywords": [
+      "GPA",
+      "保研成绩",
+      "综测加分",
+      "取色"
+    ]
+  },
+  "/tool#comprehensive": {
+    "description": "按对应年级规则折算综测加分，计算综合成绩。",
+    "aliases": [
+      "综测计算器",
+      "综测加分计算器",
+      "计算综测",
+      "综测GPA加分",
+      "综测折算"
+    ],
+    "keywords": [
+      "综测",
+      "综合素质测评",
+      "加分",
+      "折算",
+      "GPA",
+      "年级规则"
+    ]
+  },
+  "/tool#postgrad": {
+    "description": "按对应年级规则和课程模块核算保研成绩。",
+    "aliases": [
+      "保研计算器",
+      "保研成绩计算器",
+      "推免成绩计算器",
+      "保研分数计算",
+      "推免成绩核算"
+    ],
+    "keywords": [
+      "保研",
+      "推免",
+      "课程成绩",
+      "学分",
+      "择优计入",
+      "模块",
+      "年级规则"
+    ]
+  },
+  "/tool#gpa": {
+    "description": "输入课程成绩与学分，计算 GPA、加权平均分和算术平均分。",
+    "aliases": [
+      "GPA计算器",
+      "绩点计算器",
+      "平均绩点计算",
+      "加权平均分计算器",
+      "算术平均分计算器"
+    ],
+    "keywords": [
+      "GPA",
+      "绩点",
+      "学分",
+      "成绩",
+      "加权平均",
+      "算数平均",
+      "算术平均"
+    ]
+  },
+  "/tool#color-picker": {
+    "description": "选择颜色、取色，并在 HEX、RGB 和 HSL 色值之间转换。",
+    "aliases": [
+      "取色器",
+      "颜色转换",
+      "RGB转换",
+      "HEX转换",
+      "HSL转换",
+      "屏幕取色"
+    ],
+    "keywords": [
+      "颜色",
+      "取色",
+      "RGB",
+      "HEX",
+      "HSL",
+      "色值"
+    ]
+  },
+  "/tool/timestamp": {
+    "title": "时间戳转换",
+    "description": "将秒或毫秒时间戳转换为本地日期时间。",
+    "aliases": [
+      "时间戳转换",
+      "时间戳工具",
+      "Unix时间戳",
+      "timestamp"
+    ],
+    "keywords": [
+      "秒",
+      "毫秒",
+      "日期",
+      "时间转换"
+    ]
+  },
+  "/tool/json": {
+    "title": "JSON 格式化",
+    "description": "格式化或压缩 JSON，并显示解析错误。",
+    "aliases": [
+      "JSON格式化",
+      "JSON美化",
+      "JSON压缩",
+      "JSON校验"
+    ],
+    "keywords": [
+      "JSON",
+      "格式化",
+      "美化",
+      "压缩",
+      "语法校验",
+      "解析"
+    ]
+  },
+  "/tool/regex-builder": {
+    "title": "正则表达式生成器",
+    "description": "从关键词生成正则表达式，并预览匹配结果。",
+    "aliases": [
+      "正则表达式生成器",
+      "正则生成",
+      "正则测试",
+      "regex"
+    ],
+    "keywords": [
+      "正则",
+      "关键词",
+      "匹配",
+      "转义",
+      "行首",
+      "行尾",
+      "单词边界"
+    ]
+  },
+  "/member": {
+    "description": "查看软件学院学生会成员与部门信息。",
+    "aliases": [
+      "学生会成员",
+      "学生会部门",
+      "学生会名单",
+      "学生会组织架构"
+    ],
+    "keywords": [
+      "软件学院学生会",
+      "主席团",
+      "部长",
+      "干事",
+      "2025-2026"
+    ]
+  },
+  "/blog/postgraduate-recommendation-experience-fu-dong-hao-buaa-huawei-ai": {
+    "aliases": [
+      "北航华为AI博士",
+      "华为AI卓工保研",
+      "付东淏保研"
+    ],
+    "keywords": [
+      "付东淏",
+      "北航",
+      "华为",
+      "人工智能学院",
+      "AI院",
+      "卓工",
+      "博士",
+      "保研",
+      "推免",
+      "联系导师",
+      "英语思政",
+      "综合面试",
+      "时间线"
+    ]
+  },
+  "/blog/postgraduate-recommendation-experience-xie-hao-yu-buaa-cs": {
+    "aliases": [
+      "北航计院推免经验",
+      "北航计算机学院保研经验",
+      "谢昊宇保研"
+    ],
+    "keywords": [
+      "谢昊宇",
+      "北航",
+      "计算机学院",
+      "计院",
+      "6系",
+      "推免",
+      "保研",
+      "C语言",
+      "机试",
+      "Judge",
+      "数据结构",
+      "面试",
+      "材料二维码"
+    ]
+  },
+  "/blog/graduation-experience-zhou-qi-shun": {
+    "aliases": [
+      "周其顺毕设经验",
+      "毕设论文规范",
+      "毕业设计阶段准备"
+    ],
+    "keywords": [
+      "周其顺",
+      "毕设",
+      "毕业设计",
+      "开题",
+      "中期",
+      "结题",
+      "论文格式",
+      "版面",
+      "提前准备"
+    ]
+  },
+  "/blog/postgraduate-recommendation-experience-tang-hao-han-x-institute": {
+    "aliases": [
+      "深圳零一学院夏令营",
+      "零一学院X-idea",
+      "唐皓涵零一"
+    ],
+    "keywords": [
+      "唐皓涵",
+      "深圳",
+      "零一学院",
+      "X-idea",
+      "夏令营",
+      "黑客松",
+      "导师选拔",
+      "项目答辩",
+      "简历面试",
+      "口头offer",
+      "清华考核"
+    ]
+  },
+  "/blog/school-life-ihome-guide": {
+    "aliases": [
+      "ihome使用指南",
+      "ihome怎么用",
+      "校园诉求指南",
+      "闫佳豪ihome"
+    ],
+    "keywords": [
+      "闫佳豪",
+      "ihome",
+      "校园生活",
+      "诉求",
+      "发布诉求",
+      "校园网资费",
+      "游泳馆",
+      "报修",
+      "使用技巧"
+    ]
+  },
+  "/blog/postgraduate-recommendation-experience-zheng-yu-jie-fudan": {
+    "aliases": [
+      "复旦直博经验",
+      "复旦计算与智能学院保研",
+      "郑宇杰复旦"
+    ],
+    "keywords": [
+      "郑宇杰",
+      "复旦大学",
+      "复旦",
+      "计算与智能学院",
+      "直博",
+      "保研",
+      "推免",
+      "机试",
+      "英语口试",
+      "专业面试",
+      "联系导师",
+      "候补"
+    ]
+  },
+  "/blog/postgraduate-recommendation-experience-yang-jia-yu-xuan-thu-software": {
+    "aliases": [
+      "清华软件预推免",
+      "清华软院保研经验",
+      "杨佳宇轩清华"
+    ],
+    "keywords": [
+      "杨佳宇轩",
+      "清华大学",
+      "清华",
+      "软件学院",
+      "预推免",
+      "保研",
+      "博士机试",
+      "硕士机试",
+      "面试",
+      "联系导师",
+      "申请时间线"
+    ]
+  },
+  "/blog/course-experience-liu-zhong-yi": {
+    "aliases": [
+      "刘钟屹课程经验",
+      "刘钟屹大二学习经验",
+      "大二课程考核经验"
+    ],
+    "keywords": [
+      "刘钟屹",
+      "大二",
+      "小学期",
+      "计算机硬件基础",
+      "算法",
+      "面向对象",
+      "Java",
+      "概率统计",
+      "离散数学2",
+      "基物实验",
+      "操作系统",
+      "软件工程基础",
+      "人工智能",
+      "数据库",
+      "实验",
+      "成绩构成",
+      "期末复习"
+    ]
+  },
+  "/blog/course-experience-fu-ning-yuan": {
+    "aliases": [
+      "大三学习经验",
+      "付宁远课程经验",
+      "大三选课建议",
+      "大三期末复习"
+    ],
+    "keywords": [
+      "付宁远",
+      "大三上",
+      "大三下",
+      "选课",
+      "限修",
+      "任修",
+      "编译技术",
+      "计算机网络",
+      "软件系统分析与设计",
+      "软分",
+      "英文科技写作",
+      "经济管理",
+      "软过",
+      "三创",
+      "保研",
+      "实习",
+      "时间安排"
+    ]
+  },
+  "/blog/postgraduate-recommendation-experience-liang-yi-zhuo-buaa-minimax": {
+    "aliases": [
+      "北航MiniMax卓工",
+      "MiniMax保研经验",
+      "梁祎卓保研"
+    ],
+    "keywords": [
+      "梁祎卓",
+      "北航",
+      "MiniMax",
+      "卓工",
+      "硕士",
+      "保研",
+      "推免",
+      "联系导师",
+      "志愿填报",
+      "报名材料",
+      "英语思政",
+      "专业面试",
+      "导师双选",
+      "调剂"
+    ]
+  },
+  "/blog/graduation-experience-yan-jiahao": {
+    "aliases": [
+      "闫佳豪毕设经验",
+      "毕业设计流程",
+      "毕设选题答辩"
+    ],
+    "keywords": [
+      "闫佳豪",
+      "毕设",
+      "毕业设计",
+      "选题",
+      "开题",
+      "中期",
+      "结题",
+      "答辩",
+      "做图",
+      "末位复审",
+      "查重",
+      "AI"
+    ]
+  },
+  "/blog/postgraduate-entrance-experience-zhao-shijin": {
+    "aliases": [
+      "南京大学考研经验",
+      "南大软院考研",
+      "赵世锦考研",
+      "11408备考"
+    ],
+    "keywords": [
+      "赵世锦",
+      "南京大学",
+      "南大",
+      "软件学院",
+      "专硕",
+      "考研",
+      "11408",
+      "复试",
+      "初试",
+      "择校",
+      "备考",
+      "心态",
+      "时间线",
+      "资源推荐"
+    ]
+  },
+  "/blog/postgraduate-recommendation-experience-yang-jia-yu-xuan-pku-rw": {
+    "aliases": [
+      "北大软微夏令营",
+      "北大软微保研经验",
+      "杨佳宇轩北大"
+    ],
+    "keywords": [
+      "杨佳宇轩",
+      "北京大学",
+      "北大",
+      "软件与微电子学院",
+      "软微",
+      "夏令营",
+      "简历筛选",
+      "论文阅读",
+      "阅读报告",
+      "笔试",
+      "面试",
+      "智能化软件工程",
+      "优营",
+      "递补"
+    ]
+  },
+  "/blog/postgraduate-recommendation-experience-liu-yue-tong-cai": {
+    "aliases": [
+      "清华CAI保研",
+      "清华人工智能学院经验",
+      "刘玥彤保研"
+    ],
+    "keywords": [
+      "刘玥彤",
+      "清华大学",
+      "清华",
+      "人工智能学院",
+      "CAI",
+      "College AI",
+      "直推",
+      "提前进组",
+      "夏令营",
+      "预推免",
+      "交叉学科",
+      "学院生活"
+    ]
+  },
+  "/blog/course-experience-lin-ming": {
+    "aliases": [
+      "林明课程经验",
+      "林明大二学习经验",
+      "大二课程复习经验"
+    ],
+    "keywords": [
+      "林明",
+      "大二上",
+      "大二下",
+      "计算机组成原理",
+      "计组",
+      "概率统计",
+      "离散数学",
+      "面向对象",
+      "Java",
+      "算法",
+      "操作系统",
+      "数据库",
+      "人工智能",
+      "软件工程",
+      "期末复习"
+    ]
+  },
+  "/blog/postgraduate-recommendation-experience-zhuang-geng-xiong": {
+    "aliases": [
+      "庄耿雄保研",
+      "复旦机器人保研",
+      "创智学院联培经验",
+      "河套学院申请经验",
+      "中关村学院申请经验"
+    ],
+    "keywords": [
+      "庄耿雄",
+      "创智学院",
+      "SII",
+      "中关村学院",
+      "ZGCA",
+      "河套学院",
+      "SLAI",
+      "清华软件",
+      "复旦机器人",
+      "联培",
+      "保研",
+      "推免",
+      "夏令营",
+      "面试",
+      "时间线"
+    ]
+  },
+  "/blog/postgraduate-recommendation-experience-tang-hao-han-ruc": {
+    "aliases": [
+      "人大信息学院夏令营",
+      "唐皓涵人大",
+      "人大信息学院保研经验"
+    ],
+    "keywords": [
+      "唐皓涵",
+      "中国人民大学",
+      "人大",
+      "信息学院",
+      "夏令营",
+      "笔试",
+      "机试",
+      "群面",
+      "个人面试",
+      "英语",
+      "思政",
+      "数据库",
+      "材料模板"
+    ]
+  },
+  "/blog/postgraduate-recommendation-experience-duan-yue-chen-buaa-software": {
+    "aliases": [
+      "北航软院推免经验",
+      "北航软件学院保研经验",
+      "段岳辰保研"
+    ],
+    "keywords": [
+      "段岳辰",
+      "北航",
+      "软件学院",
+      "软院",
+      "21系",
+      "推免",
+      "保研",
+      "C语言",
+      "机试",
+      "accoding",
+      "面试",
+      "英语",
+      "思政",
+      "PPT"
+    ]
+  },
+  "/blog/postgraduate-recommendation-experience-zheng-yu-jie-zju": {
+    "aliases": [
+      "浙大计算机保研经验",
+      "浙大计专",
+      "郑宇杰浙大"
+    ],
+    "keywords": [
+      "郑宇杰",
+      "浙江大学",
+      "浙大",
+      "计算机学院",
+      "专硕",
+      "保研",
+      "推免",
+      "中英文自我介绍",
+      "专业题",
+      "项目问答",
+      "联系导师"
+    ]
+  },
+  "/blog/postgraduate-recommendation-experience-ma-xiang-xi-buaa-huawei": {
+    "aliases": [
+      "华为关键软件卓工",
+      "北航华为软件直博",
+      "马祥熙保研"
+    ],
+    "keywords": [
+      "马祥熙",
+      "北航",
+      "华为",
+      "关键软件",
+      "卓工",
+      "直博",
+      "保研",
+      "推免",
+      "2027年入学",
+      "联系导师",
+      "英语思政",
+      "综合面试",
+      "录取确认"
+    ]
+  },
+  "/blog/postgraduate-recommendation-experience-wang-yu-zhen-shanghai-ai-lab": {
+    "aliases": [
+      "上海AILab保研经验",
+      "上海人工智能实验室联培",
+      "王宇祯保研"
+    ],
+    "keywords": [
+      "王宇祯",
+      "上海AI Lab",
+      "上海人工智能实验室",
+      "AILab",
+      "联培",
+      "联合培养",
+      "夏令营",
+      "黑客松",
+      "24小时",
+      "导师选择",
+      "调剂",
+      "优营",
+      "预推免"
+    ]
+  },
+  "/blog/postgraduate-recommendation-experience-zheng-yu-jie-ruc": {
+    "aliases": [
+      "人大高瓴保研经验",
+      "高瓴工程硕士经验",
+      "郑宇杰人大"
+    ],
+    "keywords": [
+      "郑宇杰",
+      "中国人民大学",
+      "人大",
+      "高瓴",
+      "工程硕士",
+      "工程硕博",
+      "卓工",
+      "保研",
+      "推免",
+      "笔试",
+      "面试",
+      "候补",
+      "CSP",
+      "英语翻译"
+    ]
+  },
+  "/blog/postgraduate-recommendation-timelines": {
+    "aliases": [
+      "保研时间线",
+      "推免时间线",
+      "综测时间线",
+      "成绩核对时间线",
+      "李帅时间线"
+    ],
+    "keywords": [
+      "李帅",
+      "成绩",
+      "综测",
+      "推免",
+      "保研",
+      "时间线",
+      "北航",
+      "计算机学院",
+      "软件学院",
+      "卓工",
+      "华为AI",
+      "关键节点"
+    ]
+  },
+  "/share#2026-06-18-daer-ai-chuanjiang": {
+    "aliases": [
+      "人工智能串讲",
+      "AI课程串讲",
+      "大二AI串讲"
+    ],
+    "keywords": [
+      "人工智能",
+      "AI",
+      "大二",
+      "串讲",
+      "期末复习",
+      "PPT",
+      "北航网盘"
+    ]
+  },
+  "/share#2026-05-10-kaoyan-zhuogong-share": {
+    "aliases": [
+      "考研卓工经验讲座",
+      "卓工保研分享会"
+    ],
+    "keywords": [
+      "考研",
+      "卓工",
+      "保研",
+      "陆宇霖",
+      "郑玉洁",
+      "朱玉林",
+      "王飞阳",
+      "杨凯伟",
+      "讲座",
+      "PPT"
+    ]
+  },
+  "/share#2025-12-27-java-chuanjiang": {
+    "aliases": [
+      "Java串讲",
+      "面向对象串讲",
+      "Java期末串讲"
+    ],
+    "keywords": [
+      "Java",
+      "面向对象",
+      "OOP",
+      "期末复习",
+      "串讲",
+      "PPT"
+    ]
+  },
+  "/share#2025-12-27-jizhu-chuanjiang": {
+    "aliases": [
+      "计组串讲",
+      "计算机组成原理串讲",
+      "2025计组串讲"
+    ],
+    "keywords": [
+      "计组",
+      "计算机组成原理",
+      "计算机硬件基础",
+      "串讲",
+      "期末复习",
+      "PPT",
+      "录屏"
+    ]
+  },
+  "/share#2025-10-22-xueye-zhaoxin": {
+    "aliases": [
+      "23to24学业经验",
+      "2025学生会招新分享"
+    ],
+    "keywords": [
+      "学业经验",
+      "课程学习",
+      "学生会招新",
+      "宣讲",
+      "2025",
+      "PPT"
+    ]
+  },
+  "/share#2025-10-22-baoyan-kaoyan": {
+    "aliases": [
+      "22to23保研讲座",
+      "2025保研经验分享讲座"
+    ],
+    "keywords": [
+      "保研",
+      "推免",
+      "分享会",
+      "讲座",
+      "2025",
+      "腾讯会议"
+    ]
+  },
+  "/share#2025-04-09-baoyan-kaoyan": {
+    "aliases": [
+      "考研经验讲座",
+      "2025考研讲座"
+    ],
+    "keywords": [
+      "考研",
+      "吴志文",
+      "周星达",
+      "邹可心",
+      "讲座",
+      "PPT"
+    ]
+  },
+  "/share#2024-2025-daer-chuanjiang": {
+    "aliases": [
+      "大二上串讲",
+      "2024-2025串讲",
+      "算法OOP串讲"
+    ],
+    "keywords": [
+      "大二上",
+      "算法",
+      "面向对象",
+      "OOP",
+      "串讲",
+      "期末复习",
+      "PDF"
+    ]
+  },
+  "/share#2024-10-18-zhaosheng": {
+    "aliases": [
+      "学生会招新宣讲会",
+      "2024学生会招新"
+    ],
+    "keywords": [
+      "学生会",
+      "招新",
+      "部门介绍",
+      "宣讲",
+      "PPT",
+      "2024"
+    ]
+  },
+  "https://github.com/Soft-Where-21/21CoreDocs/tree/second-autumn": {
+    "aliases": [
+      "大二上学习资料仓库",
+      "大二秋课程资料"
+    ],
+    "keywords": [
+      "大二上",
+      "大二秋",
+      "21CoreDocs",
+      "课程资料",
+      "复习"
+    ]
+  },
+  "https://github.com/Soft-Where-21/21CoreDocs/tree/second-spring": {
+    "aliases": [
+      "大二下学习资料仓库",
+      "大二春课程资料"
+    ],
+    "keywords": [
+      "大二下",
+      "大二春",
+      "21CoreDocs",
+      "课程资料",
+      "复习"
+    ]
+  },
+  "https://github.com/Soft-Where-21/21CoreDocs/tree/third-autumn": {
+    "aliases": [
+      "大三上学习资料仓库",
+      "大三秋课程资料"
+    ],
+    "keywords": [
+      "大三上",
+      "大三秋",
+      "21CoreDocs",
+      "课程资料",
+      "复习"
+    ]
+  },
+  "https://github.com/Soft-Where-21/21CoreDocs/tree/third-spring": {
+    "aliases": [
+      "大三下学习资料仓库",
+      "大三春课程资料"
+    ],
+    "keywords": [
+      "大三下",
+      "大三春",
+      "21CoreDocs",
+      "课程资料",
+      "复习"
+    ]
+  },
+  "https://github.com/Soft-Where-21/BUAA_Software_Bachelor_Notes": {
+    "aliases": [
+      "rainel课程笔记仓库"
+    ],
+    "keywords": [
+      "rainel",
+      "rainel02",
+      "大二",
+      "大三",
+      "Markdown",
+      "课程笔记"
+    ]
+  },
+  "https://github.com/Soft-Where-21/BUAA-SSAD-2025-Project-Group1-AcademicPlatform": {
+    "aliases": [
+      "学术成果分享平台项目"
+    ],
+    "keywords": [
+      "软件系统分析与设计",
+      "软分",
+      "SSAD",
+      "课程项目",
+      "学术平台"
+    ]
+  },
+  "https://github.com/Soft-Where-21/BUAA_jwangsy_blog": {
+    "aliases": [
+      "计算机网络实验博客仓库"
+    ],
+    "keywords": [
+      "计网",
+      "计算机网络",
+      "实验",
+      "rainel",
+      "Tengpaz"
+    ]
+  },
+  "https://github.com/Soft-Where-21/BUAA_Software_resources": {
+    "aliases": [
+      "软件工程课程资料仓库"
+    ],
+    "keywords": [
+      "软件工程基础",
+      "软件系统分析与设计",
+      "软工",
+      "软分",
+      "DeNeRATe"
+    ]
+  },
+  "https://github.com/Soft-Where-21/BUAA_OS_resources": {
+    "aliases": [
+      "操作系统资料仓库"
+    ],
+    "keywords": [
+      "操作系统",
+      "OS",
+      "DeNeRATe",
+      "课程资料"
+    ]
+  },
+  "https://github.com/Soft-Where-21/BUAA-SE-2025-Project-Group4-SwiftJourney": {
+    "aliases": [
+      "风行旅途项目"
+    ],
+    "keywords": [
+      "软件工程实践",
+      "课程项目",
+      "SwiftJourney",
+      "Rust",
+      "Vue",
+      "微服务"
+    ]
+  },
+  "https://github.com/Soft-Where-21/GeeCeeCee": {
+    "aliases": [
+      "GeeCeeCee编译器"
+    ],
+    "keywords": [
+      "编译器",
+      "系统能力大赛",
+      "C++",
+      "开源项目"
+    ]
+  },
+  "https://github.com/Soft-Where-21/OS-mos-riscv64": {
+    "aliases": [
+      "RISC-V操作系统移植"
+    ],
+    "keywords": [
+      "操作系统",
+      "MOS",
+      "RISC-V",
+      "移植",
+      "挑战性任务",
+      "课程实验"
+    ]
+  },
+  "https://github.com/Soft-Where-21/BUAA_CO_resources": {
+    "aliases": [
+      "计算机硬件基础资料仓库",
+      "计组资料仓库"
+    ],
+    "keywords": [
+      "计组",
+      "CO",
+      "计算机组成原理",
+      "计算机硬件基础",
+      "DeNeRATe"
+    ]
+  },
+  "https://github.com/Soft-Where-21/BUAA_DiscreteMath_resources": {
+    "aliases": [
+      "离散数学资料仓库"
+    ],
+    "keywords": [
+      "离散数学2",
+      "离散数学二",
+      "离散",
+      "DeNeRATe"
+    ]
+  },
+  "https://github.com/Soft-Where-21/BUAA_Algorithm_resources": {
+    "aliases": [
+      "算法分析与设计资料仓库"
+    ],
+    "keywords": [
+      "算法",
+      "算法分析与设计",
+      "Algorithm",
+      "DeNeRATe"
+    ]
+  },
+  "https://github.com/Soft-Where-21/Compiler_2023_ref_Charles2530": {
+    "aliases": [
+      "2023编译原理源代码"
+    ],
+    "keywords": [
+      "编译原理",
+      "编译技术",
+      "编译器",
+      "Java",
+      "Charles2530"
+    ]
+  },
+  "https://github.com/Soft-Where-21/GinBook": {
+    "aliases": [
+      "Gin入门教程"
+    ],
+    "keywords": [
+      "Gin",
+      "Go",
+      "Web开发",
+      "入门教程"
+    ]
+  },
+  "https://github.com/Soft-Where-21/Java-HomeWork": {
+    "aliases": [
+      "Java课程作业仓库"
+    ],
+    "keywords": [
+      "Java",
+      "课程作业",
+      "面向对象"
+    ]
+  },
+  "https://github.com/Soft-Where-21/SE-Labs": {
+    "aliases": [
+      "软工上机实验指南"
+    ],
+    "keywords": [
+      "软件工程",
+      "软工",
+      "上机",
+      "实验指南"
+    ]
+  },
+  "https://github.com/Soft-Where-21/Vuebook": {
+    "aliases": [
+      "Vue入门教程"
+    ],
+    "keywords": [
+      "Vue",
+      "前端",
+      "入门教程"
+    ]
+  },
+  "https://github.com/Soft-Where-21/Djangobook": {
+    "aliases": [
+      "Django入门教程"
+    ],
+    "keywords": [
+      "Django",
+      "Python",
+      "Web开发",
+      "入门教程"
+    ]
+  },
+  "https://github.com/Soft-Where-21/c-network-labs": {
+    "aliases": [
+      "计算机网络实验指南仓库"
+    ],
+    "keywords": [
+      "计网",
+      "计算机网络",
+      "network",
+      "实验指南"
+    ]
+  },
+  "https://rainel.site": {
+    "aliases": [
+      "rainel博客"
+    ],
+    "keywords": [
+      "计网实验",
+      "计算机网络",
+      "编译",
+      "学习笔记"
+    ]
+  },
+  "https://qzlabq.me": {
+    "aliases": [
+      "QzlabQ博客"
+    ],
+    "keywords": [
+      "技术笔记",
+      "MC",
+      "Minecraft",
+      "服务器"
+    ]
+  },
+  "https://www.blondemarisa.site/": {
+    "aliases": [
+      "魔法使博客",
+      "BlondeMarisa博客"
+    ],
+    "keywords": [
+      "算法",
+      "数据结构",
+      "SQL",
+      "数据库",
+      "网安论文"
+    ]
+  },
+  "https://blog.deepchirp.com/": {
+    "aliases": [
+      "空鸣深语博客",
+      "DeepChirp博客"
+    ],
+    "keywords": [
+      "软件工程",
+      "Linux",
+      "Android",
+      "操作系统"
+    ]
+  },
+  "https://lixu.cc": {
+    "aliases": [
+      "AlexLi博客",
+      "lixu博客"
+    ],
+    "keywords": [
+      "面向对象",
+      "概率统计",
+      "概统",
+      "离散数学",
+      "算法"
+    ]
+  },
+  "https://blog.csdn.net/zhouEnshen": {
+    "aliases": [
+      "zhouEnshen博客"
+    ],
+    "keywords": [
+      "技术题解",
+      "编程",
+      "学习笔记"
+    ]
+  },
+  "https://haoyuehx.github.io/": {
+    "aliases": [
+      "Haoyuehx博客"
+    ],
+    "keywords": [
+      "算法",
+      "计算机系统",
+      "课程实验"
+    ]
+  },
+  "https://yiki21.world/": {
+    "aliases": [
+      "yiki21博客"
+    ],
+    "keywords": [
+      "Spark",
+      "Linux",
+      "容器",
+      "并发",
+      "系统编程"
+    ]
+  },
+  "https://awesome-buaa-cs.github.io/fch-tutorial/": {
+    "aliases": [
+      "计组实验教程",
+      "计算机组成原理实验教程",
+      "GongHua1540博客"
+    ],
+    "keywords": [
+      "计组",
+      "计算机组成原理",
+      "实验",
+      "教程",
+      "fch-tutorial"
+    ]
+  },
+  "https://connorz.site/": {
+    "aliases": [
+      "Connor博客"
+    ],
+    "keywords": [
+      "计组",
+      "计算机组成原理",
+      "算法",
+      "操作系统",
+      "课程总结"
+    ]
+  },
+  "https://www.buaa.edu.cn/": {
+    "aliases": [
+      "北航官网",
+      "北京航空航天大学官网"
+    ],
+    "keywords": [
+      "校级官网",
+      "新闻通知"
+    ]
+  },
+  "https://soft.buaa.edu.cn/": {
+    "aliases": [
+      "软件学院官网",
+      "软院官网"
+    ],
+    "keywords": [
+      "学院官网",
+      "招生就业"
+    ]
+  },
+  "https://gw.buaa.edu.cn/": {
+    "aliases": [
+      "校园网登录",
+      "校园网认证",
+      "网络准入"
+    ],
+    "keywords": [
+      "校园网",
+      "网络认证"
+    ]
+  },
+  "https://it.buaa.edu.cn/html/websites/index.html": {
+    "aliases": [
+      "智慧门户",
+      "业务系统入口"
+    ],
+    "keywords": [
+      "业务系统导航",
+      "统一入口"
+    ]
+  },
+  "https://i.buaa.edu.cn/web/#/": {
+    "aliases": [
+      "iHome平台",
+      "iHome入口"
+    ],
+    "keywords": [
+      "个人待办",
+      "校园服务"
+    ]
+  },
+  "https://e1.buaa.edu.cn/": {
+    "aliases": [
+      "WebVPN",
+      "校外访问校园网",
+      "北航VPN"
+    ],
+    "keywords": [
+      "远程访问",
+      "校外必备"
+    ]
+  },
+  "https://mail.buaa.edu.cn/": {
+    "aliases": [
+      "北航邮箱",
+      "学校邮箱"
+    ],
+    "keywords": [
+      "邮件通知",
+      "身份验证"
+    ]
+  },
+  "https://jiaowu.buaa.edu.cn/": {
+    "aliases": [
+      "教务部网站",
+      "教务通知"
+    ],
+    "keywords": [
+      "教务通知",
+      "培养方案"
+    ]
+  },
+  "https://byxk.buaa.edu.cn/xsxk/profile/index.html": {
+    "aliases": [
+      "学生选课",
+      "选课系统",
+      "正选补退"
+    ],
+    "keywords": [
+      "正选补退",
+      "课表确认"
+    ]
+  },
+  "https://bykc.buaa.edu.cn/system/course-select": {
+    "aliases": [
+      "博雅选课",
+      "博雅课程"
+    ],
+    "keywords": [
+      "通识课程",
+      "博雅教学"
+    ]
+  },
+  "https://spoc.buaa.edu.cn/spoc/rdmooc/rdMoocHome.do": {
+    "aliases": [
+      "SPOC平台",
+      "在线课程平台"
+    ],
+    "keywords": [
+      "在线课程",
+      "教学资源"
+    ]
+  },
+  "https://www.easyketang.com/#/student/class": {
+    "aliases": [
+      "Easy云课堂",
+      "云课堂"
+    ],
+    "keywords": [
+      "课堂互动",
+      "随堂练习"
+    ]
+  },
+  "https://itestcloud.unipus.cn/": {
+    "aliases": [
+      "iTEST英语测评",
+      "英语在线考试"
+    ],
+    "keywords": [
+      "英语测评",
+      "在线考试"
+    ]
+  },
+  "https://lib.buaa.edu.cn/": {
+    "aliases": [
+      "北航图书馆",
+      "图书馆文献检索"
+    ],
+    "keywords": [
+      "文献检索",
+      "数据库"
+    ]
+  },
+  "https://bhpan.buaa.edu.cn/anyshare/zh-cn/portal/": {
+    "aliases": [
+      "北航云盘",
+      "北航网盘"
+    ],
+    "keywords": [
+      "文件共享",
+      "课程资料"
+    ]
+  },
+  "https://d.buaa.edu.cn/": {
+    "aliases": [
+      "VPN3",
+      "北航VPN3"
+    ],
+    "keywords": [
+      "VPN3",
+      "网页资源"
+    ]
+  },
+  "https://s.buaa.edu.cn/index/index/index": {
+    "aliases": [
+      "正版软件下载",
+      "正版化软件平台"
+    ],
+    "keywords": [
+      "正版授权",
+      "软件下载"
+    ]
+  },
+  "https://accoding.buaa.edu.cn/index": {
+    "aliases": [
+      "OJ4TH",
+      "accoding",
+      "软院OJ"
+    ],
+    "keywords": [
+      "程设与算法",
+      "自动评测"
+    ]
+  },
+  "https://judge.buaa.edu.cn/indexcs/simple.jsp?loginErr=0": {
+    "aliases": [
+      "希冀OJ",
+      "Judge平台",
+      "北航Judge"
+    ],
+    "keywords": [
+      "数据结构",
+      "编译技术"
+    ]
+  },
+  "https://os.buaa.edu.cn/login?redirect=%2Fbillboard": {
+    "aliases": [
+      "OSome",
+      "操作系统实验平台"
+    ],
+    "keywords": [
+      "操作系统",
+      "实验提交"
+    ]
+  },
+  "https://lab.os.buaa.edu.cn/ui/#/profile/improvement": {
+    "aliases": [
+      "JumpServer",
+      "实验远程登录"
+    ],
+    "keywords": [
+      "远程登录",
+      "实验环境"
+    ]
+  },
+  "https://www.educoder.net/": {
+    "aliases": [
+      "头歌",
+      "头歌实践教学"
+    ],
+    "keywords": [
+      "实践教学",
+      "项目实验"
+    ]
+  },
+  "https://devcloud.cn-north-4.huaweicloud.com/home": {
+    "aliases": [
+      "华为CodeArts",
+      "华为云代码托管"
+    ],
+    "keywords": [
+      "UML设计",
+      "团队协作"
+    ]
+  },
+  "https://scs.buaa.edu.cn/": {
+    "aliases": [
+      "软院云平台",
+      "软件学院云平台"
+    ],
+    "keywords": [
+      "软院课程",
+      "实验环境"
+    ]
+  },
+  "https://paas.extrotec.com:30443/": {
+    "aliases": [
+      "南京智算平台",
+      "智能计算算力平台"
+    ],
+    "keywords": [
+      "算力平台",
+      "实训实验"
+    ]
+  },
+  "https://passport.zhihuishu.com/": {
+    "aliases": [
+      "智慧树",
+      "知到"
+    ],
+    "keywords": [
+      "在线课程",
+      "学分课"
+    ]
+  },
+  "https://network-lab.mooc.buaa.edu.cn/": {
+    "aliases": [
+      "计网实验平台",
+      "计算机网络实验预约"
+    ],
+    "keywords": [
+      "计算机网络",
+      "实验预约"
+    ]
+  },
+  "https://pass.cc-pay.cn/dashboard?linkfrom=mall": {
+    "aliases": [
+      "航财通"
+    ],
+    "keywords": [
+      "校园支付",
+      "财务服务"
+    ]
+  },
+  "https://icw.buaa.edu.cn/": {
+    "aliases": [
+      "财务报销系统",
+      "财务综合信息系统"
+    ],
+    "keywords": [
+      "报销报账",
+      "财务查询"
+    ]
+  },
+  "https://zizhu.buaa.edu.cn/index": {
+    "aliases": [
+      "学生资助系统"
+    ],
+    "keywords": [
+      "资助申请",
+      "政策查询"
+    ]
+  },
+  "https://jiangzhu.buaa.edu.cn/": {
+    "aliases": [
+      "奖学金助学金系统",
+      "奖助系统"
+    ],
+    "keywords": [
+      "奖学金评定",
+      "结果公示"
+    ]
+  },
+  "https://n.buaa.edu.cn/newservice/fe/": {
+    "aliases": [
+      "北航个人数据",
+      "个人数据系统"
+    ],
+    "keywords": [
+      "成绩学籍",
+      "个人画像"
+    ]
+  },
+  "https://github.com/": {
+    "aliases": [
+      "GitHub官网"
+    ],
+    "keywords": [
+      "代码托管",
+      "开源",
+      "版本管理",
+      "协作"
+    ]
+  },
+  "https://arxiv.org/": {
+    "aliases": [
+      "arXiv论文",
+      "预印本论文检索"
+    ],
+    "keywords": [
+      "论文检索",
+      "预印本",
+      "文献调研"
+    ]
+  },
+  "https://www.overleaf.com/": {
+    "aliases": [
+      "Overleaf论文写作",
+      "在线LaTeX"
+    ],
+    "keywords": [
+      "LaTeX",
+      "论文写作",
+      "多人协作",
+      "模板"
+    ]
+  },
+  "https://colab.research.google.com/": {
+    "aliases": [
+      "Colab",
+      "GoogleColab"
+    ],
+    "keywords": [
+      "Python",
+      "在线编程",
+      "GPU",
+      "TPU",
+      "Notebook"
+    ]
+  },
+  "https://www.zotero.org/": {
+    "aliases": [
+      "Zotero文献管理"
+    ],
+    "keywords": [
+      "文献管理",
+      "引用管理",
+      "论文",
+      "参考文献"
+    ]
+  },
+  "https://wandb.ai/": {
+    "aliases": [
+      "wandb",
+      "W&B"
+    ],
+    "keywords": [
+      "实验追踪",
+      "实验记录",
+      "机器学习",
+      "可视化"
+    ]
+  },
+  "https://huggingface.co/": {
+    "aliases": [
+      "HuggingFace",
+      "抱抱脸"
+    ],
+    "keywords": [
+      "模型库",
+      "预训练模型",
+      "模型下载",
+      "NLP",
+      "CV"
+    ]
+  },
+  "https://openreview.net/": {
+    "aliases": [
+      "OpenReview论文评审"
+    ],
+    "keywords": [
+      "论文",
+      "同行评审",
+      "学术会议",
+      "审稿"
+    ]
+  },
+  "https://orcid.org/": {
+    "aliases": [
+      "ORCID科研身份"
+    ],
+    "keywords": [
+      "科研人员",
+      "身份标识",
+      "论文归属"
+    ]
+  },
+  "https://aistudio.google.com/": {
+    "aliases": [
+      "GoogleAIStudio",
+      "Gemini开发平台"
+    ],
+    "keywords": [
+      "Gemini",
+      "AI开发",
+      "多模态",
+      "原型"
+    ]
+  },
+  "https://www.anaconda.com/": {
+    "aliases": [
+      "Anaconda环境管理"
+    ],
+    "keywords": [
+      "Python",
+      "环境管理",
+      "依赖管理",
+      "conda"
+    ]
+  },
+  "https://jupyter.org/": {
+    "aliases": [
+      "JupyterNotebook",
+      "JupyterLab"
+    ],
+    "keywords": [
+      "Notebook",
+      "Python",
+      "交互式编程",
+      "实验记录"
+    ]
+  },
+  "https://www.tensorflow.org/tensorboard": {
+    "aliases": [
+      "TensorBoard实验可视化"
+    ],
+    "keywords": [
+      "训练曲线",
+      "损失",
+      "精度",
+      "模型结构",
+      "实验可视化"
+    ]
+  },
+  "https://www.kaggle.com/": {
+    "aliases": [
+      "Kaggle竞赛"
+    ],
+    "keywords": [
+      "数据集",
+      "机器学习竞赛",
+      "代码共享",
+      "数据科学"
+    ]
+  },
+  "https://www.docker.com/": {
+    "aliases": [
+      "Docker官网"
+    ],
+    "keywords": [
+      "容器",
+      "环境复现",
+      "Dockerfile",
+      "Compose"
+    ]
+  },
+  "https://code.visualstudio.com/": {
+    "aliases": [
+      "VSCode",
+      "VisualStudioCode"
+    ],
+    "keywords": [
+      "代码编辑器",
+      "Python",
+      "LaTeX",
+      "调试"
+    ]
+  },
+  "https://matplotlib.org/": {
+    "aliases": [
+      "Matplotlib作图"
+    ],
+    "keywords": [
+      "Python",
+      "科研作图",
+      "折线图",
+      "柱状图",
+      "热力图"
+    ]
+  },
+  "https://prismjs.com/": {
+    "aliases": [
+      "Prism代码高亮"
+    ],
+    "keywords": [
+      "代码高亮",
+      "语法高亮",
+      "PrismJS"
+    ]
+  },
+  "https://www.mendeley.com/": {
+    "aliases": [
+      "Mendeley文献管理"
+    ],
+    "keywords": [
+      "参考文献",
+      "文献管理",
+      "引用格式"
+    ]
+  },
+  "https://pytorch.org/hub/": {
+    "aliases": [
+      "PyTorchHub"
+    ],
+    "keywords": [
+      "PyTorch",
+      "预训练模型",
+      "模型库",
+      "微调"
+    ]
+  },
+  "https://about.gitlab.com/": {
+    "aliases": [
+      "GitLab代码托管"
+    ],
+    "keywords": [
+      "代码托管",
+      "DevOps",
+      "CI/CD",
+      "Merge Request"
+    ]
+  },
+  "https://www.figma.com/": {
+    "aliases": [
+      "Figma原型设计"
+    ],
+    "keywords": [
+      "UI",
+      "原型",
+      "科研作图",
+      "协作"
+    ]
+  },
+  "https://slack.com/": {
+    "aliases": [
+      "Slack团队协作"
+    ],
+    "keywords": [
+      "团队沟通",
+      "项目频道",
+      "即时通讯"
+    ]
+  },
+  "/blog/tags/postgraduate-recommendation-experience": {
+    "aliases": [
+      "保研经验",
+      "推免经验",
+      "保研经验分享"
+    ],
+    "keywords": [
+      "保研经验"
+    ],
+    "priority": 4
+  },
+  "/blog/tags/postgraduate-entrance-experience": {
+    "aliases": [
+      "考研经验",
+      "考研经验分享"
+    ],
+    "keywords": [
+      "考研经验"
+    ],
+    "priority": 4
+  },
+  "/blog/tags/course-experience": {
+    "aliases": [
+      "课程经验",
+      "课程经验分享",
+      "课程学习经验"
+    ],
+    "keywords": [
+      "课程经验"
+    ],
+    "priority": 4
+  },
+  "/blog/tags/graduation-experience": {
+    "aliases": [
+      "毕设经验",
+      "毕业设计经验",
+      "毕设经验分享"
+    ],
+    "keywords": [
+      "毕设经验"
+    ],
+    "priority": 4
+  },
+  "/blog/tags/school-life": {
+    "aliases": [
+      "校园生活经验",
+      "学校生活分享"
+    ],
+    "keywords": [
+      "校园生活经验"
+    ],
+    "priority": 4
+  }
+}

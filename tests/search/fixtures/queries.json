@@ -1,0 +1,486 @@
+[
+  {
+    "query": "综测方案",
+    "expectedUrl": "/docs/comprehensive-assessment"
+  },
+  {
+    "query": "综合素质测评方案",
+    "expectedUrl": "/docs/comprehensive-assessment"
+  },
+  {
+    "query": "23级综测",
+    "expectedUrl": "/docs/comprehensive-assessment/2023"
+  },
+  {
+    "query": "2022级综测方案",
+    "expectedUrl": "/docs/comprehensive-assessment/2022"
+  },
+  {
+    "query": "2021级综测方案",
+    "expectedUrl": "/docs/comprehensive-assessment/2021"
+  },
+  {
+    "query": "学院路地图",
+    "expectedUrl": "/docs/campus-map/xueyuan-road"
+  },
+  {
+    "query": "学院路校区地图",
+    "expectedUrl": "/docs/campus-map/xueyuan-road"
+  },
+  {
+    "query": "沙河地图",
+    "expectedUrl": "/docs/campus-map/shahe"
+  },
+  {
+    "query": "校园地图",
+    "expectedUrl": "/docs/campus-map"
+  },
+  {
+    "query": "保研细则",
+    "expectedUrl": "/docs/postgraduate-recommendation"
+  },
+  {
+    "query": "2024级推免细则",
+    "expectedUrl": "/docs/postgraduate-recommendation/2024"
+  },
+  {
+    "query": "23级保研细则",
+    "expectedUrl": "/docs/postgraduate-recommendation/2023"
+  },
+  {
+    "query": "培养方案",
+    "expectedUrl": "/docs/training-program"
+  },
+  {
+    "query": "2025级培养方案",
+    "expectedUrl": "/docs/training-program/software-engineering-2025"
+  },
+  {
+    "query": "24级培养方案",
+    "expectedUrl": "/docs/training-program/software-engineering-2024"
+  },
+  {
+    "query": "23级培养方案",
+    "expectedUrl": "/docs/training-program/software-engineering-2023"
+  },
+  {
+    "query": "北航校历",
+    "expectedUrl": "/docs/calendar"
+  },
+  {
+    "query": "2026-2027校历",
+    "expectedUrl": "/docs/calendar/2026-2027"
+  },
+  {
+    "query": "2025-2026学年校历",
+    "expectedUrl": "/docs/calendar/2025-2026"
+  },
+  {
+    "query": "综测计算器",
+    "expectedUrl": "/tool#comprehensive"
+  },
+  {
+    "query": "保研成绩计算器",
+    "expectedUrl": "/tool#postgrad"
+  },
+  {
+    "query": "GPA计算器",
+    "expectedUrl": "/tool#gpa"
+  },
+  {
+    "query": "绩点计算器",
+    "expectedUrl": "/tool#gpa"
+  },
+  {
+    "query": "取色器",
+    "expectedUrl": "/tool#color-picker"
+  },
+  {
+    "query": "JSON格式化",
+    "expectedUrl": "/tool/json"
+  },
+  {
+    "query": "时间戳转换",
+    "expectedUrl": "/tool/timestamp"
+  },
+  {
+    "query": "正则表达式生成器",
+    "expectedUrl": "/tool/regex-builder"
+  },
+  {
+    "query": "Git版本回退",
+    "expectedUrl": "/docs/commands/git/local-version-control"
+  },
+  {
+    "query": "Git安装配置",
+    "expectedUrl": "/docs/commands/git/install-config"
+  },
+  {
+    "query": "Git远程协作",
+    "expectedUrl": "/docs/commands/git/remote-collaboration"
+  },
+  {
+    "query": "Git备忘清单",
+    "expectedUrl": "/docs/commands/git/cheatsheet"
+  },
+  {
+    "query": "Linux命令",
+    "expectedUrl": "/docs/commands/linux/shell"
+  },
+  {
+    "query": "Vim保存退出",
+    "expectedUrl": "/docs/commands/linux/vim"
+  },
+  {
+    "query": "Docker Compose教程",
+    "expectedUrl": "/docs/commands/docker"
+  },
+  {
+    "query": "Tmux分屏",
+    "expectedUrl": "/docs/commands/tmux/usage"
+  },
+  {
+    "query": "Tmux安装配置",
+    "expectedUrl": "/docs/commands/tmux/install-config"
+  },
+  {
+    "query": "贡献资料",
+    "expectedUrl": "/docs/contribute"
+  },
+  {
+    "query": "学生会成员",
+    "expectedUrl": "/member"
+  },
+  {
+    "query": "课程串讲",
+    "expectedUrl": "/share"
+  },
+  {
+    "query": "资料分享",
+    "expectedUrl": "/materials"
+  },
+  {
+    "query": "优质博客",
+    "expectedUrl": "/recommend"
+  },
+  {
+    "query": "开源仓库",
+    "expectedUrl": "/repo"
+  },
+  {
+    "query": "计组串讲",
+    "expectedUrl": "/share#2025-12-27-jizhu-chuanjiang"
+  },
+  {
+    "query": "Java串讲",
+    "expectedUrl": "/share#2025-12-27-java-chuanjiang"
+  },
+  {
+    "query": "人工智能串讲",
+    "expectedUrl": "/share#2026-06-18-daer-ai-chuanjiang"
+  },
+  {
+    "query": "北航邮箱",
+    "expectedUrl": "https://mail.buaa.edu.cn/"
+  },
+  {
+    "query": "博雅选课",
+    "expectedUrl": "https://bykc.buaa.edu.cn/system/course-select"
+  },
+  {
+    "query": "校园网认证",
+    "expectedUrl": "https://gw.buaa.edu.cn/"
+  },
+  {
+    "query": "北航图书馆",
+    "expectedUrl": "https://lib.buaa.edu.cn/"
+  },
+  {
+    "query": "rainel博客",
+    "expectedUrl": "https://rainel.site"
+  },
+  {
+    "query": "计组实验教程",
+    "expectedUrl": "https://awesome-buaa-cs.github.io/fch-tutorial/"
+  },
+  {
+    "query": "Zotero文献管理",
+    "expectedUrl": "https://www.zotero.org/"
+  },
+  {
+    "query": "Overleaf论文写作",
+    "expectedUrl": "https://www.overleaf.com/"
+  },
+  {
+    "query": "大二上学习资料仓库",
+    "expectedUrl": "https://github.com/Soft-Where-21/21CoreDocs/tree/second-autumn"
+  },
+  {
+    "query": "操作系统资料仓库",
+    "expectedUrl": "https://github.com/Soft-Where-21/BUAA_OS_resources"
+  },
+  {
+    "query": "离散数学资料仓库",
+    "expectedUrl": "https://github.com/Soft-Where-21/BUAA_DiscreteMath_resources"
+  },
+  {
+    "query": "闫佳豪毕设经验",
+    "expectedUrl": "/blog/graduation-experience-yan-jiahao"
+  },
+  {
+    "query": "周其顺毕设经验",
+    "expectedUrl": "/blog/graduation-experience-zhou-qi-shun"
+  },
+  {
+    "query": "南京大学考研经验",
+    "expectedUrl": "/blog/postgraduate-entrance-experience-zhao-shijin"
+  },
+  {
+    "query": "ihome使用指南",
+    "expectedUrl": "/blog/school-life-ihome-guide"
+  },
+  {
+    "query": "复旦直博经验",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-zheng-yu-jie-fudan"
+  },
+  {
+    "query": "人大高瓴保研经验",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-zheng-yu-jie-ruc"
+  },
+  {
+    "query": "浙大计算机保研经验",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-zheng-yu-jie-zju"
+  },
+  {
+    "query": "大三学习经验",
+    "expectedUrl": "/blog/course-experience-fu-ning-yuan"
+  },
+  {
+    "query": "清华CAI保研",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-liu-yue-tong-cai"
+  },
+  {
+    "query": "北大软微夏令营",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-yang-jia-yu-xuan-pku-rw"
+  },
+  {
+    "query": "清华软件预推免",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-yang-jia-yu-xuan-thu-software"
+  },
+  {
+    "query": "北航软院推免经验",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-duan-yue-chen-buaa-software"
+  },
+  {
+    "query": "上海AILab保研经验",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-wang-yu-zhen-shanghai-ai-lab"
+  },
+  {
+    "query": "北航华为AI博士",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-fu-dong-hao-buaa-huawei-ai"
+  },
+  {
+    "query": "人大信息学院夏令营",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-tang-hao-han-ruc"
+  },
+  {
+    "query": "深圳零一学院夏令营",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-tang-hao-han-x-institute"
+  },
+  {
+    "query": "北航计院推免经验",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-xie-hao-yu-buaa-cs"
+  },
+  {
+    "query": "庄耿雄保研",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-zhuang-geng-xiong"
+  },
+  {
+    "query": "保研时间线",
+    "expectedUrl": "/blog/postgraduate-recommendation-timelines"
+  },
+  {
+    "query": "林明课程经验",
+    "expectedUrl": "/blog/course-experience-lin-ming"
+  },
+  {
+    "query": "北航MiniMax卓工",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-liang-yi-zhuo-buaa-minimax"
+  },
+  {
+    "query": "华为关键软件卓工",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-ma-xiang-xi-buaa-huawei"
+  },
+  {
+    "query": "刘钟屹课程经验",
+    "expectedUrl": "/blog/course-experience-liu-zhong-yi"
+  },
+  {
+    "query": "学院路 地图",
+    "expectedUrl": "/docs/campus-map/xueyuan-road"
+  },
+  {
+    "query": "沙河 校园 平面图",
+    "expectedUrl": "/docs/campus-map/shahe"
+  },
+  {
+    "query": "综测 2023级",
+    "expectedUrl": "/docs/comprehensive-assessment/2023"
+  },
+  {
+    "query": "2022级 综合素质测评",
+    "expectedUrl": "/docs/comprehensive-assessment/2022"
+  },
+  {
+    "query": "软件工程 2025级 培养方案",
+    "expectedUrl": "/docs/training-program/software-engineering-2025"
+  },
+  {
+    "query": "2024级 保研 政策",
+    "expectedUrl": "/docs/postgraduate-recommendation/2024"
+  },
+  {
+    "query": "北航 2026-2027 校历",
+    "expectedUrl": "/docs/calendar/2026-2027"
+  },
+  {
+    "query": "综测 加分 计算",
+    "expectedUrl": "/tool#comprehensive"
+  },
+  {
+    "query": "保研 成绩 计算",
+    "expectedUrl": "/tool#postgrad"
+  },
+  {
+    "query": "平均 绩点 计算",
+    "expectedUrl": "/tool#gpa"
+  },
+  {
+    "query": "HEX RGB 转换",
+    "expectedUrl": "/tool#color-picker"
+  },
+  {
+    "query": "Git 本地 撤销 修改",
+    "expectedUrl": "/docs/commands/git/local-version-control"
+  },
+  {
+    "query": "Tmux 窗口 面板",
+    "expectedUrl": "/docs/commands/tmux/usage"
+  },
+  {
+    "query": "Docker 镜像 管理",
+    "expectedUrl": "/docs/commands/docker"
+  },
+  {
+    "query": "杨佳宇轩 北大 夏令营",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-yang-jia-yu-xuan-pku-rw"
+  },
+  {
+    "query": "唐皓涵 人大 群面",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-tang-hao-han-ruc"
+  },
+  {
+    "query": "付东淏 华为 博士",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-fu-dong-hao-buaa-huawei-ai"
+  },
+  {
+    "query": "郑宇杰 浙大 专硕",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-zheng-yu-jie-zju"
+  },
+  {
+    "query": "刘玥彤 清华 人工智能",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-liu-yue-tong-cai"
+  },
+  {
+    "query": "林明 大二 操作系统",
+    "expectedUrl": "/blog/course-experience-lin-ming"
+  },
+  {
+    "query": "刘钟屹 小学期 经验",
+    "expectedUrl": "/blog/course-experience-liu-zhong-yi"
+  },
+  {
+    "query": "梁祎卓 MiniMax 硕士",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-liang-yi-zhuo-buaa-minimax"
+  },
+  {
+    "query": "王宇祯 黑客松 联培",
+    "expectedUrl": "/blog/postgraduate-recommendation-experience-wang-yu-zhen-shanghai-ai-lab"
+  },
+  {
+    "query": "赵世锦 南大 复试",
+    "expectedUrl": "/blog/postgraduate-entrance-experience-zhao-shijin"
+  },
+  {
+    "query": "周其顺 毕设 规范",
+    "expectedUrl": "/blog/graduation-experience-zhou-qi-shun"
+  },
+  {
+    "query": "GitHub 代码 托管",
+    "expectedUrl": "https://github.com/"
+  },
+  {
+    "query": "rainel 计网 博客",
+    "expectedUrl": "https://rainel.site"
+  },
+  {
+    "query": "Zotero 引用 管理",
+    "expectedUrl": "https://www.zotero.org/"
+  },
+  {
+    "query": "GongHua1540 计组 实验",
+    "expectedUrl": "https://awesome-buaa-cs.github.io/fch-tutorial/"
+  },
+  {
+    "query": "付宁远 保研 时间规划",
+    "expectedUrl": "/materials#path=%E4%BB%98%E5%AE%81%E8%BF%9C%2F%E4%BF%9D%E7%A0%94%E6%97%B6%E9%97%B4%E8%A7%84%E5%88%92-8%E5%A4%A9%E7%89%88.xlsx"
+  },
+  {
+    "query": "唐皓涵 专家 推荐信 模板",
+    "expectedUrl": "/materials#path=%E5%94%90%E7%9A%93%E6%B6%B5%2F2027%E5%B9%B4%E6%8E%A8%E5%85%8D%E6%8A%A5%E5%90%8D%E9%99%84%E4%BB%B62_%E4%B8%93%E5%AE%B6%E6%8E%A8%E8%8D%90%E4%BF%A1%E6%A8%A1%E6%9D%BF.doc"
+  },
+  {
+    "query": "唐皓涵 成绩排名 证明 模板",
+    "expectedUrl": "/materials#path=%E5%94%90%E7%9A%93%E6%B6%B5%2F2027%E5%B9%B4%E6%8E%A8%E5%85%8D%E6%8A%A5%E5%90%8D%E9%99%84%E4%BB%B61_%E6%88%90%E7%BB%A9%E6%8E%92%E5%90%8D%E8%AF%81%E6%98%8E%E6%A8%A1%E6%9D%BF.doc"
+  },
+  {
+    "query": "段岳辰 PPT",
+    "expectedUrl": "/materials#path=%E6%AE%B5%E5%B2%B3%E8%BE%B0%2F9-%E6%AE%B5%E5%B2%B3%E8%BE%B0-PPT.pptx"
+  },
+  {
+    "query": "付宁远 计组 面试知识点",
+    "expectedUrl": "/materials#path=%E4%BB%98%E5%AE%81%E8%BF%9C%2Ffny%E7%9A%84%E7%AC%94%E8%AE%B0%2F07_CO%2F%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93.md"
+  },
+  {
+    "query": "付宁远 OS 背诵版",
+    "expectedUrl": "/materials#path=%E4%BB%98%E5%AE%81%E8%BF%9C%2Ffny%E7%9A%84%E7%AC%94%E8%AE%B0%2F08_OS%2F%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E9%80%9F%E8%A7%88%E7%89%88-%E8%83%8C%E8%AF%B5%E7%89%88.md"
+  },
+  {
+    "query": "北航学院路地图",
+    "expectedUrl": "/docs/campus-map/xueyuan-road"
+  },
+  {
+    "query": "北航沙河地图",
+    "expectedUrl": "/docs/campus-map/shahe"
+  },
+  {
+    "query": "保研经验",
+    "expectedUrl": "/blog/tags/postgraduate-recommendation-experience"
+  },
+  {
+    "query": "考研经验",
+    "expectedUrl": "/blog/tags/postgraduate-entrance-experience"
+  },
+  {
+    "query": "课程经验",
+    "expectedUrl": "/blog/tags/course-experience"
+  },
+  {
+    "query": "毕设经验",
+    "expectedUrl": "/blog/tags/graduation-experience"
+  },
+  {
+    "query": "校园生活经验",
+    "expectedUrl": "/blog/tags/school-life"
+  }
+]

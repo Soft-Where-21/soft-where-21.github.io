@@ -1,0 +1,92 @@
+[
+  {
+    "query": "想找 计组 复习",
+    "expectedAnyUrls": [
+      "/share#2025-12-27-jizhu-chuanjiang",
+      "https://github.com/Soft-Where-21/BUAA_CO_resources",
+      "/blog/course-experience-lin-ming",
+      "/materials#path=%E4%BB%98%E5%AE%81%E8%BF%9C%2Ffny%E7%9A%84%E7%AC%94%E8%AE%B0%2F07_CO%2F%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93.md"
+    ],
+    "topK": 5
+  },
+  {
+    "query": "付宁远 操作系统 笔记",
+    "expectedAnyUrls": [
+      "/materials#path=%E4%BB%98%E5%AE%81%E8%BF%9C%2Ffny%E7%9A%84%E7%AC%94%E8%AE%B0%2F08_OS%2F%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93.md",
+      "/materials#path=%E4%BB%98%E5%AE%81%E8%BF%9C%2Ffny%E7%9A%84%E7%AC%94%E8%AE%B0%2F08_OS%2F%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E9%80%9F%E8%A7%88%E7%89%88.md",
+      "/materials#path=%E4%BB%98%E5%AE%81%E8%BF%9C%2Ffny%E7%9A%84%E7%AC%94%E8%AE%B0%2F08_OS%2F%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E9%80%9F%E8%A7%88%E7%89%88-%E8%83%8C%E8%AF%B5%E7%89%88.md",
+      "/materials#path=%E4%BB%98%E5%AE%81%E8%BF%9C%2Ffny%E7%9A%84%E7%AC%94%E8%AE%B0%2F08_OS",
+      "/materials#path=%E4%BB%98%E5%AE%81%E8%BF%9C%2F%E5%BE%80%E5%B1%8A%E8%B5%84%E6%96%99%2F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9FOS%2FOperating-System-BUAA-2021-main%2FOperating-System-BUAA-2021-main%2F%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0"
+    ],
+    "topK": 5
+  },
+  {
+    "query": "付宁远 概统 面试",
+    "expectedAnyUrls": [
+      "/materials#path=%E4%BB%98%E5%AE%81%E8%BF%9C%2Ffny%E7%9A%84%E7%AC%94%E8%AE%B0%2F03_%E6%A6%82%E7%BB%9F%2F%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93.md",
+      "/materials#path=%E4%BB%98%E5%AE%81%E8%BF%9C%2Ffny%E7%9A%84%E7%AC%94%E8%AE%B0%2F03_%E6%A6%82%E7%BB%9F%2F%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E9%80%9F%E8%A7%88%E7%89%88.md",
+      "/materials#path=%E4%BB%98%E5%AE%81%E8%BF%9C%2Ffny%E7%9A%84%E7%AC%94%E8%AE%B0%2F03_%E6%A6%82%E7%BB%9F%2F%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E9%80%9F%E8%A7%88%E7%89%88-%E8%83%8C%E8%AF%B5%E7%89%88.md"
+    ],
+    "topK": 5
+  },
+  {
+    "query": "CO notes",
+    "expectedAnyUrls": [
+      "/materials#path=%E4%BB%98%E5%AE%81%E8%BF%9C%2Ffny%E7%9A%84%E7%AC%94%E8%AE%B0%2F07_CO%2F%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93.md",
+      "https://github.com/Soft-Where-21/BUAA_CO_resources",
+      "https://awesome-buaa-cs.github.io/fch-tutorial/"
+    ],
+    "topK": 5
+  },
+  {
+    "query": "Git remote",
+    "expectedAnyUrls": [
+      "/docs/commands/git/remote-collaboration",
+      "/docs/commands/git/cheatsheet"
+    ],
+    "topK": 5
+  },
+  {
+    "query": "保研 联系导师 清华",
+    "expectedAnyUrls": [
+      "/blog/postgraduate-recommendation-experience-yang-jia-yu-xuan-thu-software",
+      "/blog/postgraduate-recommendation-experience-liu-yue-tong-cai"
+    ],
+    "topK": 5
+  },
+  {
+    "query": "大二 OOP 期末",
+    "expectedAnyUrls": [
+      "/share#2025-12-27-java-chuanjiang",
+      "/share#2024-2025-daer-chuanjiang",
+      "/blog/course-experience-liu-zhong-yi",
+      "/blog/course-experience-lin-ming"
+    ],
+    "topK": 5
+  },
+  {
+    "query": "数据库 学习 笔记",
+    "expectedAnyUrls": [
+      "https://www.blondemarisa.site/",
+      "https://github.com/Soft-Where-21/BUAA_Software_Bachelor_Notes",
+      "/materials#path=%E4%BB%98%E5%AE%81%E8%BF%9C%2Ffny%E7%9A%84%E7%AC%94%E8%AE%B0%2F10_%E6%95%B0%E6%8D%AE%E5%BA%93%2F%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93.md"
+    ],
+    "topK": 5
+  },
+  {
+    "query": "Docker 容器",
+    "expectedAnyUrls": [
+      "/docs/commands/docker",
+      "https://www.docker.com/"
+    ],
+    "topK": 5
+  },
+  {
+    "query": "论文 引用 文献",
+    "expectedAnyUrls": [
+      "https://www.zotero.org/",
+      "https://www.mendeley.com/"
+    ],
+    "topK": 5
+  }
+]

@@ -1,0 +1,59 @@
+name: Publish dev to GitHub Pages
+
+on:
+  push:
+    branches: [dev]
+  workflow_dispatch:
+
+# Checkout only needs to read. The final push uses a dedicated deploy key,
+# because GITHUB_TOKEN pushes do not trigger branch-based Pages publishing.
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-main
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/dev'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Require the repository deployment key
+        env:
+          PAGES_DEPLOY_KEY: ${{ secrets.PAGES_DEPLOY_KEY }}
+        run: |
+          if [ -z "$PAGES_DEPLOY_KEY" ]; then
+            echo "PAGES_DEPLOY_KEY is missing. Add a repository deploy key with write access and save its private key as this Actions secret."
+            exit 1
+          fi
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Check search indexing and ranking
+        run: npm run test:search
+      - name: Check material links and previews
+        run: npm run test:materials
+      - name: Check assessment calculator
+        run: npm run test:comprehensive
+      - name: Build site and search catalog
+        run: npm run build
+      - name: Verify published search catalog
+        run: npm run verify:search
+      - name: Publish static files to main
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          deploy_key: ${{ secrets.PAGES_DEPLOY_KEY }}
+          publish_branch: main
+          publish_dir: ./build
+          keep_files: false
+          force_orphan: false
+          enable_jekyll: false
+          commit_message: Deploy website from dev

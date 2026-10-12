@@ -23,7 +23,7 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://soft-where-21.github.io',
+  url: 'https://softwhere.top',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -37,7 +37,10 @@ const config = {
 
   onBrokenLinks: 'throw',
 
-  plugins: [require.resolve('./plugins/materials-index')],
+  plugins: [
+    require.resolve('./plugins/materials-index'),
+    require.resolve('./plugins/search-index'),
+  ],
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
