@@ -1,0 +1,21 @@
+{
+  "total": 835,
+  "counts": {
+    "page": 6,
+    "category": 33,
+    "blog": 23,
+    "doc": 25,
+    "file": 490,
+    "collection": 105,
+    "share": 9,
+    "tool": 8,
+    "external": 114,
+    "repository": 22
+  },
+  "exclusions": [
+    {
+      "url": "/counselor/",
+      "reason": "仅有标题和描述，尚无正文内容"
+    }
+  ]
+}
