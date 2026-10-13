@@ -1,15 +1,15 @@
 {
-  "total": 835,
+  "total": 831,
   "counts": {
     "page": 6,
-    "category": 33,
-    "blog": 23,
+    "category": 32,
+    "blog": 22,
     "doc": 25,
     "file": 490,
     "collection": 105,
     "share": 9,
     "tool": 8,
-    "external": 114,
+    "external": 112,
     "repository": 22
   },
   "exclusions": [

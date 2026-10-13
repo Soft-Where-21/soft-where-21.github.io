@@ -1865,75 +1865,152 @@
             <category>保研经验分享</category>
         </item>
         <item>
-            <title><![CDATA[ihome 使用指南（非官方）]]></title>
-            <link>https://softwhere.top/blog/school-life-ihome-guide</link>
-            <guid>https://softwhere.top/blog/school-life-ihome-guide</guid>
-            <pubDate>Mon, 17 Aug 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[闫佳豪同学分享北航 ihome 平台的使用方法、诉求撰写技巧与真实案例。]]></description>
-            <content:encoded><![CDATA[<blockquote>
-<p>以下内容仅代表个人观点，读者可以认为每一句话前面都加了“我认为”。</p>
-</blockquote>
-<p>最近和低年级的同学聊天发现很多人没用过甚至没听说过 ihome。作为一名北航人，善于使用 ihome 发布诉求将会对学习生活带来一定便捷，然而几乎没有官方的关于如何使用 ihome 的介绍。因此我撰写了此文档供大家参考。</p>
-<p>此外，由于我已经毕业无法登陆 ihome，因此本文档缺少一些示意图，欢迎补充。</p>
-<p>ihome 网址：<a href="https://i.buaa.edu.cn/" target="_blank" rel="noopener noreferrer" class="">i.buaa.edu.cn</a>，需要校园网环境，校外请使用 VPN。</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="0-什么是-ihome">0. 什么是 ihome<a href="https://softwhere.top/blog/school-life-ihome-guide#0-%E4%BB%80%E4%B9%88%E6%98%AF-ihome" class="hash-link" aria-label="Direct link to 0. 什么是 ihome" title="Direct link to 0. 什么是 ihome" translate="no">​</a></h2>
-<p>以下内容源自百度百科：</p>
+            <title><![CDATA[上岸南京大学软件学院专硕复试第一经验贴]]></title>
+            <link>https://softwhere.top/blog/postgraduate-entrance-experience-zhao-shijin</link>
+            <guid>https://softwhere.top/blog/postgraduate-entrance-experience-zhao-shijin</guid>
+            <pubDate>Thu, 23 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[赵世锦同学分享26考研11408备考、择校、心态调整以及上岸南京大学软件学院专硕的完整经验。]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="写在前面">写在前面<a href="https://softwhere.top/blog/postgraduate-entrance-experience-zhao-shijin#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2" class="hash-link" aria-label="Direct link to 写在前面" title="Direct link to 写在前面" translate="no">​</a></h2>
+<p>本文为我本人参与26考研11408的经验，仅作参考。本来早就想写的，硬是拖到现在，再不写27考研的都考完了（</p>
+<p>我将更侧重于我的心路历程，包括心理准备，择校，考研失败的影响等方面，方法论则简要写写，因为我的分数并不算高，以应试角度看网上比我有资格做分享的人多如牛毛。</p>
+<p>反而，我觉得心态和选择，或者说想清楚自己想要什么，远比考试本身难，考研本身只是一个期末考试pro版，如果你做了一定量的准备，考研初试只不过是个通过性测试走流程（我自己在报名的时候就知道自己稳上了）。</p>
+<p>全文较长，观点可能从个人角度出发不完全正确，对这些不感兴趣的读者可以跳到后面备考方法论部分。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="个人背景与历程">个人背景与历程<a href="https://softwhere.top/blog/postgraduate-entrance-experience-zhao-shijin#%E4%B8%AA%E4%BA%BA%E8%83%8C%E6%99%AF%E4%B8%8E%E5%8E%86%E7%A8%8B" class="hash-link" aria-label="Direct link to 个人背景与历程" title="Direct link to 个人背景与历程" translate="no">​</a></h2>
+<p>本科北航2221（22级21系软件学院），gpa86，排名都懒得去查，最后应该是70%左右。一个水奖一段水科研0实习，雅思7.5，三个项目一个为该比赛两个课设，很平平无奇的bg。</p>
+<p>七月初开始备考，一战26考研11408，初试排名中游，复试笔试第二面试第二，复试总分第一上岸南京大学软件学院专硕。</p>
+<p>大二原计划出国而因学校10043本身原因+关系紧张+家里反对放弃，转保研发现我们这届竞争激烈，只能保本校且大二下被校内某科技竞赛狠狠恶心了一下。北航科班较重的课业压力和AI浪潮带来的迷茫双管齐下，遂开摆，苦中作乐尽量逃避现实享受生活。大三下因为要应付生产实习，也投了一些公司，但因为懒得背八股和leetcode，以及本身基础也比较烂，大部分大厂都一面二面就挂了，甚至还有随便问几个问题做个算法题的，出来直接秒挂，得知根本不招人，还有某爱国大厂我投了之后一直卡流程，随后询问内部人员得知部门只招博士了，都不告知一声（…）总之是四处碰壁吧，小厂又不太想去，直接玩到七月份回家开始备考。</p>
+<p>相信许多背景和我相似的考研人也有相同的感受，就是没有目标导向，目标驱动对我个人而言是非常重要的，我本身是个p人，平时生活也非常随心所欲，更看感觉（这点在备考过程中也有体现），如果一件事确定不下来我可能就一直不会去做。</p>
+<p>如果能早早确定保研/出国/就业，做好准备我想我可能也不会选择考研，尤其对于计算机这么一个竞争异常激烈的专业，早做打算的重要性不言而喻，留给本科生试错的时间很少，所谓千手观音（一手抓课内，一手抓科研，一手抓学工，一手抓实习，一手抓社团，一手抓恋爱…）对于我这种正常人类是不可能做到的（当然6系和21系有很多这种神仙大佬）。我以课内压力大为理由一拖再拖，各个方向也都是浅尝辄止，最后以很中庸的成绩和可有可无的履历度过了大学前三年。对我而言我的本科没有含金量高的实习/丰富的科研竞赛履历/漂亮的绩点/可爱的另一半，游戏也没有上到一个很高的段位，兴趣爱好虽广泛但没有坚持持续投入和产出，只顾着和朋友们吃喝玩乐，还是有些遗憾的。<br>
+<!-- -->不过话又说回来了，人的想法是会变的，我大一时也绝对不会想到我现在会踏上当年高考填志愿时未曾选择的路，唯一的忠告就是尽量多去尝试，这样就算到头来没有什么结果，试错之后心里也会更加明确自己的方向（对我来说没有方向和目标实在过于难受），能为bg加上一点筹码。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="心理准备与择校重点">心理准备与择校（重点）<a href="https://softwhere.top/blog/postgraduate-entrance-experience-zhao-shijin#%E5%BF%83%E7%90%86%E5%87%86%E5%A4%87%E4%B8%8E%E6%8B%A9%E6%A0%A1%E9%87%8D%E7%82%B9" class="hash-link" aria-label="Direct link to 心理准备与择校（重点）" title="Direct link to 心理准备与择校（重点）" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="考研难不难值不值">考研难不难&amp;值不值<a href="https://softwhere.top/blog/postgraduate-entrance-experience-zhao-shijin#%E8%80%83%E7%A0%94%E9%9A%BE%E4%B8%8D%E9%9A%BE%E5%80%BC%E4%B8%8D%E5%80%BC" class="hash-link" aria-label="Direct link to 考研难不难&amp;值不值" title="Direct link to 考研难不难&amp;值不值" translate="no">​</a></h3>
+<p>考研本身就是一个小马过河问题，比方说，同样一个目标院校，不同本科背景的人看待它的难易程度是有偏差的。从我本科的身边统计学来看，从暑假乃至更早开始复习的同学全部一战上岸（包括各种清北交浙本校中科院），少数几个没上岸的无一不是过于松懈，跟风备考装装样子乃至九十月才开始学点（就算如此，去年6系也有好几个哥们9月保研失败后考研上岸的）。我觉得对于航专学子来说，考研不是智商博弈，而是纯粹的态度博弈。如果让我主观评价考研难度，我会将计算机考研比喻作一个大型期末考试，要在3-6个月内维护一个较好的知识框架，我觉得只要不是高考爆大种来航专，学力完全可以应付，不存在学不会的情况，剩下的就是发挥与态度问题。<br>
+<!-- -->关于值不值的问题，对于保研线边上的同学，我肯定不敢撺掇你弃保，虽然我自己就是放弃保研的，我也确实认识不少弃保本校冲击清北成功的大佬，而剩下的人，无非就是考研or就业or水硕。以我的视角来看，国内互联网已经进入新的低潮，应届生hc被大大压缩，老兵带实习生还不如让老兵带几个agent干活，不被裁应届就已经谢天谢地，几年前的盛况难以复现，开发岗也不知还能存活多久，本科找算法除非千手观音否则近乎天方夜谭。在这种情况下，继续逃避就业躲进学校读研读博正是上面的解决办法，代价就是占坑晚，每年都是就业“最好”的一年。当然，就业经验具有极强的时效性，我也不敢说太满，读研or早点占坑or花钱读个港新水硕，见仁见智吧，也欢迎评论区聊天发表见解。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="没考上怎么办">没考上怎么办<a href="https://softwhere.top/blog/postgraduate-entrance-experience-zhao-shijin#%E6%B2%A1%E8%80%83%E4%B8%8A%E6%80%8E%E4%B9%88%E5%8A%9E" class="hash-link" aria-label="Direct link to 没考上怎么办" title="Direct link to 没考上怎么办" translate="no">​</a></h3>
+<p>大部分人一战没上，无非三条路，春招or水硕or二战。<br>
+<!-- -->春招，我看过一些经验贴，只能去一些国企以及银行这种的，不过毕竟准备时间不充分+本科生，能找到的offer质量也有限；水硕，假如你的gpa没有烂到完全不能看，初试完的这几个月完全足够你赶上国外水硕的秋季入学，对于家里不差钱的人来说，读个水硕也许会是个局部最优解。二战，也是大部分人的选择，目前在如此恶劣的大环境下，一战没上的同学各有各的原因，我有认识二战不上继续三战的，也有二战不上水硕的，请务必思考好梭哈还是止损。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="择校">择校<a href="https://softwhere.top/blog/postgraduate-entrance-experience-zhao-shijin#%E6%8B%A9%E6%A0%A1" class="hash-link" aria-label="Direct link to 择校" title="Direct link to 择校" translate="no">​</a></h3>
 <blockquote>
-<p>北航 ihome 社区（i 北航社区）以北京航空航天大学校长怀进鹏院士提出的为同学们打造一流社区、服务广大师生校友、方便北航人交流和互动的宗旨，于 2012 年 5 月 28 日在学校各级领导的支持下、网络信息中心工作人员主导下，以师生共建的方式，推出的一款基于 SNS 社交网络模式，为北航人量身打造的校园网络互动社区。社区服务的对象不仅有在校师生、校友，还有即将进入北航的新生，通过社区入学新生可以提前了解学校环境、校园文化和报到流程。</p>
+<p>择校的核心不是“能不能”，而是“想不想”和“适不适合”。</p>
 </blockquote>
-<p>简单来说就是怀校长在 2012 年搞的一个平台，历经发展（阉割）后，目前主要接诉平台，“接诉”的含义就是“接受诉求”，然后将诉求分派到各个部分，各个部门的负责人来解决问题。因此，同学们在日常科研学习生活中，遇到的与学校相关的任何问题理论上都在 ihome 的处理范围，都可以通过 ihome 平台反馈。</p>
-<p>不过针对特定问题可能有更直接的解决办法，比如宿舍报修找楼下宿管会更快更直接。对于不知道找谁解决，或者是找人了但没解决，或者是单纯投诉不满要求整改，都适合发 ihome 解决。</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-如何使用">1. 如何使用<a href="https://softwhere.top/blog/school-life-ihome-guide#1-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8" class="hash-link" aria-label="Direct link to 1. 如何使用" title="Direct link to 1. 如何使用" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="11-发布诉求">1.1 发布诉求<a href="https://softwhere.top/blog/school-life-ihome-guide#11-%E5%8F%91%E5%B8%83%E8%AF%89%E6%B1%82" class="hash-link" aria-label="Direct link to 1.1 发布诉求" title="Direct link to 1.1 发布诉求" translate="no">​</a></h3>
-<p>登陆后主页左侧有“我要提诉求”的字样，点击“前往”即跳转至发布界面。所谓“界面”也不过是一个弹出的输入框，在这里可以选择发布“诉求”、“建议”、“表扬”，注意这是一个弹出框，退出后输入的内容并不会保留，如果写了一半请再其他地方保存备份。</p>
-<p>ihome 输入框限制 300 个字符，包括英文一个字母算一个字符，标点、空格、换行符（换行符发不出来就不显示了，因此如果字数紧张，不必换行）均计入数目。我曾与负责人讨论过此事，他认为 300 字足以讲清楚问题，可以避免某些同学宣泄情绪写小作文，这点我认同，但是如果同学想在这里写一下自己的建议考量就有点不够了，我也见过有人附上北航云盘的链接以补充更多材料。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="12-查看诉求">1.2 查看诉求<a href="https://softwhere.top/blog/school-life-ihome-guide#12-%E6%9F%A5%E7%9C%8B%E8%AF%89%E6%B1%82" class="hash-link" aria-label="Direct link to 1.2 查看诉求" title="Direct link to 1.2 查看诉求" translate="no">​</a></h3>
-<p>尽管历经阉割之后，ihome 现在只能查看最近 20 条诉求，但是也可以方便关注一下其他同学的诉求，很有可能你关心的问题在这里就提到了。</p>
-<p>另外 ihome 是有搜索功能的，可以通过关键词搜索找关心的内容（这个似乎就不局限于最近 20 条了），不过目前这个搜索不够智能，还是比较机械的原文匹配。我曾经给负责人提过接点大模型或者语义相似度匹配，但是似乎没有后话。</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-使用技巧">2. 使用技巧<a href="https://softwhere.top/blog/school-life-ihome-guide#2-%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7" class="hash-link" aria-label="Direct link to 2. 使用技巧" title="Direct link to 2. 使用技巧" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="21-引经据典型">2.1 引经据典型<a href="https://softwhere.top/blog/school-life-ihome-guide#21-%E5%BC%95%E7%BB%8F%E6%8D%AE%E5%85%B8%E5%9E%8B" class="hash-link" aria-label="Direct link to 2.1 引经据典型" title="Direct link to 2.1 引经据典型" translate="no">​</a></h3>
-<p>“以彼之矛，攻彼之盾”，“用魔法打败魔法”。</p>
-<p>引用学校、工信部（教育部）及更高层面官方发言作为依据。</p>
-<p>比如党代会报告，以下是关于新北区家属在宿舍楼前制造噪声相关的一条诉求：</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">学院路北区公寓楼下存在家属带小孩游玩制造大量噪声，严重影响同学（尤其是低层同学）学习休息；部分小孩在宿舍楼前骑自行车，存在安全隐患，这也是明确禁止的。</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">对此，我提出以下诉求：</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">1.评估小孩是否有必要进入校园必要，特别是宿舍区、教学区、科研区等；</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">2.加强监管，严禁在宿舍楼前大声喧哗，严禁使用自行车，滑板等快速移动设备，对违反人员采取包括但不限于口头警告、驱逐出校等处罚措施；</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">北航第十七次党代会报告指出，要实施幸福北航工程，坚持以人民为中心的发展思想，全面提升服务保障品质，营造和谐美丽的宜学宜居生态。家属区小孩在宿舍区肆意奔跑呼喊，严重影响了同学们的休息生活，纵容此行为与党代会精神违背，请有关部</span><br></span></code></pre></div></div>
-<p>这是一条关于增加羽毛球场的诉求：</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">学院路校区亟待增加羽毛球场，目前主馆副馆仅18个场地，且如羽毛球、气排球、匹克球等体育课均占用羽毛球馆场地，此外还有院/校甚至附中羽毛球队训练占用羽毛球场馆，排球队亦占用羽毛球场，虽难以避免但也让本就不富裕的羽毛球场雪上加霜。</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">横向对比，北京部分高校（如清华）除体育馆外会开放额外的室内场地，为学生提供丰富的体育锻炼机会。</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">去年召开的北京航空航天大学第十七届党代会指出，今后五年主要任务之一就是“健全与一流大学建设目标相适应的治理体系，打造一流大学文化”，“坚持师生为本”，羽毛球运动对师生身心健康发展大有裨益，提供充足的羽毛球场地实为必由之路。</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">对此我诉求：新/扩建球馆如主馆看台，延长时间等。</span><br></span></code></pre></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="22-旁征博引">2.2 旁征博引<a href="https://softwhere.top/blog/school-life-ihome-guide#22-%E6%97%81%E5%BE%81%E5%8D%9A%E5%BC%95" class="hash-link" aria-label="Direct link to 2.2 旁征博引" title="Direct link to 2.2 旁征博引" translate="no">​</a></h3>
-<p>北航是一所高校，同样中国有很多高校，其他高校优秀的治理经验可供北航学习，因此在提诉求时，可以举例其他学校优秀的管理方式。</p>
-<p>例如，我曾针对网络计费提出以下诉求：</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">增加校园网免费额度！</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">据调查，清华大学、同济大学校园网免费，中国人民大学校园网每月免费100G，如此看来我校每月30G的额度相形见绌。</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">日常学习生活、科研交流对流量有很大需求，特别是没有工位免费网的本科生，随便一个模型的下载就要几个G的流量。超出部分0.25元/G的费用极大限制了科研学习的正常进行。</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">对此我诉求：校园网免费，或者提高到人大同等标准，每月免费100G流量。</span><br></span></code></pre></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="23-风险规避">2.3 风险规避<a href="https://softwhere.top/blog/school-life-ihome-guide#23-%E9%A3%8E%E9%99%A9%E8%A7%84%E9%81%BF" class="hash-link" aria-label="Direct link to 2.3 风险规避" title="Direct link to 2.3 风险规避" translate="no">​</a></h3>
-<p>ihome 一贯作风喜欢给学生打电话、找导员/学院书记，如果感到困扰，可以直接在诉求中明确要求不要打电话/不要找辅导员等。不过你发的每一条 ihome 都会推送至学院分管学生工作的副书记，所以发之前也可以多掂量一下。</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-案例展示">3. 案例展示<a href="https://softwhere.top/blog/school-life-ihome-guide#3-%E6%A1%88%E4%BE%8B%E5%B1%95%E7%A4%BA" class="hash-link" aria-label="Direct link to 3. 案例展示" title="Direct link to 3. 案例展示" translate="no">​</a></h2>
-<p>由于本人登陆不上账号，目前仅一个案例有原文。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="31-校园网资费">3.1 校园网资费<a href="https://softwhere.top/blog/school-life-ihome-guide#31-%E6%A0%A1%E5%9B%AD%E7%BD%91%E8%B5%84%E8%B4%B9" class="hash-link" aria-label="Direct link to 3.1 校园网资费" title="Direct link to 3.1 校园网资费" translate="no">​</a></h3>
-<p>30G 流量不够用，我提出要修改计费规则相关诉求，以下为诉求原文及答复：</p>
-<p><img decoding="async" loading="lazy" alt="校园网资费诉求原文及答复" src="https://softwhere.top/assets/images/3.1.1-199765a5be83566d08eb16a40dba06c8.jpg" width="1080" height="1284" class="img_ev3q"></p>
-<p>然后送了全校学生 30G 流量：</p>
-<p><img decoding="async" loading="lazy" alt="校园网赠送 30G 流量通知" src="https://softwhere.top/assets/images/3.1.2-68f0c7509a487da8b4c871ed65f9e17e.jpg" width="1954" height="402" class="img_ev3q"></p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="32-学院路游泳馆设施">3.2 学院路游泳馆设施<a href="https://softwhere.top/blog/school-life-ihome-guide#32-%E5%AD%A6%E9%99%A2%E8%B7%AF%E6%B8%B8%E6%B3%B3%E9%A6%86%E8%AE%BE%E6%96%BD" class="hash-link" aria-label="Direct link to 3.2 学院路游泳馆设施" title="Direct link to 3.2 学院路游泳馆设施" translate="no">​</a></h3>
-<p>在我某次前往游泳馆游泳时，发现馆内部分柜子缺少挡板，导致鞋子与衣服无法分区放置，且柜子存在严重异味，公共吹风机仅 2 个可用，因此我发布了一条诉求反馈此事。</p>
-<p>结果是第二天电话告知我已经在采购新的设备，并将逐步更换，其中吹风机之前就购买了新的，但没有投入使用，打电话时已更新（确实我第三天去的时候已经是新的、数量充足的吹风机了）。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="33-插座报修">3.3 插座报修<a href="https://softwhere.top/blog/school-life-ihome-guide#33-%E6%8F%92%E5%BA%A7%E6%8A%A5%E4%BF%AE" class="hash-link" aria-label="Direct link to 3.3 插座报修" title="Direct link to 3.3 插座报修" translate="no">​</a></h3>
-<p>我曾经在教室上课时，课前发现旁边插座没电，所以发了一条 ihome 反映此事。大概 9:15 发布的诉求，9:40 左右就到了，课前就修好了，效率非常之高。</p>
-<p>但其实这是一个反面教材，这种事情使用“随手拍”更方便，发 ihome 有点浪费资源，不过这也是我当时不熟悉北航各个问题反馈渠道导致的。</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-有趣的历史">4. 有趣的历史<a href="https://softwhere.top/blog/school-life-ihome-guide#4-%E6%9C%89%E8%B6%A3%E7%9A%84%E5%8E%86%E5%8F%B2" class="hash-link" aria-label="Direct link to 4. 有趣的历史" title="Direct link to 4. 有趣的历史" translate="no">​</a></h2>
-<p>本人是 21 年入学的，更早的 ihome 尚未见过，但是 23 年大改革之前是可以自由评论的，并且之前发布诉求，如果学生不满意处理结果，就会反馈至更高一级的管理层，但此制度显然现在是没有了。</p>
-<p>23 年改革后变成先审后发就已经名存实亡了，25 年不知道什么时候又改了，更是只能查看最近 20 条内容，已经懒得喷了。</p>
-<p>这里附上一个知乎问题<a href="https://www.zhihu.com/question/2014752300523091877/answer/2014752957124601339" target="_blank" rel="noopener noreferrer" class="">链接</a>，当然这个也是我的提问，还有很多热心同学补充了他们眼中的 ihome。</p>
-<p>以下是一些珍贵历史图像（上文的知乎链接中有更丰富的内容）：</p>
-<p><img decoding="async" loading="lazy" alt="ihome 历史截图" src="https://softwhere.top/assets/images/4.1-f126f23db205a14e2753fafe301b05b8.jpg" width="1080" height="5579" class="img_ev3q"></p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-不要想多了">5. 不要想多了<a href="https://softwhere.top/blog/school-life-ihome-guide#5-%E4%B8%8D%E8%A6%81%E6%83%B3%E5%A4%9A%E4%BA%86" class="hash-link" aria-label="Direct link to 5. 不要想多了" title="Direct link to 5. 不要想多了" translate="no">​</a></h2>
-<p>ihome 说到底还是一个诉求处理平台，只是接诉，但不一定办呀，提一些核心问题肯定不会解决的，比如研究生补助、新生奖学金等问题。</p>
-<p>我曾经以为与学校核心利益无关的小事都能很好的解决，但是我也见证了关于学院路操场东南侧、东北侧小门开放的坎坷，曾经 ihome 各位同学发了几十条诉求（仅仅是通过审核放出来的数目），但是仍拖了很长时间没有解决，答复十分人机感觉答非所问。更让人气愤的是最近大运村宿舍装修问题，在学生还在宿舍居住的情况下大面积刷漆，异味严重，经测量甲醛超标，但学校声称符合安全标准并继续施工，ihome 上多条诉求均无事发生，下面是一个例子（注意时间）：</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">2026/7/27</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">: @总务部 关于大运村某公寓楼道墙面粉刷事宜，目前因施工后空气流通不畅，室内异味较为明显。据同学自行使用甲醛检测试剂盒初测，结果显示甲醛浓度已超出参考限值。</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">考虑到暑期仍有部分同学留宿，健康安全不容忽视。恳请学校予以重视，协调具备CMA资质的专业检测机构，对楼道及宿舍室内空气质量进行规范检测；同时，结合实际情况，制定并落实切实有效的通风换气措施，切实保障留宿同学的身体健康。感谢学校的关注与支持！ (2026-07-22)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">==========</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">总务部: 同学你好，你的诉求已收悉并与你电话沟通，因粉刷施工给你带来的不便敬请谅解，感谢你对物业工作的理解和支持。 (2026-07-27)</span><br></span></code></pre></div></div>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-写在最后">6. 写在最后<a href="https://softwhere.top/blog/school-life-ihome-guide#6-%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E" class="hash-link" aria-label="Direct link to 6. 写在最后" title="Direct link to 6. 写在最后" translate="no">​</a></h2>
+<p>我将简单介绍一下目前计算机类考研情况，因为考研了就不考虑比北航更低层次的学校了，最后再说明一下自己的择校逻辑：<br>
+<!-- -->（听说清华全改408了，以下关于清华的除了求真都已过时）</p>
+<ul>
+<li class="">
+<p><strong>清华</strong>：我觉得清华的考研难度完全是被高估了，所谓专业课和复试难，其实也看个人准备，贵系复试只要你有东西能和老师讲就问题不大，至于清深更是撑死胆大的饿死胆小的，认真准备航专背景进去完全是上游。如果对自己的本科经历有点信心，尤其是保研线边缘的同学，可以冲，初试压力小太多了。<br>
+<!-- -->我最开始考虑的清深AI只需要学一门数据结构，但是七月突然通知专业课改考电路，我懒得学物理，就不考虑了。清深互动设计，大数据什么的，也同理排除，而且我东北人本身也不太想去广深，怕适应不了气候，也怕小强。接下来是清华912（826）三件套，贵系/清深CS/网研院，826的专业课比较难，主要是DS难度更高，心理压力可能比较大，备考体系不如408完善。其次，有较难的机考（虽然好像也没那么难），我自认是不太吃压力的类型，怕翻车遂放弃。然后是清软，清软的航专人越来越多了，1821，1921都有组团上岸的，不过据说清软钱少横向多，自己琢磨吧。最后是求真书院AI，去年刚开的，考408，复试要学数值分析和数算。其实性价比很高，不过我一直不是很喜欢华子，不太想去一个大号北航，但另一方面毕竟是大清AI号召力又这么强，我也很是纠结。我便先学着408打算到报名时再做决定。</p>
+</li>
+<li class="">
+<p><strong>北大</strong>：首先是信科，整体上算408统考最高难度之一，但是因为有好几个小方向分开招生，并且收的人少，有些方向经常爆冷，所以就比较考验博弈论，整体难度和清华贵系差不多。其次是软微，网红热门院系之一，近几年水涨船高，对硬实力有一些要求，航专背景进了算中上，现在说软微是航专后花园的都来了。我今年就认识两三个21系考软微的，应该都上岸了。最后是数院大数据，工院，智能等一些，只认识一个考的，不是很熟不多评价，应该也是勇敢者的奖励。不过对我来讲，我没有top2执念，当年高考也是认识到了自己的上限，就不去选这些冷门院系水title了，至于信科，考研不一定选得到好老师而且昌平太牢了，软微的话，我不太想花时间卷应试高分，很无聊且边际效应严重，网上铺天盖地的rw卷王，我自认不如，这北大给他们上吧（<br>
+<!-- -->关于信科和软微，参见后文所提的北本的经验贴：</p>
+</li>
+</ul>
 <blockquote>
-<p>权利不是施舍来的，而是斗争来的。通过此平台斗争相比于罢课和游行已经是很温和的手段了。</p>
+<p>信科是学硕，可以转博，软微是专硕，无法直接转博，继续读博会很麻烦而且时间更久。信科的好处是导师固定方向固定，昌平宿舍条件好，学费便宜而且组里科研有工资，当然坏处也是导师固定方向固定，很吃导师的人品，所以一定要提前了解！昌平比较偏，到本部比较远（当然软微也很远）。软微的话好处是自由，可以去就业实习也可以进组科研，就业方面绝对的T0；坏处的话学费贵，宿舍的话比不了昌平（但一般大家都住不了多久），去科研不一定有导师本家待遇，转博比较麻烦。个人建议如果自己的规划能力强，更倾向于就业就去软微；想读博科研就去信科，并且仔细考虑报考方向，信科的报考方向很重要！但不管考哪个一定要考虑好！</p>
 </blockquote>
-<p>好歹也是在北航生活了五年，但是严格意义上在这里的第三年才开始使用 ihome，为我争取权利提供了一定帮助。我也根据我和身边同学的使用情况，写了很详细的建议反馈，并且和相关负责人进行了线下面谈，不过目前看来可能并没有落实。</p>
-<p>希望 ihome 能越来越好，真正起到“接诉即办”的作用，也希望同学们能善于使用。</p>]]></content:encoded>
-            <category>学校生活分享</category>
+<ul>
+<li class="">
+<p><strong>上交</strong>：计专在闵行，两年半12w还是14w有宿舍。闵行校区建设确实好，我认为算是全国建设布局和环境最好的校区，没有之一，但大二去了一次上海祛魅了，感觉也没那么大吸引力了，又在闵行进城要时间，放弃。其他软件学院据说考研能选IPADS，不是很懂。</p>
+</li>
+<li class="">
+<p><strong>人大高瓴</strong>：高瓴AI很强，也有很多厉害的老师，想做AI有科研梦想的可冲，进体制的话ruc也能给你很好的保障下限，可谓是性价比拉满。但我思来想去，折腾半天就从知春路到海淀黄庄，就换了个几公里的地方，好像没什么意思，继续呆在北京虽说都是熟悉的环境熟悉的人，但毕竟也不在北京立足，果然还是待够了想换个地方。</p>
+</li>
+<li class="">
+<p><strong>浙大</strong>：浙计分数稳定高，且和南大相比优势不算明显，基本没太考虑过。至于软院工院什么的，我觉得航专人没必要考虑，而且浙软在宁波。</p>
+</li>
+<li class="">
+<p><strong>复旦</strong>：复试比较玄学，实力可能还不如北航，且软专应该是没宿舍+超贵学费，可能加起来和水硕开销差不多了。</p>
+</li>
+<li class="">
+<p><strong>中科大</strong>：在合肥，地理位置减分。科计，据说不难但是听说歧视软件学院出身（有猫饼吗…），科软，网红院系，年年吹炸了一看安徽水区22408闹麻了。无导师制，除非你想要自由的研究生三年又没自信考软微，不然不推荐航专人考虑这个。</p>
+</li>
+</ul>
+<p>其实科软和复旦乃至浙软这种地方，如果不是真心的想要水个华五title，不然真不推荐考，就算考上了，周围同学的质量也是相当的一般，不如考本校。</p>
+<ul>
+<li class="">
+<p><strong>北航</strong>：虽然很想劝大伙快润，但是列出条件横向对比下就知道了，北航性价比实在是有点高，北京市中心方便实习，有宿舍，CS强校，较低的分数线，网安、人工智能学院这种甚至点击就送，对于本校生的话还是熟悉的环境熟悉的同学，而且6系对于本校生还是有一定保护的，只要机试别太离谱，基本上面试不会为难你。而且有一个非常重要的点，每年报名截止前几天，航专都会公布每个专业的报名人数，对比一下往届的数据，完全不需要担心突然爆炸，可以说是友好到了极点。</p>
+</li>
+<li class="">
+<p><strong>南大</strong>：计科分数应该比较高，且复试要考编译和离散，这辈子不想再碰任何编译了，本科被编译课设恶心坏了，遂放弃。南软，也是网红院系，不过我倒是不担心考不上，刚改三年制，应该还是会放实习，要自己租房，在市中心性价比还行，缺点是实习要自己跑外地一线城市，做不了科研。苏州，今年好像分数炸了，不懂，南苏据说很偏僻，不是很推荐强行去考，不如考本校。</p>
+</li>
+</ul>
+<p>从暑假开始复习时，我就一边学一边纠结求真和其他选项，最终促使我下定决心的契机是暑假期间认识了一个本校同样要考清华求真的女生，和她的交流中我感觉非常的不舒服——自我中心感强烈，不懂得尊重他人，明里暗里踩人，话里话外就一定要“赢”你一头。本科环境下我已见识过太多也非常讨厌这种精致卷√，我一想就算去了华子也不过是个大号航专，社达内卷只会更甚，更加压抑，一想到就算去了清北也要和更多这种人共事就令我作呕，这距离我心目中的普通平凡的幸福相去甚远。同时，我也不是很想把精力放在卷应试高分上，分数够用就行了。</p>
+<p>于是我将目光投向了其他学校，我搜集的信息基本如上，最后选择了nju，原因有二：当年分数能来南大理科，但当时以为学数学只能当老师，且22那年数学懂的都懂，我担心真学数专学不明白，知难而退放弃，选择了北航科班。现在3年后再选择，有一种“真的走上了另一条路”的感觉。其次，南大综合大学的气质和南京的城市生活气息更舒适，更吸引我，作为北方人一直想去南方看看。南软在市中心，这边三年制放实习，不管是纯玩还是沉淀也有更多时间，非常吸引我。</p>
+<p>当然，放弃绝非易事，放弃一件事可能比做成一件事还要难。毕竟大清AI的top2金字招牌摆在这，就算没有实力靠这个文凭也足够吓哭一批人了。不过我权衡最后还是选择果断放弃了清华，此时的我并不知道这是否是正确的决定，就让时间给出答案吧。</p>
+<p>我为我自己的果断感到自豪，我冷静地挥剑斩断更高层次的幻想，回应我的则是四年前的自己。我做到了他不可能下定决心的断舍离，却也已经失去太多，好在我们的路还有很长很长。因为，朴实温柔却有力量的平凡生活正为我所愿。</p>
+<p>做出这个决定之后，我就知道我不可能考不上了，毕竟我都有能力做出这样的舍弃，还有什么做不到的呢？明确了目标比迷茫时的心气足太多了。带着这种盲目自信，我复习时，和研友吃饭时，脑子里根本没有落榜的画面。进考场的那天早上，我吃完包子在路上居然哼起了《不为人知的鹅妈妈童谣》和《初音天地开辟神话》，这时候我就知道我已经十拿九稳了。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="备考经验">备考经验<a href="https://softwhere.top/blog/postgraduate-entrance-experience-zhao-shijin#%E5%A4%87%E8%80%83%E7%BB%8F%E9%AA%8C" class="hash-link" aria-label="Direct link to 备考经验" title="Direct link to 备考经验" translate="no">​</a></h2>
+<p>我也看了许多经验贴，网上各种卷王的全安排日程，从3月开始基础强化真题冲刺，说实话有点疲劳备考的意思，并且各个学科和阶段都选择所谓最优解，颇有RPG配装的感觉，很多同学不仅执行不下来，还把自己搞得很累很焦虑却成效甚微。我十分推崇一名北本信科同学写的75天考软微经验贴，其中提到的精简备考对我来讲非常受用。</p>
+<p><a href="https://zhuanlan.zhihu.com/p/1894691776138282469" target="_blank" rel="noopener noreferrer" class="">75天上岸软微</a></p>
+<p>一定不要和别人比进度和时长，也不要欺骗自己，有效率地学了多少自己心里清楚。如果按网上主流言论我七月初才开始准备一战11408可以直接不用考了。并且上文所提的那位考求真的女生也是和我同时开始备考，最后她应该是420多，疑似全国第一（？）还有备考期间保持好心态也很重要，最好能有志同道合研友一起互相督促进步，还能解闷。</p>
+<p>从总体规划来讲，我觉得暑假开始备考是比较合适的时机，战线拉的太长的话到时候会忘，并且后面会很煎熬，其实大家到了十二月份就都是在维护自己的下限，不忘太多就是胜利。第一轮内容很多学不会记不住很正常，第二遍再过会有全新的理解。对于各种资源切记不要当仓鼠和耐听王，适合自己的才是最好的！后文我会写一些自己的学习方法、路线和一些觉得高质量的资源，可以参考复刻。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="学习基础">学习基础<a href="https://softwhere.top/blog/postgraduate-entrance-experience-zhao-shijin#%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80" class="hash-link" aria-label="Direct link to 学习基础" title="Direct link to 学习基础" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>英语</strong>：新高考135，四六级裸考都500多，雅思7.5（详见本人的雅思经验贴）</li>
+<li class=""><strong>数学</strong>：新高考120+（我们那届22年数学难得一，懂的都懂）；本科数分、高代都95+；概统大二开摆了，78，最后考场上果然也掉链子了。</li>
+<li class=""><strong>专业课</strong>：408学的很多很杂，和北航的范围有很多不一样（课程都是lab导向），而且对于我这种期末理论考试全靠突击短期记忆的人来说和从头开始学没啥区别。</li>
+<li class="">可能会有人说我基础比较好，但实际上大伙都和从头开始学没区别。</li>
+</ul>
+<blockquote>
+<p>我想说，这正是大家考研以来遇到的最大的思维误区，就是总是觉得别人基础好，自己只能靠堆时间，上强度，做大量的题目才能考好。实际上却陷入了最大的思维误区，忽视了学习方法。<br>
+<!-- -->——鸽子鸽的rw经验贴</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="大致时间线和资源推荐">大致时间线和资源推荐<a href="https://softwhere.top/blog/postgraduate-entrance-experience-zhao-shijin#%E5%A4%A7%E8%87%B4%E6%97%B6%E9%97%B4%E7%BA%BF%E5%92%8C%E8%B5%84%E6%BA%90%E6%8E%A8%E8%8D%90" class="hash-link" aria-label="Direct link to 大致时间线和资源推荐" title="Direct link to 大致时间线和资源推荐" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p><strong>7.6</strong>：开始复习上午数学，下午408，数学张宇基础30讲+课后题+1000题A，直接做，哪里感觉困难就倍速看下视频课或讲解，1000题讲解我看的b站up主你的葫芦（<em><strong>神中神</strong></em>），数专老哥随手秒了数一无需多言。408就跟着王道看课，看完就做王道选择题，错的较多，速度差不多是一周一本书，顺序是DS、CN、然后CO/OS一起学。408第一遍学真的是恶心至极，导致后来我越来越喜欢学数学，甚至做一天数学题都不想打开王道书…</p>
+</li>
+<li class="">
+<p><strong>7.20</strong>：高数完成，DS 完成。</p>
+</li>
+<li class="">
+<p><strong>7.23</strong>：线代完成。概率因为本科阶段学得比较困难，找了没咋了的救命课，好用，顺便也刷了线代救命课。</p>
+</li>
+<li class="">
+<p><strong>8.1</strong>：CN完成 CO和OS开了个头</p>
+</li>
+<li class="">
+<p><strong>8月中旬</strong>：数学+408基本完成一轮。<br>
+<!-- -->后来听说计网湖科大讲得不错，看了下确实不错，后悔没一直跟了，就只挑着看了比较薄弱的部分。推荐6系同学可以在大三下准备期末的时候顺手把王道CN刷了。</p>
+</li>
+<li class="">
+<p><strong>8月中旬-9月中下旬</strong>：一轮408之后没看了被恶心坏了，基本一整天都在学数学，直接听+做b站up主程潇宇的考研数学大观（<em><strong>强烈无敌五星级推荐宝藏考研数学政治名师！！！！</strong></em>），基本把每个专题都学的很通透了，又在880和1000B组上挑了一些题做，660做了一些概念题。这时候已经九月初了，又觉得408还是得看看，就一边重过一遍并整理笔记，这次果然好了不少。数学当时一些专题牢宇还没有出，便又找了方浩的级数专题和概率强化，听了一些李艳芳老师的线面积分（<em><strong>同样强烈推荐</strong></em>）我一边学专题一边做笔记和做题，这一遍滚完基本上就比较通透了，这些可以算是所谓的“强化”吧。8月下旬看了看徐涛政治强化，基本没用也没看进去，事实证明不需要看。尝试背单词失败。</p>
+</li>
+<li class="">
+<p><strong>9月中下旬-十一假期</strong>：发现了b站up主“就是氧气”的408强化，有些疑点梳理的很清楚，开始看，推荐。同时还有beokay，里昂408这两个up，也会讲解一些争议点和重难点。买了408教材计组袁书和计网谢书，有点用但不多。数学继续做880的高数下部分和1000B，880挑题目做，1000B高数部分大部分都做完了，张宇的题很怪不推荐死磕。又小过了下26张宇强化，题不多，大部分就看看。还买了一些其他教辅挑题做。</p>
+</li>
+<li class="">
+<p><strong>十一假期回来之后-11月初</strong>：开始做数学套卷，一天一套，真题（16开始）和2425超越穿插，一周歇一天。超越基本只有100-130浮动，很少130以上。下午继续看408专题视频查缺补漏，强化复习，整理笔记。晚上刷880线代概统，这段时间涉及报名纠结，但下定决心之后劲头就很足了。不时把数学大观和数学笔记拎出来复习。p.s. 超越的题目真的是不错，有实力推荐23做选填，24全做，2526挑卷子做。开始零零碎碎地刷一点政治选择题，没坚持下来。政治真不用开太早，最早十一回来再开就可以。</p>
+</li>
+</ul>
+<p>（在整个备考期间，我对数学的时间分配有点太多了，相对408我真的更喜欢学数学一点，感受数学之美，做题的技巧，以及被答案强大的思路折服的快感，看到一道不会做的好题我会十分高兴满足，而408的勾石题目只能让我恶心…这样兴趣和钻研导向的学习，虽然比较快乐但是可能并不是应试高分的最优解，事实上最后出分我的分数也不是很高，我最喜欢的数学最后也就一百二十多，376差不多中游，和我的预期基本一致。）</p>
+<ul>
+<li class=""><strong>11月</strong>：最难熬的一个月，北京暖气开了之后热的昏昏欲睡，中午晚上经常偷懒回宿舍打很久游戏才来图书馆。各种模拟卷陆续出版了，李6全做，均分120左右，欧3题有点怪，芳3难哭了，26超越只写了几套做的依托。开始每天或每两天做一套408真题。张8挑题做的，有点猎奇，海鲜老师的小巧思你就学吧。继续查缺补漏408或者学一些专题（泰勒专题，假设检验，B树等），并把数学和408套卷中容易犯的错误列成了一个excel表格给自己看。晚上则是英语的时间，每天做3-4篇文章，每两个晚上完成一套英语真题，这样做了一两套感觉有点吃力，遂买了一本王江涛十天搞定考研单词（<em><strong>极力推荐</strong></em>），背了前几个单元的高频词做起来就很轻松了，简单点的年份基本能客观只错一个。准备了一下作文模板（买了个AI归来的，再结合自己的雅思作文模板稍加润色，混个平均分应该不难）。过了牢宇的政治一页纸，基本心中有数。</li>
+<li class=""><strong>12月</strong>：肖4肖8选择题 苏一带背肖4和各种政治通用背诵素材。牢宇政治选择题一页纸，考前抄材料教程（<em><strong>神中神</strong></em>）。数学，做了两套李4，上考场前一天又做了一套选填。张4一眼全是旧题看都不想看。408，特意留了25年真题没做，做了一下132，又做了些湖科大计网题。英一继续做真题保持手感（真题做不完 放心做就行了，到考前我才刷了五六套真题）</li>
+<li class=""><strong>考场第一天</strong>：进考场之前就在哼歌，毕竟真觉得不会考不上。政治被肖坑了，海南那个题要是没做过肖真能选对。政治千万别模拟题入脑！写的满满当当，就是选择题拉了，30还是32，最后60。英语，做的有点飘了，本来冲着80+去的，作文写的自我感觉良好，然后慢慢悠悠的计时做阅读，一边做一边想晚上吃什么（<em>是啊，吃什么？</em>），结果有一篇阅读三个题不确定有点蒙了，赶紧认真看最后十来分钟选完了，客观真是飘了错了好几个，最后才73。当晚把数学408笔记过了一遍，又做了一些错题就早早回去准备第二天的硬仗了。</li>
+<li class=""><strong>考场第二天</strong>：上午数学做的很烂，选填各错一个线代，都是很基础的题目，反而难题是没做错。大题中规中矩，一个计算错误，概率压轴没读懂题，懒得想了（还是态度问题，因为知道肯定能考上，大脑有点开摆了，想着赶紧考完拉倒hh）。下午408，来者不善，选择题初见端倪，做完选择跳过算法，那个计组大题实在有点非人类了，不过我基础还行硬做完，这时后面几个题扫了一下都有点难绷，各做了第一题之后逐个攻克第二问，写的很快应该有错误，最后二十分钟扫了下算法刚好会做，码伪代码花了点时间写到卷子。铃响收卷，我和前桌考上交的同学相视而笑，初试的旅途终于结束了。</li>
+<li class=""><strong>考完-3月初</strong>：考完当晚对了政英，第二天对了数学408，估分370，实际出分376也够用了。只是nju从发排名到复试通知都特别晚，有点搞。</li>
+<li class=""><strong>3月</strong>：准备复试。因为初试排名中游，有点担心不稳，遂卷了一下复试，当时还在感叹考清华的室友只用准备一个面试就行了，自己还在这苦哈哈地学复试，所幸结果是好的，复试第一稳稳上岸。具体内容由于保密协议的关系并不能透露，但只要认真准备总会有好结果的。</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="避坑指南">避坑指南<a href="https://softwhere.top/blog/postgraduate-entrance-experience-zhao-shijin#%E9%81%BF%E5%9D%91%E6%8C%87%E5%8D%97" class="hash-link" aria-label="Direct link to 避坑指南" title="Direct link to 避坑指南" translate="no">​</a></h2>
+<p>不要报那种机构什么的甚至线下集训的辅导班，纯割韭菜。</p>
+<p>考研非常重要的一点也是信息的获取，信息差是很重要的，多看b站推荐的学习博主博采众长，但不要各家攀比。一部分高质量答疑可以部分节约时间还是有用的，本质上是一个拿钱换时间的做法，我信息搜集能力尚可也有人讨论就没花。还有一些408和数学资料库，网课的网盘，这些十几块钱该花就花。</p>
+<p>不要被他人迷惑了你的选择，扰乱了你的心态。Do you really want it？（Yeah！）</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="致谢">致谢<a href="https://softwhere.top/blog/postgraduate-entrance-experience-zhao-shijin#%E8%87%B4%E8%B0%A2" class="hash-link" aria-label="Direct link to 致谢" title="Direct link to 致谢" translate="no">​</a></h2>
+<p>我读过的最受用两篇经验贴，一篇便是75天上岸rw的精简复习，给了我信心：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/1894691776138282469" target="_blank" rel="noopener noreferrer" class="">75天上岸软微</a></p>
+<p>一篇是坚定了我选择南软的学长所写：</p>
+<p><a href="https://www.bilibili.com/opus/1052779192455790616" target="_blank" rel="noopener noreferrer" class="">南京大学软件学院软件工程专硕381分经验贴</a></p>
+<p>感谢北航的培养，在这里遇见的很多人都非常好。</p>
+<p>感谢南京大学软件学院让我有了一个继续深造的机会，得以更加自如地体验这个世界。</p>
+<p>感谢我的家人，特别是我的父母，是他们多年来对我学业的默默支持才使我得以站在今日的起点，顺利完成学业，开启下一段旅程。</p>
+<p>接下来，我想着重感谢一些人，在我的考研旅途中，如果没有你们的提点和陪伴，想必我还会沉湎在自己架构的虚幻世界中，并逐渐将自己消耗殆尽。</p>
+<p>感谢我考研期间的好朋友和战友，感谢你们的陪伴和互相鼓励打气。现如今，我们都如愿一战上岸，获得了想要的结果，祝愿我们在接下来的旅途中，拥有重塑自己生活的力量，好好热爱这个五彩斑斓的世界。</p>
+<p>感谢未曾谋面的南软学长烛龙栖寒和 Mario 学长，二位学长的话语至今仍在我耳边萦绕，振聋发聩，帮助我坚定了内心所愿。感谢在我举棋不定时，状态不好时陪伴在我身边，听我倾诉的每一位朋友。</p>
+<p>最后，感谢自己。22岁的你，终于做出了一个了不起的决定，完成了一件了不起的事。</p>
+<p>希望我的经历和经验能给此后的赶路人一点帮助。</p>
+<p>知无不言！</p>]]></content:encoded>
+            <category>考研经验分享</category>
         </item>
     </channel>
 </rss>
