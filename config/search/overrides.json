@@ -893,25 +893,6 @@
       "清华考核"
     ]
   },
-  "/blog/school-life-ihome-guide": {
-    "aliases": [
-      "ihome使用指南",
-      "ihome怎么用",
-      "校园诉求指南",
-      "闫佳豪ihome"
-    ],
-    "keywords": [
-      "闫佳豪",
-      "ihome",
-      "校园生活",
-      "诉求",
-      "发布诉求",
-      "校园网资费",
-      "游泳馆",
-      "报修",
-      "使用技巧"
-    ]
-  },
   "/blog/postgraduate-recommendation-experience-zheng-yu-jie-fudan": {
     "aliases": [
       "复旦直博经验",
@@ -2461,16 +2442,6 @@
     ],
     "keywords": [
       "毕设经验"
-    ],
-    "priority": 4
-  },
-  "/blog/tags/school-life": {
-    "aliases": [
-      "校园生活经验",
-      "学校生活分享"
-    ],
-    "keywords": [
-      "校园生活经验"
     ],
     "priority": 4
   }

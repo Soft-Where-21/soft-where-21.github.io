@@ -236,10 +236,6 @@
     "expectedUrl": "/blog/postgraduate-entrance-experience-zhao-shijin"
   },
   {
-    "query": "ihome使用指南",
-    "expectedUrl": "/blog/school-life-ihome-guide"
-  },
-  {
     "query": "复旦直博经验",
     "expectedUrl": "/blog/postgraduate-recommendation-experience-zheng-yu-jie-fudan"
   },
@@ -478,9 +474,5 @@
   {
     "query": "毕设经验",
     "expectedUrl": "/blog/tags/graduation-experience"
-  },
-  {
-    "query": "校园生活经验",
-    "expectedUrl": "/blog/tags/school-life"
   }
 ]
