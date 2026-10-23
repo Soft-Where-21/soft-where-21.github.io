@@ -93,8 +93,10 @@
 .fileActions a:hover { background: var(--materials-subtle); }
 .fileActions svg { width: 15px; height: 15px; }
 .downloadButton { padding: 5px 9px; border: 1px solid var(--materials-border); border-radius: 6px; background: var(--materials-subtle); }
-.contentBody { flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; }
+.contentBody { flex: 1; min-height: 0; overflow: auto; }
 .contentBody:focus { outline: none; }
+.catalogBrowser { height: auto; flex: 1; }
+.catalogBrowser .contentBody { overflow: visible; }
 .overview { padding: 12px 24px; }
 .collectionGrid { display: grid; gap: 8px; }
 .collectionCard { display: grid; grid-template-columns: minmax(220px, 260px) minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 12px; border: 1px solid var(--materials-border); border-radius: 7px; background: var(--materials-surface); }
@@ -122,13 +124,14 @@
 .collectionCardTop h2 button { padding: 0; border: 0; color: var(--ifm-font-color-base); background: none; cursor: pointer; font-size: inherit; font-weight: 650; overflow-wrap: anywhere; text-align: left; }
 .collectionCardTop h2 button:hover { color: var(--ifm-color-primary); }
 .muted { color: var(--materials-muted); font-size: .74rem; }
-.topicLinks { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; min-width: 0; }
-.topicLinks button { display: flex; align-items: center; gap: 6px; max-width: 100%; min-height: 32px; border: 1px solid var(--materials-border); border-radius: 5px; background: var(--materials-subtle); color: var(--ifm-font-color-base); text-align: left; font-size: .78rem; padding: 5px 8px; cursor: pointer; }
+/* Symmetric space keeps labels centered; margins reuse the card's padding for the scrollbar. */
+.topicLinks { display: flex; align-items: center; flex-wrap: nowrap; gap: 6px; min-width: 0; overflow-x: auto; padding: 14px 4px; margin-block: -4px; scrollbar-width: thin; }
+.topicLinks:focus-visible { outline: 2px solid var(--ifm-color-primary); outline-offset: 2px; border-radius: 5px; }
+.topicLinks button { display: flex; align-items: center; flex: 0 0 auto; gap: 6px; min-height: 32px; border: 1px solid var(--materials-border); border-radius: 5px; background: var(--materials-subtle); color: var(--ifm-font-color-base); text-align: left; font-size: .78rem; padding: 5px 8px; cursor: pointer; }
 .topicLinks button:hover { color: var(--ifm-color-primary); border-color: var(--ifm-color-primary); }
 .topicLinks svg { width: 15px; height: 15px; color: var(--materials-folder); flex-shrink: 0; }
-.topicName { min-width: 0; overflow-wrap: anywhere; }
+.topicName { white-space: nowrap; }
 .topicCount { padding-left: 4px; color: var(--materials-muted); font-size: .7rem; white-space: nowrap; flex-shrink: 0; }
-.topicLinks .moreEntries { border-color: transparent; background: none; color: var(--materials-muted); }
 .openCollection { display: flex; align-items: center; justify-content: center; gap: 5px; min-height: 32px; padding: 5px 8px; border: 0; border-radius: 5px; background: none; color: var(--ifm-color-primary); font-size: .78rem; white-space: nowrap; cursor: pointer; }
 .openCollection:hover { background: var(--materials-active); }
 .openCollection svg { width: 16px; height: 16px; }

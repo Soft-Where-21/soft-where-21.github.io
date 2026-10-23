@@ -1,5 +1,12 @@
+.sidebar {
+  overflow-x: hidden;
+  padding-inline-end: 0.75rem;
+  scrollbar-gutter: stable;
+}
+
 .header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
@@ -8,4 +15,9 @@
 
 .title {
   min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.itemLink {
+  overflow-wrap: anywhere;
 }

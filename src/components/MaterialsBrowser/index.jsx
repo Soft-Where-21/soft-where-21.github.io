@@ -53,6 +53,7 @@ export default function MaterialsBrowser({materials}) {
       setExpanded((previous) => new Set([...previous, ...getAncestors(selection.path), ...(selection.type === 'directory' ? [selection.path] : [])]));
     }
     if (contentRef.current) contentRef.current.scrollTop = 0;
+    window.scrollTo({top: 0, left: 0, behavior: 'instant'});
   }, [selection]);
 
   useEffect(() => {
@@ -99,7 +100,7 @@ export default function MaterialsBrowser({materials}) {
   }
 
   return (
-    <main className={styles.browser}>
+    <main className={`${styles.browser} ${isCatalog ? styles.catalogBrowser : ''}`}>
       {!isCatalog && <h1 className={styles.srOnly}>资料分享</h1>}
       {!isCatalog && <header className={styles.mobileHeader}>
         <button className={styles.mobileTreeButton} type="button" aria-expanded={sidebarOpen} aria-controls="materials-sidebar" onClick={() => setSidebarOpen((open) => !open)}><MaterialIcon name="tree" />目录</button>

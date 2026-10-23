@@ -15,7 +15,7 @@ function ListComponent({items}) {
       items={items}
       ulClassName={clsx(themeStyles.sidebarItemList, 'clean-list')}
       liClassName={themeStyles.sidebarItem}
-      linkClassName={themeStyles.sidebarItemLink}
+      linkClassName={clsx(themeStyles.sidebarItemLink, styles.itemLink)}
       linkActiveClassName={themeStyles.sidebarItemLinkActive}
     />
   );
@@ -26,7 +26,9 @@ function BlogSidebarDesktop({sidebar}) {
 
   return (
     <aside className="col col--3">
-      <nav className={clsx(themeStyles.sidebar, 'thin-scrollbar')} aria-label="博客文章导航">
+      <nav
+        className={clsx(themeStyles.sidebar, styles.sidebar, 'thin-scrollbar')}
+        aria-label="博客文章导航">
         <div className={styles.header}>
           <div className={clsx(themeStyles.sidebarItemTitle, styles.title)}>{sidebar.title}</div>
           <BlogTagsLink compact />
