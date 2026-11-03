@@ -283,17 +283,12 @@ export function SharePage() {
       return;
     }
     const first = previewableResources[0];
-    const firstVideoUrl = first.url || first.downloadUrl || '';
-    const previewUrl =
-      first.type === 'video'
-        ? firstVideoUrl
-        : first.previewUrl || (isPptFile(first.downloadUrl) ? getOfficePreviewUrl(first.downloadUrl, siteBaseUrl) : first.downloadUrl);
     setActivePreview({
       type: first.type || '',
-      url: previewUrl || '',
-      title: first.name || '资料预览',
+      url: first.url || '',
+      title: first.title || '资料预览',
     });
-  }, [previewableResources, siteBaseUrl]);
+  }, [previewableResources]);
 
   async function handleCopyPassword(password, key) {
     if (!password || typeof window === 'undefined') return;
