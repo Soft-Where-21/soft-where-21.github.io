@@ -1,0 +1,395 @@
+{
+  "term": "2026-2027",
+  "departments": [
+    {
+      "name": "主席团",
+      "color": "#d4a017",
+      "members": [
+        {
+          "name": "葛雨鑫",
+          "studentId": "24376244",
+          "role": "主席",
+          "avatar": "/avatar/2026-2027/主席团/葛雨鑫.png"
+        },
+        {
+          "name": "李科",
+          "studentId": "24373380",
+          "role": "主席",
+          "avatar": "/avatar/2026-2027/主席团/李科.png"
+        },
+        {
+          "name": "孙铭扬",
+          "studentId": "24371396",
+          "role": "主席",
+          "avatar": "/avatar/2026-2027/主席团/孙铭扬.jpg"
+        }
+      ]
+    },
+    {
+      "name": "学业中心",
+      "color": "#2563eb",
+      "members": [
+        {
+          "name": "张壮志",
+          "studentId": "",
+          "role": "部长",
+          "avatar": ""
+        },
+        {
+          "name": "杨小乐",
+          "studentId": "24373169",
+          "role": "副部长",
+          "avatar": "/avatar/2026-2027/学业中心/杨小乐.png"
+        },
+        {
+          "name": "昌昂旺",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "傅淇",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "樊佳杰",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "曹文峰",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "秦健皓",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "黄文烽",
+          "studentId": "25371518",
+          "role": "干事",
+          "avatar": "/avatar/2026-2027/学业中心/黄文烽.jpg"
+        }
+      ]
+    },
+    {
+      "name": "文艺部",
+      "color": "#db2777",
+      "members": [
+        {
+          "name": "赵琦",
+          "studentId": "24373195",
+          "role": "部长",
+          "avatar": ""
+        },
+        {
+          "name": "郭谦",
+          "studentId": "23377267",
+          "role": "副部长",
+          "avatar": "/avatar/2026-2027/文艺部/郭谦.jpg"
+        },
+        {
+          "name": "张学程",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "于政博",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "赵崇含",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "乔韵琪",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "廖方涵",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "王子轩",
+          "studentId": "25371016",
+          "role": "干事",
+          "avatar": "/avatar/2026-2027/文艺部/王子轩.jpg"
+        }
+      ]
+    },
+    {
+      "name": "办公室",
+      "color": "#ea580c",
+      "members": [
+        {
+          "name": "王凯宇",
+          "studentId": "",
+          "role": "部长",
+          "avatar": ""
+        },
+        {
+          "name": "蔡乐彦",
+          "studentId": "",
+          "role": "副部长",
+          "avatar": ""
+        },
+        {
+          "name": "李子木",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "王丙文",
+          "studentId": "25371384",
+          "role": "干事",
+          "avatar": "/avatar/2026-2027/办公室/王丙文.jpg"
+        },
+        {
+          "name": "李承臻",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "唐多祹",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "刘语琪",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "name": "公关部",
+      "color": "#dc2626",
+      "members": [
+        {
+          "name": "李晓萌",
+          "studentId": "24371422",
+          "role": "部长",
+          "avatar": ""
+        },
+        {
+          "name": "王悠然",
+          "studentId": "24371186",
+          "role": "副部长",
+          "avatar": "/avatar/2026-2027/公关部/王悠然.png"
+        },
+        {
+          "name": "唐梓媛",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "于舜同",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "纪鑫宇",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "王恩宇",
+          "studentId": "25371231",
+          "role": "干事",
+          "avatar": "/avatar/2026-2027/公关部/王恩宇.jpg"
+        },
+        {
+          "name": "宋元",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "name": "宣媒",
+      "color": "#4f46e5",
+      "members": [
+        {
+          "name": "吴本昭",
+          "studentId": "24375097",
+          "role": "部长",
+          "avatar": "/avatar/2026-2027/宣媒/吴本昭.jpg"
+        },
+        {
+          "name": "邹林利",
+          "studentId": "24371482",
+          "role": "副部长",
+          "avatar": ""
+        },
+        {
+          "name": "杨书涵",
+          "studentId": "24373348",
+          "role": "副部长",
+          "avatar": "/avatar/2026-2027/宣媒/杨书涵.jpg"
+        },
+        {
+          "name": "陈翀",
+          "studentId": "25371075",
+          "role": "干事",
+          "avatar": "/avatar/2026-2027/宣媒/陈翀.jpg"
+        },
+        {
+          "name": "贡泽轩",
+          "studentId": "25373623",
+          "role": "干事",
+          "avatar": "/avatar/2026-2027/宣媒/贡泽轩.jpg"
+        },
+        {
+          "name": "刘简宁",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "李宛聪",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "蔺煜涵",
+          "studentId": "25371271",
+          "role": "干事",
+          "avatar": "/avatar/2026-2027/宣媒/蔺煜涵.jpg"
+        },
+        {
+          "name": "江怡然",
+          "studentId": "25371034",
+          "role": "干事",
+          "avatar": "/avatar/2026-2027/宣媒/江怡然.jpg"
+        },
+        {
+          "name": "陈雨萱",
+          "studentId": "",
+          "role": "干事",
+          "avatar": "/avatar/2026-2027/宣媒/陈雨萱.jpg"
+        },
+        {
+          "name": "李政慷",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "孙迤清",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "彭建宇",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "林子涵",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "张怡翔",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "文嘉铭",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "徐铄壹",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "江南",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "name": "体育部",
+      "color": "#0e7490",
+      "members": [
+        {
+          "name": "胡思琪",
+          "studentId": "24376370",
+          "role": "部长",
+          "avatar": "/avatar/2026-2027/体育部/胡思琪.png"
+        },
+        {
+          "name": "王昊涵",
+          "studentId": "23241056",
+          "role": "副部长",
+          "avatar": "/avatar/2026-2027/体育部/王昊涵.png"
+        },
+        {
+          "name": "秦齐",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "史根豪",
+          "studentId": "25371319",
+          "role": "干事",
+          "avatar": "/avatar/2026-2027/体育部/史根豪.jpg"
+        },
+        {
+          "name": "付仪文",
+          "studentId": "25371418",
+          "role": "干事",
+          "avatar": "/avatar/2026-2027/体育部/付仪文.jpg"
+        },
+        {
+          "name": "胡翔宇",
+          "studentId": "",
+          "role": "干事",
+          "avatar": ""
+        },
+        {
+          "name": "赫婉晴",
+          "studentId": "25371004",
+          "role": "干事",
+          "avatar": "/avatar/2026-2027/体育部/赫婉晴.jpg"
+        }
+      ]
+    }
+  ]
+}
