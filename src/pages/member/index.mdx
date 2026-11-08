@@ -7,12 +7,14 @@ hide_table_of_contents: true
 import React, {useState} from 'react';
 import Heading from '@theme/Heading';
 import data2526 from './2025-2026/member.json';
+import data2627 from './2026-2027/member.json';
 
 {/* 新增届次只需：1) 加 JSON  2) 在 allTerms 数组中追加一项 */}
 
 export function MemberPage() {
   const allTerms = [
     { id: '2025-2026', label: '2025 — 2026', data: data2526 },
+    { id: '2026-2027', label: '2026 — 2027', data: data2627 },
   ];
 
   const [activeTermId, setActiveTermId] = useState(allTerms[0].id);
