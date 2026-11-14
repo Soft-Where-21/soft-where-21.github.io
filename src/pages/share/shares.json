@@ -1,6 +1,113 @@
 {
   "shares": [
     {
+      "id": "2026-10-30-baoyan-zhuogong-share",
+      "date": "2026-10-30",
+      "tag": "保研 & 卓工",
+      "title": "保研与卓工经验分享会",
+      "summary": "10 月 30 日晚，软件学院学生会学业中心在学院路校区主 M302 举办保研与卓工经验分享会。郑宇杰、杨佳宇轩、程孜彧、王宇祯、付宁远、张腾月、林日升分享推免准备、外校申请与卓越工程师项目经验。",
+      "resources": [
+        {
+          "type": "meeting",
+          "name": "腾讯会议录制链接",
+          "url": "",
+          "password": "",
+          "note": "暂无会议录制链接"
+        },
+        {
+          "type": "slides",
+          "name": "讲座 PPT",
+          "downloadUrl": "",
+          "note": "保研与卓工经验分享会讲稿",
+          "files": [
+            {
+              "name": "郑宇杰 · 人大高瓴工程硕士",
+              "downloadUrl": "/file/share/20261030保研分享会/郑宇杰-保研经验分享.pptx",
+              "previewUrl": "/file/share/20261030保研分享会/郑宇杰-保研经验分享.pdf"
+            },
+            {
+              "name": "杨佳宇轩 · 清华软件学院",
+              "downloadUrl": "/file/share/20261030保研分享会/杨佳宇轩-保研经验分享.pdf"
+            },
+            {
+              "name": "程孜彧 · 科研竞赛",
+              "downloadUrl": "/file/share/20261030保研分享会/程孜彧-保研经验分享.pptx",
+              "previewUrl": "/file/share/20261030保研分享会/程孜彧-保研经验分享.pdf"
+            },
+            {
+              "name": "王宇祯 · 上海 AI Lab 联培",
+              "downloadUrl": "/file/share/20261030保研分享会/王宇祯-保研经验分享.pdf"
+            },
+            {
+              "name": "付宁远 · 北航软件学院",
+              "downloadUrl": "/file/share/20261030保研分享会/付宁远-保研经验贴.pdf"
+            },
+            {
+              "name": "张腾月 · 大三争取保研",
+              "downloadUrl": "/file/share/20261030保研分享会/张腾月-保研经验分享.pptx",
+              "previewUrl": "/file/share/20261030保研分享会/张腾月-保研经验分享.pdf"
+            },
+            {
+              "name": "林日升 · 卓越工程师",
+              "downloadUrl": "/file/share/20261030保研分享会/林日升-卓工经验分享.pptx",
+              "previewUrl": "/file/share/20261030保研分享会/林日升-卓工经验分享.pdf"
+            }
+          ]
+        },
+        {
+          "type": "video",
+          "name": "讲座录屏",
+          "url": "",
+          "downloadUrl": "",
+          "note": "暂无视频文件"
+        },
+        {
+          "type": "buaa-drive",
+          "name": "北航网盘资源",
+          "url": "",
+          "password": "",
+          "note": "暂无网盘资源"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-20-zhaoxin-xuanjiang",
+      "date": "2026-10-20",
+      "tag": "招新",
+      "title": "学生会与分团委招新宣讲",
+      "summary": "10 月 20 日招新宣讲。讲稿含主席团介绍，以及宣媒中心、体育部、办公室、文艺部、学业中心、公关部。",
+      "resources": [
+        {
+          "type": "meeting",
+          "name": "腾讯会议录制链接",
+          "url": "",
+          "password": "",
+          "note": "暂无会议录制链接"
+        },
+        {
+          "type": "slides",
+          "name": "讲座 PPT",
+          "downloadUrl": "/file/share/2026学生会与分团委招新宣讲.pptx",
+          "previewUrl": "/file/share/2026学生会与分团委招新宣讲.pdf",
+          "note": "学生会与分团委招新宣讲 PPT"
+        },
+        {
+          "type": "video",
+          "name": "讲座录屏",
+          "url": "",
+          "downloadUrl": "",
+          "note": "暂无视频文件"
+        },
+        {
+          "type": "buaa-drive",
+          "name": "北航网盘资源",
+          "url": "",
+          "password": "",
+          "note": "暂无网盘资源"
+        }
+      ]
+    },
+    {
       "id": "2026-06-18-daer-ai-chuanjiang",
       "date": "2026-06-18",
       "tag": "学业分享",
